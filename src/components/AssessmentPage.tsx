@@ -117,7 +117,7 @@ export function AssessmentPage() {
         <div className="blob absolute bottom-40 left-20 w-80 h-80 bg-indigo-500 rounded-full" style={{ animationDelay: '3s' }}></div>
       </div>
 
-      <div className="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="relative pt-32 sm:pt-36 lg:pt-40 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
           {/* Header */}
           <div className="text-center mb-6 sm:mb-8 lg:mb-10">
