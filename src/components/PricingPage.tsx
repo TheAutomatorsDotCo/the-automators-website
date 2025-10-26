@@ -5,6 +5,45 @@ import { SEO } from './SEO';
 
 export function PricingPage() {
   const [activeTab, setActiveTab] = useState<'automation' | 'voice-agents' | 'chatbots'>('automation');
+  const [currency, setCurrency] = useState<'USD' | 'ZAR'>('USD');
+  const [paymentPlan, setPaymentPlan] = useState<'once-off' | '6-months' | '12-months' | '18-months'>('once-off');
+  
+  // Payment plan multipliers
+  const paymentMultipliers = {
+    'once-off': 1.0,
+    '6-months': 1.15,
+    '12-months': 1.25,
+    '18-months': 1.35
+  };
+  
+  // Exchange rate: 1 USD = 18 ZAR (approximate)
+  const convertPrice = (usdPrice: string, showMonthly: boolean = false): string => {
+    if (usdPrice === 'Custom' || usdPrice.includes('Starting')) {
+      return usdPrice;
+    }
+    
+    const numPrice = parseFloat(usdPrice.replace(/[$,]/g, ''));
+    const multiplier = paymentMultipliers[paymentPlan];
+    const totalPrice = numPrice * multiplier;
+    
+    if (showMonthly && paymentPlan !== 'once-off') {
+      const months = parseInt(paymentPlan.split('-')[0]);
+      const monthlyPrice = totalPrice / months;
+      
+      if (currency === 'ZAR') {
+        const zarMonthly = Math.round(monthlyPrice * 18);
+        return `R ${zarMonthly.toLocaleString()}/mo`;
+      }
+      return `$${Math.round(monthlyPrice).toLocaleString()}/mo`;
+    }
+    
+    if (currency === 'ZAR') {
+      const zarPrice = Math.round(totalPrice * 18);
+      return `R ${zarPrice.toLocaleString()}`;
+    }
+    
+    return `$${Math.round(totalPrice).toLocaleString()}`;
+  };
   
   const automationPlans = [
     {
@@ -222,6 +261,37 @@ export function PricingPage() {
     },
   ];
 
+  // Convert addon prices (no payment plan applied)
+  const convertAddonPrice = (price: string): string => {
+    if (price.includes('Starting')) {
+      if (currency === 'ZAR') {
+        const match = price.match(/\$(\d+)/);
+        if (match) {
+          const zarPrice = Math.round(parseFloat(match[1]) * 18);
+          return `Starting at R ${zarPrice.toLocaleString()}`;
+        }
+      }
+      return price;
+    }
+    
+    if (price.includes('/mo')) {
+      const numPrice = parseFloat(price.replace(/[$,/mo]/g, ''));
+      if (currency === 'ZAR') {
+        const zarPrice = Math.round(numPrice * 18);
+        return `R ${zarPrice.toLocaleString()}/mo`;
+      }
+      return price;
+    }
+    
+    // For regular addon prices, just convert currency without payment plan
+    const numPrice = parseFloat(price.replace(/[$,]/g, ''));
+    if (currency === 'ZAR') {
+      const zarPrice = Math.round(numPrice * 18);
+      return `R ${zarPrice.toLocaleString()}`;
+    }
+    return price;
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
@@ -268,7 +338,7 @@ export function PricingPage() {
               onClick={() => setActiveTab('automation')}
               className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all ${
                 activeTab === 'automation'
-                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white'
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
@@ -279,7 +349,7 @@ export function PricingPage() {
               onClick={() => setActiveTab('voice-agents')}
               className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all ${
                 activeTab === 'voice-agents'
-                  ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
+                  ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white border-2 border-pink-300/50 shadow-lg shadow-pink-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
@@ -290,13 +360,129 @@ export function PricingPage() {
               onClick={() => setActiveTab('chatbots')}
               className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all ${
                 activeTab === 'chatbots'
-                  ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white'
+                  ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white border-2 border-teal-300/50 shadow-lg shadow-cyan-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
               <MessageCircle className="w-5 h-5" />
               <span>Chatbots</span>
             </button>
+          </div>
+
+          {/* Currency Toggle */}
+          <div className="flex items-center justify-center gap-3 mt-8">
+            <button
+              onClick={() => setCurrency('USD')}
+              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full transition-all duration-300 ${
+                currency === 'USD'
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
+                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+              }`}
+            >
+              <DollarSign className="w-4 h-4" />
+              <span className="font-medium">USD</span>
+            </button>
+            <button
+              onClick={() => setCurrency('ZAR')}
+              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full transition-all duration-300 ${
+                currency === 'ZAR'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white border-2 border-emerald-300/50 shadow-lg shadow-green-500/50'
+                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+              }`}
+            >
+              <span className="font-bold text-sm">R</span>
+              <span className="font-medium">ZAR</span>
+            </button>
+          </div>
+
+          {/* Payment Plan Options */}
+          <div className="mt-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl text-white text-center mb-6">Choose Your Payment Plan</h3>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <button
+                onClick={() => setPaymentPlan('once-off')}
+                className={`p-4 rounded-2xl transition-all duration-300 ${
+                  paymentPlan === 'once-off'
+                    ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
+                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+                }`}
+              >
+                <div className="text-center">
+                  <div className={`text-2xl font-bold mb-1 ${paymentPlan === 'once-off' ? 'text-white' : 'text-white/80'}`}>
+                    Once Off
+                  </div>
+                  <div className={`text-sm ${paymentPlan === 'once-off' ? 'text-white/90' : 'text-white/50'}`}>
+                    Full Payment
+                  </div>
+                  <div className={`text-xs mt-2 font-semibold ${paymentPlan === 'once-off' ? 'text-white' : 'text-green-400'}`}>
+                    Best Value
+                  </div>
+                </div>
+              </button>
+              
+              <button
+                onClick={() => setPaymentPlan('6-months')}
+                className={`p-4 rounded-2xl transition-all duration-300 ${
+                  paymentPlan === '6-months'
+                    ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
+                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+                }`}
+              >
+                <div className="text-center">
+                  <div className={`text-2xl font-bold mb-1 ${paymentPlan === '6-months' ? 'text-white' : 'text-white/80'}`}>
+                    6 Months
+                  </div>
+                  <div className={`text-sm ${paymentPlan === '6-months' ? 'text-white/90' : 'text-white/50'}`}>
+                    Monthly Payments
+                  </div>
+                  <div className={`text-xs mt-2 ${paymentPlan === '6-months' ? 'text-white/80' : 'text-white/40'}`}>
+                    +15% total
+                  </div>
+                </div>
+              </button>
+              
+              <button
+                onClick={() => setPaymentPlan('12-months')}
+                className={`p-4 rounded-2xl transition-all duration-300 ${
+                  paymentPlan === '12-months'
+                    ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
+                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+                }`}
+              >
+                <div className="text-center">
+                  <div className={`text-2xl font-bold mb-1 ${paymentPlan === '12-months' ? 'text-white' : 'text-white/80'}`}>
+                    12 Months
+                  </div>
+                  <div className={`text-sm ${paymentPlan === '12-months' ? 'text-white/90' : 'text-white/50'}`}>
+                    Monthly Payments
+                  </div>
+                  <div className={`text-xs mt-2 ${paymentPlan === '12-months' ? 'text-white/80' : 'text-white/40'}`}>
+                    +25% total
+                  </div>
+                </div>
+              </button>
+              
+              <button
+                onClick={() => setPaymentPlan('18-months')}
+                className={`p-4 rounded-2xl transition-all duration-300 ${
+                  paymentPlan === '18-months'
+                    ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
+                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+                }`}
+              >
+                <div className="text-center">
+                  <div className={`text-2xl font-bold mb-1 ${paymentPlan === '18-months' ? 'text-white' : 'text-white/80'}`}>
+                    18 Months
+                  </div>
+                  <div className={`text-sm ${paymentPlan === '18-months' ? 'text-white/90' : 'text-white/50'}`}>
+                    Lowest Monthly
+                  </div>
+                  <div className={`text-xs mt-2 ${paymentPlan === '18-months' ? 'text-white/80' : 'text-white/40'}`}>
+                    +35% total
+                  </div>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -328,9 +514,20 @@ export function PricingPage() {
                   </div>
                   <h3 className="text-white mb-2">{plan.name}</h3>
                   <div className="mb-6">
-                    <span className="text-4xl text-white">{plan.price}</span>
-                    {plan.period !== 'pricing' && (
-                      <span className="text-white/50 ml-2">{plan.period}</span>
+                    {paymentPlan !== 'once-off' && plan.price !== 'Custom' ? (
+                      <div>
+                        <div className="text-4xl text-white mb-2">{convertPrice(plan.price, true)}</div>
+                        <div className="text-sm text-white/50">
+                          Total: {convertPrice(plan.price)} over {paymentPlan.split('-')[0]} months
+                        </div>
+                      </div>
+                    ) : (
+                      <div>
+                        <span className="text-4xl text-white">{convertPrice(plan.price)}</span>
+                        {plan.period !== 'pricing' && (
+                          <span className="text-white/50 ml-2">{plan.period}</span>
+                        )}
+                      </div>
                     )}
                   </div>
                   <p className="text-white/60 mb-8">{plan.description}</p>
@@ -348,10 +545,10 @@ export function PricingPage() {
 
                   <Link
                     to="/contact"
-                    className={`w-full py-4 rounded-full transition-all ${
+                    className={`block w-full py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 ${
                       plan.highlighted
-                        ? 'btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white'
-                        : 'glass border border-white/20 text-white hover:bg-white/5'
+                        ? 'btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105'
+                        : 'glass border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 hover:scale-105'
                     }`}
                   >
                     {plan.price === 'Custom' ? 'Contact Us' : 'Get Started'}
@@ -384,7 +581,7 @@ export function PricingPage() {
                     </div>
                     <h4 className="text-white">{addon.name}</h4>
                   </div>
-                  <span className="text-purple-400">{addon.price}</span>
+                  <span className="text-purple-400 font-semibold">{convertAddonPrice(addon.price)}</span>
                 </div>
                 <p className="text-white/60">{addon.description}</p>
               </div>
@@ -473,7 +670,7 @@ export function PricingPage() {
               </p>
               <Link
                 to="/contact"
-                className="btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-full"
+                className="inline-block btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105 transition-all duration-300"
               >
                 Schedule Free Consultation
               </Link>
