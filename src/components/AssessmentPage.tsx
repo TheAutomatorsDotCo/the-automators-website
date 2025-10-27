@@ -121,6 +121,10 @@ export function AssessmentPage() {
         <div className="container mx-auto max-w-4xl relative z-10">
           {/* Header */}
           <div className="text-center mb-6 sm:mb-8 lg:mb-10">
+            <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass border border-white/10 mb-3 sm:mb-4">
+              <Target className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
+              <span className="text-xs sm:text-sm text-white/80">Interactive Assessment</span>
+            </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl gradient-text mb-3 sm:mb-4 px-4">
               Does Your Business Own You?
             </h1>
