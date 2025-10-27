@@ -66,7 +66,7 @@ export function PricingPage() {
   const automationPlans = [
     {
       name: 'Starter',
-      icon: <Zap className="w-8 h-8" />,
+      icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8" />,
       price: '$997',
       period: 'one-time',
       description: 'Perfect for small businesses just getting started with automation',
@@ -83,7 +83,7 @@ export function PricingPage() {
     },
     {
       name: 'Professional',
-      icon: <Rocket className="w-8 h-8" />,
+      icon: <Rocket className="w-6 h-6 sm:w-8 sm:h-8" />,
       price: '$2,497',
       period: 'one-time',
       description: 'For growing businesses ready to scale with automation',
@@ -102,7 +102,7 @@ export function PricingPage() {
     },
     {
       name: 'Enterprise',
-      icon: <Crown className="w-8 h-8" />,
+      icon: <Crown className="w-6 h-6 sm:w-8 sm:h-8" />,
       price: 'Custom',
       period: 'pricing',
       description: 'For established businesses needing comprehensive automation',
@@ -125,7 +125,7 @@ export function PricingPage() {
   const voiceAgentsPlans = [
     {
       name: 'Starter',
-      icon: <Phone className="w-8 h-8" />,
+      icon: <Phone className="w-6 h-6 sm:w-8 sm:h-8" />,
       price: '$1,997',
       period: 'one-time + usage',
       description: 'Get started with AI voice agents for your business',
@@ -144,7 +144,7 @@ export function PricingPage() {
     },
     {
       name: 'Professional',
-      icon: <Rocket className="w-8 h-8" />,
+      icon: <Rocket className="w-6 h-6 sm:w-8 sm:h-8" />,
       price: '$3,997',
       period: 'one-time + usage',
       description: 'Scale your customer engagement with advanced voice AI',
@@ -164,7 +164,7 @@ export function PricingPage() {
     },
     {
       name: 'Enterprise',
-      icon: <Crown className="w-8 h-8" />,
+      icon: <Crown className="w-6 h-6 sm:w-8 sm:h-8" />,
       price: 'Custom',
       period: 'pricing',
       description: 'Enterprise-grade voice AI with unlimited capabilities',
@@ -187,7 +187,7 @@ export function PricingPage() {
   const chatbotsPlans = [
     {
       name: 'Starter',
-      icon: <MessageCircle className="w-8 h-8" />,
+      icon: <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8" />,
       price: '$1,497',
       period: 'one-time',
       description: 'Perfect for businesses starting with AI chatbots',
@@ -206,7 +206,7 @@ export function PricingPage() {
     },
     {
       name: 'Professional',
-      icon: <Rocket className="w-8 h-8" />,
+      icon: <Rocket className="w-6 h-6 sm:w-8 sm:h-8" />,
       price: '$2,997',
       period: 'one-time',
       description: 'Multi-channel chatbots with advanced features',
@@ -226,7 +226,7 @@ export function PricingPage() {
     },
     {
       name: 'Enterprise',
-      icon: <Crown className="w-8 h-8" />,
+      icon: <Crown className="w-6 h-6 sm:w-8 sm:h-8" />,
       price: 'Custom',
       period: 'pricing',
       description: 'Enterprise chatbots with AI and machine learning',
@@ -257,25 +257,25 @@ export function PricingPage() {
       name: 'Additional Workflow',
       price: '$297',
       description: 'Add another automated workflow to your package',
-      icon: <Zap className="w-5 h-5" />,
+      icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Monthly Maintenance',
       price: '$497/mo',
       description: 'Ongoing support, updates, and optimization',
-      icon: <Shield className="w-5 h-5" />,
+      icon: <Shield className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Training Session',
       price: '$397',
       description: 'Additional 1-hour training for your team',
-      icon: <Star className="w-5 h-5" />,
+      icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Custom Integration',
       price: 'Starting at $797',
       description: 'Connect to unique or proprietary systems',
-      icon: <DollarSign className="w-5 h-5" />,
+      icon: <DollarSign className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
   ];
 
@@ -332,26 +332,26 @@ export function PricingPage() {
       />
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="blob absolute top-20 right-1/4 w-96 h-96 bg-indigo-500 rounded-full"></div>
-        <div className="blob absolute bottom-20 left-1/4 w-80 h-80 bg-pink-500 rounded-full" style={{ animationDelay: '3s' }}></div>
+        <div className="blob absolute top-20 right-10 sm:right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-indigo-500 rounded-full"></div>
+        <div className="blob absolute bottom-20 left-10 sm:left-1/4 w-56 sm:w-80 h-56 sm:h-80 bg-pink-500 rounded-full" style={{ animationDelay: '3s' }}></div>
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="h-10 mb-6"></div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6">
+          <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-4 sm:mb-6">
             Simple, Transparent Pricing
           </h1>
-          <p className="text-xl text-white/60 max-w-3xl mx-auto mb-12">
+          <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto mb-8 sm:mb-12">
             One-time investment, lifetime value. No monthly subscriptions – just automation that works for you forever.
           </p>
 
           {/* Currency Toggle */}
-          <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
             <button
               onClick={() => setCurrency('USD')}
-              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full transition-all duration-300 ${
+              className={`flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-sm sm:text-base ${
                 currency === 'USD'
                   ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
@@ -362,7 +362,7 @@ export function PricingPage() {
             </button>
             <button
               onClick={() => setCurrency('ZAR')}
-              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full transition-all duration-300 ${
+              className={`flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-sm sm:text-base ${
                 currency === 'ZAR'
                   ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white border-2 border-emerald-300/50 shadow-lg shadow-green-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
@@ -374,38 +374,38 @@ export function PricingPage() {
           </div>
 
           {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
             <button
               onClick={() => setActiveTab('automation')}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all ${
+              className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all text-sm sm:text-base ${
                 activeTab === 'automation'
                   ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <Workflow className="w-5 h-5" />
+              <Workflow className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Automation</span>
             </button>
             <button
               onClick={() => setActiveTab('voice-agents')}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all ${
+              className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all text-sm sm:text-base ${
                 activeTab === 'voice-agents'
                   ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white border-2 border-pink-300/50 shadow-lg shadow-pink-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Voice Agents</span>
             </button>
             <button
               onClick={() => setActiveTab('chatbots')}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all ${
+              className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all text-sm sm:text-base ${
                 activeTab === 'chatbots'
                   ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white border-2 border-teal-300/50 shadow-lg shadow-cyan-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <MessageCircle className="w-5 h-5" />
+              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Chatbots</span>
             </button>
           </div>
@@ -413,48 +413,45 @@ export function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="relative pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-10 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`card-3d relative overflow-hidden rounded-[2.5rem] glass border transition-all ${
+                className={`card-3d relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] glass border transition-all ${
                   plan.highlighted 
                     ? 'border-purple-500 lg:scale-105' 
                     : 'border-white/10 hover:border-white/20'
                 }`}
               >
                 {plan.highlighted && (
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
-                )}
-                {plan.highlighted && (
-                  <div className="absolute top-6 right-6 px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm">
-                    Most Popular
+                  <div className="relative bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-1.5 px-4 text-center">
+                    <span className="text-white font-medium text-[10px] sm:text-xs tracking-wider uppercase">Most Popular</span>
                   </div>
                 )}
-                <div className="p-8">
-                  <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${plan.gradient} text-white mb-6`}>
+                <div className="p-6 sm:p-8">
+                  <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${plan.gradient} text-white mb-4 sm:mb-6`}>
                     {plan.icon}
                   </div>
-                  <h3 className="text-white mb-2">{plan.name}</h3>
+                  <h3 className="text-white mb-2 text-lg sm:text-xl">{plan.name}</h3>
                   
                   {/* Payment Plan Selector */}
                   {plan.price !== 'Custom' && (
-                    <div className="mb-4 relative">
+                    <div className="mb-3 sm:mb-4 relative">
                       <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
                           setOpenDropdown(openDropdown === index ? null : index);
                         }}
-                        className="w-full px-4 py-3 text-sm rounded-xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 text-white font-medium hover:from-white/15 hover:to-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center justify-between"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-lg sm:rounded-xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 text-white font-medium hover:from-white/15 hover:to-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center justify-between"
                       >
-                        <span className="flex items-center gap-3">
+                        <span className="flex items-center gap-2 sm:gap-3">
                           <span>{paymentOptions.find(opt => opt.value === paymentPlan)?.icon}</span>
                           <span>{paymentOptions.find(opt => opt.value === paymentPlan)?.label}</span>
                           {paymentOptions.find(opt => opt.value === paymentPlan)?.badge && (
-                            <span className={`text-xs px-2 py-0.5 rounded-full ${
+                            <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded-full ${
                               paymentPlan === 'once-off' 
                                 ? 'bg-green-500/20 text-green-300' 
                                 : 'bg-orange-500/20 text-orange-300'
@@ -463,12 +460,12 @@ export function PricingPage() {
                             </span>
                           )}
                         </span>
-                        <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === index ? 'rotate-180' : ''}`} />
+                        <ChevronDown className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform ${openDropdown === index ? 'rotate-180' : ''}`} />
                       </button>
                       
                       {openDropdown === index && (
                         <div 
-                          className="absolute z-50 w-full mt-2 rounded-xl bg-[#1a1a2e]/95 border-2 border-white/20 shadow-2xl overflow-hidden backdrop-blur-xl"
+                          className="absolute z-50 w-full mt-2 rounded-lg sm:rounded-xl bg-[#1a1a2e]/95 border-2 border-white/20 shadow-2xl overflow-hidden backdrop-blur-xl"
                           style={{ backgroundColor: 'rgba(26, 26, 46, 0.98)' }}
                           onClick={(e) => e.stopPropagation()}
                         >
@@ -481,18 +478,18 @@ export function PricingPage() {
                                 setPaymentPlan(option.value as any);
                                 setOpenDropdown(null);
                               }}
-                              className={`w-full px-4 py-3 text-left flex items-center justify-between transition-all ${
+                              className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-left flex items-center justify-between transition-all ${
                                 paymentPlan === option.value
                                   ? 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 text-white'
                                   : 'text-white/80 hover:bg-white/10 hover:text-white'
                               }`}
                             >
-                              <span className="flex items-center gap-3">
+                              <span className="flex items-center gap-2 sm:gap-3">
                                 <span>{option.icon}</span>
                                 <span className="font-medium">{option.label}</span>
                               </span>
                               {option.badge && (
-                                <span className={`text-xs px-2 py-1 rounded-full ${
+                                <span className={`text-[10px] sm:text-xs px-2 py-1 rounded-full ${
                                   option.value === 'once-off' 
                                     ? 'bg-green-500/30 text-green-300' 
                                     : 'bg-orange-500/30 text-orange-300'
@@ -507,39 +504,39 @@ export function PricingPage() {
                     </div>
                   )}
                   
-                  <div className="mb-6">
+                  <div className="mb-4 sm:mb-6">
                     {paymentPlan !== 'once-off' && plan.price !== 'Custom' ? (
                       <div>
-                        <div className="text-4xl text-white mb-2">{convertPrice(plan.price, true)}</div>
-                        <div className="text-sm text-white/50">
+                        <div className="text-3xl sm:text-4xl text-white mb-2">{convertPrice(plan.price, true)}</div>
+                        <div className="text-xs sm:text-sm text-white/50">
                           Total: {convertPrice(plan.price)} over {paymentPlan.split('-')[0]} months
                         </div>
                       </div>
                     ) : (
                       <div>
-                        <span className="text-4xl text-white">{convertPrice(plan.price)}</span>
+                        <span className="text-3xl sm:text-4xl text-white">{convertPrice(plan.price)}</span>
                         {plan.period !== 'pricing' && (
-                          <span className="text-white/50 ml-2">{plan.period}</span>
+                          <span className="text-white/50 ml-2 text-xs sm:text-sm">{plan.period}</span>
                         )}
                       </div>
                     )}
                   </div>
-                  <p className="text-white/60 mb-8">{plan.description}</p>
+                  <p className="text-white/60 mb-6 sm:mb-8 text-sm sm:text-base">{plan.description}</p>
                   
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                     {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <div className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br ${plan.gradient} flex items-center justify-center mt-0.5`}>
-                          <Check className="w-4 h-4 text-white" />
+                      <li key={idx} className="flex items-start space-x-2 sm:space-x-3">
+                        <div className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br ${plan.gradient} flex items-center justify-center mt-0.5`}>
+                          <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                         </div>
-                        <span className="text-white/70">{feature}</span>
+                        <span className="text-white/70 text-sm sm:text-base">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   <Link
                     to="/contact"
-                    className={`block w-full py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 ${
+                    className={`block w-full py-3 sm:py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 text-sm sm:text-base ${
                       plan.highlighted
                         ? 'btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105'
                         : 'glass border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 hover:scale-105'
@@ -555,29 +552,29 @@ export function PricingPage() {
       </section>
 
       {/* Add-ons */}
-      <section className="relative pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-16 sm:pt-20 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-5xl relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Add-Ons</h2>
-            <p className="text-xl text-white/60">Enhance your automation package with these optional services</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">Add-Ons</h2>
+            <p className="text-lg sm:text-xl text-white/60">Enhance your automation package with these optional services</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             {addons.map((addon, index) => (
               <div
                 key={index}
-                className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all"
+                className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all"
               >
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="p-3 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
+                    <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
                       {addon.icon}
                     </div>
-                    <h4 className="text-white">{addon.name}</h4>
+                    <h4 className="text-white text-base sm:text-lg">{addon.name}</h4>
                   </div>
-                  <span className="text-purple-400 font-semibold">{convertAddonPrice(addon.price)}</span>
+                  <span className="text-purple-400 font-semibold text-sm sm:text-base">{convertAddonPrice(addon.price)}</span>
                 </div>
-                <p className="text-white/60">{addon.description}</p>
+                <p className="text-white/60 text-sm sm:text-base">{addon.description}</p>
               </div>
             ))}
           </div>
@@ -585,30 +582,30 @@ export function PricingPage() {
       </section>
 
       {/* Money Back Guarantee */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-16 sm:pt-20 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="relative overflow-hidden rounded-[3rem] glass border border-white/10 p-12">
+          <div className="relative overflow-hidden rounded-3xl sm:rounded-[3rem] glass border border-white/10 p-8 sm:p-12">
             <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10"></div>
             <div className="relative z-10 text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-green-500 to-emerald-500 text-white mb-8">
-                <Shield className="w-10 h-10" />
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-green-500 to-emerald-500 text-white mb-6 sm:mb-8">
+                <Shield className="w-8 h-8 sm:w-10 sm:h-10" />
               </div>
-              <h2 className="text-4xl gradient-text mb-6">30-Day Money-Back Guarantee</h2>
-              <p className="text-xl text-white/70 mb-12">
+              <h2 className="text-3xl sm:text-4xl gradient-text mb-4 sm:mb-6">30-Day Money-Back Guarantee</h2>
+              <p className="text-base sm:text-lg md:text-xl text-white/70 mb-8 sm:mb-12">
                 We're confident you'll love your automation. If you're not completely satisfied within 30 days, we'll refund your investment – no questions asked.
               </p>
-              <div className="grid sm:grid-cols-3 gap-6">
-                <div className="card-3d glass border border-white/10 rounded-2xl p-6">
-                  <h4 className="text-white mb-2">No Long-Term Contracts</h4>
-                  <p className="text-white/60">Pay once, own it forever</p>
+              <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
+                <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+                  <h4 className="text-white mb-1 sm:mb-2 text-sm sm:text-base">No Long-Term Contracts</h4>
+                  <p className="text-white/60 text-xs sm:text-sm">Pay once, own it forever</p>
                 </div>
-                <div className="card-3d glass border border-white/10 rounded-2xl p-6">
-                  <h4 className="text-white mb-2">Transparent Pricing</h4>
-                  <p className="text-white/60">No hidden fees or surprises</p>
+                <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+                  <h4 className="text-white mb-1 sm:mb-2 text-sm sm:text-base">Transparent Pricing</h4>
+                  <p className="text-white/60 text-xs sm:text-sm">No hidden fees or surprises</p>
                 </div>
-                <div className="card-3d glass border border-white/10 rounded-2xl p-6">
-                  <h4 className="text-white mb-2">Proven Results</h4>
-                  <p className="text-white/60">Join 200+ happy clients</p>
+                <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+                  <h4 className="text-white mb-1 sm:mb-2 text-sm sm:text-base">Proven Results</h4>
+                  <p className="text-white/60 text-xs sm:text-sm">Join 200+ happy clients</p>
                 </div>
               </div>
             </div>
@@ -617,32 +614,32 @@ export function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="relative pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-10 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-3xl relative z-10">
-          <h2 className="text-4xl sm:text-5xl gradient-text text-center mb-16">Frequently Asked Questions</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text text-center mb-12 sm:mb-16">Frequently Asked Questions</h2>
           
-          <div className="space-y-6">
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h4 className="text-white mb-3">How long does implementation take?</h4>
-              <p className="text-white/60">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h4 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">How long does implementation take?</h4>
+              <p className="text-white/60 text-sm sm:text-base">
                 Most projects are completed within 2-4 weeks, depending on complexity. We'll give you a specific timeline during your discovery call.
               </p>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h4 className="text-white mb-3">What if I need changes later?</h4>
-              <p className="text-white/60">
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h4 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">What if I need changes later?</h4>
+              <p className="text-white/60 text-sm sm:text-base">
                 All packages include revision rounds. After that, you can purchase additional workflows or monthly maintenance for ongoing support.
               </p>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h4 className="text-white mb-3">Do I need technical knowledge?</h4>
-              <p className="text-white/60">
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h4 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">Do I need technical knowledge?</h4>
+              <p className="text-white/60 text-sm sm:text-base">
                 Not at all! We handle all the technical implementation and provide training so you can manage your automations with confidence.
               </p>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h4 className="text-white mb-3">What tools do you work with?</h4>
-              <p className="text-white/60">
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h4 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">What tools do you work with?</h4>
+              <p className="text-white/60 text-sm sm:text-base">
                 We work with 100+ popular business tools including Zapier, Make, Google Workspace, Microsoft 365, HubSpot, Salesforce, and many more.
               </p>
             </div>
@@ -651,20 +648,20 @@ export function PricingPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="relative overflow-hidden rounded-[3rem] glass border border-white/10 p-12 sm:p-16">
+          <div className="relative overflow-hidden rounded-3xl sm:rounded-[3rem] glass border border-white/10 p-8 sm:p-12 md:p-16">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20"></div>
             <div className="relative z-10 text-center">
-              <h2 className="text-4xl sm:text-5xl text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl text-white mb-4 sm:mb-6">
                 Ready to Get Started?
               </h2>
-              <p className="text-xl text-white/70 mb-8">
+              <p className="text-base sm:text-lg md:text-xl text-white/70 mb-6 sm:mb-8">
                 Schedule a free consultation to discuss which package is right for your business.
               </p>
               <Link
                 to="/contact"
-                className="inline-block btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105 transition-all duration-300"
+                className="inline-block btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105 transition-all duration-300 text-sm sm:text-base"
               >
                 Schedule Free Consultation
               </Link>
