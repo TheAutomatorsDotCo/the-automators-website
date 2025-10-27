@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Check, Zap, Rocket, Crown, Star, Shield, DollarSign, Phone, MessageCircle, Workflow } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Check, Zap, Rocket, Crown, Star, Shield, DollarSign, Phone, MessageCircle, Workflow, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 
@@ -7,6 +7,7 @@ export function PricingPage() {
   const [activeTab, setActiveTab] = useState<'automation' | 'voice-agents' | 'chatbots'>('automation');
   const [currency, setCurrency] = useState<'USD' | 'ZAR'>('USD');
   const [paymentPlan, setPaymentPlan] = useState<'once-off' | '6-months' | '12-months' | '18-months'>('once-off');
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   
   // Payment plan multipliers
   const paymentMultipliers = {
@@ -15,6 +16,23 @@ export function PricingPage() {
     '12-months': 1.25,
     '18-months': 1.35
   };
+  
+  // Payment plan options
+  const paymentOptions = [
+    { value: 'once-off', label: 'Pay in Full', badge: 'Best Value', icon: '💎' },
+    { value: '6-months', label: '6 Monthly Payments', badge: '', icon: '📅' },
+    { value: '12-months', label: '12 Monthly Payments', badge: '', icon: '📅' },
+    { value: '18-months', label: '18 Monthly Payments', badge: '', icon: '📅' },
+  ];
+  
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => setOpenDropdown(null);
+    if (openDropdown !== null) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [openDropdown]);
   
   // Exchange rate: 1 USD = 18 ZAR (approximate)
   const convertPrice = (usdPrice: string, showMonthly: boolean = false): string => {
@@ -329,6 +347,32 @@ export function PricingPage() {
             One-time investment, lifetime value. No monthly subscriptions – just automation that works for you forever.
           </p>
 
+          {/* Currency Toggle */}
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <button
+              onClick={() => setCurrency('USD')}
+              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full transition-all duration-300 ${
+                currency === 'USD'
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
+                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+              }`}
+            >
+              <DollarSign className="w-4 h-4" />
+              <span className="font-medium">USD</span>
+            </button>
+            <button
+              onClick={() => setCurrency('ZAR')}
+              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full transition-all duration-300 ${
+                currency === 'ZAR'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white border-2 border-emerald-300/50 shadow-lg shadow-green-500/50'
+                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+              }`}
+            >
+              <span className="font-bold text-sm">R</span>
+              <span className="font-medium">ZAR</span>
+            </button>
+          </div>
+
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <button
@@ -394,6 +438,75 @@ export function PricingPage() {
                     {plan.icon}
                   </div>
                   <h3 className="text-white mb-2">{plan.name}</h3>
+                  
+                  {/* Payment Plan Selector */}
+                  {plan.price !== 'Custom' && (
+                    <div className="mb-4 relative">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setOpenDropdown(openDropdown === index ? null : index);
+                        }}
+                        className="w-full px-4 py-3 text-sm rounded-xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 text-white font-medium hover:from-white/15 hover:to-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center justify-between"
+                      >
+                        <span className="flex items-center gap-3">
+                          <span>{paymentOptions.find(opt => opt.value === paymentPlan)?.icon}</span>
+                          <span>{paymentOptions.find(opt => opt.value === paymentPlan)?.label}</span>
+                          {paymentOptions.find(opt => opt.value === paymentPlan)?.badge && (
+                            <span className={`text-xs px-2 py-0.5 rounded-full ${
+                              paymentPlan === 'once-off' 
+                                ? 'bg-green-500/20 text-green-300' 
+                                : 'bg-orange-500/20 text-orange-300'
+                            }`}>
+                              {paymentOptions.find(opt => opt.value === paymentPlan)?.badge}
+                            </span>
+                          )}
+                        </span>
+                        <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === index ? 'rotate-180' : ''}`} />
+                      </button>
+                      
+                      {openDropdown === index && (
+                        <div 
+                          className="absolute z-50 w-full mt-2 rounded-xl bg-[#1a1a2e]/95 border-2 border-white/20 shadow-2xl overflow-hidden backdrop-blur-xl"
+                          style={{ backgroundColor: 'rgba(26, 26, 46, 0.98)' }}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {paymentOptions.map((option) => (
+                            <button
+                              key={option.value}
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setPaymentPlan(option.value as any);
+                                setOpenDropdown(null);
+                              }}
+                              className={`w-full px-4 py-3 text-left flex items-center justify-between transition-all ${
+                                paymentPlan === option.value
+                                  ? 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 text-white'
+                                  : 'text-white/80 hover:bg-white/10 hover:text-white'
+                              }`}
+                            >
+                              <span className="flex items-center gap-3">
+                                <span>{option.icon}</span>
+                                <span className="font-medium">{option.label}</span>
+                              </span>
+                              {option.badge && (
+                                <span className={`text-xs px-2 py-1 rounded-full ${
+                                  option.value === 'once-off' 
+                                    ? 'bg-green-500/30 text-green-300' 
+                                    : 'bg-orange-500/30 text-orange-300'
+                                }`}>
+                                  {option.badge}
+                                </span>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
                   <div className="mb-6">
                     {paymentPlan !== 'once-off' && plan.price !== 'Custom' ? (
                       <div>
@@ -437,127 +550,6 @@ export function PricingPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Currency & Payment Plan Options */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-4xl relative z-10">
-          {/* Currency Toggle */}
-          <div className="flex items-center justify-center gap-3 mb-12">
-            <button
-              onClick={() => setCurrency('USD')}
-              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full transition-all duration-300 ${
-                currency === 'USD'
-                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
-                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-              }`}
-            >
-              <DollarSign className="w-4 h-4" />
-              <span className="font-medium">USD</span>
-            </button>
-            <button
-              onClick={() => setCurrency('ZAR')}
-              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full transition-all duration-300 ${
-                currency === 'ZAR'
-                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white border-2 border-emerald-300/50 shadow-lg shadow-green-500/50'
-                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-              }`}
-            >
-              <span className="font-bold text-sm">R</span>
-              <span className="font-medium">ZAR</span>
-            </button>
-          </div>
-
-          {/* Payment Plan Options */}
-          <div>
-            <h3 className="text-2xl text-white text-center mb-6">Choose Your Payment Plan</h3>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <button
-                onClick={() => setPaymentPlan('once-off')}
-                className={`p-4 rounded-2xl transition-all duration-300 ${
-                  paymentPlan === 'once-off'
-                    ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
-                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-                }`}
-              >
-                <div className="text-center">
-                  <div className={`text-2xl font-bold mb-1 ${paymentPlan === 'once-off' ? 'text-white' : 'text-white/80'}`}>
-                    Once Off
-                  </div>
-                  <div className={`text-sm ${paymentPlan === 'once-off' ? 'text-white/90' : 'text-white/50'}`}>
-                    Full Payment
-                  </div>
-                  <div className={`text-xs mt-2 font-semibold ${paymentPlan === 'once-off' ? 'text-white' : 'text-green-400'}`}>
-                    Best Value
-                  </div>
-                </div>
-              </button>
-              
-              <button
-                onClick={() => setPaymentPlan('6-months')}
-                className={`p-4 rounded-2xl transition-all duration-300 ${
-                  paymentPlan === '6-months'
-                    ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
-                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-                }`}
-              >
-                <div className="text-center">
-                  <div className={`text-2xl font-bold mb-1 ${paymentPlan === '6-months' ? 'text-white' : 'text-white/80'}`}>
-                    6 Months
-                  </div>
-                  <div className={`text-sm ${paymentPlan === '6-months' ? 'text-white/90' : 'text-white/50'}`}>
-                    Monthly Payments
-                  </div>
-                  <div className={`text-xs mt-2 ${paymentPlan === '6-months' ? 'text-white/80' : 'text-white/40'}`}>
-                    +15% total
-                  </div>
-                </div>
-              </button>
-              
-              <button
-                onClick={() => setPaymentPlan('12-months')}
-                className={`p-4 rounded-2xl transition-all duration-300 ${
-                  paymentPlan === '12-months'
-                    ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
-                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-                }`}
-              >
-                <div className="text-center">
-                  <div className={`text-2xl font-bold mb-1 ${paymentPlan === '12-months' ? 'text-white' : 'text-white/80'}`}>
-                    12 Months
-                  </div>
-                  <div className={`text-sm ${paymentPlan === '12-months' ? 'text-white/90' : 'text-white/50'}`}>
-                    Monthly Payments
-                  </div>
-                  <div className={`text-xs mt-2 ${paymentPlan === '12-months' ? 'text-white/80' : 'text-white/40'}`}>
-                    +25% total
-                  </div>
-                </div>
-              </button>
-              
-              <button
-                onClick={() => setPaymentPlan('18-months')}
-                className={`p-4 rounded-2xl transition-all duration-300 ${
-                  paymentPlan === '18-months'
-                    ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
-                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-                }`}
-              >
-                <div className="text-center">
-                  <div className={`text-2xl font-bold mb-1 ${paymentPlan === '18-months' ? 'text-white' : 'text-white/80'}`}>
-                    18 Months
-                  </div>
-                  <div className={`text-sm ${paymentPlan === '18-months' ? 'text-white/90' : 'text-white/50'}`}>
-                    Lowest Monthly
-                  </div>
-                  <div className={`text-xs mt-2 ${paymentPlan === '18-months' ? 'text-white/80' : 'text-white/40'}`}>
-                    +35% total
-                  </div>
-                </div>
-              </button>
-            </div>
           </div>
         </div>
       </section>
