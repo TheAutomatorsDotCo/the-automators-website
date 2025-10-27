@@ -177,10 +177,9 @@ export function ServicesPage() {
       </section>
 
       {/* How We Work Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-10 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">How We Work</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
               We partner with you to help figure out where the bottlenecks are, and then we solve them.
@@ -254,10 +253,9 @@ export function ServicesPage() {
       </section>
 
       {/* Affordable Pricing Philosophy */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-10 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Affordable Pricing</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               We aim to automate your work at only 25% of the cost of hiring a human to do it, without all the costs of hiring and the mistakes humans can make.
@@ -333,7 +331,7 @@ export function ServicesPage() {
       </section>
 
       {/* Success Stories */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-10 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Success Stories</h2>
