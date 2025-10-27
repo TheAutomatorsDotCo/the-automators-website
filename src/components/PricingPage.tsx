@@ -377,35 +377,35 @@ export function PricingPage() {
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
             <button
               onClick={() => setActiveTab('automation')}
-              className={`flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-xs sm:text-base ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-[11px] sm:text-base ${
                 activeTab === 'automation'
                   ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <Workflow className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+              <Workflow className="w-3 h-3 sm:w-5 sm:h-5" />
               <span>Automation</span>
             </button>
             <button
               onClick={() => setActiveTab('voice-agents')}
-              className={`flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-xs sm:text-base ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-[11px] sm:text-base ${
                 activeTab === 'voice-agents'
                   ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white border-2 border-pink-300/50 shadow-lg shadow-pink-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <Phone className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+              <Phone className="w-3 h-3 sm:w-5 sm:h-5" />
               <span>Voice Agents</span>
             </button>
             <button
               onClick={() => setActiveTab('chatbots')}
-              className={`flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-xs sm:text-base ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-[11px] sm:text-base ${
                 activeTab === 'chatbots'
                   ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white border-2 border-teal-300/50 shadow-lg shadow-cyan-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <MessageCircle className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+              <MessageCircle className="w-3 h-3 sm:w-5 sm:h-5" />
               <span>Chatbots</span>
             </button>
           </div>
