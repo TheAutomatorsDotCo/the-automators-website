@@ -374,38 +374,38 @@ export function PricingPage() {
           </div>
 
           {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
             <button
               onClick={() => setActiveTab('automation')}
-              className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all text-sm sm:text-base ${
+              className={`flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-xs sm:text-base ${
                 activeTab === 'automation'
                   ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <Workflow className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Workflow className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               <span>Automation</span>
             </button>
             <button
               onClick={() => setActiveTab('voice-agents')}
-              className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all text-sm sm:text-base ${
+              className={`flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-xs sm:text-base ${
                 activeTab === 'voice-agents'
                   ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white border-2 border-pink-300/50 shadow-lg shadow-pink-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Phone className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               <span>Voice Agents</span>
             </button>
             <button
               onClick={() => setActiveTab('chatbots')}
-              className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all text-sm sm:text-base ${
+              className={`flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-xs sm:text-base ${
                 activeTab === 'chatbots'
                   ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white border-2 border-teal-300/50 shadow-lg shadow-cyan-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+              <MessageCircle className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               <span>Chatbots</span>
             </button>
           </div>
@@ -448,7 +448,7 @@ export function PricingPage() {
                         className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-lg sm:rounded-xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 text-white font-medium hover:from-white/15 hover:to-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center justify-between"
                       >
                         <span className="flex items-center gap-2 sm:gap-3">
-                          <span>{paymentOptions.find(opt => opt.value === paymentPlan)?.icon}</span>
+                          <span className="mr-1">{paymentOptions.find(opt => opt.value === paymentPlan)?.icon}</span>
                           <span>{paymentOptions.find(opt => opt.value === paymentPlan)?.label}</span>
                           {paymentOptions.find(opt => opt.value === paymentPlan)?.badge && (
                             <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded-full ${
@@ -485,7 +485,7 @@ export function PricingPage() {
                               }`}
                             >
                               <span className="flex items-center gap-2 sm:gap-3">
-                                <span>{option.icon}</span>
+                                <span className="mr-1">{option.icon}</span>
                                 <span className="font-medium">{option.label}</span>
                               </span>
                               {option.badge && (
