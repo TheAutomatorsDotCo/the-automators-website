@@ -330,7 +330,7 @@ export function PricingPage() {
           </p>
 
           {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             <button
               onClick={() => setActiveTab('automation')}
               className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all ${
@@ -367,7 +367,7 @@ export function PricingPage() {
           </div>
 
           {/* Currency Toggle */}
-          <div className="flex items-center justify-center gap-3 mt-8">
+          <div className="flex items-center justify-center gap-3 mt-12">
             <button
               onClick={() => setCurrency('USD')}
               className={`flex items-center space-x-2 px-5 py-2.5 rounded-full transition-all duration-300 ${
