@@ -64,11 +64,6 @@ export function HomePage() {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
-              <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 rounded-full glass border border-white/10">
-                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 flex-shrink-0" />
-                <span className="text-xs sm:text-sm text-white/80">Automation That Actually Works</span>
-              </div>
-              
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text leading-tight">
                 Let's Automate The Moving Pieces
               </h1>
@@ -139,10 +134,6 @@ export function HomePage() {
       <section className="relative py-16 sm:py-24 lg:py-32 pb-24 sm:pb-32 lg:pb-48 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-            <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 rounded-full glass border border-white/10 mb-4 sm:mb-6">
-              <Cpu className="w-3 h-3 sm:w-4 sm:h-4 text-indigo-400 flex-shrink-0" />
-              <span className="text-xs sm:text-sm text-white/80">Powerful Features</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl gradient-text mb-4 sm:mb-6 px-4">
               Why Automate Your Business?
             </h2>
