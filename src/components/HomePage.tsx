@@ -59,7 +59,7 @@ export function HomePage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -132,7 +132,7 @@ export function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="relative py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-10 pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-20">
             <div className="h-10 mb-6"></div>
