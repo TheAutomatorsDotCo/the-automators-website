@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, Database, MessageCircle, Mail, Calendar, CheckCircle } from 'lucide-react';
+import { FileText, Database, MessageCircle, Mail, Calendar, CheckCircle, Play } from 'lucide-react';
 
 export function AutomationDemo() {
   const [isAnimating, setIsAnimating] = useState(false);
