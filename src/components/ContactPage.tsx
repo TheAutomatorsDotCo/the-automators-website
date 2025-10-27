@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, CheckCircle2, Send, MessageSquare, Users, TrendingUp } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp } from 'lucide-react';
 import { SEO } from './SEO';
 
 export function ContactPage() {
@@ -89,10 +89,7 @@ export function ContactPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-            <MessageSquare className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm text-white/80">Get In Touch</span>
-          </div>
+          <div className="h-10 mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6">
             Let's Talk About Your Automation Needs
           </h1>

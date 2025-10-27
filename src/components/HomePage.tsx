@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, ArrowRight, Zap, Shield, TrendingUp, Clock, Sparkles, Cpu, Rocket } from 'lucide-react';
+import { MessageSquare, ArrowRight, Zap, Shield, TrendingUp, Clock, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -64,10 +64,7 @@ export function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10">
-                <Sparkles className="w-4 h-4 text-yellow-400" />
-                <span className="text-sm text-white/80">Automation That Actually Works</span>
-              </div>
+              <div className="h-10"></div>
               
               <h1 className="text-5xl sm:text-6xl lg:text-7xl gradient-text leading-tight">
                 Let's Automate The Moving Pieces
@@ -138,10 +135,7 @@ export function HomePage() {
       <section className="relative py-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-              <Cpu className="w-4 h-4 text-indigo-400" />
-              <span className="text-sm text-white/80">Powerful Features</span>
-            </div>
+            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">
               Why Automate Your Business?
             </h2>

@@ -119,10 +119,7 @@ export function ServicesPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-            <Zap className="w-4 h-4 text-indigo-400" />
-            <span className="text-sm text-white/80">Our Services</span>
-          </div>
+          <div className="h-10 mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6 max-w-4xl mx-auto">
             How We Can Help Transform Your Business
           </h1>
@@ -183,10 +180,7 @@ export function ServicesPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-              <Workflow className="w-4 h-4 text-purple-400" />
-              <span className="text-sm text-white/80">Our Approach</span>
-            </div>
+            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">How We Work</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
               We partner with you to help figure out where the bottlenecks are, and then we solve them.
@@ -263,10 +257,7 @@ export function ServicesPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-              <CheckCircle className="w-4 h-4 text-green-400" />
-              <span className="text-sm text-white/80">Fair Pricing</span>
-            </div>
+            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Affordable Pricing</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               We aim to automate your work at only 25% of the cost of hiring a human to do it, without all the costs of hiring and the mistakes humans can make.

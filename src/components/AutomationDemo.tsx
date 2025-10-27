@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, Database, MessageCircle, Mail, Calendar, CheckCircle, Play } from 'lucide-react';
+import { FileText, Database, MessageCircle, Mail, Calendar, CheckCircle } from 'lucide-react';
 
 export function AutomationDemo() {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -106,10 +106,7 @@ export function AutomationDemo() {
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-            <Play className="w-4 h-4 text-indigo-400" />
-            <span className="text-sm text-white/80">Live Demo</span>
-          </div>
+          <div className="h-10 mb-6"></div>
           <h2 className="text-4xl sm:text-5xl gradient-text mb-6">
             See Automation in Action
           </h2>

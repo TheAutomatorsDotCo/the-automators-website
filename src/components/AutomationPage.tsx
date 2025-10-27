@@ -1,5 +1,5 @@
 import React from 'react';
-import { Workflow, Zap, Clock, TrendingUp, ArrowLeft, Lightbulb, CheckCircle, Users, RefreshCw } from 'lucide-react';
+import { Zap, Clock, TrendingUp, ArrowLeft, CheckCircle, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { AutomationDemo } from './AutomationDemo';
@@ -91,10 +91,7 @@ export function AutomationPage() {
       {/* Hero Section */}
       <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-            <Workflow className="w-4 h-4 text-indigo-400" />
-            <span className="text-sm text-white/80">Workflow Automation</span>
-          </div>
+          <div className="h-10 mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6 max-w-4xl mx-auto">
             What is Workflow Automation?
           </h1>
@@ -112,10 +109,7 @@ export function AutomationPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-              <Lightbulb className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm text-white/80">The Power of Automation</span>
-            </div>
+            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">
               How Automation Transforms Your Business
             </h2>
@@ -145,10 +139,7 @@ export function AutomationPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-              <RefreshCw className="w-4 h-4 text-green-400" />
-              <span className="text-sm text-white/80">Real Examples</span>
-            </div>
+            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">
               Common Automation Use Cases
             </h2>

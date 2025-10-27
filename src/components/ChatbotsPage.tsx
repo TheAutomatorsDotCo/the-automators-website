@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Bot, Zap, Clock, TrendingUp, Shield, Users, CheckCircle, Star, Sparkles } from 'lucide-react';
+import { Bot, Zap, Clock, TrendingUp, Shield, Users, CheckCircle, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ChatbotDemos } from './ChatbotDemos';
@@ -100,10 +100,7 @@ export function ChatbotsPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-            <MessageCircle className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm text-white/80">AI Chatbots</span>
-          </div>
+          <div className="h-10 mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6 max-w-4xl mx-auto">
             Intelligent Chatbots That Work 24/7
           </h1>
@@ -148,10 +145,7 @@ export function ChatbotsPage() {
           <div className="glass border border-white/10 rounded-3xl p-12 sm:p-16">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-                  <Sparkles className="w-4 h-4 text-cyan-400" />
-                  <span className="text-sm text-white/80">Smart Automation</span>
-                </div>
+                <div className="h-10 mb-6"></div>
                 <h2 className="text-4xl sm:text-5xl gradient-text mb-6">What Are AI Chatbots?</h2>
                 <p className="text-white/70 text-lg mb-6">
                   AI chatbots are intelligent virtual assistants that communicate with your customers through natural conversation. Unlike simple automated responses, modern chatbots understand context, learn from interactions, and provide personalized help.
@@ -199,10 +193,7 @@ export function ChatbotsPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-              <Zap className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm text-white/80">Powerful Features</span>
-            </div>
+            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Why Businesses Choose Chatbots</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               From customer support to sales, chatbots deliver measurable results for businesses of all sizes.

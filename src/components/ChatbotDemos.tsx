@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, Clock, Check, TrendingUp, RotateCcw, User, Bot, DollarSign, Users } from 'lucide-react';
+import { Clock, Check, TrendingUp, RotateCcw, User, Bot, DollarSign, Users } from 'lucide-react';
 
 interface Message {
   type: 'bot' | 'user';
@@ -137,10 +137,7 @@ export function ChatbotDemos() {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-            <MessageCircle className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm text-white/80">Interactive Demos</span>
-          </div>
+          <div className="h-10 mb-6"></div>
           <h2 className="text-4xl sm:text-5xl gradient-text mb-4">
             Meet Your Always-On Team: Interactive Chatbot Demos
           </h2>
