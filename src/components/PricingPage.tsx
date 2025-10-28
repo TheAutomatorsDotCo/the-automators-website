@@ -313,22 +313,63 @@ export function PricingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
-        title="Pricing Plans"
-        description="Transparent pricing for business automation services. From starter packages to enterprise solutions, find the perfect automation plan for your business needs."
+        title="Workflow Automation Pricing: From $997 | No Contracts"
+        description="Transparent automation pricing starting at $997. Workflow automation, AI Voice Agents, and Chatbots. Pay once, own forever. No contracts. Payment plans available."
         path="/pricing"
-        keywords="automation pricing, workflow automation cost, business automation packages, automation services pricing"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Business Automation Services",
-          "description": "Professional automation services with flexible pricing plans",
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "997",
-            "highPrice": "9997"
+        keywords="automation pricing, workflow automation pricing, business automation cost, automation services pricing, chatbot pricing, voice agent pricing"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Business Automation Services",
+            "description": "Professional automation services with flexible one-time pricing",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "USD",
+              "lowPrice": "997",
+              "highPrice": "9997",
+              "availability": "https://schema.org/InStock"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How long does implementation take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Most projects are completed within 2-4 weeks, depending on complexity. We'll give you a specific timeline during your discovery call."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if I need changes later?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "All packages include revision rounds. After that, you can purchase additional workflows or monthly maintenance for ongoing support."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need technical knowledge?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Not at all! We handle all the technical implementation and provide training so you can manage your automations with confidence."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does workflow automation cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Workflow automation pricing starts at $997 for our Starter plan with up to 3 workflows. Our Professional plan is $2,497 for up to 10 workflows, and we offer custom Enterprise pricing for unlimited workflows."
+                }
+              }
+            ]
           }
-        }}
+        ]}
       />
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -341,10 +382,13 @@ export function PricingPage() {
         <div className="container mx-auto text-center relative z-10">
           <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-4 sm:mb-6">
-            Simple, Transparent Pricing
+            Transparent Automation Pricing Plans
           </h1>
-          <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto mb-8 sm:mb-12">
+          <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto mb-4">
             One-time investment, lifetime value. No monthly subscriptions – just automation that works for you forever.
+          </p>
+          <p className="text-base sm:text-lg text-indigo-400 font-semibold mb-8 sm:mb-12">
+            Starting at $997
           </p>
 
           {/* Currency Toggle */}
@@ -415,6 +459,18 @@ export function PricingPage() {
       {/* Pricing Cards */}
       <section className="relative pt-10 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text mb-3 sm:mb-4">
+              {activeTab === 'automation' && 'Workflow Automation Pricing'}
+              {activeTab === 'voice-agents' && 'AI Voice Agent Pricing'}
+              {activeTab === 'chatbots' && 'AI Chatbot Pricing'}
+            </h2>
+            <p className="text-sm sm:text-base text-white/60 max-w-2xl mx-auto">
+              {activeTab === 'automation' && 'Automate your workflows with one-time pricing. No subscriptions, just automation that works forever.'}
+              {activeTab === 'voice-agents' && 'AI-powered phone calls and customer conversations. Pay once, use forever with flexible usage plans.'}
+              {activeTab === 'chatbots' && 'Intelligent 24/7 customer support. One-time setup fee, own your chatbot forever.'}
+            </p>
+          </div>
           <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
             {plans.map((plan, index) => (
               <div
@@ -620,27 +676,63 @@ export function PricingPage() {
           
           <div className="space-y-4 sm:space-y-6">
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h4 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">How long does implementation take?</h4>
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How much does workflow automation cost?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Workflow automation pricing starts at $997 for our Starter plan with up to 3 workflows. Our Professional plan is $2,497 for up to 10 workflows, and we offer custom Enterprise pricing for unlimited workflows. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about workflow automation</Link>.
+              </p>
+            </div>
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How long does implementation take?</h3>
               <p className="text-white/60 text-sm sm:text-base">
                 Most projects are completed within 2-4 weeks, depending on complexity. We'll give you a specific timeline during your discovery call.
               </p>
             </div>
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h4 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">What if I need changes later?</h4>
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Are there any monthly fees or subscriptions?</h3>
               <p className="text-white/60 text-sm sm:text-base">
-                All packages include revision rounds. After that, you can purchase additional workflows or monthly maintenance for ongoing support.
+                No! Our pricing is one-time. You pay once and own your automation forever. No monthly subscriptions, no recurring fees. The only exception is our optional Monthly Maintenance add-on if you want ongoing optimization.
               </p>
             </div>
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h4 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">Do I need technical knowledge?</h4>
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What are payment plans and how do they work?</h3>
               <p className="text-white/60 text-sm sm:text-base">
-                Not at all! We handle all the technical implementation and provide training so you can manage your automations with confidence.
+                We offer flexible payment plans (6, 12, or 18 months) with a small premium. This is NOT a subscription – you're still paying for a one-time purchase, just spreading it out. You own your automation forever regardless of how you pay.
               </p>
             </div>
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h4 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">What tools do you work with?</h4>
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What if I need changes later?</h3>
               <p className="text-white/60 text-sm sm:text-base">
-                We work with 100+ popular business tools including Zapier, Make, Google Workspace, Microsoft 365, HubSpot, Salesforce, and many more.
+                All packages include revision rounds during implementation. After launch, you can purchase additional workflows ($297 each) or monthly maintenance ($497/mo) for ongoing support and optimization.
+              </p>
+            </div>
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Do I need technical knowledge?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Not at all! We handle all the technical implementation and provide training so you can manage your automations with confidence. No coding or technical skills required.
+              </p>
+            </div>
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What's included in all pricing plans?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Every plan includes: discovery call, strategy session, complete implementation, testing, training, documentation, and a support period (30-365 days depending on plan). No hidden fees or setup charges.
+              </p>
+            </div>
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What tools do you work with?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                We work with 100+ popular business tools including Zapier, Make, Google Workspace, Microsoft 365, HubSpot, Salesforce, Slack, QuickBooks, Shopify, and many more. View our full <Link to="/services" className="text-indigo-400 hover:text-indigo-300">services page</Link> for details.
+              </p>
+            </div>
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How does the 30-day money-back guarantee work?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                If you're not satisfied within 30 days of project completion, we'll refund your investment – no questions asked. We're confident you'll love your automation, but want you to feel completely risk-free.
+              </p>
+            </div>
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Which plan is right for my business?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Not sure? <Link to="/assessment" className="text-indigo-400 hover:text-indigo-300">Take our 2-minute assessment</Link> to get a personalized recommendation, or <Link to="/contact" className="text-indigo-400 hover:text-indigo-300">schedule a free consultation</Link> to discuss your specific needs.
               </p>
             </div>
           </div>

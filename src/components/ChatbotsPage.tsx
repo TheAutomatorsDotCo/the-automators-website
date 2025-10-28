@@ -1,11 +1,13 @@
-import React from 'react';
-import { Bot, Zap, Clock, TrendingUp, Shield, Users, CheckCircle, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { Bot, Zap, Clock, TrendingUp, Shield, Users, CheckCircle, Star, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ChatbotDemos } from './ChatbotDemos';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function ChatbotsPage() {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
   const features = [
     {
       icon: <Clock className="w-8 h-8" />,
@@ -75,21 +77,102 @@ export function ChatbotsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
-        title="AI Chatbots - Intelligent Customer Engagement"
-        description="Deploy intelligent chatbots that provide 24/7 customer support, increase conversions, and free up your team. Interactive demos show real-world applications."
+        title="AI Chatbots for Business | 24/7 Customer Support"
+        description="Custom AI chatbot development for businesses. 24/7 customer support, lead generation, and sales automation. Try interactive demos. Lower support costs by 80%."
         path="/services/chatbots"
-        keywords="chatbots, AI chatbot, customer support automation, conversational AI, chatbot development, automated customer service"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "serviceType": "AI Chatbot Development",
-          "provider": {
-            "@type": "Organization",
-            "name": "The Automators"
+        keywords="AI chatbots, chatbot development, AI chatbot for business, customer service chatbot, chatbot solutions, conversational AI chatbot, business chatbot"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "AI Chatbot Development",
+            "provider": {
+              "@type": "Organization",
+              "name": "The Automators"
+            },
+            "areaServed": "Worldwide",
+            "description": "AI-powered chatbots for customer support, sales, and engagement across multiple channels"
           },
-          "areaServed": "Worldwide",
-          "description": "AI-powered chatbots for customer support, sales, and engagement across multiple channels"
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "AI Chatbot Solutions",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, iOS, Android, Facebook, WhatsApp",
+            "offers": {
+              "@type": "Offer",
+              "price": "1497",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "45"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "The Automators"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Implement an AI Chatbot for Your Business",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Discovery",
+                "text": "We learn about your business, customers, and common questions"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Design",
+                "text": "We create conversation flows and train the AI on your data"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Deploy",
+                "text": "We integrate the chatbot across your channels and test thoroughly"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Optimize",
+                "text": "We monitor performance and continuously improve responses"
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are AI chatbots?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI chatbots are intelligent virtual assistants that communicate with customers through natural conversation. They use natural language processing to understand questions, provide personalized help, and work across websites, social media, and messaging apps to deliver instant 24/7 support."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do AI chatbots work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI chatbots use natural language processing (NLP) to understand customer messages, machine learning to improve responses over time, and conversational AI to provide personalized, context-aware answers. They can handle multiple conversations simultaneously and escalate complex issues to human agents when needed."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does a chatbot cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI chatbot development typically starts at $1,497 for a basic single-channel deployment. Professional multi-channel chatbots with advanced features start at $2,997. Enterprise solutions with unlimited capabilities are custom-priced based on your needs."
+                }
+              }
+            ]
+          }
+        ]}
       />
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -102,7 +185,7 @@ export function ChatbotsPage() {
         <div className="container mx-auto text-center relative z-10">
           <div className="h-10 mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6 max-w-4xl mx-auto">
-            Intelligent Chatbots That Work 24/7
+            AI Chatbots That Provide 24/7 Customer Support
           </h1>
           <p className="text-xl text-white/60 max-w-3xl mx-auto mb-8">
             Deploy AI-powered chatbots that provide instant customer support, recommend products, qualify leads, and drive conversions - all while your team focuses on what matters most.
@@ -127,6 +210,12 @@ export function ChatbotsPage() {
       {/* Benefits Stats */}
       <section className="relative py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4">Proven Results with AI Chatbots</h2>
+            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+              See the measurable impact AI chatbots have on customer support costs, availability, and response times
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center p-8 rounded-3xl glass border border-white/10">
@@ -194,7 +283,7 @@ export function ChatbotsPage() {
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
             <div className="h-10 mb-6"></div>
-            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Why Businesses Choose Chatbots</h2>
+            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Benefits of AI Chatbots for Business</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               From customer support to sales, chatbots deliver measurable results for businesses of all sizes.
             </p>
@@ -222,7 +311,7 @@ export function ChatbotsPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Common Use Cases</h2>
+            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">AI Chatbot Use Cases & Applications</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               See how businesses across industries use chatbots to improve customer experience and drive growth.
             </p>
@@ -298,6 +387,241 @@ export function ChatbotsPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-4xl relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Frequently Asked Questions</h2>
+            <p className="text-xl text-white/60">
+              Everything you need to know about AI chatbot development and deployment
+            </p>
+          </div>
+          <div className="space-y-4">
+            {/* FAQ 1 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">What are AI chatbots?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 1 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 1 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed">
+                    AI chatbots are intelligent virtual assistants that communicate with customers through natural conversation. They use natural language processing to understand questions, provide personalized help, and work across websites, social media, and messaging apps to deliver instant 24/7 support. Unlike simple scripted bots, modern AI chatbots understand context, learn from interactions, and can handle complex conversations.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 2 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 2 ? null : 2)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">How do AI chatbots work?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 2 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 2 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed mb-4">
+                    AI chatbots use natural language processing (NLP) to understand customer messages, machine learning to improve responses over time, and conversational AI to provide personalized, context-aware answers. They can handle multiple conversations simultaneously and escalate complex issues to human agents when needed.
+                  </p>
+                  <p className="text-white/70 leading-relaxed">
+                    The process works like this: customer sends a message → NLP analyzes the intent → chatbot retrieves relevant information → AI generates a personalized response → customer receives instant help.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 3 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 3 ? null : 3)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">How much does a chatbot cost?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 3 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 3 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed">
+                    AI chatbot development typically starts at $1,497 for a basic single-channel deployment. Professional multi-channel chatbots with advanced features start at $2,997. Enterprise solutions with unlimited capabilities are custom-priced based on your needs. Unlike subscription platforms, you pay once and own the chatbot forever. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View our detailed pricing</Link> for complete information.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 4 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 4 ? null : 4)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">What's the difference between chatbots and AI chatbots?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 4 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 4 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed">
+                    Traditional chatbots follow pre-programmed rules and scripts, offering limited responses to specific commands. AI chatbots use artificial intelligence and natural language processing to understand context, learn from conversations, and provide dynamic, personalized responses. They can handle unexpected questions, understand intent, and have more human-like conversations. Think of it as the difference between a phone menu and talking to an intelligent assistant.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 5 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 5 ? null : 5)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">How long does chatbot implementation take?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 5 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 5 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed">
+                    Most chatbot projects are completed in 2-3 weeks from start to deployment. The timeline includes discovery (understanding your needs), design (creating conversation flows and training the AI), deployment (integration and testing), and optimization (fine-tuning responses). Simple chatbots can be ready in as little as 1 week, while complex enterprise solutions may take 4-6 weeks depending on integrations and customization requirements.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 6 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 6 ? null : 6)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">Can chatbots handle complex questions?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 6 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 6 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed">
+                    AI chatbots excel at handling routine to moderately complex questions—typically 60-80% of customer inquiries. They're trained on your specific business data, FAQs, and common scenarios. For complex issues that require human judgment, chatbots intelligently escalate to your team, providing context about the conversation so your staff can jump in seamlessly. This ensures customers always get the help they need while your team focuses on high-value interactions.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 7 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 7 ? null : 7)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">What channels do chatbots work on?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 7 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 7 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed mb-3">
+                    We deploy AI chatbots across multiple channels so you can meet customers wherever they are:
+                  </p>
+                  <ul className="space-y-2 text-white/70">
+                    <li className="flex items-start">
+                      <span className="text-indigo-400 mr-2">•</span>
+                      <span>Website chat widgets (embedded on any page)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-indigo-400 mr-2">•</span>
+                      <span>Facebook Messenger integration</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-indigo-400 mr-2">•</span>
+                      <span>WhatsApp Business automation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-indigo-400 mr-2">•</span>
+                      <span>Instagram direct messages</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-indigo-400 mr-2">•</span>
+                      <span>SMS text messaging</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-indigo-400 mr-2">•</span>
+                      <span>Slack and Microsoft Teams for internal support</span>
+                    </li>
+                  </ul>
+                  <p className="text-white/70 leading-relaxed mt-3">
+                    Multi-channel deployment means one chatbot can serve customers across all your platforms with consistent, synchronized conversations.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 8 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 8 ? null : 8)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">Do I need technical skills to manage a chatbot?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 8 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 8 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed">
+                    No technical skills required. We build and deploy your chatbot as a done-for-you service. You'll get an easy-to-use dashboard where you can review conversations, update responses, and monitor performance—no coding needed. We also provide training and ongoing support. If you want to update conversation flows or add new features, we handle the technical implementation for you. It's automation without the complexity.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 9 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 9 ? null : 9)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">Can chatbots integrate with my existing systems?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 9 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 9 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed">
+                    Yes! We integrate chatbots with your CRM (Salesforce, HubSpot, etc.), help desk software (Zendesk, Freshdesk), e-commerce platform (Shopify, WooCommerce), scheduling tools (Calendly), and more. This means your chatbot can pull customer data, create support tickets, update records, process orders, and sync information across your business systems. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn about our automation integrations</Link> for more details.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 10 */}
+            <div className="card-3d glass border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 10 ? null : 10)}
+                className="w-full p-6 text-left flex items-center justify-between"
+              >
+                <h3 className="text-white text-lg font-semibold pr-4">How do chatbots improve over time?</h3>
+                <ChevronDown className={`w-5 h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 10 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFAQ === 10 && (
+                <div className="px-6 pb-6">
+                  <p className="text-white/70 leading-relaxed">
+                    AI chatbots learn and improve through machine learning and ongoing optimization. As they handle conversations, they identify patterns, understand customer intent better, and refine responses. We also provide monthly analytics showing which questions are asked most, where conversations get stuck, and opportunities for improvement. Based on this data, we continuously update the chatbot's knowledge base, improve conversation flows, and add new capabilities—ensuring your chatbot gets smarter and more valuable over time.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-white/60 mb-4">Still have questions?</p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors"
+            >
+              Contact us for answers →
+            </Link>
           </div>
         </div>
       </section>

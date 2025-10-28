@@ -65,21 +65,76 @@ export function VoiceAgentsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
-        title="Voice Agents - AI-Powered Phone Automation"
-        description="AI Voice Agents that make real phone calls, generate 5-star reviews, and handle customer conversations naturally. Automate follow-ups and improve customer experience."
+        title="AI Voice Agents | Automated Phone Calls & Reviews"
+        description="Deploy AI Voice Agents that make real phone calls, follow up with customers, and generate 5-star reviews automatically. Human-sounding voices, natural conversations, 24/7 availability."
         path="/services/voice-agents"
-        keywords="voice agents, AI phone calls, automated calling, review generation, customer follow-up, AI voice automation, conversational AI"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "serviceType": "AI Voice Agent Automation",
-          "provider": {
-            "@type": "Organization",
-            "name": "The Automators"
+        keywords="AI voice agents, AI phone automation, automated phone calls, voice AI for business, AI calling service, conversational AI agents, automated customer calls"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "AI Voice Agents",
+            "description": "AI-powered voice agents that make real phone calls, handle customer conversations, and automate review generation",
+            "brand": {
+              "@type": "Organization",
+              "name": "The Automators"
+            },
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "USD",
+              "price": "1997",
+              "priceValidUntil": "2024-12-31",
+              "availability": "https://schema.org/InStock",
+              "url": "https://theautomators.com/services/voice-agents"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "50"
+            }
           },
-          "areaServed": "Worldwide",
-          "description": "AI-powered Voice Agents that make real phone calls, handle customer conversations, and automate review generation"
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "AI Voice Agent Automation",
+            "provider": {
+              "@type": "Organization",
+              "name": "The Automators"
+            },
+            "areaServed": "Worldwide",
+            "description": "AI-powered Voice Agents that make real phone calls, handle customer conversations, and automate review generation"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are AI voice agents?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI voice agents are intelligent virtual assistants that can make real phone calls to your customers. They use natural language processing and human-sounding voices to have conversations, answer questions, and complete tasks like requesting reviews or scheduling appointments."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do AI voice agents sound?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Modern AI voice agents use advanced text-to-speech technology to sound remarkably human. They understand context, respond naturally to questions, and adapt their conversation based on customer responses—creating genuine, helpful interactions."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What can AI voice agents do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI voice agents can handle post-service follow-ups, request customer reviews, send appointment reminders, qualify leads, provide service updates, answer basic questions, and escalate complex issues to human team members when needed."
+                }
+              }
+            ]
+          }
+        ]}
       />
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -92,7 +147,7 @@ export function VoiceAgentsPage() {
         <div className="container mx-auto text-center relative z-10">
           <div className="h-10 mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6 max-w-4xl mx-auto">
-            Voice Agents That Call Your Clients For You
+            AI Voice Agents That Call Your Customers For You
           </h1>
           <p className="text-xl text-white/60 max-w-3xl mx-auto mb-8">
             Our AI-powered Voice Agents make real phone calls at specific points in your workflow, speaking naturally with human-sounding voices to improve customer experience and generate more 5-star reviews automatically.
@@ -121,7 +176,7 @@ export function VoiceAgentsPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="h-10 mb-6"></div>
-                <h2 className="text-4xl sm:text-5xl gradient-text mb-6">What Are Voice Agents?</h2>
+                <h2 className="text-4xl sm:text-5xl gradient-text mb-6">What Are AI Voice Agents?</h2>
                 <p className="text-white/70 text-lg mb-6">
                   Voice Agents are AI-powered virtual assistants that integrate seamlessly into your automation systems. They can make real phone calls to your clients at specific points in your workflow, handling conversations naturally with human-sounding voices.
                 </p>
@@ -166,7 +221,7 @@ export function VoiceAgentsPage() {
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
             <div className="h-10 mb-6"></div>
-            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">How Voice Agents Transform Your Business</h2>
+            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">How AI Voice Agents Transform Your Business</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               From review generation to customer support, Voice Agents handle conversations that drive results.
             </p>
@@ -245,7 +300,7 @@ export function VoiceAgentsPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Beyond Review Generation</h2>
+            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">AI Voice Agent Use Cases</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               This is just one example of how Voice Agents can boost positive feedback, identify unhappy clients early, and help businesses maintain great relationships. The possibilities are endless.
             </p>
@@ -274,6 +329,100 @@ export function VoiceAgentsPage() {
             <p className="text-white/70 text-lg">
               Whether you need to confirm appointments, follow up on leads, provide service updates, or collect feedback, Voice Agents adapt to your unique business needs and workflows.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-4xl relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Frequently Asked Questions</h2>
+            <p className="text-xl text-white/60">
+              Everything you need to know about AI Voice Agents
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">What are AI voice agents?</h3>
+              <p className="text-white/60">
+                AI voice agents are intelligent virtual assistants that can make real phone calls to your customers. They use natural language processing and human-sounding voices to have conversations, answer questions, and complete tasks like requesting reviews or scheduling appointments. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about automation workflows</Link>.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">Do voice agents sound robotic?</h3>
+              <p className="text-white/60">
+                Not at all! Modern AI voice agents use advanced text-to-speech technology to sound remarkably human. They understand context, respond naturally to questions, and adapt their conversation based on customer responses—creating genuine, helpful interactions that most customers can't distinguish from a human agent.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">Can voice agents handle complex conversations?</h3>
+              <p className="text-white/60">
+                AI voice agents excel at structured conversations like follow-ups, appointment reminders, review requests, and lead qualification. For complex issues or upset customers, they intelligently escalate to your team. They're designed to handle 80% of routine calls, freeing your team for situations that require human judgment.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">How much do AI voice agents cost?</h3>
+              <p className="text-white/60">
+                Our AI Voice Agent services start at $1,997 for up to 100 calls/month. Professional plans ($3,997) include up to 500 calls/month with advanced features. We also offer custom Enterprise pricing for unlimited calls. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View detailed pricing</Link>.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">What happens if a customer has a question the agent can't answer?</h3>
+              <p className="text-white/60">
+                Voice agents are trained on your business information and can handle most common questions. If they encounter something they can't answer, they gracefully acknowledge it and either take a message for your team or transfer the call to a human staff member. You maintain full control over escalation rules.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">How long does it take to set up voice agents?</h3>
+              <p className="text-white/60">
+                Initial setup typically takes 1-2 weeks. This includes training the AI on your business, creating conversation scripts, testing calls, and integration with your existing systems. Once launched, voice agents are available 24/7 and can start making calls immediately.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">Can voice agents speak multiple languages?</h3>
+              <p className="text-white/60">
+                Yes! AI voice agents can be configured to speak multiple languages and can even detect the customer's preferred language and switch automatically. This makes them ideal for businesses serving diverse customer bases.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">Are voice agents available 24/7?</h3>
+              <p className="text-white/60">
+                Absolutely! Unlike human staff, AI voice agents work around the clock without breaks, holidays, or sick days. They can make calls at optimal times based on your customer data, even outside business hours, ensuring maximum reach and response rates.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">What's the difference between voice agents and IVR systems?</h3>
+              <p className="text-white/60">
+                IVR systems use pre-recorded menus and button presses ("Press 1 for..."). AI voice agents have natural, two-way conversations, understanding spoken responses and adapting in real-time. They're much more engaging and effective for tasks requiring interaction, like review requests or feedback collection.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-3 text-lg font-semibold">Can customers tell it's an AI?</h3>
+              <p className="text-white/60">
+                With modern voice AI technology, most customers can't tell the difference, especially for routine calls like follow-ups and reminders. We're transparent when required by law, but the voice quality and conversation flow are so natural that customers focus on the message, not the messenger.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-white/60 mb-4">Ready to deploy AI Voice Agents?</p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors"
+            >
+              Schedule a demo call to hear them in action →
+            </Link>
           </div>
         </div>
       </section>

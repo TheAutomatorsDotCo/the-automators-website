@@ -102,11 +102,11 @@ export function AutomationDemo() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-10 sm:pt-20 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-20">
-          <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="h-4 sm:h-6 mb-3 sm:mb-4"></div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">
             See Automation in Action
           </h2>

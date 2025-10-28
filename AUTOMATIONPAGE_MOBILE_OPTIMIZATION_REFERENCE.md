@@ -67,18 +67,18 @@ This document details all responsive breakpoint changes made to optimize the Aut
 
 | Element | Property | Mobile | Desktop |
 |---------|----------|--------|---------|
-| Section | Top Padding | `pt-12` | `pt-16` (sm) |
+| Section | Top Padding | `pt-32` | `pt-40` (sm) |
 | Section | Bottom Padding | `pb-16` | `pb-20` (sm) |
-| Spacer | Height | `h-8` | `h-12` (sm) |
+| Spacer | Height | `h-16` | `h-20` (sm) |
 | Spacer | Margin Bottom | `mb-4` | `mb-6` (sm) |
 | H1 | Margin Bottom | `mb-4` | `mb-6` (sm) |
 | Paragraph | Font Size | `text-lg` | `text-xl` (sm) |
 
 **Code:**
 ```jsx
-<section className="relative pt-12 sm:pt-16 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
+<section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
   <div className="container mx-auto text-center relative z-10">
-    <div className="h-8 sm:h-12 mb-4 sm:mb-6"></div>
+    <div className="h-16 sm:h-20 mb-4 sm:mb-6"></div>
     <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-4 sm:mb-6 max-w-4xl mx-auto">
       What is Workflow Automation?
     </h1>

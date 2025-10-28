@@ -1,9 +1,46 @@
-import React from 'react';
-import { Workflow, Database, Mail, Calendar, Zap, Sparkles, Target, CheckCircle, Phone, MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Workflow, Database, Mail, Calendar, Zap, Sparkles, Target, CheckCircle, Phone, MessageCircle, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 
 export function ServicesPage() {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: 'What types of businesses do you serve?',
+      answer: 'We work with businesses of all sizes across various industries including e-commerce, healthcare, professional services, real estate, and more. Our automation solutions are tailored to each business\'s unique needs.',
+    },
+    {
+      question: 'How long does automation implementation take?',
+      answer: 'Implementation typically takes 1-4 weeks depending on complexity. Simple workflow automation can be completed in days, while comprehensive AI solutions may take a few weeks. We provide a clear timeline during your strategy session.',
+    },
+    {
+      question: 'What tools do you integrate with?',
+      answer: 'We integrate with popular platforms including Zapier, Make (Integromat), Google Workspace, Microsoft 365, Salesforce, HubSpot, Slack, QuickBooks, Xero, WooCommerce, Shopify, and many more.',
+    },
+    {
+      question: 'Is there a minimum commitment period?',
+      answer: 'No. We bill month-to-month with no long-term contracts. If we don\'t deliver exceptional value, you\'re free to cancel anytime without penalty.',
+    },
+    {
+      question: 'How much does automation cost?',
+      answer: 'Our automation services cost approximately 25% of hiring a full-time employee for the same tasks. Pricing varies based on complexity and scope. Visit our pricing page for detailed information or schedule a free consultation for a custom quote.',
+    },
+    {
+      question: 'What ROI can I expect from automation?',
+      answer: 'Most clients save 15+ hours per week and see ROI within 2-3 months. Benefits include reduced labor costs, fewer errors, faster processing times, and the ability to scale without adding headcount.',
+    },
+    {
+      question: 'Do you offer ongoing support?',
+      answer: 'Yes! We provide comprehensive training for your team and ongoing support to ensure your automations continue running smoothly. We\'re available to make adjustments and add new automations as your business grows.',
+    },
+    {
+      question: 'Can you automate processes in my specific industry?',
+      answer: 'Yes! We have experience across multiple industries and can automate industry-specific processes. During our discovery call, we\'ll assess your unique workflows and create a custom automation strategy.',
+    },
+  ];
+
   const services = [
     {
       icon: <Workflow className="w-6 h-6 sm:w-8 sm:h-8" />,
@@ -55,45 +92,204 @@ export function ServicesPage() {
       title: 'Discovery Call',
       description: 'We learn about your business, current processes, and pain points.',
       icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      duration: '30 minutes',
+      link: '/contact',
     },
     {
       step: '2',
       title: 'Strategy Session',
       description: 'We map out which processes to automate and create a custom plan.',
       icon: <Sparkles className="w-6 h-6 sm:w-8 sm:h-8" />,
+      duration: '1-2 hours',
     },
     {
       step: '3',
       title: 'Implementation',
       description: 'We build and test your automation workflows with precision.',
       icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      duration: '1-4 weeks',
     },
     {
       step: '4',
       title: 'Training & Support',
       description: 'We train your team and provide ongoing support for success.',
       icon: <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8" />,
+      duration: 'Ongoing',
     },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
-        title="Our Services"
-        description="We specialize in automating tedious, time-consuming tasks. From workflow automation to data management, discover how we can transform your business."
+        title="Business Automation Services | Workflow & AI Solutions"
+        description="Professional automation services: Workflow automation, AI Voice Agents, and Chatbots. Save 15+ hours/week at 25% the cost of hiring. No contracts. Get started today."
         path="/services"
-        keywords="automation services, workflow automation, email automation, data management, document processing, scheduling automation"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "serviceType": "Business Process Automation",
-          "provider": {
-            "@type": "Organization",
-            "name": "The Automators"
+        keywords="business automation services, workflow automation services, automation consulting services, business process automation services, automation solutions provider"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "The Automators",
+            "description": "Professional business automation services including workflow automation, AI voice agents, chatbots, and more",
+            "provider": {
+              "@type": "Organization",
+              "name": "The Automators"
+            },
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Automation Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Workflow Automation",
+                    "description": "Connect your apps and automate repetitive workflows"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Voice Agents",
+                    "description": "AI-powered phone calls and customer conversations"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Chatbots",
+                    "description": "Intelligent 24/7 customer support chatbots"
+                  }
+                }
+              ]
+            }
           },
-          "areaServed": "Worldwide",
-          "description": "Professional business automation services including workflow automation, email sequences, data management, and more"
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "Service",
+                  "name": "Workflow Automation",
+                  "description": "Connect your apps and automate repetitive workflows. From lead capture to customer onboarding.",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "The Automators"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "Service",
+                  "name": "AI Voice Agents",
+                  "description": "AI-powered Voice Agents that make real phone calls and handle customer conversations",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "The Automators"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "Service",
+                  "name": "AI Chatbots",
+                  "description": "Intelligent chatbots that provide 24/7 customer support and qualify leads",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "The Automators"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "Service",
+                  "name": "Email & Communication Automation",
+                  "description": "Automate email sequences, notifications, and customer communication",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "The Automators"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "item": {
+                  "@type": "Service",
+                  "name": "Data Management",
+                  "description": "Keep your data organized and synced across all platforms in real-time",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "The Automators"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "item": {
+                  "@type": "Service",
+                  "name": "Scheduling & Booking Automation",
+                  "description": "Automate appointment scheduling, reminders, and calendar management",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "The Automators"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What types of businesses do you serve?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We work with businesses of all sizes across various industries including e-commerce, healthcare, professional services, real estate, and more. Our automation solutions are tailored to each business's unique needs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does automation implementation take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Implementation typically takes 1-4 weeks depending on complexity. Simple workflow automation can be completed in days, while comprehensive AI solutions may take a few weeks."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does automation cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our automation services cost approximately 25% of hiring a full-time employee for the same tasks. Pricing varies based on complexity and scope."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What ROI can I expect from automation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Most clients save 15+ hours per week and see ROI within 2-3 months. Benefits include reduced labor costs, fewer errors, faster processing times, and the ability to scale without adding headcount."
+                }
+              }
+            ]
+          }
+        ]}
       />
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -106,10 +302,10 @@ export function ServicesPage() {
         <div className="container mx-auto text-center relative z-10">
           <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl gradient-text mb-4 sm:mb-6 max-w-4xl mx-auto">
-            How We Can Help Transform Your Business
+            Professional Business Automation Services
           </h1>
           <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto">
-            We specialize in automating the tedious, time-consuming tasks that keep you from focusing on what really matters.
+            We specialize in automating the tedious, time-consuming tasks that keep you from focusing on what really matters. From workflow automation to AI-powered solutions, we help businesses save time and reduce costs.
           </p>
         </div>
       </section>
@@ -120,6 +316,12 @@ export function ServicesPage() {
       {/* Services Grid */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">Our Automation Services</h2>
+            <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto">
+              The Automators offers comprehensive business automation services designed to eliminate repetitive tasks and streamline operations.
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {services.map((service, index) => (
               <Link
@@ -185,7 +387,10 @@ export function ServicesPage() {
                 </div>
                 <div className="text-xs sm:text-sm text-white/50 mb-1 sm:mb-2">Step {item.step}</div>
                 <h3 className="text-white mb-2 sm:mb-3">{item.title}</h3>
-                <p className="text-white/60 text-sm sm:text-base">{item.description}</p>
+                <p className="text-white/60 text-sm sm:text-base mb-2">{item.description}</p>
+                {item.duration && (
+                  <div className="text-xs text-indigo-400 font-semibold">{item.duration}</div>
+                )}
               </div>
             ))}
           </div>
@@ -251,9 +456,15 @@ export function ServicesPage() {
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">Affordable Pricing</h2>
-            <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto mb-6">
               We aim to automate your work at only 25% of the cost of hiring a human to do it, without all the costs of hiring and the mistakes humans can make.
             </p>
+            <Link
+              to="/pricing"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm sm:text-base"
+            >
+              View detailed automation pricing →
+            </Link>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
@@ -357,6 +568,61 @@ export function ServicesPage() {
 
       {/* Spacer */}
       <div className="h-20 sm:h-32"></div>
+
+      {/* FAQ Section */}
+      <section className="relative pt-10 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-4xl relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">Frequently Asked Questions</h2>
+            <p className="text-lg sm:text-xl text-white/60">
+              Everything you need to know about our automation services
+            </p>
+          </div>
+
+          <div className="space-y-3 sm:space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="glass border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden hover:border-white/20 transition-all"
+              >
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                  className="w-full text-left p-6 sm:p-8 flex items-start justify-between gap-4"
+                >
+                  <div className="flex-1">
+                    <h3 className="text-white font-semibold text-base sm:text-lg mb-1">
+                      {faq.question}
+                    </h3>
+                    {openFAQ === index && (
+                      <p className="text-white/70 mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    )}
+                  </div>
+                  <ChevronDown
+                    className={`w-5 h-5 sm:w-6 sm:h-6 text-white/60 flex-shrink-0 transition-transform ${
+                      openFAQ === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10 sm:mt-12">
+            <p className="text-white/60 mb-4 text-sm sm:text-base">Still have questions?</p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm sm:text-base"
+            >
+              Contact us for answers →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Spacer */}
+      <div className="h-10 sm:h-20"></div>
 
       {/* CTA */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8">

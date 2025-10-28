@@ -11,24 +11,32 @@ export function HomePage() {
       title: 'Automated Workflows',
       description: 'Streamline your business processes with intelligent automation that works 24/7.',
       gradient: 'from-indigo-500 to-blue-500',
+      link: '/services/automation',
+      linkText: 'Learn about workflow automation',
     },
     {
       icon: <Clock className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: 'Save Time',
       description: 'Reclaim hours every week by eliminating repetitive tasks and manual data entry.',
       gradient: 'from-purple-500 to-pink-500',
+      link: '/services',
+      linkText: 'Explore automation services',
     },
     {
       icon: <Shield className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: 'Reduce Errors',
       description: 'Minimize human error with consistent, reliable automated processes.',
       gradient: 'from-cyan-500 to-teal-500',
+      link: '/services/chatbots',
+      linkText: 'Discover AI chatbot solutions',
     },
     {
       icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: 'Scale Faster',
       description: 'Grow your business without growing your admin overhead.',
       gradient: 'from-orange-500 to-red-500',
+      link: '/services/voice-agents',
+      linkText: 'See AI voice agents',
     },
   ];
 
@@ -60,20 +68,44 @@ export function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
         title="Business Automation Solutions"
-        description="Don't let mind-numbing business admin take all the joy from your work. Automate workflows, save time, and focus on what matters with The Automators."
+        description="Transform your business with automation solutions. Eliminate repetitive tasks, save 15+ hours per week, and scale faster. 200+ happy clients. Get started today."
         path="/"
-        keywords="business automation, workflow automation, process automation, save time, increase efficiency, automate business processes"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "The Automators",
-          "description": "Business automation solutions that help companies save time and increase efficiency",
-          "url": "https://theautomators.com",
-          "logo": "https://theautomators.com/logo.png",
-          "sameAs": [
-            "https://linkedin.com/company/theautomators"
-          ]
-        }}
+        keywords="business automation solutions, workflow automation services, business process automation, automate business tasks, automation solutions for small business"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "The Automators",
+            "description": "Business automation solutions that help companies save time and increase efficiency",
+            "url": "https://theautomators.com",
+            "logo": "https://theautomators.com/logo.png",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "200",
+              "bestRating": "5"
+            },
+            "sameAs": [
+              "https://linkedin.com/company/theautomators"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Business Automation",
+            "provider": {
+              "@type": "Organization",
+              "name": "The Automators"
+            },
+            "areaServed": "Worldwide",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "USD",
+              "lowPrice": "997",
+              "offerCount": "3"
+            }
+          }
+        ]}
       />
       {/* Animated Background Blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -88,10 +120,13 @@ export function HomePage() {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6 sm:space-y-8">
+              {/* SEO H1 - Hidden for accessibility and SEO */}
+              <h1 className="sr-only">Business Automation Solutions That Save Time and Increase Efficiency</h1>
               
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl gradient-text leading-tight">
+              {/* Display Heading */}
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl gradient-text leading-tight" role="heading" aria-level="1">
                 Let's Automate The Moving Pieces
-              </h1>
+              </div>
               
               <p className="text-lg sm:text-xl text-white/70 leading-relaxed">
                 Don't let the mind-numbing, never-ending whirlwind of business admin take all the joy and freedom from your work.
@@ -135,7 +170,7 @@ export function HomePage() {
               <div className="float">
                 <ImageWithFallback
                   src="/homehero.png"
-                  alt="3D automation illustration"
+                  alt="Business automation workflow visualization with connected gears and processes - The Automators"
                   className="w-full h-auto"
                 />
               </div>
@@ -163,17 +198,22 @@ export function HomePage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {features.map((feature, index) => (
-              <div
+              <Link
                 key={index}
-                className="card-3d group relative overflow-hidden rounded-2xl sm:rounded-3xl glass border border-white/10 p-6 sm:p-8 hover:border-white/20 transition-all"
+                to={feature.link}
+                className="card-3d group relative overflow-hidden rounded-2xl sm:rounded-3xl glass border border-white/10 p-6 sm:p-8 hover:border-white/20 transition-all block"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity`}></div>
                 <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${feature.gradient} text-white mb-4 sm:mb-6`}>
                   {feature.icon}
                 </div>
                 <h3 className="text-white text-lg sm:text-xl mb-2 sm:mb-3">{feature.title}</h3>
-                <p className="text-white/60 text-sm sm:text-base">{feature.description}</p>
-              </div>
+                <p className="text-white/60 text-sm sm:text-base mb-3">{feature.description}</p>
+                <span className="text-white/80 text-sm group-hover:text-white inline-flex items-center gap-1">
+                  {feature.linkText}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>
@@ -209,7 +249,7 @@ export function HomePage() {
                       <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden ring-2 ring-white/20 group-hover:ring-purple-500/60 transition-all">
                         <img
                           src={testimonial.image}
-                          alt={testimonial.name}
+                          alt={`${testimonial.name} - ${testimonial.title} - The Automators Client`}
                           className="w-16 h-16 sm:w-20 sm:h-20 object-cover"
                         />
                       </div>

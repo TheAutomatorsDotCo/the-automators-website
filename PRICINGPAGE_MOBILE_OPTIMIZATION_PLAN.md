@@ -102,29 +102,37 @@ className={`flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full
 #### Tabs Container (Lines 377-411)
 | Property | Current | Optimized Mobile | Optimized Desktop |
 |----------|---------|------------------|-------------------|
-| Gap | `gap-4` | `gap-3` | `gap-4` (sm) |
+| Gap | `gap-4` | `gap-2` | `gap-4` (sm) |
 | Margin Bottom | `mb-12` | `mb-8` | `mb-12` (sm) |
 
 **New Code:**
 ```jsx
-className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12"
+className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12"
 ```
 
 #### Tab Buttons
 | Property | Current | Optimized Mobile | Optimized Desktop |
 |----------|---------|------------------|-------------------|
-| Padding X | `px-6` | `px-4` | `px-6` (sm) |
-| Padding Y | `py-3` | `py-2.5` | `py-3` (sm) |
-| Icon Size | `w-5 h-5` | `w-4 h-4` | `w-5 h-5` (sm) |
-| Font Size | - (default) | `text-sm` | `text-base` (sm) |
+| Gap | `gap-4` | `gap-2` | `gap-4` (sm) |
+| Padding X | `px-6` | `px-3` | `px-6` (sm) |
+| Padding Y | `py-3` | `py-2` | `py-3` (sm) |
+| Icon Size | `w-5 h-5` | `w-3 h-3` | `w-5 h-5` (sm) |
+| Icon Spacing | `space-x-2` | `space-x-1` | `space-x-2` (sm) |
+| Font Size | - (default) | `text-[11px]` | `text-base` (sm) |
 
 **New Code:**
 ```jsx
-className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all text-sm sm:text-base ${...}`}
+// Container
+className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12"
+
+// Buttons
+className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-[11px] sm:text-base ${...}`}
 
 // Icon
-<Workflow className="w-4 h-4 sm:w-5 sm:h-5" />
+<Workflow className="w-3 h-3 sm:w-5 sm:h-5" />
 ```
+
+**Note:** Extra optimization applied to prevent icon overlap on small mobile screens.
 
 ---
 
@@ -176,19 +184,25 @@ className={`card-3d relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] gla
 <div className="p-6 sm:p-8">
 ```
 
-#### "Most Popular" Badge (Line 432)
-| Property | Current | Optimized Mobile | Optimized Desktop |
-|----------|---------|------------------|-------------------|
-| Top Position | `top-6` | `top-4` | `top-6` (sm) |
-| Right Position | `right-6` | `right-4` | `right-6` (sm) |
-| Padding X | `px-4` | `px-3` | `px-4` (sm) |
-| Padding Y | `py-2` | `py-1.5` | `py-2` (sm) |
-| Font Size | `text-sm` | `text-xs` | `text-sm` (sm) |
+#### "Most Popular" Badge (Line 428-431)
+| Property | Design | Mobile | Desktop |
+|----------|--------|--------|---------|
+| Layout | Full-width banner | Banner at top | Banner at top |
+| Padding Y | - | `py-1.5` | Same |
+| Padding X | - | `px-4` | Same |
+| Font Size | - | `text-[10px]` | `text-xs` (sm) |
+| Style | - | Uppercase, tracking-wider | Same |
 
 **New Code:**
 ```jsx
-className="absolute top-4 sm:top-6 right-4 sm:right-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs sm:text-sm"
+{plan.highlighted && (
+  <div className="relative bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-1.5 px-4 text-center">
+    <span className="text-white font-medium text-[10px] sm:text-xs tracking-wider uppercase">Most Popular</span>
+  </div>
+)}
 ```
+
+**Note:** Redesigned from floating badge to full-width gradient banner for better visibility and to prevent overlap issues.
 
 #### Icon Container (Line 437)
 | Property | Current | Optimized Mobile | Optimized Desktop |
@@ -233,6 +247,7 @@ icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8" />
 | Font Size | `text-sm` | `text-xs` | `text-sm` (sm) |
 | Border Radius | `rounded-xl` | `rounded-lg` | `rounded-xl` (sm) |
 | Icon Size | `w-4 h-4` | `w-3.5 h-3.5` | `w-4 h-4` (sm) |
+| Icon Spacing | - | Added `mr-1` | Added `mr-1` |
 
 **New Code:**
 ```jsx
@@ -242,8 +257,11 @@ icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8" />
 // Dropdown button
 className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-lg sm:rounded-xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 text-white font-medium hover:from-white/15 hover:to-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center justify-between"
 
-// Gap in button content
+// Gap in button content (with icon spacing fix)
 <span className="flex items-center gap-2 sm:gap-3">
+  <span className="mr-1">{paymentOptions.find(opt => opt.value === paymentPlan)?.icon}</span>
+  <span>{paymentOptions.find(opt => opt.value === paymentPlan)?.label}</span>
+</span>
 
 // ChevronDown icon
 <ChevronDown className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform ${openDropdown === index ? 'rotate-180' : ''}`} />
@@ -251,15 +269,19 @@ className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-lg sm:r
 // Dropdown menu
 className="absolute z-50 w-full mt-2 rounded-lg sm:rounded-xl bg-[#1a1a2e]/95 border-2 border-white/20 shadow-2xl overflow-hidden backdrop-blur-xl"
 
-// Dropdown items
+// Dropdown items (with icon spacing fix)
 className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-left flex items-center justify-between transition-all ${...}`}
 
-// Gap in dropdown items
 <span className="flex items-center gap-2 sm:gap-3">
+  <span className="mr-1">{option.icon}</span>
+  <span className="font-medium">{option.label}</span>
+</span>
 
 // Badge font size
 className={`text-[10px] sm:text-xs px-2 py-1 rounded-full ${...}`}
 ```
+
+**Note:** Added `mr-1` margin to emoji icons (💎 📅) for proper spacing between icon and text.
 
 #### Price Display (Lines 510-526)
 | Property | Current | Optimized Mobile | Optimized Desktop |
@@ -795,6 +817,9 @@ className="inline-block btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 t
 10. ✅ Currency toggle mobile-friendly
 11. ✅ Enhanced visual separation between major sections (pb-20 sm:pb-32)
 12. ✅ Improved vertical rhythm and breathing room
+13. ✅ Tab buttons extra-optimized for smallest screens (text-[11px], w-3 h-3 icons)
+14. ✅ Payment dropdown icon spacing fixed (mr-1 added)
+15. ✅ "Most Popular" redesigned as gradient banner for better visibility
 
 ---
 
@@ -832,6 +857,30 @@ className="inline-block btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 t
 
 ---
 
+## Post-Implementation Refinements
+
+After initial implementation, additional refinements were made based on testing:
+
+### 1. Tab Button Ultra-Optimization
+**Issue:** Icons slightly overlapping button edges on smallest mobile screens  
+**Solution:** 
+- Reduced icon size: `w-3.5 h-3.5` → `w-3 h-3`
+- Reduced text size: `text-xs` → `text-[11px]`
+- Tightened icon-text spacing: `space-x-1.5` → `space-x-1`
+
+### 2. Payment Dropdown Icon Spacing
+**Issue:** Emoji icons (💎 📅) touching text labels  
+**Solution:** Added `mr-1` margin to icon spans in both button and dropdown items
+
+### 3. Most Popular Badge Redesign
+**Issue:** Floating badge getting clipped by card overflow on mobile  
+**Solution:** Redesigned as full-width gradient banner at top of card
+- More prominent and eye-catching
+- No clipping issues
+- Better mobile visibility
+
+---
+
 **Last Updated:** October 27, 2025  
-**Status:** ✅ Implemented - All mobile optimizations complete with enhanced section spacing
+**Status:** ✅ Implemented - All mobile optimizations complete with enhanced section spacing and post-implementation refinements
 

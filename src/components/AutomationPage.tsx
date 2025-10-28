@@ -9,22 +9,22 @@ export function AutomationPage() {
     {
       icon: <Clock className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: 'Save Time',
-      description: 'Reclaim hours every day by eliminating repetitive tasks',
+      description: 'Automate workflows to reclaim 10-20 hours per week. What used to take days now completes in seconds with workflow automation software.',
     },
     {
       icon: <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: 'Increase Efficiency',
-      description: 'Complete in seconds what used to take hours',
+      description: 'Workflow automation solutions complete tasks 10x faster than manual processes, letting you focus on high-value work.',
     },
     {
       icon: <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: 'Reduce Errors',
-      description: 'Eliminate human error with consistent processes',
+      description: 'Eliminate 90% of human errors with consistent, reliable automated workflows that follow the same process every time.',
     },
     {
       icon: <Users className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: 'Scale Faster',
-      description: 'Grow without growing your admin overhead',
+      description: 'Business process automation lets you handle 3x more volume without hiring additional staff or growing admin overhead.',
     },
   ];
 
@@ -54,20 +54,80 @@ export function AutomationPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
-        title="Workflow Automation Explained"
-        description="Discover what workflow automation is and how it transforms your business. Like having a digital assistant that works 24/7, never makes mistakes, and never needs a break."
+        title="Workflow Automation: Complete Guide & Examples | 2024"
+        description="Learn what workflow automation is, see real examples in action, and discover how it saves 15+ hours/week. Interactive demo included. Save time, reduce errors, scale faster."
         path="/services/automation"
-        keywords="workflow automation, business process automation, automated workflows, digital transformation, productivity automation"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": "What is Workflow Automation?",
-          "description": "A comprehensive guide to understanding workflow automation and its benefits for businesses",
-          "author": {
-            "@type": "Organization",
-            "name": "The Automators"
+        keywords="workflow automation, business workflow automation, automated workflows, workflow automation software, workflow automation solutions, business process automation"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "What is Workflow Automation?",
+            "description": "A comprehensive guide to understanding workflow automation and its benefits for businesses",
+            "author": {
+              "@type": "Organization",
+              "name": "The Automators"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How Workflow Automation Works",
+            "description": "Step-by-step guide to understanding workflow automation",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Trigger",
+                "text": "An event occurs that starts the automation (e.g., form submission, email received, scheduled time)"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Processing",
+                "text": "Data is automatically processed and routed to the right systems without manual intervention"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Actions",
+                "text": "Automated actions are executed such as sending emails, creating records, updating databases, or generating notifications"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Completion",
+                "text": "Workflow completes successfully and logs results for tracking and reporting"
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is workflow automation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Workflow automation is the process of using technology to complete repetitive business tasks without human intervention. It's like having a digital assistant that works 24/7, never makes mistakes, and never needs a break."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does workflow automation save time?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Workflow automation eliminates manual, repetitive tasks that can take hours each day. For example, lead management automation can save 15-30 minutes per lead, while client onboarding can save 1-2 hours per client."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are workflow automation examples?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Common workflow automation examples include: lead management (automatic CRM updates), client onboarding (welcome emails and document collection), invoice processing (automated generation and tracking), and report generation (scheduled data collection and delivery)."
+                }
+              }
+            ]
           }
-        }}
+        ]}
       />
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -89,9 +149,9 @@ export function AutomationPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-12 sm:pt-16 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="h-8 sm:h-12 mb-4 sm:mb-6"></div>
+          <div className="h-16 sm:h-20 mb-4 sm:mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-4 sm:mb-6 max-w-4xl mx-auto">
             What is Workflow Automation?
           </h1>
@@ -106,10 +166,10 @@ export function AutomationPage() {
       <AutomationDemo />
 
       {/* How It Works Section */}
-      <section className="relative pt-16 sm:pt-20 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-10 sm:pt-16 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
+            <div className="h-4 sm:h-6 mb-3 sm:mb-4"></div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">
               How Automation Transforms Your Business
             </h2>
@@ -166,8 +226,90 @@ export function AutomationPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="relative pt-16 sm:pt-20 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-4xl relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg sm:text-xl text-white/60">
+              Everything you need to know about workflow automation
+            </p>
+          </div>
+
+          <div className="space-y-4 sm:space-y-6">
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What is workflow automation?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Workflow automation is the process of using technology to complete repetitive business tasks without human intervention. It's like having a digital assistant that works 24/7, never makes mistakes, and never needs a break. Common examples include lead capture, client onboarding, invoice processing, and report generation.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How does workflow automation save time?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Workflow automation eliminates manual, repetitive tasks that can take hours each day. For example, lead management automation can save 15-30 minutes per lead, while client onboarding can save 1-2 hours per client. Most businesses reclaim 10-20 hours per week through automation.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What tasks can be automated with workflow automation?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Almost any repetitive task can be automated: data entry, email sequences, CRM updates, document generation, appointment scheduling, social media posting, invoice creation, report generation, lead routing, customer notifications, and much more. If you do it more than once, it can probably be automated.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How much does workflow automation cost?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Our workflow automation services start at $997 for basic automations. Professional plans with up to 10 workflows are $2,497, and we offer custom Enterprise pricing for larger needs. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View our detailed pricing</Link> for complete information.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Is workflow automation right for small businesses?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Absolutely! Small businesses benefit the most from automation because every hour saved has a bigger impact. Automation lets small teams compete with larger companies by handling more work without hiring additional staff. Our affordable pricing makes automation accessible to businesses of all sizes.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Do I need coding skills to use workflow automation?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Not at all! We build and implement all your workflow automation for you. You don't need any technical knowledge or coding skills. We handle all the technical work and provide training so you can manage your automations confidently.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What's the difference between workflow automation and RPA?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Workflow automation connects different applications and systems to automate business processes. RPA (Robotic Process Automation) mimics human actions on computers. We use workflow automation which is more flexible, easier to maintain, and better suited for most small to medium businesses.
+              </p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
+              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What are the best workflow automation tools?</h3>
+              <p className="text-white/60 text-sm sm:text-base">
+                Popular workflow automation software includes Zapier, Make (Integromat), Microsoft Power Automate, and N8n. We work with all major platforms and recommend the best tools for your specific needs. Learn more about our <Link to="/services" className="text-indigo-400 hover:text-indigo-300">automation services</Link>.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-10 sm:mt-12">
+            <p className="text-white/60 mb-4 text-sm sm:text-base">Ready to automate your workflows?</p>
+            <Link
+              to="/assessment"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm sm:text-base"
+            >
+              Take our 2-minute assessment to get started →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* The Bottom Line Section */}
-      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-16 sm:pt-20 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="relative overflow-hidden rounded-3xl sm:rounded-[3rem] glass border border-indigo-500/30 p-8 sm:p-12 lg:p-16">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10"></div>
@@ -176,7 +318,7 @@ export function AutomationPage() {
                 <Zap className="w-10 h-10 sm:w-12 sm:h-12" />
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6">
-                The Bottom Line
+                Why Workflow Automation Matters
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-white/80 mb-4 sm:mb-6 leading-relaxed">
                 Automation takes the repetitive, time-consuming tasks off your plate so you can focus on what you do best—growing your business, serving your customers, and innovating.
