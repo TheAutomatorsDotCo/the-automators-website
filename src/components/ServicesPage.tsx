@@ -567,40 +567,40 @@ export function ServicesPage() {
       </section>
 
       {/* Spacer */}
-      <div className="h-20 sm:h-32"></div>
+      <div className="h-12 sm:h-20"></div>
 
       {/* FAQ Section */}
-      <section className="relative pt-10 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">Frequently Asked Questions</h2>
-            <p className="text-lg sm:text-xl text-white/60">
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text mb-3 sm:mb-4">Frequently Asked Questions</h2>
+            <p className="text-base sm:text-lg text-white/60">
               Everything you need to know about our automation services
             </p>
           </div>
 
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-2 sm:space-y-3">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="glass border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden hover:border-white/20 transition-all"
+                className="glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all"
               >
                 <button
                   onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
-                  className="w-full text-left p-6 sm:p-8 flex items-start justify-between gap-4"
+                  className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
                 >
                   <div className="flex-1">
-                    <h3 className="text-white font-semibold text-base sm:text-lg mb-1">
+                    <h3 className="text-white font-semibold text-sm sm:text-base mb-0">
                       {faq.question}
                     </h3>
                     {openFAQ === index && (
-                      <p className="text-white/70 mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed">
+                      <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                         {faq.answer}
                       </p>
                     )}
                   </div>
                   <ChevronDown
-                    className={`w-5 h-5 sm:w-6 sm:h-6 text-white/60 flex-shrink-0 transition-transform ${
+                    className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
                       openFAQ === index ? 'rotate-180' : ''
                     }`}
                   />
@@ -609,11 +609,11 @@ export function ServicesPage() {
             ))}
           </div>
 
-          <div className="text-center mt-10 sm:mt-12">
-            <p className="text-white/60 mb-4 text-sm sm:text-base">Still have questions?</p>
+          <div className="text-center mt-6 sm:mt-8">
+            <p className="text-white/60 mb-3 text-sm">Still have questions?</p>
             <Link
               to="/contact"
-              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm sm:text-base"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm"
             >
               Contact us for answers →
             </Link>
@@ -622,7 +622,7 @@ export function ServicesPage() {
       </section>
 
       {/* Spacer */}
-      <div className="h-10 sm:h-20"></div>
+      <div className="h-8 sm:h-12"></div>
 
       {/* CTA */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8">

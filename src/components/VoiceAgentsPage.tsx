@@ -1,10 +1,11 @@
-import React from 'react';
-import { Phone, PhoneCall, Star, MessageCircle, Users, TrendingUp, Brain, CheckCircle, AlertTriangle, UserCheck } from 'lucide-react';
+import React, { useState } from 'react';
+import { Phone, PhoneCall, Star, MessageCircle, Users, TrendingUp, Brain, CheckCircle, AlertTriangle, UserCheck, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function VoiceAgentsPage() {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const features = [
     {
       icon: <Phone className="w-8 h-8" />,
@@ -334,92 +335,232 @@ export function VoiceAgentsPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Frequently Asked Questions</h2>
-            <p className="text-xl text-white/60">
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text mb-3 sm:mb-4">Frequently Asked Questions</h2>
+            <p className="text-base sm:text-lg text-white/60">
               Everything you need to know about AI Voice Agents
             </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">What are AI voice agents?</h3>
-              <p className="text-white/60">
-                AI voice agents are intelligent virtual assistants that can make real phone calls to your customers. They use natural language processing and human-sounding voices to have conversations, answer questions, and complete tasks like requesting reviews or scheduling appointments. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about automation workflows</Link>.
-              </p>
+          <div className="space-y-3 sm:space-y-4">
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What are AI voice agents?</h3>
+                  {openFAQ === 1 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      AI voice agents are intelligent virtual assistants that can make real phone calls to your customers. They use natural language processing and human-sounding voices to have conversations, answer questions, and complete tasks like requesting reviews or scheduling appointments. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about automation workflows</Link>.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 1 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">Do voice agents sound robotic?</h3>
-              <p className="text-white/60">
-                Not at all! Modern AI voice agents use advanced text-to-speech technology to sound remarkably human. They understand context, respond naturally to questions, and adapt their conversation based on customer responses—creating genuine, helpful interactions that most customers can't distinguish from a human agent.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 2 ? null : 2)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Do voice agents sound robotic?</h3>
+                  {openFAQ === 2 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Not at all! Modern AI voice agents use advanced text-to-speech technology to sound remarkably human. They understand context, respond naturally to questions, and adapt their conversation based on customer responses—creating genuine, helpful interactions that most customers can't distinguish from a human agent.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 2 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">Can voice agents handle complex conversations?</h3>
-              <p className="text-white/60">
-                AI voice agents excel at structured conversations like follow-ups, appointment reminders, review requests, and lead qualification. For complex issues or upset customers, they intelligently escalate to your team. They're designed to handle 80% of routine calls, freeing your team for situations that require human judgment.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 3 ? null : 3)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Can voice agents handle complex conversations?</h3>
+                  {openFAQ === 3 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      AI voice agents excel at structured conversations like follow-ups, appointment reminders, review requests, and lead qualification. For complex issues or upset customers, they intelligently escalate to your team. They're designed to handle 80% of routine calls, freeing your team for situations that require human judgment.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 3 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">How much do AI voice agents cost?</h3>
-              <p className="text-white/60">
-                Our AI Voice Agent services start at $1,997 for up to 100 calls/month. Professional plans ($3,997) include up to 500 calls/month with advanced features. We also offer custom Enterprise pricing for unlimited calls. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View detailed pricing</Link>.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 4 ? null : 4)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How much do AI voice agents cost?</h3>
+                  {openFAQ === 4 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Our AI Voice Agent services start at $1,997 for up to 100 calls/month. Professional plans ($3,997) include up to 500 calls/month with advanced features. We also offer custom Enterprise pricing for unlimited calls. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View detailed pricing</Link>.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 4 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">What happens if a customer has a question the agent can't answer?</h3>
-              <p className="text-white/60">
-                Voice agents are trained on your business information and can handle most common questions. If they encounter something they can't answer, they gracefully acknowledge it and either take a message for your team or transfer the call to a human staff member. You maintain full control over escalation rules.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 5 ? null : 5)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What happens if a customer has a question the agent can't answer?</h3>
+                  {openFAQ === 5 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Voice agents are trained on your business information and can handle most common questions. If they encounter something they can't answer, they gracefully acknowledge it and either take a message for your team or transfer the call to a human staff member. You maintain full control over escalation rules.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 5 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">How long does it take to set up voice agents?</h3>
-              <p className="text-white/60">
-                Initial setup typically takes 1-2 weeks. This includes training the AI on your business, creating conversation scripts, testing calls, and integration with your existing systems. Once launched, voice agents are available 24/7 and can start making calls immediately.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 6 ? null : 6)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How long does it take to set up voice agents?</h3>
+                  {openFAQ === 6 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Initial setup typically takes 1-2 weeks. This includes training the AI on your business, creating conversation scripts, testing calls, and integration with your existing systems. Once launched, voice agents are available 24/7 and can start making calls immediately.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 6 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">Can voice agents speak multiple languages?</h3>
-              <p className="text-white/60">
-                Yes! AI voice agents can be configured to speak multiple languages and can even detect the customer's preferred language and switch automatically. This makes them ideal for businesses serving diverse customer bases.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 7 ? null : 7)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Can voice agents speak multiple languages?</h3>
+                  {openFAQ === 7 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Yes! AI voice agents can be configured to speak multiple languages and can even detect the customer's preferred language and switch automatically. This makes them ideal for businesses serving diverse customer bases.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 7 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">Are voice agents available 24/7?</h3>
-              <p className="text-white/60">
-                Absolutely! Unlike human staff, AI voice agents work around the clock without breaks, holidays, or sick days. They can make calls at optimal times based on your customer data, even outside business hours, ensuring maximum reach and response rates.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 8 ? null : 8)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Are voice agents available 24/7?</h3>
+                  {openFAQ === 8 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Absolutely! Unlike human staff, AI voice agents work around the clock without breaks, holidays, or sick days. They can make calls at optimal times based on your customer data, even outside business hours, ensuring maximum reach and response rates.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 8 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">What's the difference between voice agents and IVR systems?</h3>
-              <p className="text-white/60">
-                IVR systems use pre-recorded menus and button presses ("Press 1 for..."). AI voice agents have natural, two-way conversations, understanding spoken responses and adapting in real-time. They're much more engaging and effective for tasks requiring interaction, like review requests or feedback collection.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 9 ? null : 9)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What's the difference between voice agents and IVR systems?</h3>
+                  {openFAQ === 9 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      IVR systems use pre-recorded menus and button presses ("Press 1 for..."). AI voice agents have natural, two-way conversations, understanding spoken responses and adapting in real-time. They're much more engaging and effective for tasks requiring interaction, like review requests or feedback collection.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 9 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-3 text-lg font-semibold">Can customers tell it's an AI?</h3>
-              <p className="text-white/60">
-                With modern voice AI technology, most customers can't tell the difference, especially for routine calls like follow-ups and reminders. We're transparent when required by law, but the voice quality and conversation flow are so natural that customers focus on the message, not the messenger.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 10 ? null : 10)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Can customers tell it's an AI?</h3>
+                  {openFAQ === 10 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      With modern voice AI technology, most customers can't tell the difference, especially for routine calls like follow-ups and reminders. We're transparent when required by law, but the voice quality and conversation flow are so natural that customers focus on the message, not the messenger.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 10 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-white/60 mb-4">Ready to deploy AI Voice Agents?</p>
+          <div className="text-center mt-6 sm:mt-8">
+            <p className="text-white/60 mb-3 text-sm">Ready to deploy AI Voice Agents?</p>
             <Link
               to="/contact"
-              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm"
             >
               Schedule a demo call to hear them in action →
             </Link>

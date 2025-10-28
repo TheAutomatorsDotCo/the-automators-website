@@ -1,10 +1,11 @@
-import React from 'react';
-import { Zap, Clock, TrendingUp, ArrowLeft, CheckCircle, Users } from 'lucide-react';
+import React, { useState } from 'react';
+import { Zap, Clock, TrendingUp, ArrowLeft, CheckCircle, Users, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { AutomationDemo } from './AutomationDemo';
 
 export function AutomationPage() {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const benefits = [
     {
       icon: <Clock className="w-5 h-5 sm:w-6 sm:h-6" />,
@@ -227,80 +228,192 @@ export function AutomationPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative pt-16 sm:pt-20 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text mb-3 sm:mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg sm:text-xl text-white/60">
+            <p className="text-base sm:text-lg text-white/60">
               Everything you need to know about workflow automation
             </p>
           </div>
 
-          <div className="space-y-4 sm:space-y-6">
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What is workflow automation?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Workflow automation is the process of using technology to complete repetitive business tasks without human intervention. It's like having a digital assistant that works 24/7, never makes mistakes, and never needs a break. Common examples include lead capture, client onboarding, invoice processing, and report generation.
-              </p>
+          <div className="space-y-3 sm:space-y-4">
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What is workflow automation?</h3>
+                  {openFAQ === 1 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Workflow automation is the process of using technology to complete repetitive business tasks without human intervention. It's like having a digital assistant that works 24/7, never makes mistakes, and never needs a break. Common examples include lead capture, client onboarding, invoice processing, and report generation.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 1 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How does workflow automation save time?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Workflow automation eliminates manual, repetitive tasks that can take hours each day. For example, lead management automation can save 15-30 minutes per lead, while client onboarding can save 1-2 hours per client. Most businesses reclaim 10-20 hours per week through automation.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 2 ? null : 2)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How does workflow automation save time?</h3>
+                  {openFAQ === 2 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Workflow automation eliminates manual, repetitive tasks that can take hours each day. For example, lead management automation can save 15-30 minutes per lead, while client onboarding can save 1-2 hours per client. Most businesses reclaim 10-20 hours per week through automation.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 2 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What tasks can be automated with workflow automation?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Almost any repetitive task can be automated: data entry, email sequences, CRM updates, document generation, appointment scheduling, social media posting, invoice creation, report generation, lead routing, customer notifications, and much more. If you do it more than once, it can probably be automated.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 3 ? null : 3)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What tasks can be automated with workflow automation?</h3>
+                  {openFAQ === 3 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Almost any repetitive task can be automated: data entry, email sequences, CRM updates, document generation, appointment scheduling, social media posting, invoice creation, report generation, lead routing, customer notifications, and much more. If you do it more than once, it can probably be automated.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 3 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How much does workflow automation cost?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Our workflow automation services start at $997 for basic automations. Professional plans with up to 10 workflows are $2,497, and we offer custom Enterprise pricing for larger needs. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View our detailed pricing</Link> for complete information.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 4 ? null : 4)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How much does workflow automation cost?</h3>
+                  {openFAQ === 4 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Our workflow automation services start at $997 for basic automations. Professional plans with up to 10 workflows are $2,497, and we offer custom Enterprise pricing for larger needs. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View our detailed pricing</Link> for complete information.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 4 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Is workflow automation right for small businesses?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Absolutely! Small businesses benefit the most from automation because every hour saved has a bigger impact. Automation lets small teams compete with larger companies by handling more work without hiring additional staff. Our affordable pricing makes automation accessible to businesses of all sizes.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 5 ? null : 5)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Is workflow automation right for small businesses?</h3>
+                  {openFAQ === 5 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Absolutely! Small businesses benefit the most from automation because every hour saved has a bigger impact. Automation lets small teams compete with larger companies by handling more work without hiring additional staff. Our affordable pricing makes automation accessible to businesses of all sizes.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 5 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Do I need coding skills to use workflow automation?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Not at all! We build and implement all your workflow automation for you. You don't need any technical knowledge or coding skills. We handle all the technical work and provide training so you can manage your automations confidently.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 6 ? null : 6)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Do I need coding skills to use workflow automation?</h3>
+                  {openFAQ === 6 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Not at all! We build and implement all your workflow automation for you. You don't need any technical knowledge or coding skills. We handle all the technical work and provide training so you can manage your automations confidently.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 6 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What's the difference between workflow automation and RPA?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Workflow automation connects different applications and systems to automate business processes. RPA (Robotic Process Automation) mimics human actions on computers. We use workflow automation which is more flexible, easier to maintain, and better suited for most small to medium businesses.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 7 ? null : 7)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What's the difference between workflow automation and RPA?</h3>
+                  {openFAQ === 7 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Workflow automation connects different applications and systems to automate business processes. RPA (Robotic Process Automation) mimics human actions on computers. We use workflow automation which is more flexible, easier to maintain, and better suited for most small to medium businesses.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 7 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What are the best workflow automation tools?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Popular workflow automation software includes Zapier, Make (Integromat), Microsoft Power Automate, and N8n. We work with all major platforms and recommend the best tools for your specific needs. Learn more about our <Link to="/services" className="text-indigo-400 hover:text-indigo-300">automation services</Link>.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 8 ? null : 8)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What are the best workflow automation tools?</h3>
+                  {openFAQ === 8 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Popular workflow automation software includes Zapier, Make (Integromat), Microsoft Power Automate, and N8n. We work with all major platforms and recommend the best tools for your specific needs. Learn more about our <Link to="/services" className="text-indigo-400 hover:text-indigo-300">automation services</Link>.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 8 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
           </div>
 
-          <div className="text-center mt-10 sm:mt-12">
-            <p className="text-white/60 mb-4 text-sm sm:text-base">Ready to automate your workflows?</p>
+          <div className="text-center mt-6 sm:mt-8">
+            <p className="text-white/60 mb-3 text-sm">Ready to automate your workflows?</p>
             <Link
               to="/assessment"
-              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm sm:text-base"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm"
             >
               Take our 2-minute assessment to get started →
             </Link>

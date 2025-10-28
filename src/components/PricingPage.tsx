@@ -8,6 +8,7 @@ export function PricingPage() {
   const [currency, setCurrency] = useState<'USD' | 'ZAR'>('USD');
   const [paymentPlan, setPaymentPlan] = useState<'once-off' | '6-months' | '12-months' | '18-months'>('once-off');
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   
   // Payment plan multipliers
   const paymentMultipliers = {
@@ -670,70 +671,210 @@ export function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="relative pt-10 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-3xl relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text text-center mb-12 sm:mb-16">Frequently Asked Questions</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text text-center mb-8 sm:mb-10">Frequently Asked Questions</h2>
           
-          <div className="space-y-4 sm:space-y-6">
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How much does workflow automation cost?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Workflow automation pricing starts at $997 for our Starter plan with up to 3 workflows. Our Professional plan is $2,497 for up to 10 workflows, and we offer custom Enterprise pricing for unlimited workflows. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about workflow automation</Link>.
-              </p>
+          <div className="space-y-3 sm:space-y-4">
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How much does workflow automation cost?</h3>
+                  {openFAQ === 1 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Workflow automation pricing starts at $997 for our Starter plan with up to 3 workflows. Our Professional plan is $2,497 for up to 10 workflows, and we offer custom Enterprise pricing for unlimited workflows. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about workflow automation</Link>.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 1 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How long does implementation take?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Most projects are completed within 2-4 weeks, depending on complexity. We'll give you a specific timeline during your discovery call.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 2 ? null : 2)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How long does implementation take?</h3>
+                  {openFAQ === 2 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Most projects are completed within 2-4 weeks, depending on complexity. We'll give you a specific timeline during your discovery call.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 2 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Are there any monthly fees or subscriptions?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                No! Our pricing is one-time. You pay once and own your automation forever. No monthly subscriptions, no recurring fees. The only exception is our optional Monthly Maintenance add-on if you want ongoing optimization.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 3 ? null : 3)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Are there any monthly fees or subscriptions?</h3>
+                  {openFAQ === 3 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      No! Our pricing is one-time. You pay once and own your automation forever. No monthly subscriptions, no recurring fees. The only exception is our optional Monthly Maintenance add-on if you want ongoing optimization.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 3 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What are payment plans and how do they work?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                We offer flexible payment plans (6, 12, or 18 months) with a small premium. This is NOT a subscription – you're still paying for a one-time purchase, just spreading it out. You own your automation forever regardless of how you pay.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 4 ? null : 4)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What are payment plans and how do they work?</h3>
+                  {openFAQ === 4 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      We offer flexible payment plans (6, 12, or 18 months) with a small premium. This is NOT a subscription – you're still paying for a one-time purchase, just spreading it out. You own your automation forever regardless of how you pay.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 4 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What if I need changes later?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                All packages include revision rounds during implementation. After launch, you can purchase additional workflows ($297 each) or monthly maintenance ($497/mo) for ongoing support and optimization.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 5 ? null : 5)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What if I need changes later?</h3>
+                  {openFAQ === 5 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      All packages include revision rounds during implementation. After launch, you can purchase additional workflows ($297 each) or monthly maintenance ($497/mo) for ongoing support and optimization.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 5 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Do I need technical knowledge?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Not at all! We handle all the technical implementation and provide training so you can manage your automations with confidence. No coding or technical skills required.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 6 ? null : 6)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Do I need technical knowledge?</h3>
+                  {openFAQ === 6 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Not at all! We handle all the technical implementation and provide training so you can manage your automations with confidence. No coding or technical skills required.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 6 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What's included in all pricing plans?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Every plan includes: discovery call, strategy session, complete implementation, testing, training, documentation, and a support period (30-365 days depending on plan). No hidden fees or setup charges.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 7 ? null : 7)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What's included in all pricing plans?</h3>
+                  {openFAQ === 7 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Every plan includes: discovery call, strategy session, complete implementation, testing, training, documentation, and a support period (30-365 days depending on plan). No hidden fees or setup charges.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 7 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">What tools do you work with?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                We work with 100+ popular business tools including Zapier, Make, Google Workspace, Microsoft 365, HubSpot, Salesforce, Slack, QuickBooks, Shopify, and many more. View our full <Link to="/services" className="text-indigo-400 hover:text-indigo-300">services page</Link> for details.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 8 ? null : 8)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What tools do you work with?</h3>
+                  {openFAQ === 8 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      We work with 100+ popular business tools including Zapier, Make, Google Workspace, Microsoft 365, HubSpot, Salesforce, Slack, QuickBooks, Shopify, and many more. View our full <Link to="/services" className="text-indigo-400 hover:text-indigo-300">services page</Link> for details.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 8 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">How does the 30-day money-back guarantee work?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                If you're not satisfied within 30 days of project completion, we'll refund your investment – no questions asked. We're confident you'll love your automation, but want you to feel completely risk-free.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 9 ? null : 9)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How does the 30-day money-back guarantee work?</h3>
+                  {openFAQ === 9 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      If you're not satisfied within 30 days of project completion, we'll refund your investment – no questions asked. We're confident you'll love your automation, but want you to feel completely risk-free.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 9 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
-            <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
-              <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">Which plan is right for my business?</h3>
-              <p className="text-white/60 text-sm sm:text-base">
-                Not sure? <Link to="/assessment" className="text-indigo-400 hover:text-indigo-300">Take our 2-minute assessment</Link> to get a personalized recommendation, or <Link to="/contact" className="text-indigo-400 hover:text-indigo-300">schedule a free consultation</Link> to discuss your specific needs.
-              </p>
+            <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:border-white/20 transition-all">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 10 ? null : 10)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
+              >
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Which plan is right for my business?</h3>
+                  {openFAQ === 10 && (
+                    <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      Not sure? <Link to="/assessment" className="text-indigo-400 hover:text-indigo-300">Take our 2-minute assessment</Link> to get a personalized recommendation, or <Link to="/contact" className="text-indigo-400 hover:text-indigo-300">schedule a free consultation</Link> to discuss your specific needs.
+                    </p>
+                  )}
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 flex-shrink-0 transition-transform ${
+                    openFAQ === 10 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
           </div>
         </div>
