@@ -449,7 +449,7 @@ export function ChatbotsPage() {
               {openFAQ === 3 && (
                 <div className="px-4 sm:px-5 pb-4 sm:pb-5">
                   <p className="text-white/70 text-sm leading-relaxed">
-                    AI chatbot development typically starts at $1,497 for a basic single-channel deployment. Professional multi-channel chatbots with advanced features start at $2,997. Enterprise solutions with unlimited capabilities are custom-priced based on your needs. Unlike subscription platforms, you pay once and own the chatbot forever. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View our detailed pricing</Link> for complete information.
+                    AI chatbot development typically starts at $1,497 for a basic single-channel deployment. Professional multi-channel chatbots with advanced features start at $2,997. Enterprise solutions with unlimited capabilities are custom-priced based on your needs. You own your chatbot forever with flexible payment options: pay in full or spread over 6, 12, or 18 months. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View our detailed pricing</Link> for complete information.
                   </p>
                 </div>
               )}

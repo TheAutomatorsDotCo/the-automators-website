@@ -20,8 +20,8 @@ export function ServicesPage() {
       answer: 'We integrate with popular platforms including Zapier, Make (Integromat), Google Workspace, Microsoft 365, Salesforce, HubSpot, Slack, QuickBooks, Xero, WooCommerce, Shopify, and many more.',
     },
     {
-      question: 'Is there a minimum commitment period?',
-      answer: 'No. We bill month-to-month with no long-term contracts. If we don\'t deliver exceptional value, you\'re free to cancel anytime without penalty.',
+      question: 'What are your payment terms?',
+      answer: 'We offer flexible payment options for our automation services. You can pay in full upfront (best value) or choose 6, 12, or 18-month payment plans. Once your automation is paid for, you own it forever. Optional monthly maintenance packages are available if you want ongoing optimization and support.',
     },
     {
       question: 'How much does automation cost?',
@@ -122,7 +122,7 @@ export function ServicesPage() {
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
         title="Business Automation Services | Workflow & AI Solutions"
-        description="Professional automation services: Workflow automation, AI Voice Agents, and Chatbots. Save 15+ hours/week at 25% the cost of hiring. No contracts. Get started today."
+        description="Professional automation services: Workflow automation, AI Voice Agents, and Chatbots. Save 15+ hours/week at 25% the cost of hiring. Flexible payment options. Get started today."
         path="/services"
         keywords="business automation services, workflow automation services, automation consulting services, business process automation services, automation solutions provider"
         structuredData={[
@@ -508,9 +508,9 @@ export function ServicesPage() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">No Contracts</h3>
+                  <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">Flexible Payment Plans</h3>
                   <p className="text-white/70 leading-relaxed text-sm sm:text-base">
-                    We bill on a month-to-month basis. If we don't deliver exceptional value, we don't think you should be trapped by a contract.
+                    Choose to pay in full or spread over 6, 12, or 18 months. Own your automation forever with payment options that work for your business.
                   </p>
                 </div>
               </div>

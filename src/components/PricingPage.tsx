@@ -314,10 +314,10 @@ export function PricingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
-        title="Workflow Automation Pricing: From $997 | No Contracts"
-        description="Transparent automation pricing starting at $997. Workflow automation, AI Voice Agents, and Chatbots. Pay once, own forever. No contracts. Payment plans available."
+        title="Workflow Automation Pricing: From $997 | Flexible Plans"
+        description="Transparent automation pricing starting at $997. Workflow automation, AI Voice Agents, and Chatbots. Own forever with flexible payment plans: pay in full or spread over 6, 12, or 18 months."
         path="/pricing"
-        keywords="automation pricing, workflow automation pricing, business automation cost, automation services pricing, chatbot pricing, voice agent pricing"
+        keywords="automation pricing, workflow automation pricing, business automation cost, automation services pricing, chatbot pricing, voice agent pricing, flexible payment plans"
         structuredData={[
           {
             "@context": "https://schema.org",
@@ -386,7 +386,7 @@ export function PricingPage() {
             Transparent Automation Pricing Plans
           </h1>
           <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto mb-4">
-            One-time investment, lifetime value. No monthly subscriptions – just automation that works for you forever.
+            Own your automation forever with flexible payment options. Pay in full or spread over 6, 12, or 18 months—you choose what works for your business.
           </p>
           <p className="text-base sm:text-lg text-indigo-400 font-semibold mb-8 sm:mb-12">
             Starting at $997
@@ -467,9 +467,9 @@ export function PricingPage() {
               {activeTab === 'chatbots' && 'AI Chatbot Pricing'}
             </h2>
             <p className="text-sm sm:text-base text-white/60 max-w-2xl mx-auto">
-              {activeTab === 'automation' && 'Automate your workflows with one-time pricing. No subscriptions, just automation that works forever.'}
-              {activeTab === 'voice-agents' && 'AI-powered phone calls and customer conversations. Pay once, use forever with flexible usage plans.'}
-              {activeTab === 'chatbots' && 'Intelligent 24/7 customer support. One-time setup fee, own your chatbot forever.'}
+              {activeTab === 'automation' && 'Automate your workflows and own them forever. Choose flexible payment options: pay in full or spread over 6, 12, or 18 months.'}
+              {activeTab === 'voice-agents' && 'AI-powered phone calls and customer conversations. Own forever with flexible payment plans and pay-per-use calling.'}
+              {activeTab === 'chatbots' && 'Intelligent 24/7 customer support. Own your chatbot forever with flexible payment options that fit your budget.'}
             </p>
           </div>
           <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
@@ -653,8 +653,8 @@ export function PricingPage() {
               </p>
               <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
                 <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
-                  <h4 className="text-white mb-1 sm:mb-2 text-sm sm:text-base">No Long-Term Contracts</h4>
-                  <p className="text-white/60 text-xs sm:text-sm">Pay once, own it forever</p>
+                  <h4 className="text-white mb-1 sm:mb-2 text-sm sm:text-base">Flexible Payment Plans</h4>
+                  <p className="text-white/60 text-xs sm:text-sm">Own forever, pay your way</p>
                 </div>
                 <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
                   <h4 className="text-white mb-1 sm:mb-2 text-sm sm:text-base">Transparent Pricing</h4>
@@ -725,7 +725,7 @@ export function PricingPage() {
                   <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Are there any monthly fees or subscriptions?</h3>
                   {openFAQ === 3 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
-                      No! Our pricing is one-time. You pay once and own your automation forever. No monthly subscriptions, no recurring fees. The only exception is our optional Monthly Maintenance add-on if you want ongoing optimization.
+                      We offer flexible options: pay in full or choose 6, 12, or 18-month payment plans. Either way, you own your automation forever—it's not a subscription. The payment plans are simply installment options for the one-time purchase. The only ongoing fee is our optional Monthly Maintenance add-on if you want continued optimization.
                     </p>
                   )}
                 </div>
@@ -745,7 +745,7 @@ export function PricingPage() {
                   <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What are payment plans and how do they work?</h3>
                   {openFAQ === 4 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
-                      We offer flexible payment plans (6, 12, or 18 months) with a small premium. This is NOT a subscription – you're still paying for a one-time purchase, just spreading it out. You own your automation forever regardless of how you pay.
+                      We offer flexible payment plans where you can spread the cost over 6, 12, or 18 months with a small premium (15%, 25%, or 35% respectively). This is NOT a subscription or recurring service – you're paying for a one-time purchase via installments. Once paid off, you own your automation forever with no ongoing fees (unless you choose optional maintenance).
                     </p>
                   )}
                 </div>
