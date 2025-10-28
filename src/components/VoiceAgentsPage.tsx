@@ -146,7 +146,6 @@ export function VoiceAgentsPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="h-10 mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6 max-w-4xl mx-auto">
             AI Voice Agents That Call Your Customers For You
           </h1>
@@ -171,12 +170,11 @@ export function VoiceAgentsPage() {
       </section>
 
       {/* What Are Voice Agents Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="glass border border-white/10 rounded-3xl p-12 sm:p-16">
+          <div className="glass border border-white/10 rounded-3xl p-8 sm:p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="h-10 mb-6"></div>
                 <h2 className="text-4xl sm:text-5xl gradient-text mb-6">What Are AI Voice Agents?</h2>
                 <p className="text-white/70 text-lg mb-6">
                   Voice Agents are AI-powered virtual assistants that integrate seamlessly into your automation systems. They can make real phone calls to your clients at specific points in your workflow, handling conversations naturally with human-sounding voices.
@@ -221,7 +219,6 @@ export function VoiceAgentsPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
-            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">How AI Voice Agents Transform Your Business</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               From review generation to customer support, Voice Agents handle conversations that drive results.
@@ -247,13 +244,12 @@ export function VoiceAgentsPage() {
       </section>
 
       {/* Real Example Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-5xl relative z-10">
-          <div className="relative overflow-hidden rounded-3xl glass border border-white/10 p-12 sm:p-16">
+          <div className="relative overflow-hidden rounded-3xl glass border border-white/10 p-8 sm:p-12">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10"></div>
             <div className="relative z-10">
               <div className="text-center mb-12">
-                <div className="h-10 mb-6"></div>
                 <h2 className="text-4xl sm:text-5xl gradient-text mb-4">How It Works In Practice</h2>
               </div>
 
