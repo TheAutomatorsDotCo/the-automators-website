@@ -296,6 +296,17 @@ export function HomePage() {
               </div>
             ))}
           </div>
+          
+          {/* Case Studies CTA */}
+          <div className="text-center mt-12">
+            <Link
+              to="/case-studies"
+              className="inline-flex items-center space-x-2 btn-3d bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-full font-medium text-lg group"
+            >
+              <span>See Detailed Case Studies</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
 

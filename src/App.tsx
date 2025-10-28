@@ -9,6 +9,8 @@ import { VoiceAgentsPage } from './components/VoiceAgentsPage';
 import { ChatbotsPage } from './components/ChatbotsPage';
 import { PricingPage } from './components/PricingPage';
 import { ContactPage } from './components/ContactPage';
+import { CaseStudiesPage } from './components/CaseStudies/CaseStudiesPage';
+import { PlatinumRepairsCaseStudy } from './components/CaseStudies/PlatinumRepairsCaseStudy';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 
@@ -32,6 +34,8 @@ export default function App() {
               <Route path="/services/voice-agents" element={<VoiceAgentsPage />} />
               <Route path="/services/chatbots" element={<ChatbotsPage />} />
               <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/case-studies" element={<CaseStudiesPage />} />
+              <Route path="/case-studies/platinum-repairs" element={<PlatinumRepairsCaseStudy />} />
               <Route path="/contact" element={<ContactPage />} />
               {/* 404 redirect to home */}
               <Route path="*" element={<HomePage />} />

@@ -53,5 +53,21 @@
         <priority>0.7</priority>
     </url>
     
+    <!-- Case Studies Main Page -->
+    <url>
+        <loc>https://theautomators.com/case-studies</loc>
+        <lastmod>2025-10-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Platinum Repairs Case Study -->
+    <url>
+        <loc>https://theautomators.com/case-studies/platinum-repairs</loc>
+        <lastmod>2025-10-28</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
 </urlset>
 
