@@ -389,7 +389,7 @@ export function ChatbotsPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-20 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text mb-3 sm:mb-4">Frequently Asked Questions</h2>
