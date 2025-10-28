@@ -111,6 +111,13 @@ export function DeviceDoctorCaseStudy() {
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-12 sm:pb-16 lg:pb-20 text-center">
         <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
+        <div className="flex justify-center mb-6 sm:mb-8">
+          <img 
+            src="/dd-logo.png" 
+            alt="Device Doctor logo"
+            className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
+          />
+        </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
           Device Doctor: <span className="gradient-text">Hundreds of Hours</span> Saved Weekly
         </h1>
@@ -375,36 +382,43 @@ export function DeviceDoctorCaseStudy() {
       {/* CTA Section */}
       <section className="py-16 sm:py-20 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="glass rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16 text-center border border-white/10">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 sm:mb-8">Ready to Transform Your Operations?</h2>
-            <div className="max-w-md mx-auto text-left text-base sm:text-lg space-y-2 sm:space-y-3 mb-8 sm:mb-10">
-              <p className="flex items-center text-white/70">
-                <X className="w-5 h-5 sm:w-6 sm:h-6 text-red-400 mr-3 flex-shrink-0" />
-                Manual processes slowing you down
+          <div className="glass rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16 border border-white/10">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 sm:mb-8">Ready to Transform Your Operations?</h2>
+              <div className="max-w-md mx-auto text-base sm:text-lg space-y-2 sm:space-y-3 mb-8 sm:mb-10">
+                <p className="text-white/70">
+                  Manual processes slowing you down
+                </p>
+                <p className="text-white/70">
+                  Team overwhelmed by routine inquiries
+                </p>
+                <p className="text-white/70">
+                  High operational costs cutting into profits
+                </p>
+                <p className="text-white/70">
+                  Inconsistent customer experience
+                </p>
+              </div>
+              <p className="text-base sm:text-lg lg:text-xl text-white/80 mb-4">
+                Let us help you achieve the same results. Our solutions are budget-friendly, require no long-term contracts, and are designed to empower your business from day one.
               </p>
-              <p className="flex items-center text-white/70">
-                <X className="w-5 h-5 sm:w-6 sm:h-6 text-red-400 mr-3 flex-shrink-0" />
-                Team overwhelmed by routine inquiries
-              </p>
-              <p className="flex items-center text-white/70">
-                <X className="w-5 h-5 sm:w-6 sm:h-6 text-red-400 mr-3 flex-shrink-0" />
-                High operational costs cutting into profits
-              </p>
-              <p className="flex items-center text-white/70">
-                <X className="w-5 h-5 sm:w-6 sm:h-6 text-red-400 mr-3 flex-shrink-0" />
-                Inconsistent customer experience
+              <p className="text-sm sm:text-base text-cyan-400 font-medium">
+                Book a chat below and get 50% off your first 3 months (mention this case study for your discount)
               </p>
             </div>
-            <p className="text-base sm:text-lg lg:text-xl text-white/80 mb-6 sm:mb-8 max-w-2xl mx-auto">
-              Let us help you achieve the same results. Our solutions are budget-friendly, require no long-term contracts, and are designed to empower your business from day one.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-block btn-3d bg-gradient-to-r from-cyan-500 to-teal-500 text-white text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-full font-medium hover:scale-105 transition-transform"
-            >
-              Book a Chat & Get 50% Off Your First 3 Months
-            </Link>
-            <p className="text-xs sm:text-sm text-white/50 mt-3 sm:mt-4">(Mention this case study for your discount)</p>
+            
+            {/* Airtable Form Embed */}
+            <div className="max-w-3xl mx-auto">
+              <iframe 
+                className="airtable-embed rounded-xl" 
+                src="https://airtable.com/embed/appOPjh4b6moMoFw6/pagxWsYdS1xQWlg6h/form" 
+                frameBorder="0" 
+                onMouseWheel="" 
+                width="100%" 
+                height="1080" 
+                style={{ background: 'transparent', border: '1px solid rgba(255, 255, 255, 0.1)' }}
+              />
+            </div>
           </div>
         </div>
       </section>

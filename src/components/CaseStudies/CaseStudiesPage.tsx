@@ -72,6 +72,32 @@ export function CaseStudiesPage() {
       slug: '/case-studies/device-doctor',
       gradient: 'from-cyan-500 to-teal-500',
     },
+    {
+      id: 'in-en-om',
+      title: 'Complete Digital Ecosystem',
+      company: 'IN&OM Suid-Afrika',
+      industry: 'Community Platform & Business Directory',
+      description: 'We built a comprehensive business platform combining directory, job portal, marketplace, and community sections—all powered by automation and modern technology.',
+      stats: [
+        {
+          label: 'Major Features',
+          value: '15+',
+          icon: <TrendingUp className="w-6 h-6" />,
+        },
+        {
+          label: 'Pages Developed',
+          value: '13+',
+          icon: <Zap className="w-6 h-6" />,
+        },
+        {
+          label: 'Monthly Automations',
+          value: '15,000',
+          icon: <Users className="w-6 h-6" />,
+        },
+      ],
+      slug: '/case-studies/in-en-om',
+      gradient: 'from-green-500 to-emerald-500',
+    },
     // Add more case studies here as you create them
   ];
 
