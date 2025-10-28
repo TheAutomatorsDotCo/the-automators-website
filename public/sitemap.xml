@@ -69,5 +69,13 @@
         <priority>0.7</priority>
     </url>
     
+    <!-- Device Doctor Case Study -->
+    <url>
+        <loc>https://theautomators.com/case-studies/device-doctor</loc>
+        <lastmod>2025-10-28</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
 </urlset>
 

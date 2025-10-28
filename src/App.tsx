@@ -11,6 +11,7 @@ import { PricingPage } from './components/PricingPage';
 import { ContactPage } from './components/ContactPage';
 import { CaseStudiesPage } from './components/CaseStudies/CaseStudiesPage';
 import { PlatinumRepairsCaseStudy } from './components/CaseStudies/PlatinumRepairsCaseStudy';
+import { DeviceDoctorCaseStudy } from './components/CaseStudies/DeviceDoctorCaseStudy';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 
@@ -36,6 +37,7 @@ export default function App() {
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/case-studies" element={<CaseStudiesPage />} />
               <Route path="/case-studies/platinum-repairs" element={<PlatinumRepairsCaseStudy />} />
+              <Route path="/case-studies/device-doctor" element={<DeviceDoctorCaseStudy />} />
               <Route path="/contact" element={<ContactPage />} />
               {/* 404 redirect to home */}
               <Route path="*" element={<HomePage />} />

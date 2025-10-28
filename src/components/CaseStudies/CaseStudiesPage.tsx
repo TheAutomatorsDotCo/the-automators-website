@@ -46,6 +46,32 @@ export function CaseStudiesPage() {
       slug: '/case-studies/platinum-repairs',
       gradient: 'from-indigo-500 to-purple-500',
     },
+    {
+      id: 'device-doctor',
+      title: 'Operations Revolutionized',
+      company: 'Device Doctor',
+      industry: 'Electronics Repair & Insurance',
+      description: 'Discover how Device Doctor saved hundreds of hours weekly through automated claim processing, AI chatbots, and intelligent inventory management.',
+      stats: [
+        {
+          label: 'Time Saved',
+          value: '30%',
+          icon: <TrendingUp className="w-6 h-6" />,
+        },
+        {
+          label: 'Inquiry Reduction',
+          value: '87%',
+          icon: <Zap className="w-6 h-6" />,
+        },
+        {
+          label: 'Weekly Hours Saved',
+          value: '100+',
+          icon: <Users className="w-6 h-6" />,
+        },
+      ],
+      slug: '/case-studies/device-doctor',
+      gradient: 'from-cyan-500 to-teal-500',
+    },
     // Add more case studies here as you create them
   ];
 
