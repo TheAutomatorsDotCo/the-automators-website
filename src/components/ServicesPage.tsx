@@ -406,6 +406,9 @@ export function ServicesPage() {
         </div>
       </section>
 
+      {/* Spacer */}
+      <div className="h-20 sm:h-32"></div>
+
       {/* About Our Team */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
