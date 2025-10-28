@@ -341,7 +341,7 @@ export function ChatbotsPage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8">
+      <section className="relative pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="relative overflow-hidden rounded-3xl glass border border-white/10 p-12 sm:p-16">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10"></div>
