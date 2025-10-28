@@ -179,11 +179,13 @@ export function DeviceDoctorCaseStudy() {
       <section className="py-16 sm:py-20 lg:py-24 bg-white/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-6 sm:mb-8 text-center">The Challenge</h2>
-            <p className="text-base sm:text-lg text-white/70 mb-8 sm:mb-10 leading-relaxed text-center">
-              In insured electronics repair, efficiency isn't optional—it's survival. Device Doctor faced mounting pressure from manual processes that couldn't scale with demand.
-            </p>
+            <div className="text-center">
+              <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-6 sm:mb-8">The Challenge</h2>
+              <p className="text-base sm:text-lg text-white/70 mb-8 sm:mb-10 leading-relaxed">
+                In insured electronics repair, efficiency isn't optional—it's survival. Device Doctor faced mounting pressure from manual processes that couldn't scale with demand.
+              </p>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
