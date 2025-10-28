@@ -207,7 +207,7 @@ export function ChatbotsPage() {
       </section>
 
       {/* Benefits Stats */}
-      <section className="relative py-12 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4">Proven Results with AI Chatbots</h2>
