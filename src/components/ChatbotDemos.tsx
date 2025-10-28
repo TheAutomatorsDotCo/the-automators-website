@@ -136,7 +136,7 @@ export function ChatbotDemos() {
     <section className="relative py-16 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 pt-8">
           <h2 className="text-4xl sm:text-5xl gradient-text mb-4">
             Meet Your Always-On Team: Interactive Chatbot Demos
           </h2>
