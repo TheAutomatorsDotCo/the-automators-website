@@ -460,7 +460,7 @@ export function PricingPage() {
       {/* Pricing Cards */}
       <section className="relative pt-10 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="text-center mb-10 sm:mb-12">
+          <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text mb-3 sm:mb-4">
               {activeTab === 'automation' && 'Workflow Automation Pricing'}
               {activeTab === 'voice-agents' && 'AI Voice Agent Pricing'}
@@ -671,7 +671,7 @@ export function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-12 sm:pt-16 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-3xl relative z-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text text-center mb-8 sm:mb-10">Frequently Asked Questions</h2>
           
