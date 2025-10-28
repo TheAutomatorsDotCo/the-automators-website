@@ -183,7 +183,6 @@ export function ChatbotsPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="h-10 mb-6"></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6 max-w-4xl mx-auto">
             AI Chatbots That Provide 24/7 Customer Support
           </h1>
@@ -229,12 +228,11 @@ export function ChatbotsPage() {
       </section>
 
       {/* What Are Chatbots Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="glass border border-white/10 rounded-3xl p-12 sm:p-16">
+          <div className="glass border border-white/10 rounded-3xl p-8 sm:p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="h-10 mb-6"></div>
                 <h2 className="text-4xl sm:text-5xl gradient-text mb-6">What Are AI Chatbots?</h2>
                 <p className="text-white/70 text-lg mb-6">
                   AI chatbots are intelligent virtual assistants that communicate with your customers through natural conversation. Unlike simple automated responses, modern chatbots understand context, learn from interactions, and provide personalized help.
@@ -282,7 +280,6 @@ export function ChatbotsPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
-            <div className="h-10 mb-6"></div>
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Benefits of AI Chatbots for Business</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               From customer support to sales, chatbots deliver measurable results for businesses of all sizes.
