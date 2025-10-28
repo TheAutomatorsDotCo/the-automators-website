@@ -305,7 +305,7 @@ export function ChatbotsPage() {
       </section>
 
       {/* Use Cases Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl gradient-text mb-6">AI Chatbot Use Cases & Applications</h2>
