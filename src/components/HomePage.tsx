@@ -208,7 +208,7 @@ export function HomePage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto pb-20 sm:pb-32">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
@@ -278,7 +278,7 @@ export function HomePage() {
           </div>
           
           {/* Case Studies CTA */}
-          <div className="text-center mt-32 sm:mt-40 pt-12 sm:pt-16">
+          <div className="text-center">
             <Link
               to="/case-studies"
               className="inline-flex items-center space-x-2 btn-3d bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-base sm:text-lg md:text-xl group"
