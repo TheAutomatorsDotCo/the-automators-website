@@ -21,10 +21,10 @@ export function PricingPage() {
   
   // Payment plan options
   const paymentOptions = [
-    { value: 'once-off', label: 'Pay in Full', badge: 'Best Value', icon: '💎' },
-    { value: '6-months', label: '6 Monthly Payments', badge: '', icon: '📅' },
-    { value: '12-months', label: '12 Monthly Payments', badge: '', icon: '📅' },
-    { value: '18-months', label: '18 Monthly Payments', badge: '', icon: '📅' },
+    { value: 'once-off', label: 'Pay in Full', badge: 'Best Value', icon: '✓' },
+    { value: '6-months', label: '6 Monthly Payments', badge: '', icon: '💳' },
+    { value: '12-months', label: '12 Monthly Payments', badge: '', icon: '💳' },
+    { value: '18-months', label: '18 Monthly Payments', badge: '', icon: '💳' },
   ];
   
   // Close dropdown when clicking outside
@@ -502,8 +502,8 @@ export function PricingPage() {
                         }}
                         className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg sm:rounded-xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 text-white font-medium hover:from-white/15 hover:to-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center justify-between"
                       >
-                        <span className="flex items-center gap-2 sm:gap-3">
-                          <span className="mr-1">{paymentOptions.find(opt => opt.value === paymentPlan)?.icon}</span>
+                        <span className="flex items-center gap-3 sm:gap-4">
+                          <span className="inline-block min-w-[16px]">{paymentOptions.find(opt => opt.value === paymentPlan)?.icon}</span>
                           <span>{paymentOptions.find(opt => opt.value === paymentPlan)?.label}</span>
                           {paymentOptions.find(opt => opt.value === paymentPlan)?.badge && (
                             <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded-full ${
@@ -539,8 +539,8 @@ export function PricingPage() {
                                   : 'text-white/80 hover:bg-white/10 hover:text-white'
                               }`}
                             >
-                              <span className="flex items-center gap-2 sm:gap-3">
-                                <span className="mr-1">{option.icon}</span>
+                              <span className="flex items-center gap-3 sm:gap-4">
+                                <span className="inline-block min-w-[16px]">{option.icon}</span>
                                 <span className="font-medium">{option.label}</span>
                               </span>
                               {option.badge && (
