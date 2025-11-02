@@ -15,30 +15,33 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <header className="fixed top-6 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl">
+        <div className={`glass px-6 border border-white/10 shadow-2xl transition-all ${
+          mobileMenuOpen ? 'rounded-[2.5rem]' : 'rounded-full'
+        }`}>
+          <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link 
             to="/"
             className="flex items-center space-x-3 group"
           >
             <div className="relative">
-              <div className="w-12 h-12 flex items-center justify-center transform transition-transform group-hover:scale-110">
+              <div className="w-10 h-10 flex items-center justify-center transform transition-transform group-hover:scale-110">
                 <img src="/logo.png" alt="The Automators Logo" className="w-full h-full" />
               </div>
               <div className="absolute inset-0 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" style={{ background: 'linear-gradient(135deg, #FF6B6B 0%, #C44569 50%, #5F27CD 100%)' }}></div>
             </div>
-            <span className="text-white text-xl tracking-tight">The Automators</span>
+            <span className="text-white text-lg tracking-tight">The Automators</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-2">
+          <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-5 py-2.5 rounded-full transition-all ${
+                className={`px-4 py-2 text-sm rounded-full transition-all ${
                   location.pathname === item.path
                     ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/50'
                     : 'text-white/80 hover:text-white hover:bg-white/5'
@@ -49,7 +52,7 @@ export function Header() {
             ))}
             <Link
               to="/contact"
-              className="ml-4 btn-3d bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2.5 rounded-full"
+              className="ml-2 btn-3d bg-gradient-to-r from-pink-500 to-rose-500 text-white px-5 py-2 text-sm rounded-full"
             >
               Contact Us
             </Link>
@@ -60,36 +63,37 @@ export function Header() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden text-white p-2 rounded-xl hover:bg-white/5"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-        </div>
+          </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <nav className="lg:hidden py-6 space-y-2">
-            {navItems.map((item) => (
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <nav className="lg:hidden pt-4 pb-4 space-y-2 border-t border-white/10">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block w-full text-center px-4 py-2.5 text-sm rounded-full transition-all ${
+                    location.pathname === item.path
+                      ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white'
+                      : 'text-white/80 hover:bg-white/5'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
               <Link
-                key={item.path}
-                to={item.path}
+                to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block w-full text-left px-6 py-3 rounded-2xl transition-all ${
-                  location.pathname === item.path
-                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white'
-                    : 'text-white/80 hover:bg-white/5'
-                }`}
+                className="block w-full text-center px-4 py-2.5 text-sm bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full"
               >
-                {item.name}
+                Contact Us
               </Link>
-            ))}
-            <Link
-              to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-left px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-2xl"
-            >
-              Contact Us
-            </Link>
-          </nav>
-        )}
+            </nav>
+          )}
+        </div>
       </div>
     </header>
   );
