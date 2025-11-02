@@ -147,12 +147,12 @@ export function HomePage() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl gradient-text">200+</div>
-                <div className="text-sm sm:text-base text-white/60 mt-1">Happy Clients</div>
+                <div className="text-3xl sm:text-4xl gradient-text">99.9%</div>
+                <div className="text-sm sm:text-base text-white/60 mt-1">Uptime Reliability</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl gradient-text">15hrs</div>
-                <div className="text-sm sm:text-base text-white/60 mt-1">Saved/Week</div>
+                <div className="text-3xl sm:text-4xl gradient-text">24.66yrs</div>
+                <div className="text-sm sm:text-base text-white/60 mt-1">Work Automated</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl gradient-text">98%</div>
