@@ -162,7 +162,7 @@ export function ChatbotDemos() {
                   <RotateCcw className="w-4 h-4 text-white/60" />
                 </button>
               </div>
-              <p className="text-white/60 text-sm mb-3">
+              <p className="text-white/60 text-base mb-3">
                 Instant, 24/7 customer service that filters common questions and saves staff time.
               </p>
               
@@ -171,11 +171,11 @@ export function ChatbotDemos() {
                 <div className="flex items-center space-x-3 mb-3 animate-fade-in">
                   <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-500/20">
                     <Check className="w-4 h-4 text-green-400" />
-                    <span className="text-sm text-white">Resolved: {demo1State.resolvedCount}</span>
+                    <span className="text-base text-white">Resolved: {demo1State.resolvedCount}</span>
                   </div>
                   <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20">
                     <Clock className="w-4 h-4 text-blue-400" />
-                    <span className="text-sm text-white">5 min saved</span>
+                    <span className="text-base text-white">5 min saved</span>
                   </div>
                 </div>
               )}
@@ -190,7 +190,7 @@ export function ChatbotDemos() {
                     <Bot className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-white text-sm font-semibold">Support Assistant</div>
+                    <div className="text-white text-base font-semibold">Support Assistant</div>
                     <div className="text-white/70 text-xs flex items-center">
                       <div className="w-2 h-2 rounded-full bg-green-400 mr-1"></div>
                       Always online
@@ -213,7 +213,7 @@ export function ChatbotDemos() {
                           : 'bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-tr-none'
                       }`}
                     >
-                      <p className="text-sm whitespace-pre-line">{message.text}</p>
+                      <p className="text-base whitespace-pre-line">{message.text}</p>
                     </div>
                   </div>
                 ))}
@@ -224,7 +224,7 @@ export function ChatbotDemos() {
                     <div className="flex items-start space-x-3">
                       <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-white text-sm font-semibold mb-1">24/7 Availability</p>
+                        <p className="text-white text-base font-semibold mb-1">24/7 Availability</p>
                         <p className="text-white/70 text-xs">
                           This instant resolution saved 5 minutes of staff time. Clients get answers instantly, 365 days a year.
                         </p>
@@ -239,7 +239,7 @@ export function ChatbotDemos() {
                 <button
                   onClick={runDemo1}
                   disabled={demo1State.isAnimating}
-                  className={`w-full py-3 rounded-xl text-white text-sm font-semibold transition-all ${
+                  className={`w-full py-3 rounded-xl text-white text-base font-semibold transition-all ${
                     demo1State.isAnimating
                       ? 'bg-white/5 cursor-not-allowed'
                       : 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600'
@@ -252,7 +252,7 @@ export function ChatbotDemos() {
 
             {/* Summary */}
             <div className="mt-4 p-3 rounded-xl bg-white/5 border border-white/10">
-              <p className="text-white/80 text-sm">
+              <p className="text-white/80 text-base">
                 <strong className="text-white">Benefit:</strong> Clients get answers instantly, 365 days a year, freeing up your team for complex issues.
               </p>
             </div>
@@ -274,7 +274,7 @@ export function ChatbotDemos() {
                   <RotateCcw className="w-4 h-4 text-white/60" />
                 </button>
               </div>
-              <p className="text-white/60 text-sm mb-3">
+              <p className="text-white/60 text-base mb-3">
                 Guides customers to the right product, increasing engagement and driving sales.
               </p>
 
@@ -283,11 +283,11 @@ export function ChatbotDemos() {
                 <div className="flex items-center space-x-3 mb-3 animate-fade-in">
                   <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-500/20">
                     <DollarSign className="w-4 h-4 text-green-400" />
-                    <span className="text-sm text-white">Sales +1</span>
+                    <span className="text-base text-white">Sales +1</span>
                   </div>
                   <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
                     <TrendingUp className="w-4 h-4 text-cyan-400" />
-                    <span className="text-sm text-white">Engagement ↑</span>
+                    <span className="text-base text-white">Engagement ↑</span>
                   </div>
                 </div>
               )}
@@ -302,7 +302,7 @@ export function ChatbotDemos() {
                     <Bot className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-white text-sm font-semibold">Shopping Assistant</div>
+                    <div className="text-white text-base font-semibold">Shopping Assistant</div>
                     <div className="text-white/70 text-xs flex items-center">
                       <div className="w-2 h-2 rounded-full bg-green-400 mr-1"></div>
                       Ready to help
@@ -325,7 +325,7 @@ export function ChatbotDemos() {
                           : 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-tr-none'
                       }`}
                     >
-                      <p className="text-sm whitespace-pre-line">{message.text}</p>
+                      <p className="text-base whitespace-pre-line">{message.text}</p>
                     </div>
                   </div>
                 ))}
@@ -339,7 +339,7 @@ export function ChatbotDemos() {
                           <span className="text-2xl">🎒</span>
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-white font-semibold text-sm mb-1">Navigator Backpack</h4>
+                          <h4 className="text-white font-semibold text-base mb-1">Navigator Backpack</h4>
                           <p className="text-white/60 text-xs mb-2">Fits 15" laptop • Water bottle pocket</p>
                           <div className="flex items-center justify-between">
                             <span className="text-cyan-400 font-bold">$89.99</span>
@@ -359,7 +359,7 @@ export function ChatbotDemos() {
                     <div className="flex items-start space-x-3">
                       <TrendingUp className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-white text-sm font-semibold mb-1">Targeted Engagement</p>
+                        <p className="text-white text-base font-semibold mb-1">Targeted Engagement</p>
                         <p className="text-white/70 text-xs">
                           Direct link to the recommended product removes search friction and drives sales.
                         </p>
@@ -374,7 +374,7 @@ export function ChatbotDemos() {
                 <button
                   onClick={runDemo2}
                   disabled={demo2State.isAnimating}
-                  className={`w-full py-3 rounded-xl text-white text-sm font-semibold transition-all ${
+                  className={`w-full py-3 rounded-xl text-white text-base font-semibold transition-all ${
                     demo2State.isAnimating
                       ? 'bg-white/5 cursor-not-allowed'
                       : 'bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-600 hover:to-teal-600'
@@ -387,7 +387,7 @@ export function ChatbotDemos() {
 
             {/* Summary */}
             <div className="mt-4 p-3 rounded-xl bg-white/5 border border-white/10">
-              <p className="text-white/80 text-sm">
+              <p className="text-white/80 text-base">
                 <strong className="text-white">Benefit:</strong> Reduces bounce rate and instantly puts the most relevant product in front of the customer, driving sales.
               </p>
             </div>
@@ -401,21 +401,21 @@ export function ChatbotDemos() {
               <Clock className="w-6 h-6" />
             </div>
             <h4 className="text-white font-semibold mb-2">24/7 Availability</h4>
-            <p className="text-white/60 text-sm">Never miss a customer inquiry, even outside business hours</p>
+            <p className="text-white/60 text-base">Never miss a customer inquiry, even outside business hours</p>
           </div>
           <div className="text-center p-6 rounded-2xl glass border border-white/10">
             <div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-500 text-white mb-3">
               <TrendingUp className="w-6 h-6" />
             </div>
             <h4 className="text-white font-semibold mb-2">Increased Conversions</h4>
-            <p className="text-white/60 text-sm">Guide customers to the perfect product with personalized recommendations</p>
+            <p className="text-white/60 text-base">Guide customers to the perfect product with personalized recommendations</p>
           </div>
           <div className="text-center p-6 rounded-2xl glass border border-white/10">
             <div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 text-white mb-3">
               <Users className="w-6 h-6" />
             </div>
             <h4 className="text-white font-semibold mb-2">Free Up Your Team</h4>
-            <p className="text-white/60 text-sm">Let bots handle routine questions while staff focus on complex issues</p>
+            <p className="text-white/60 text-base">Let bots handle routine questions while staff focus on complex issues</p>
           </div>
         </div>
       </div>

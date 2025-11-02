@@ -113,10 +113,10 @@ export function CaseStudiesPage() {
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Real Results from <span className="gradient-text">Real Businesses</span>
           </h1>
-          <p className="text-lg lg:text-xl text-white/70 mb-8 leading-relaxed">
+          <p className="text-3xl lg:text-3xl text-white/70 mb-8 leading-relaxed">
             Discover how we've helped businesses like yours save time, reduce costs, and scale operations through intelligent automation. These aren't just numbers—they're transformations.
           </p>
         </div>
@@ -136,14 +136,14 @@ export function CaseStudiesPage() {
                   {/* Content */}
                   <div className="lg:col-span-2">
                     <div className="flex items-center space-x-3 mb-4">
-                      <span className={`px-4 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${study.gradient} text-white`}>
+                      <span className={`px-4 py-1 rounded-full text-base font-medium bg-gradient-to-r ${study.gradient} text-white`}>
                         {study.industry}
                       </span>
                     </div>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">
+                    <h2 className="text-4xl lg:text-5xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">
                       {study.company}
                     </h2>
-                    <p className="text-xl text-white/80 mb-4">{study.title}</p>
+                    <p className="text-3xl text-white/80 mb-4">{study.title}</p>
                     <p className="text-white/70 leading-relaxed mb-6">{study.description}</p>
                     <div className="inline-flex items-center space-x-2 text-indigo-400 font-medium group-hover:space-x-3 transition-all">
                       <span>Read Full Case Study</span>
@@ -159,8 +159,8 @@ export function CaseStudiesPage() {
                           {stat.icon}
                         </div>
                         <div>
-                          <div className="text-2xl font-bold text-white">{stat.value}</div>
-                          <div className="text-sm text-white/60">{stat.label}</div>
+                          <div className="text-3xl font-bold text-white">{stat.value}</div>
+                          <div className="text-base text-white/60">{stat.label}</div>
                         </div>
                       </div>
                     ))}
@@ -174,7 +174,7 @@ export function CaseStudiesPage() {
         {/* Coming Soon */}
         <div className="mt-12 text-center">
           <div className="glass rounded-3xl border border-white/10 p-12">
-            <h3 className="text-2xl font-bold text-white mb-4">More Success Stories Coming Soon</h3>
+            <h3 className="text-3xl font-bold text-white mb-4">More Success Stories Coming Soon</h3>
             <p className="text-white/70 mb-6">
               We're working with incredible businesses across various industries. Check back soon for more case studies.
             </p>

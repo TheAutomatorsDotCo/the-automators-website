@@ -301,10 +301,10 @@ export function ServicesPage() {
       <section className="relative pt-32 sm:pt-40 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
           <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl gradient-text mb-4 sm:mb-6 max-w-4xl mx-auto">
+          <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl gradient-text mb-4 sm:mb-6 max-w-4xl mx-auto">
             Professional Business Automation Services
           </h1>
-          <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto">
+          <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto">
             We specialize in automating the tedious, time-consuming tasks that keep you from focusing on what really matters. From workflow automation to AI-powered solutions, we help businesses save time and reduce costs.
           </p>
         </div>
@@ -317,8 +317,8 @@ export function ServicesPage() {
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">Our Automation Services</h2>
-            <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6">Our Automation Services</h2>
+            <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto">
               The Automators offers comprehensive business automation services designed to eliminate repetitive tasks and streamline operations.
             </p>
           </div>
@@ -346,12 +346,12 @@ export function ServicesPage() {
                     <span className="ml-2 text-xs text-indigo-400">→</span>
                   )}
                 </h3>
-                <p className="relative text-white/60 mb-4 sm:mb-6 text-sm sm:text-base">{service.description}</p>
+                <p className="relative text-white/60 mb-4 sm:mb-6 text-base sm:text-lg">{service.description}</p>
                 <ul className="relative space-y-2 sm:space-y-3">
                   {service.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-start space-x-3">
                       <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 mt-2"></div>
-                      <span className="text-white/70 text-sm sm:text-base">{benefit}</span>
+                      <span className="text-white/70 text-base sm:text-lg">{benefit}</span>
                     </li>
                   ))}
                 </ul>
@@ -373,8 +373,8 @@ export function ServicesPage() {
       <section className="relative pt-10 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">How We Work</h2>
-            <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6">How We Work</h2>
+            <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto leading-relaxed">
               We partner with you to help figure out where the bottlenecks are, and then we solve them.
             </p>
           </div>
@@ -385,9 +385,9 @@ export function ServicesPage() {
                 <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white mb-4 sm:mb-6">
                   {item.icon}
                 </div>
-                <div className="text-xs sm:text-sm text-white/50 mb-1 sm:mb-2">Step {item.step}</div>
+                <div className="text-sm sm:text-base text-white/50 mb-1 sm:mb-2">Step {item.step}</div>
                 <h3 className="text-white mb-2 sm:mb-3">{item.title}</h3>
-                <p className="text-white/60 text-sm sm:text-base mb-2">{item.description}</p>
+                <p className="text-white/60 text-base sm:text-lg mb-2">{item.description}</p>
                 {item.duration && (
                   <div className="text-xs text-indigo-400 font-semibold">{item.duration}</div>
                 )}
@@ -415,7 +415,7 @@ export function ServicesPage() {
           <div className="glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
               <div>
-                <h2 className="text-3xl sm:text-4xl gradient-text mb-4 sm:mb-6">Global Reach, Local Touch</h2>
+                <h2 className="text-4xl sm:text-5xl gradient-text mb-4 sm:mb-6">Global Reach, Local Touch</h2>
                 <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-4 sm:mb-6">
                   We are based in South Africa but can do work for companies worldwide, at affordable rates.
                 </p>
@@ -427,22 +427,22 @@ export function ServicesPage() {
                 <div className="flex items-start space-x-3 sm:space-x-4">
                   <div className="flex-shrink-0 w-3 h-3 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 mt-2"></div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1 text-sm sm:text-base">Small Business Expertise</h4>
-                    <p className="text-white/60 text-sm sm:text-base">Built and turned around multiple small businesses</p>
+                    <h4 className="text-white font-semibold mb-1 text-base sm:text-lg">Small Business Expertise</h4>
+                    <p className="text-white/60 text-base sm:text-lg">Built and turned around multiple small businesses</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3 sm:space-x-4">
                   <div className="flex-shrink-0 w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-cyan-500 mt-2"></div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1 text-sm sm:text-base">Full-Service Support</h4>
-                    <p className="text-white/60 text-sm sm:text-base">Copywriting, e-commerce, and online marketing</p>
+                    <h4 className="text-white font-semibold mb-1 text-base sm:text-lg">Full-Service Support</h4>
+                    <p className="text-white/60 text-base sm:text-lg">Copywriting, e-commerce, and online marketing</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3 sm:space-x-4">
                   <div className="flex-shrink-0 w-3 h-3 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 mt-2"></div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1 text-sm sm:text-base">80/20 Strategy</h4>
-                    <p className="text-white/60 text-sm sm:text-base">Focus on high-impact areas that move the needle</p>
+                    <h4 className="text-white font-semibold mb-1 text-base sm:text-lg">80/20 Strategy</h4>
+                    <p className="text-white/60 text-base sm:text-lg">Focus on high-impact areas that move the needle</p>
                   </div>
                 </div>
               </div>
@@ -458,13 +458,13 @@ export function ServicesPage() {
       <section className="relative pt-10 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">Affordable Pricing</h2>
-            <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6">Affordable Pricing</h2>
+            <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto mb-6">
               We aim to automate your work at only 25% of the cost of hiring a human to do it, without all the costs of hiring and the mistakes humans can make.
             </p>
             <Link
               to="/pricing"
-              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm sm:text-base"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-base sm:text-lg"
             >
               View detailed automation pricing →
             </Link>
@@ -480,7 +480,7 @@ export function ServicesPage() {
                 </div>
                 <div>
                   <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">No Large Upfront Fees</h3>
-                  <p className="text-white/70 leading-relaxed text-sm sm:text-base">
+                  <p className="text-white/70 leading-relaxed text-base sm:text-lg">
                     We don't charge large up-front fees like others do - we believe we should get paid according to the value we add.
                   </p>
                 </div>
@@ -496,7 +496,7 @@ export function ServicesPage() {
                 </div>
                 <div>
                   <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">Scales With Your Business</h3>
-                  <p className="text-white/70 leading-relaxed text-sm sm:text-base">
+                  <p className="text-white/70 leading-relaxed text-base sm:text-lg">
                     Our services expand with your business, and with flexible pricing plans, your costs scale down proportionally to any slow times.
                   </p>
                 </div>
@@ -512,7 +512,7 @@ export function ServicesPage() {
                 </div>
                 <div>
                   <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">Flexible Payment Plans</h3>
-                  <p className="text-white/70 leading-relaxed text-sm sm:text-base">
+                  <p className="text-white/70 leading-relaxed text-base sm:text-lg">
                     Choose to pay in full or spread over 6, 12, or 18 months. Own your automation forever with payment options that work for your business.
                   </p>
                 </div>
@@ -528,7 +528,7 @@ export function ServicesPage() {
                 </div>
                 <div>
                   <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">Value-Based Billing</h3>
-                  <p className="text-white/70 leading-relaxed text-sm sm:text-base">
+                  <p className="text-white/70 leading-relaxed text-base sm:text-lg">
                     We earn on the value we deliver. Your success is our success, and we're committed to proving it every month.
                   </p>
                 </div>
@@ -545,25 +545,25 @@ export function ServicesPage() {
       <section className="relative pt-10 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">Success Stories</h2>
-            <p className="text-lg sm:text-xl text-white/60">Real results from businesses we've helped automate.</p>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6">Success Stories</h2>
+            <p className="text-xl sm:text-2xl text-white/60">Real results from businesses we've helped automate.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
               <div className="text-4xl sm:text-5xl gradient-text mb-3 sm:mb-4">15hrs</div>
               <h4 className="text-white mb-2 text-base sm:text-lg">Saved Per Week</h4>
-              <p className="text-white/60 text-sm sm:text-base">Marketing agency automated client onboarding and reporting</p>
+              <p className="text-white/60 text-base sm:text-lg">Marketing agency automated client onboarding and reporting</p>
             </div>
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
               <div className="text-4xl sm:text-5xl gradient-text mb-3 sm:mb-4">95%</div>
               <h4 className="text-white mb-2 text-base sm:text-lg">Fewer Errors</h4>
-              <p className="text-white/60 text-sm sm:text-base">E-commerce business eliminated manual order processing</p>
+              <p className="text-white/60 text-base sm:text-lg">E-commerce business eliminated manual order processing</p>
             </div>
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
               <div className="text-4xl sm:text-5xl gradient-text mb-3 sm:mb-4">$50k</div>
               <h4 className="text-white mb-2 text-base sm:text-lg">Annual Savings</h4>
-              <p className="text-white/60 text-sm sm:text-base">Consulting firm reduced admin overhead significantly</p>
+              <p className="text-white/60 text-base sm:text-lg">Consulting firm reduced admin overhead significantly</p>
             </div>
           </div>
         </div>
@@ -576,7 +576,7 @@ export function ServicesPage() {
       <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text mb-3 sm:mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-3 sm:mb-4">Frequently Asked Questions</h2>
             <p className="text-base sm:text-lg text-white/60">
               Everything you need to know about our automation services
             </p>
@@ -593,11 +593,11 @@ export function ServicesPage() {
                   className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
                 >
                   <div className="flex-1">
-                    <h3 className="text-white font-semibold text-sm sm:text-base mb-0">
+                    <h3 className="text-white font-semibold text-base sm:text-lg mb-0">
                       {faq.question}
                     </h3>
                     {openFAQ === index && (
-                      <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
+                      <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
                         {faq.answer}
                       </p>
                     )}
@@ -633,7 +633,7 @@ export function ServicesPage() {
           <div className="relative overflow-hidden rounded-3xl sm:rounded-[3rem] glass border border-white/10 p-8 sm:p-12 md:p-16">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20"></div>
             <div className="relative z-10 text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl text-white mb-4 sm:mb-6">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6">
                 Ready to Reclaim Your Time?
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-white/70 mb-6 sm:mb-8">
@@ -642,13 +642,13 @@ export function ServicesPage() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className="btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base"
+                  className="btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg"
                 >
                   Schedule Free 30-Min Call
                 </Link>
                 <Link
                   to="/pricing"
-                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-sm sm:text-base"
+                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-base sm:text-lg"
                 >
                   View Pricing
                 </Link>

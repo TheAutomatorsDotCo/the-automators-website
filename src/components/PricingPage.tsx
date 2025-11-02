@@ -382,10 +382,10 @@ export function PricingPage() {
       <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
           <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-4 sm:mb-6">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl gradient-text mb-4 sm:mb-6">
             Transparent Automation Pricing Plans
           </h1>
-          <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto mb-4">
+          <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto mb-4">
             Own your automation forever with flexible payment options. Pay in full or spread over 6, 12, or 18 months—you choose what works for your business.
           </p>
           <p className="text-base sm:text-lg text-indigo-400 font-semibold mb-8 sm:mb-12">
@@ -396,7 +396,7 @@ export function PricingPage() {
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
             <button
               onClick={() => setCurrency('USD')}
-              className={`flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-sm sm:text-base ${
+              className={`flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
                 currency === 'USD'
                   ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
@@ -407,7 +407,7 @@ export function PricingPage() {
             </button>
             <button
               onClick={() => setCurrency('ZAR')}
-              className={`flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-sm sm:text-base ${
+              className={`flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
                 currency === 'ZAR'
                   ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white border-2 border-emerald-300/50 shadow-lg shadow-green-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
@@ -466,7 +466,7 @@ export function PricingPage() {
               {activeTab === 'voice-agents' && 'AI Voice Agent Pricing'}
               {activeTab === 'chatbots' && 'AI Chatbot Pricing'}
             </h2>
-            <p className="text-sm sm:text-base text-white/60 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto">
               {activeTab === 'automation' && 'Automate your workflows and own them forever. Choose flexible payment options: pay in full or spread over 6, 12, or 18 months.'}
               {activeTab === 'voice-agents' && 'AI-powered phone calls and customer conversations. Own forever with flexible payment plans and pay-per-use calling.'}
               {activeTab === 'chatbots' && 'Intelligent 24/7 customer support. Own your chatbot forever with flexible payment options that fit your budget.'}
@@ -491,7 +491,7 @@ export function PricingPage() {
                   <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${plan.gradient} text-white mb-4 sm:mb-6`}>
                     {plan.icon}
                   </div>
-                  <h3 className="text-white mb-2 text-lg sm:text-xl">{plan.name}</h3>
+                  <h3 className="text-white mb-2 text-xl sm:text-2xl">{plan.name}</h3>
                   
                   {/* Payment Plan Selector */}
                   {plan.price !== 'Custom' && (
@@ -502,7 +502,7 @@ export function PricingPage() {
                           e.stopPropagation();
                           setOpenDropdown(openDropdown === index ? null : index);
                         }}
-                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-lg sm:rounded-xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 text-white font-medium hover:from-white/15 hover:to-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center justify-between"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg sm:rounded-xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 text-white font-medium hover:from-white/15 hover:to-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center justify-between"
                       >
                         <span className="flex items-center gap-2 sm:gap-3">
                           <span className="mr-1">{paymentOptions.find(opt => opt.value === paymentPlan)?.icon}</span>
@@ -565,7 +565,7 @@ export function PricingPage() {
                     {paymentPlan !== 'once-off' && plan.price !== 'Custom' ? (
                       <div>
                         <div className="text-3xl sm:text-4xl text-white mb-2">{convertPrice(plan.price, true)}</div>
-                        <div className="text-xs sm:text-sm text-white/50">
+                        <div className="text-sm sm:text-base text-white/50">
                           Total: {convertPrice(plan.price)} over {paymentPlan.split('-')[0]} months
                         </div>
                       </div>
@@ -573,12 +573,12 @@ export function PricingPage() {
                       <div>
                         <span className="text-3xl sm:text-4xl text-white">{convertPrice(plan.price)}</span>
                         {plan.period !== 'pricing' && (
-                          <span className="text-white/50 ml-2 text-xs sm:text-sm">{plan.period}</span>
+                          <span className="text-white/50 ml-2 text-sm sm:text-base">{plan.period}</span>
                         )}
                       </div>
                     )}
                   </div>
-                  <p className="text-white/60 mb-6 sm:mb-8 text-sm sm:text-base">{plan.description}</p>
+                  <p className="text-white/60 mb-6 sm:mb-8 text-base sm:text-lg">{plan.description}</p>
                   
                   <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                     {plan.features.map((feature, idx) => (
@@ -586,14 +586,14 @@ export function PricingPage() {
                         <div className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br ${plan.gradient} flex items-center justify-center mt-0.5`}>
                           <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                         </div>
-                        <span className="text-white/70 text-sm sm:text-base">{feature}</span>
+                        <span className="text-white/70 text-base sm:text-lg">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   <Link
                     to="/contact"
-                    className={`block w-full py-3 sm:py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 text-sm sm:text-base ${
+                    className={`block w-full py-3 sm:py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 text-base sm:text-lg ${
                       plan.highlighted
                         ? 'btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105'
                         : 'glass border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 hover:scale-105'
@@ -612,8 +612,8 @@ export function PricingPage() {
       <section className="relative pt-16 sm:pt-20 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">Add-Ons</h2>
-            <p className="text-lg sm:text-xl text-white/60">Enhance your automation package with these optional services</p>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6">Add-Ons</h2>
+            <p className="text-xl sm:text-2xl text-white/60">Enhance your automation package with these optional services</p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
@@ -629,9 +629,9 @@ export function PricingPage() {
                     </div>
                     <h4 className="text-white text-base sm:text-lg">{addon.name}</h4>
                   </div>
-                  <span className="text-purple-400 font-semibold text-sm sm:text-base">{convertAddonPrice(addon.price)}</span>
+                  <span className="text-purple-400 font-semibold text-base sm:text-lg">{convertAddonPrice(addon.price)}</span>
                 </div>
-                <p className="text-white/60 text-sm sm:text-base">{addon.description}</p>
+                <p className="text-white/60 text-base sm:text-lg">{addon.description}</p>
               </div>
             ))}
           </div>
@@ -653,16 +653,16 @@ export function PricingPage() {
               </p>
               <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
                 <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
-                  <h4 className="text-white mb-1 sm:mb-2 text-sm sm:text-base">Flexible Payment Plans</h4>
-                  <p className="text-white/60 text-xs sm:text-sm">Own forever, pay your way</p>
+                  <h4 className="text-white mb-1 sm:mb-2 text-base sm:text-lg">Flexible Payment Plans</h4>
+                  <p className="text-white/60 text-sm sm:text-base">Own forever, pay your way</p>
                 </div>
                 <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
-                  <h4 className="text-white mb-1 sm:mb-2 text-sm sm:text-base">Transparent Pricing</h4>
-                  <p className="text-white/60 text-xs sm:text-sm">No hidden fees or surprises</p>
+                  <h4 className="text-white mb-1 sm:mb-2 text-base sm:text-lg">Transparent Pricing</h4>
+                  <p className="text-white/60 text-sm sm:text-base">No hidden fees or surprises</p>
                 </div>
                 <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
-                  <h4 className="text-white mb-1 sm:mb-2 text-sm sm:text-base">Proven Results</h4>
-                  <p className="text-white/60 text-xs sm:text-sm">Join 200+ happy clients</p>
+                  <h4 className="text-white mb-1 sm:mb-2 text-base sm:text-lg">Proven Results</h4>
+                  <p className="text-white/60 text-sm sm:text-base">Join 200+ happy clients</p>
                 </div>
               </div>
             </div>
@@ -682,7 +682,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How much does workflow automation cost?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">How much does workflow automation cost?</h3>
                   {openFAQ === 1 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       Workflow automation pricing starts at $997 for our Starter plan with up to 3 workflows. Our Professional plan is $2,497 for up to 10 workflows, and we offer custom Enterprise pricing for unlimited workflows. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about workflow automation</Link>.
@@ -702,7 +702,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How long does implementation take?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">How long does implementation take?</h3>
                   {openFAQ === 2 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       Most projects are completed within 2-4 weeks, depending on complexity. We'll give you a specific timeline during your discovery call.
@@ -722,7 +722,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Are there any monthly fees or subscriptions?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">Are there any monthly fees or subscriptions?</h3>
                   {openFAQ === 3 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       We offer flexible options: pay in full or choose 6, 12, or 18-month payment plans. Either way, you own your automation forever—it's not a subscription. The payment plans are simply installment options for the one-time purchase. The only ongoing fee is our optional Monthly Maintenance add-on if you want continued optimization.
@@ -742,7 +742,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What are payment plans and how do they work?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">What are payment plans and how do they work?</h3>
                   {openFAQ === 4 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       We offer flexible payment plans where you can spread the cost over 6, 12, or 18 months with a small premium (15%, 25%, or 35% respectively). This is NOT a subscription or recurring service – you're paying for a one-time purchase via installments. Once paid off, you own your automation forever with no ongoing fees (unless you choose optional maintenance).
@@ -762,7 +762,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What if I need changes later?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">What if I need changes later?</h3>
                   {openFAQ === 5 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       All packages include revision rounds during implementation. After launch, you can purchase additional workflows ($297 each) or monthly maintenance ($497/mo) for ongoing support and optimization.
@@ -782,7 +782,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Do I need technical knowledge?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">Do I need technical knowledge?</h3>
                   {openFAQ === 6 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       Not at all! We handle all the technical implementation and provide training so you can manage your automations with confidence. No coding or technical skills required.
@@ -802,7 +802,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What's included in all pricing plans?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">What's included in all pricing plans?</h3>
                   {openFAQ === 7 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       Every plan includes: discovery call, strategy session, complete implementation, testing, training, documentation, and a support period (30-365 days depending on plan). No hidden fees or setup charges.
@@ -822,7 +822,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">What tools do you work with?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">What tools do you work with?</h3>
                   {openFAQ === 8 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       We work with 100+ popular business tools including Zapier, Make, Google Workspace, Microsoft 365, HubSpot, Salesforce, Slack, QuickBooks, Shopify, and many more. View our full <Link to="/services" className="text-indigo-400 hover:text-indigo-300">services page</Link> for details.
@@ -842,7 +842,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">How does the 30-day money-back guarantee work?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">How does the 30-day money-back guarantee work?</h3>
                   {openFAQ === 9 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       If you're not satisfied within 30 days of project completion, we'll refund your investment – no questions asked. We're confident you'll love your automation, but want you to feel completely risk-free.
@@ -862,7 +862,7 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-sm sm:text-base mb-0">Which plan is right for my business?</h3>
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">Which plan is right for my business?</h3>
                   {openFAQ === 10 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
                       Not sure? <Link to="/assessment" className="text-indigo-400 hover:text-indigo-300">Take our 2-minute assessment</Link> to get a personalized recommendation, or <Link to="/contact" className="text-indigo-400 hover:text-indigo-300">schedule a free consultation</Link> to discuss your specific needs.
@@ -886,7 +886,7 @@ export function PricingPage() {
           <div className="relative overflow-hidden rounded-3xl sm:rounded-[3rem] glass border border-white/10 p-8 sm:p-12 md:p-16">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20"></div>
             <div className="relative z-10 text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl text-white mb-4 sm:mb-6">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6">
                 Ready to Get Started?
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-white/70 mb-6 sm:mb-8">
@@ -894,7 +894,7 @@ export function PricingPage() {
               </p>
               <Link
                 to="/contact"
-                className="inline-block btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+                className="inline-block btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105 transition-all duration-300 text-base sm:text-lg"
               >
                 Schedule Free Consultation
               </Link>

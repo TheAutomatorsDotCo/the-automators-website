@@ -122,10 +122,10 @@ export function AssessmentPage() {
           {/* Header */}
           <div className="text-center mb-6 sm:mb-8 lg:mb-10">
             <div className="h-8 sm:h-10 mb-3 sm:mb-4"></div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl gradient-text mb-3 sm:mb-4 px-4">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-6xl gradient-text mb-3 sm:mb-4 px-4">
               Does Your Business Own You?
             </h1>
-            <p className="text-sm sm:text-base lg:text-lg text-white/60 px-4">
+            <p className="text-base sm:text-lg lg:text-lg text-white/60 px-4">
               Answer each question honestly. Tap ✓ if yes or ✗ if no.
             </p>
           </div>
@@ -133,8 +133,8 @@ export function AssessmentPage() {
           {/* Progress Bar */}
           <div className="mb-4 sm:mb-6">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs sm:text-sm text-white/60">Progress</span>
-              <span className="text-xs sm:text-sm text-white font-medium">
+              <span className="text-base sm:text-base text-white/60">Progress</span>
+              <span className="text-base sm:text-base text-white font-medium">
                 {totalAnswered} / {painPoints.length}
               </span>
             </div>
@@ -154,7 +154,7 @@ export function AssessmentPage() {
                 automationNeed > 30 ? 'text-orange-400' :
                 totalAnswered > 0 ? 'text-green-400' : 'text-white/40'
               }`} />
-              <span className="text-white font-medium text-xs sm:text-sm">Automation Need Level</span>
+              <span className="text-white font-medium text-base sm:text-base">Automation Need Level</span>
             </div>
             <div className="h-6 sm:h-8 rounded-full glass border border-white/10 overflow-hidden mb-1.5">
               <div 
@@ -197,7 +197,7 @@ export function AssessmentPage() {
                       }`}
                     >
                       <div className="flex items-center justify-between gap-3">
-                        <span className="flex-1 text-sm sm:text-base text-white leading-snug">
+                        <span className="flex-1 text-base sm:text-lg text-white leading-snug">
                           {painPoints[index]}
                         </span>
                         <div className="flex gap-2 sm:gap-2 flex-shrink-0">
@@ -236,7 +236,7 @@ export function AssessmentPage() {
                 <div className="flex items-center justify-center h-[300px]">
                   <div className="text-center">
                     <div className="animate-spin w-8 h-8 sm:w-12 sm:h-12 border-4 border-purple-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-                    <p className="text-white/60 text-sm sm:text-base">Loading next questions...</p>
+                    <p className="text-white/60 text-base sm:text-lg">Loading next questions...</p>
                   </div>
                 </div>
               )}
@@ -248,47 +248,47 @@ export function AssessmentPage() {
             <div className="glass border border-white/10 rounded-2xl sm:rounded-[2.5rem] p-4 sm:p-6 lg:p-8 mb-8">
               <div className="mb-6 sm:mb-8 p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 backdrop-blur-xl">
                 <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
-                  <div className={`text-2xl sm:text-3xl lg:text-4xl p-2 sm:p-3 lg:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${result.color}`}>
+                  <div className={`text-3xl sm:text-4xl lg:text-4xl p-2 sm:p-3 lg:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${result.color}`}>
                     {result.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-white text-lg sm:text-xl lg:text-2xl mb-1 sm:mb-2">{result.title}</h3>
-                    <p className="text-white/70 text-sm sm:text-base lg:text-lg">{result.message}</p>
+                    <h3 className="text-white text-xl sm:text-2xl lg:text-2xl mb-1 sm:mb-2">{result.title}</h3>
+                    <p className="text-white/70 text-base sm:text-lg lg:text-lg">{result.message}</p>
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
                   <div className="glass border border-white/10 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center">
-                    <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-400 mb-1">
+                    <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-green-400 mb-1">
                       {yesCount}
                     </div>
-                    <div className="text-xs sm:text-sm text-white/60">Pain Points</div>
+                    <div className="text-base sm:text-base text-white/60">Pain Points</div>
                   </div>
                   <div className="glass border border-white/10 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center">
-                    <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-purple-400 mb-1">
+                    <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-purple-400 mb-1">
                       {Math.round(automationNeed)}%
                     </div>
-                    <div className="text-xs sm:text-sm text-white/60">Need Level</div>
+                    <div className="text-base sm:text-base text-white/60">Need Level</div>
                   </div>
                   <div className="glass border border-white/10 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center">
-                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-orange-400 mb-1">
+                    <div className="text-xl sm:text-2xl lg:text-2xl font-bold text-orange-400 mb-1">
                       {result.needLevel}
                     </div>
-                    <div className="text-xs sm:text-sm text-white/60">Priority</div>
+                    <div className="text-base sm:text-base text-white/60">Priority</div>
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Link
                     to="/services"
-                    className="flex-1 btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full inline-flex items-center justify-center space-x-2 text-sm sm:text-base"
+                    className="flex-1 btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full inline-flex items-center justify-center space-x-2 text-base sm:text-lg"
                   >
                     <span>See How We Can Help</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Link>
                   <Link
                     to="/contact"
-                    className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-sm sm:text-base text-center"
+                    className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-base sm:text-lg text-center"
                   >
                     Get Free Consultation
                   </Link>
@@ -303,7 +303,7 @@ export function AssessmentPage() {
               <div className="flex-shrink-0 p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500">
                 <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
               </div>
-              <p className="text-white/80 text-sm sm:text-base lg:text-lg">
+              <p className="text-white/80 text-base sm:text-lg lg:text-lg">
                 <span className="text-white font-medium">Good news:</span> Every item you checked can be solved with the right automation strategy. We've helped hundreds of businesses just like yours reclaim their time and sanity.
               </p>
             </div>

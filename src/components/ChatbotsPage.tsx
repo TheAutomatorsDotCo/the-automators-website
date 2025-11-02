@@ -183,7 +183,7 @@ export function ChatbotsPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6 max-w-4xl mx-auto">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl gradient-text mb-6 max-w-4xl mx-auto">
             AI Chatbots That Provide 24/7 Customer Support
           </h1>
           <p className="text-xl text-white/60 max-w-3xl mx-auto mb-8">
@@ -210,7 +210,7 @@ export function ChatbotsPage() {
       <section className="relative py-12 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4">Proven Results with AI Chatbots</h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4">Proven Results with AI Chatbots</h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
               See the measurable impact AI chatbots have on customer support costs, availability, and response times
             </p>
@@ -404,7 +404,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">What are AI chatbots?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">What are AI chatbots?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 1 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 1 && (
@@ -422,7 +422,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 2 ? null : 2)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">How do AI chatbots work?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">How do AI chatbots work?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 2 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 2 && (
@@ -443,7 +443,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 3 ? null : 3)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">How much does a chatbot cost?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">How much does a chatbot cost?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 3 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 3 && (
@@ -461,7 +461,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 4 ? null : 4)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">What's the difference between chatbots and AI chatbots?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">What's the difference between chatbots and AI chatbots?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 4 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 4 && (
@@ -479,7 +479,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 5 ? null : 5)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">How long does chatbot implementation take?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">How long does chatbot implementation take?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 5 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 5 && (
@@ -497,7 +497,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 6 ? null : 6)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">Can chatbots handle complex questions?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">Can chatbots handle complex questions?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 6 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 6 && (
@@ -515,7 +515,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 7 ? null : 7)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">What channels do chatbots work on?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">What channels do chatbots work on?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 7 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 7 && (
@@ -562,7 +562,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 8 ? null : 8)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">Do I need technical skills to manage a chatbot?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">Do I need technical skills to manage a chatbot?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 8 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 8 && (
@@ -580,7 +580,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 9 ? null : 9)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">Can chatbots integrate with my existing systems?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">Can chatbots integrate with my existing systems?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 9 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 9 && (
@@ -598,7 +598,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 10 ? null : 10)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-sm sm:text-base font-semibold">How do chatbots improve over time?</h3>
+                <h3 className="text-white text-base sm:text-lg font-semibold">How do chatbots improve over time?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 10 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 10 && (
