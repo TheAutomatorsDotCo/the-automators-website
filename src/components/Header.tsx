@@ -10,7 +10,7 @@ export function Header() {
     { name: 'Home', path: '/' },
     { name: 'Assessment', path: '/assessment' },
     { name: 'Services', path: '/services' },
-    { name: 'Case Studies', path: '/case-studies' },
+    { name: 'Results', path: '/case-studies' },
     { name: 'Pricing', path: '/pricing' },
   ];
 

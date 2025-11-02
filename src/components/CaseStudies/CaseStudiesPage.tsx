@@ -126,7 +126,7 @@ export function CaseStudiesPage() {
 
       {/* Case Studies Grid */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-32">
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-8 pb-20 sm:pb-32">
           {caseStudies.map((study) => (
             <Link
               key={study.id}
