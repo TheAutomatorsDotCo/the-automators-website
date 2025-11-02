@@ -7,7 +7,7 @@ import { StarsCanvas } from './StarBackground';
 export function PricingPage() {
   const [activeTab, setActiveTab] = useState<'automation' | 'voice-agents' | 'chatbots'>('automation');
   const [currency, setCurrency] = useState<'USD' | 'ZAR'>('USD');
-  const [paymentPlan, setPaymentPlan] = useState<'once-off' | '6-months' | '12-months' | '18-months'>('once-off');
+  const [paymentPlan, setPaymentPlan] = useState<'once-off' | '6-months' | '12-months' | '18-months'>('18-months');
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   
@@ -69,16 +69,14 @@ export function PricingPage() {
     {
       name: 'Starter',
       icon: <img src="/starter-icon.png" alt="Starter" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$997',
+      price: '$1,449',
       period: 'one-time',
       description: 'Perfect for small businesses just getting started with automation',
       features: [
         'Up to 3 automated workflows',
         'Basic integrations (Gmail, Sheets, Calendar)',
-        '2 revision rounds',
         'Email support',
-        'Setup & training video',
-        '30 days of support',
+        'Training video',
       ],
       highlighted: false,
       gradient: 'from-cyan-500 to-blue-500',
@@ -86,18 +84,14 @@ export function PricingPage() {
     {
       name: 'Professional',
       icon: <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$2,497',
+      price: '$1,949',
       period: 'one-time',
       description: 'For growing businesses ready to scale with automation',
       features: [
         'Up to 10 automated workflows',
         'Advanced integrations (CRM, Zapier, APIs)',
-        'Unlimited revisions',
-        'Priority email & chat support',
+        'Email and chat support',
         'Live training session',
-        '90 days of support',
-        'Custom reporting dashboard',
-        'Process documentation',
       ],
       highlighted: true,
       gradient: 'from-indigo-500 via-purple-500 to-pink-500',
@@ -112,11 +106,8 @@ export function PricingPage() {
         'Unlimited workflows',
         'Enterprise integrations & custom APIs',
         'Dedicated automation specialist',
-        '24/7 priority support',
-        'On-site training (if needed)',
-        '1 year of support',
         'Advanced analytics & reporting',
-        'Monthly optimization reviews',
+        'Optimization reviews',
         'Custom development available',
       ],
       highlighted: false,
@@ -128,7 +119,7 @@ export function PricingPage() {
     {
       name: 'Starter',
       icon: <img src="/voice-starter.png" alt="Voice Starter" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$1,997',
+      price: '$1,499',
       period: 'one-time + usage',
       description: 'Get started with AI voice agents for your business',
       features: [
@@ -137,9 +128,8 @@ export function PricingPage() {
         'Post-service follow-up workflow',
         'Review generation system',
         'Manager escalation logic',
-        '2 revision rounds',
         'Email support',
-        '30 days of support',
+        'Training video',
       ],
       highlighted: false,
       gradient: 'from-blue-500 to-cyan-500',
@@ -147,7 +137,7 @@ export function PricingPage() {
     {
       name: 'Professional',
       icon: <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$3,997',
+      price: '$1,749',
       period: 'one-time + usage',
       description: 'Scale your customer engagement with advanced voice AI',
       features: [
@@ -157,9 +147,8 @@ export function PricingPage() {
         'Custom business training',
         'Appointment reminder system',
         'Lead qualification flows',
-        'Unlimited revisions',
-        'Priority support',
-        '90 days of support',
+        'Email and chat support',
+        'Live training session',
       ],
       highlighted: true,
       gradient: 'from-indigo-500 via-purple-500 to-pink-500',
@@ -177,8 +166,7 @@ export function PricingPage() {
         'Advanced NLP training',
         'CRM integration',
         'Dedicated voice specialist',
-        '24/7 priority support',
-        'Monthly optimization',
+        'Optimization reviews',
         'Custom development',
       ],
       highlighted: false,
@@ -190,7 +178,7 @@ export function PricingPage() {
     {
       name: 'Starter',
       icon: <img src="/chatbot-starter.png" alt="Chatbot Starter" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$1,497',
+      price: '$1,799',
       period: 'one-time',
       description: 'Perfect for businesses starting with AI chatbots',
       features: [
@@ -200,8 +188,7 @@ export function PricingPage() {
         'Basic conversation flows',
         'Lead capture forms',
         'Email support',
-        '2 revision rounds',
-        '30 days of support',
+        'Training video',
       ],
       highlighted: false,
       gradient: 'from-cyan-500 to-teal-500',
@@ -209,7 +196,7 @@ export function PricingPage() {
     {
       name: 'Professional',
       icon: <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$2,997',
+      price: '$2,999',
       period: 'one-time',
       description: 'Multi-channel chatbots with advanced features',
       features: [
@@ -220,8 +207,8 @@ export function PricingPage() {
         'Product recommendation engine',
         'CRM integration',
         'Analytics dashboard',
-        'Unlimited revisions',
-        '90 days of support',
+        'Email and chat support',
+        'Live training session',
       ],
       highlighted: true,
       gradient: 'from-indigo-500 via-purple-500 to-pink-500',
@@ -239,8 +226,7 @@ export function PricingPage() {
         'Custom integrations',
         'Sentiment analysis',
         'Dedicated chatbot specialist',
-        '24/7 priority support',
-        'Monthly AI training',
+        'Optimization reviews',
         'Custom development',
       ],
       highlighted: false,
@@ -315,8 +301,8 @@ export function PricingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
-        title="Workflow Automation Pricing: From $997 | Flexible Plans"
-        description="Transparent automation pricing starting at $997. Workflow automation, AI Voice Agents, and Chatbots. Own forever with flexible payment plans: pay in full or spread over 6, 12, or 18 months."
+        title="Workflow Automation Pricing: From $1,449 | Flexible Plans"
+        description="Transparent automation pricing starting at $1,449. Workflow automation, AI Voice Agents, and Chatbots. Own forever with flexible payment plans: pay in full or spread over 6, 12, or 18 months."
         path="/pricing"
         keywords="automation pricing, workflow automation pricing, business automation cost, automation services pricing, chatbot pricing, voice agent pricing, flexible payment plans"
         structuredData={[
@@ -328,7 +314,7 @@ export function PricingPage() {
             "offers": {
               "@type": "AggregateOffer",
               "priceCurrency": "USD",
-              "lowPrice": "997",
+              "lowPrice": "1449",
               "highPrice": "9997",
               "availability": "https://schema.org/InStock"
             }
@@ -348,9 +334,9 @@ export function PricingPage() {
               {
                 "@type": "Question",
                 "name": "What if I need changes later?",
-                "acceptedAnswer": {
+                "acceptedAnswer":                 {
                   "@type": "Answer",
-                  "text": "All packages include revision rounds. After that, you can purchase additional workflows or monthly maintenance for ongoing support."
+                  "text": "You can purchase additional workflows or monthly maintenance for ongoing support and optimization."
                 }
               },
               {
@@ -364,9 +350,9 @@ export function PricingPage() {
               {
                 "@type": "Question",
                 "name": "How much does workflow automation cost?",
-                "acceptedAnswer": {
+                "acceptedAnswer":                 {
                   "@type": "Answer",
-                  "text": "Workflow automation pricing starts at $997 for our Starter plan with up to 3 workflows. Our Professional plan is $2,497 for up to 10 workflows, and we offer custom Enterprise pricing for unlimited workflows."
+                  "text": "Workflow automation pricing starts at $1,449 for our Starter plan with up to 3 workflows. Our Professional plan is $1,949 for up to 10 workflows, and we offer custom Enterprise pricing for unlimited workflows."
                 }
               }
             ]
@@ -387,7 +373,7 @@ export function PricingPage() {
             Own your automation forever with flexible payment options. Pay in full or spread over 6, 12, or 18 months—you choose what works for your business.
           </p>
           <p className="text-base sm:text-lg text-indigo-400 font-semibold mb-8 sm:mb-12">
-            Starting at $997
+            Starting at $1,449
           </p>
 
           {/* Currency Toggle */}
@@ -562,13 +548,19 @@ export function PricingPage() {
                   <div className="mb-4 sm:mb-6">
                     {paymentPlan !== 'once-off' && plan.price !== 'Custom' ? (
                       <div>
-                        <div className="text-3xl sm:text-4xl text-white mb-2">{convertPrice(plan.price, true)}</div>
+                        <div className="text-3xl sm:text-4xl text-white mb-2">
+                          <span className="text-white/70 text-xl sm:text-2xl mr-1">from</span>
+                          {convertPrice(plan.price, true)}
+                        </div>
                         <div className="text-sm sm:text-base text-white/50">
                           Total: {convertPrice(plan.price)} over {paymentPlan.split('-')[0]} months
                         </div>
                       </div>
                     ) : (
                       <div>
+                        {plan.price !== 'Custom' && (
+                          <span className="text-white/70 text-xl sm:text-2xl mr-1">from</span>
+                        )}
                         <span className="text-3xl sm:text-4xl text-white">{convertPrice(plan.price)}</span>
                         {plan.period !== 'pricing' && (
                           <span className="text-white/50 ml-2 text-sm sm:text-base">{plan.period}</span>
@@ -683,7 +675,7 @@ export function PricingPage() {
                   <h3 className="text-white font-semibold text-base sm:text-lg mb-0">How much does workflow automation cost?</h3>
                   {openFAQ === 1 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
-                      Workflow automation pricing starts at $997 for our Starter plan with up to 3 workflows. Our Professional plan is $2,497 for up to 10 workflows, and we offer custom Enterprise pricing for unlimited workflows. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about workflow automation</Link>.
+                      Workflow automation pricing starts at $1,449 for our Starter plan with up to 3 workflows. Our Professional plan is $1,949 for up to 10 workflows, and we offer custom Enterprise pricing for unlimited workflows. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about workflow automation</Link>.
                     </p>
                   )}
                 </div>
@@ -763,7 +755,7 @@ export function PricingPage() {
                   <h3 className="text-white font-semibold text-base sm:text-lg mb-0">What if I need changes later?</h3>
                   {openFAQ === 5 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-sm leading-relaxed">
-                      All packages include revision rounds during implementation. After launch, you can purchase additional workflows ($297 each) or monthly maintenance ($497/mo) for ongoing support and optimization.
+                      After launch, you can purchase additional workflows ($297 each) or monthly maintenance ($497/mo) for ongoing support and optimization.
                     </p>
                   )}
                 </div>
