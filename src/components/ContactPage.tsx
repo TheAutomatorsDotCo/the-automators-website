@@ -110,7 +110,7 @@ export function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-white mb-1">Email</h4>
-                      <p className="text-white/60">hello@theautomators.co</p>
+                      <p className="text-white/60">sales@theautomators.co.za</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -119,7 +119,7 @@ export function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-white mb-1">Phone</h4>
-                      <p className="text-white/60">+1 (555) 123-4567</p>
+                      <p className="text-white/60">+27 82 770 6456</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -128,7 +128,7 @@ export function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-white mb-1">Business Hours</h4>
-                      <p className="text-white/60">Mon-Fri: 9am - 6pm EST</p>
+                      <p className="text-white/60">Mon-Fri: 9am - 6pm SAST</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">

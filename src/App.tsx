@@ -13,6 +13,8 @@ import { CaseStudiesPage } from './components/CaseStudies/CaseStudiesPage';
 import { PlatinumRepairsCaseStudy } from './components/CaseStudies/PlatinumRepairsCaseStudy';
 import { DeviceDoctorCaseStudy } from './components/CaseStudies/DeviceDoctorCaseStudy';
 import { InEnOmCaseStudy } from './components/CaseStudies/InEnOmCaseStudy';
+import { TermsPage } from './components/TermsPage';
+import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 
@@ -41,6 +43,8 @@ export default function App() {
               <Route path="/case-studies/device-doctor" element={<DeviceDoctorCaseStudy />} />
               <Route path="/case-studies/in-en-om" element={<InEnOmCaseStudy />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
               {/* 404 redirect to home */}
               <Route path="*" element={<HomePage />} />
             </Routes>
