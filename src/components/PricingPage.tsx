@@ -68,7 +68,7 @@ export function PricingPage() {
   const automationPlans = [
     {
       name: 'Starter',
-      icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/starter-icon.png" alt="Starter" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: '$997',
       period: 'one-time',
       description: 'Perfect for small businesses just getting started with automation',
@@ -85,7 +85,7 @@ export function PricingPage() {
     },
     {
       name: 'Professional',
-      icon: <Rocket className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: '$2,497',
       period: 'one-time',
       description: 'For growing businesses ready to scale with automation',
@@ -104,7 +104,7 @@ export function PricingPage() {
     },
     {
       name: 'Enterprise',
-      icon: <Crown className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/enterprise-icon.png" alt="Enterprise" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: 'Custom',
       period: 'pricing',
       description: 'For established businesses needing comprehensive automation',
@@ -127,7 +127,7 @@ export function PricingPage() {
   const voiceAgentsPlans = [
     {
       name: 'Starter',
-      icon: <Phone className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/voice-starter.png" alt="Voice Starter" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: '$1,997',
       period: 'one-time + usage',
       description: 'Get started with AI voice agents for your business',
@@ -146,7 +146,7 @@ export function PricingPage() {
     },
     {
       name: 'Professional',
-      icon: <Rocket className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: '$3,997',
       period: 'one-time + usage',
       description: 'Scale your customer engagement with advanced voice AI',
@@ -166,7 +166,7 @@ export function PricingPage() {
     },
     {
       name: 'Enterprise',
-      icon: <Crown className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/enterprise-icon.png" alt="Enterprise" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: 'Custom',
       period: 'pricing',
       description: 'Enterprise-grade voice AI with unlimited capabilities',
@@ -189,7 +189,7 @@ export function PricingPage() {
   const chatbotsPlans = [
     {
       name: 'Starter',
-      icon: <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/chatbot-starter.png" alt="Chatbot Starter" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: '$1,497',
       period: 'one-time',
       description: 'Perfect for businesses starting with AI chatbots',
@@ -208,7 +208,7 @@ export function PricingPage() {
     },
     {
       name: 'Professional',
-      icon: <Rocket className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: '$2,997',
       period: 'one-time',
       description: 'Multi-channel chatbots with advanced features',
@@ -228,7 +228,7 @@ export function PricingPage() {
     },
     {
       name: 'Enterprise',
-      icon: <Crown className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/enterprise-icon.png" alt="Enterprise" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: 'Custom',
       period: 'pricing',
       description: 'Enterprise chatbots with AI and machine learning',
@@ -391,64 +391,64 @@ export function PricingPage() {
           </p>
 
           {/* Currency Toggle */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
             <button
               onClick={() => setCurrency('USD')}
-              className={`flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
+              className={`flex items-center space-x-1.5 sm:space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-sm sm:text-base ${
                 currency === 'USD'
                   ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <DollarSign className="w-4 h-4" />
+              <DollarSign className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span className="font-medium">USD</span>
             </button>
             <button
               onClick={() => setCurrency('ZAR')}
-              className={`flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
+              className={`flex items-center space-x-1.5 sm:space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-sm sm:text-base ${
                 currency === 'ZAR'
                   ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white border-2 border-emerald-300/50 shadow-lg shadow-green-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <span className="font-bold text-sm">R</span>
+              <span className="font-bold text-xs sm:text-sm">R</span>
               <span className="font-medium">ZAR</span>
             </button>
           </div>
 
           {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
             <button
               onClick={() => setActiveTab('automation')}
-              className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-[11px] sm:text-base ${
+              className={`flex items-center space-x-1.5 sm:space-x-2 px-3.5 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-xs sm:text-base ${
                 activeTab === 'automation'
                   ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <Workflow className="w-3 h-3 sm:w-5 sm:h-5" />
+              <Workflow className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               <span>Automation</span>
             </button>
             <button
               onClick={() => setActiveTab('voice-agents')}
-              className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-[11px] sm:text-base ${
+              className={`flex items-center space-x-1.5 sm:space-x-2 px-3.5 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-xs sm:text-base ${
                 activeTab === 'voice-agents'
                   ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white border-2 border-pink-300/50 shadow-lg shadow-pink-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <Phone className="w-3 h-3 sm:w-5 sm:h-5" />
+              <Phone className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               <span>Voice Agents</span>
             </button>
             <button
               onClick={() => setActiveTab('chatbots')}
-              className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-[11px] sm:text-base ${
+              className={`flex items-center space-x-1.5 sm:space-x-2 px-3.5 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-xs sm:text-base ${
                 activeTab === 'chatbots'
                   ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white border-2 border-teal-300/50 shadow-lg shadow-cyan-500/50'
                   : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
               }`}
             >
-              <MessageCircle className="w-3 h-3 sm:w-5 sm:h-5" />
+              <MessageCircle className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               <span>Chatbots</span>
             </button>
           </div>
@@ -486,7 +486,7 @@ export function PricingPage() {
                   </div>
                 )}
                 <div className="p-6 sm:p-8">
-                  <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${plan.gradient} text-white mb-4 sm:mb-6`}>
+                  <div className="mb-4 sm:mb-6">
                     {plan.icon}
                   </div>
                   <h3 className="text-white mb-2 text-xl sm:text-2xl">{plan.name}</h3>
