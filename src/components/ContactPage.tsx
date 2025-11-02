@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp } from 'lucide-react';
 import { SEO } from './SEO';
+import { StarsCanvas } from './StarBackground';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -40,9 +41,7 @@ export function ContactPage() {
   if (submitted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
-        <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="blob absolute top-40 left-1/4 w-96 h-96 bg-green-500 rounded-full"></div>
-        </div>
+        <StarsCanvas />
         <div className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-2xl relative z-10">
             <div className="glass border border-white/10 rounded-[3rem] p-16 text-center">
@@ -80,11 +79,8 @@ export function ContactPage() {
           "description": "Get in touch with The Automators for business automation solutions"
         }}
       />
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="blob absolute top-20 right-1/4 w-96 h-96 bg-indigo-500 rounded-full"></div>
-        <div className="blob absolute bottom-40 left-1/4 w-80 h-80 bg-purple-500 rounded-full" style={{ animationDelay: '2s' }}></div>
-      </div>
+      {/* Spinning Stars Background */}
+      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">

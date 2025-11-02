@@ -4,6 +4,7 @@ import { ArrowLeft, TrendingUp, MessageSquare, DollarSign, CheckCircle, X, Packa
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
+import { StarsCanvas } from '../StarBackground';
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
@@ -96,6 +97,7 @@ export function DeviceDoctorCaseStudy() {
         path="/case-studies/device-doctor"
         keywords="electronics repair automation, insurance claim automation, business process automation, workflow automation case study, AI chatbot results"
       />
+      <StarsCanvas />
 
       {/* Back Button */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-6 sm:pb-8">

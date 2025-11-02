@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Check, Zap, Rocket, Crown, Star, Shield, DollarSign, Phone, MessageCircle, Workflow, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
+import { StarsCanvas } from './StarBackground';
 
 export function PricingPage() {
   const [activeTab, setActiveTab] = useState<'automation' | 'voice-agents' | 'chatbots'>('automation');
@@ -372,11 +373,8 @@ export function PricingPage() {
           }
         ]}
       />
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="blob absolute top-20 right-10 sm:right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-indigo-500 rounded-full"></div>
-        <div className="blob absolute bottom-20 left-10 sm:left-1/4 w-56 sm:w-80 h-56 sm:h-80 bg-pink-500 rounded-full" style={{ animationDelay: '3s' }}></div>
-      </div>
+      {/* Spinning Stars Background */}
+      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, AlertCircle, Bot, Phone, Zap, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
+import { StarsCanvas } from './StarBackground';
 
 type ServiceCategory = 'automation' | 'chatbots' | 'voice-agents';
 
@@ -111,11 +112,8 @@ export function AssessmentPage() {
         path="/assessment"
         keywords="business assessment, automation assessment, workflow analysis, process evaluation, efficiency test"
       />
-      {/* Animated Background Blobs */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="blob absolute top-40 right-20 w-96 h-96 bg-purple-500 rounded-full"></div>
-        <div className="blob absolute bottom-40 left-20 w-80 h-80 bg-indigo-500 rounded-full" style={{ animationDelay: '3s' }}></div>
-      </div>
+      {/* Spinning Stars Background */}
+      <StarsCanvas />
 
       <div className="relative pt-32 sm:pt-36 lg:pt-40 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">

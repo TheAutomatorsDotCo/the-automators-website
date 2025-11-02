@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Users, Zap } from 'lucide-react';
 import { SEO } from '../SEO';
+import { StarsCanvas } from '../StarBackground';
 
 interface CaseStudy {
   id: string;
@@ -109,6 +110,7 @@ export function CaseStudiesPage() {
         path="/case-studies"
         keywords="automation case studies, business automation success stories, AI implementation examples, workflow automation results, automation ROI"
       />
+      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">

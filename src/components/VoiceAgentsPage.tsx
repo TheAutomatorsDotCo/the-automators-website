@@ -3,6 +3,7 @@ import { Phone, PhoneCall, Star, MessageCircle, Users, TrendingUp, Brain, CheckC
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { StarsCanvas } from './StarBackground';
 
 export function VoiceAgentsPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -137,11 +138,8 @@ export function VoiceAgentsPage() {
           }
         ]}
       />
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="blob absolute top-20 left-1/4 w-96 h-96 bg-blue-500 rounded-full"></div>
-        <div className="blob absolute bottom-40 right-1/4 w-80 h-80 bg-purple-500 rounded-full" style={{ animationDelay: '2s' }}></div>
-      </div>
+      {/* Spinning Stars Background */}
+      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">

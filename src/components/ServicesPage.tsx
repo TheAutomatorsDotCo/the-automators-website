@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Workflow, Database, Mail, Calendar, Zap, Sparkles, Target, CheckCircle, Phone, MessageCircle, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
+import { StarsCanvas } from './StarBackground';
 
 export function ServicesPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -291,11 +292,8 @@ export function ServicesPage() {
           }
         ]}
       />
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="blob absolute top-20 left-10 sm:left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-indigo-500 rounded-full"></div>
-        <div className="blob absolute bottom-20 sm:bottom-40 right-10 sm:right-1/4 w-56 sm:w-80 h-56 sm:h-80 bg-purple-500 rounded-full" style={{ animationDelay: '2s' }}></div>
-      </div>
+      {/* Spinning Stars Background */}
+      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="relative pt-32 sm:pt-40 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8">

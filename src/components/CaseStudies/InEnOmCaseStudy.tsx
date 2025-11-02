@@ -4,6 +4,7 @@ import { ArrowLeft, TrendingUp, Globe, Package, CheckCircle, Zap, Users, Shoppin
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
+import { StarsCanvas } from '../StarBackground';
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
@@ -96,6 +97,7 @@ export function InEnOmCaseStudy() {
         path="/case-studies/in-en-om"
         keywords="web platform development, business directory development, job portal development, marketplace platform, React Firebase development, subscription platform"
       />
+      <StarsCanvas />
 
       {/* Back Button */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-6 sm:pb-8">
