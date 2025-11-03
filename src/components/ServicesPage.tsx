@@ -472,9 +472,7 @@ export function ServicesPage() {
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
               <div className="flex items-start space-x-3 sm:space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xl font-bold">
-                    ✓
-                  </div>
+                  <img src="/services-tick-purple.png" alt="No Large Upfront Fees" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
                 <div>
                   <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">No Large Upfront Fees</h3>
@@ -488,9 +486,7 @@ export function ServicesPage() {
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
               <div className="flex items-start space-x-3 sm:space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center text-white text-xl font-bold">
-                    ✓
-                  </div>
+                  <img src="/services-tick-cyan.png" alt="Scales With Your Business" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
                 <div>
                   <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">Scales With Your Business</h3>
@@ -504,9 +500,7 @@ export function ServicesPage() {
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
               <div className="flex items-start space-x-3 sm:space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xl font-bold">
-                    ✓
-                  </div>
+                  <img src="/services-tick-pink.png" alt="Flexible Payment Plans" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
                 <div>
                   <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">Flexible Payment Plans</h3>
@@ -520,9 +514,7 @@ export function ServicesPage() {
             <div className="card-3d glass border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-white/20 transition-all">
               <div className="flex items-start space-x-3 sm:space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white text-xl font-bold">
-                    ✓
-                  </div>
+                  <img src="/services-tick-orange.png" alt="Value-Based Billing" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
                 <div>
                   <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg">Value-Based Billing</h3>
