@@ -78,8 +78,8 @@ export function HomePage() {
             "@type": "Organization",
             "name": "The Automators",
             "description": "Business automation solutions that help companies save time and increase efficiency",
-            "url": "https://theautomators.com",
-            "logo": "https://theautomators.com/logo.png",
+            "url": "https://theautomators.co",
+            "logo": "https://theautomators.co/logo.png",
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.9",

@@ -132,7 +132,7 @@
     "price": "1997",
     "priceValidUntil": "2024-12-31",
     "availability": "https://schema.org/InStock",
-    "url": "https://theautomators.com/services/voice-agents"
+    "url": "https://theautomators.co/services/voice-agents"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -53,7 +53,7 @@ Website was using placeholder icons instead of the actual business logo.
   <meta property="og:image" content="https://images.unsplash.com/photo-1637401937636-f7d5bb75e0a9?w=1200&h=630&fit=crop" />
   
   <!-- After: -->
-  <meta property="og:image" content="https://theautomators.com/logo.png" />
+  <meta property="og:image" content="https://theautomators.co/logo.png" />
   ```
 - **Line 32**: Updated Twitter card image
   ```html
@@ -61,17 +61,17 @@ Website was using placeholder icons instead of the actual business logo.
   <meta property="twitter:image" content="https://images.unsplash.com/photo-1637401937636-f7d5bb75e0a9?w=1200&h=630&fit=crop" />
   
   <!-- After: -->
-  <meta property="twitter:image" content="https://theautomators.com/logo.png" />
+  <meta property="twitter:image" content="https://theautomators.co/logo.png" />
   ```
 
 **`src/components/HomePage.tsx`**
 - **Line 47**: Updated structured data logo reference
   ```tsx
   // Before:
-  "logo": "https://theautomators.com/logo.png",
+  "logo": "https://theautomators.co/logo.png",
   
   // After:
-  "logo": "https://theautomators.com/logo.png",
+  "logo": "https://theautomators.co/logo.png",
   ```
 
 ### Action Required
@@ -333,7 +333,7 @@ Added future flags to the Router component to opt-in to v7 behavior early and si
 
 1. **Logo File**: Copy actual business logo PNG to `public/logo.png`
 2. **Google Analytics**: Update `GA_MEASUREMENT_ID` in `src/App.tsx` (line 17) with actual GA4 measurement ID before deployment
-3. **Domain**: Update all references to `theautomators.com` with actual domain before deployment
+3. **Domain**: Update all references to `theautomators.co` with actual domain before deployment
 
 ---
 

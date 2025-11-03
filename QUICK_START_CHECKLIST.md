@@ -40,18 +40,18 @@ Your website now has **full SEO optimization** and is ready for Google Analytics
 ## ⚠️ TO-DO BEFORE LAUNCH (4 Steps)
 
 ### Step 1: Update Domain Name
-Replace `theautomators.com` with YOUR actual domain in these files:
+Replace `theautomators.co` with YOUR actual domain in these files:
 
 **File locations to update:**
-1. `src/components/SEO.tsx` - Line 13: `const siteUrl = 'https://theautomators.com';`
-2. `public/robots.txt` - Line 5: `Sitemap: https://theautomators.com/sitemap.xml`
+1. `src/components/SEO.tsx` - Line 13: `const siteUrl = 'https://theautomators.co';`
+2. `public/robots.txt` - Line 5: `Sitemap: https://theautomators.co/sitemap.xml`
 3. `public/sitemap.xml` - All `<loc>` tags (6 places)
 4. `index.html` - Meta tag URLs (lines 20, 29, 35)
 
 **Quick Find & Replace:**
 - Open VS Code
 - Press `Ctrl+Shift+H` (Find in Files)
-- Find: `theautomators.com`
+- Find: `theautomators.co`
 - Replace: `yourdomain.com`
 - Click "Replace All"
 

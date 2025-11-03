@@ -19,8 +19,8 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 
 export default function App() {
-  // Replace with your actual Google Analytics 4 Measurement ID when ready to launch
-  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: Add your GA4 Measurement ID
+  // Google Analytics 4 Measurement ID
+  const GA_MEASUREMENT_ID = 'G-K061PHT292';
 
   return (
     <HelmetProvider>

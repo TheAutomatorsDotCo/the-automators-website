@@ -20,7 +20,7 @@ export function SEO({
   keywords = 'business automation, workflow automation, process automation, save time, efficiency',
   structuredData 
 }: SEOProps) {
-  const siteUrl = 'https://theautomators.com'; // Update with your actual domain
+  const siteUrl = 'https://theautomators.co';
   const fullUrl = `${siteUrl}${path}`;
   const fullTitle = `${title} | The Automators`;
 

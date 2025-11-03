@@ -76,7 +76,7 @@
   "@context": "https://schema.org",
   "@type": "ContactPage",
   "name": "Contact The Automators",
-  "url": "https://theautomators.com/contact",
+  "url": "https://theautomators.co/contact",
   "description": "Schedule your free automation consultation or get in touch with our team"
 }
 ```
@@ -87,7 +87,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "The Automators",
-  "url": "https://theautomators.com",
+  "url": "https://theautomators.co",
   "contactPoint": [
     {
       "@type": "ContactPoint",

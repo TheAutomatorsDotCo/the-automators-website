@@ -92,14 +92,14 @@ trackEvent('download', 'resource', 'whitepaper-automation-guide');
 ### sitemap.xml (`public/sitemap.xml`)
 - Lists all your pages for Google
 - Includes priority and update frequency
-- **Important**: Update the domain from `theautomators.com` to your actual domain
+- **Important**: Update the domain from `theautomators.co` to your actual domain
 
 ---
 
 ## 🔧 Configuration Needed Before Launch
 
 ### 1. Update Domain Name
-Search and replace `theautomators.com` with your actual domain in:
+Search and replace `theautomators.co` with your actual domain in:
 - [ ] `src/components/SEO.tsx` (line 13: `siteUrl`)
 - [ ] `public/robots.txt` (line 5: Sitemap URL)
 - [ ] `public/sitemap.xml` (all `<loc>` tags)

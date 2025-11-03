@@ -9,7 +9,7 @@ This master plan consolidates all SEO strategies for The Automators website. Ind
 ## Site Structure & Page Hierarchy
 
 ```
-theautomators.com
+theautomators.co
 │
 ├── / (Homepage)
 │   ├── /services (Services Overview)
@@ -208,8 +208,8 @@ theautomators.com
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "The Automators",
-  "url": "https://theautomators.com",
-  "logo": "https://theautomators.com/logo.png",
+  "url": "https://theautomators.co",
+  "logo": "https://theautomators.co/logo.png",
   "sameAs": [
     "https://linkedin.com/company/theautomators"
   ]

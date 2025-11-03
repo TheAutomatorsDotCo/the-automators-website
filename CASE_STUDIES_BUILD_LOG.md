@@ -467,7 +467,7 @@ const navItems = [
 ```xml
 <!-- Case Studies Main Page -->
 <url>
-    <loc>https://theautomators.com/case-studies</loc>
+    <loc>https://theautomators.co/case-studies</loc>
     <lastmod>2025-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -475,7 +475,7 @@ const navItems = [
 
 <!-- Platinum Repairs Case Study -->
 <url>
-    <loc>https://theautomators.com/case-studies/platinum-repairs</loc>
+    <loc>https://theautomators.co/case-studies/platinum-repairs</loc>
     <lastmod>2025-10-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>

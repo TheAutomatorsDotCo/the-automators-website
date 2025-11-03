@@ -115,7 +115,7 @@ import { YourCompanyCaseStudy } from './components/CaseStudies/YourCompanyCaseSt
 Edit `public/sitemap.xml`:
 ```xml
 <url>
-    <loc>https://theautomators.com/case-studies/your-company</loc>
+    <loc>https://theautomators.co/case-studies/your-company</loc>
     <lastmod>2025-10-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>

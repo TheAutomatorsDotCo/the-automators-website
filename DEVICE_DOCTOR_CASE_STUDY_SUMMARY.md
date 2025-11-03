@@ -21,7 +21,7 @@ I've successfully created a complete case study page for Device Doctor, followin
 - **Device Doctor**: `http://localhost:5173/case-studies/device-doctor`
 
 ### Production:
-- `https://theautomators.com/case-studies/device-doctor`
+- `https://theautomators.co/case-studies/device-doctor`
 
 ## 🎨 Design Features
 
@@ -91,7 +91,7 @@ Three interactive tabs:
 ```
 
 ### Sitemap Entry:
-- URL: `https://theautomators.com/case-studies/device-doctor`
+- URL: `https://theautomators.co/case-studies/device-doctor`
 - Last Modified: 2025-10-28
 - Change Frequency: Yearly
 - Priority: 0.7

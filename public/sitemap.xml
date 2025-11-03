@@ -7,7 +7,7 @@
     
     <!-- Home Page -->
     <url>
-        <loc>https://theautomators.com/</loc>
+        <loc>https://theautomators.co/</loc>
         <lastmod>2025-10-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -15,7 +15,7 @@
     
     <!-- Assessment Page -->
     <url>
-        <loc>https://theautomators.com/assessment</loc>
+        <loc>https://theautomators.co/assessment</loc>
         <lastmod>2025-10-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -23,7 +23,7 @@
     
     <!-- Services Page -->
     <url>
-        <loc>https://theautomators.com/services</loc>
+        <loc>https://theautomators.co/services</loc>
         <lastmod>2025-10-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
@@ -31,7 +31,7 @@
     
     <!-- Automation Page (sub-page of Services) -->
     <url>
-        <loc>https://theautomators.com/services/automation</loc>
+        <loc>https://theautomators.co/services/automation</loc>
         <lastmod>2025-10-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -39,7 +39,7 @@
     
     <!-- Pricing Page -->
     <url>
-        <loc>https://theautomators.com/pricing</loc>
+        <loc>https://theautomators.co/pricing</loc>
         <lastmod>2025-10-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
@@ -47,7 +47,7 @@
     
     <!-- Contact Page -->
     <url>
-        <loc>https://theautomators.com/contact</loc>
+        <loc>https://theautomators.co/contact</loc>
         <lastmod>2025-10-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -55,7 +55,7 @@
     
     <!-- Case Studies Main Page -->
     <url>
-        <loc>https://theautomators.com/case-studies</loc>
+        <loc>https://theautomators.co/case-studies</loc>
         <lastmod>2025-10-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -63,7 +63,7 @@
     
     <!-- Platinum Repairs Case Study -->
     <url>
-        <loc>https://theautomators.com/case-studies/platinum-repairs</loc>
+        <loc>https://theautomators.co/case-studies/platinum-repairs</loc>
         <lastmod>2025-10-28</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
@@ -71,7 +71,7 @@
     
     <!-- Device Doctor Case Study -->
     <url>
-        <loc>https://theautomators.com/case-studies/device-doctor</loc>
+        <loc>https://theautomators.co/case-studies/device-doctor</loc>
         <lastmod>2025-10-28</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>

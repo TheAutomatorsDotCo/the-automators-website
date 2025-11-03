@@ -68,7 +68,7 @@ Your website has been transformed from a single-page application with no SEO str
 ## ⚠️ ACTION REQUIRED Before Launch
 
 ### 1. **Update Domain Name** 🌐
-Replace `theautomators.com` with your actual domain in:
+Replace `theautomators.co` with your actual domain in:
 - [ ] `src/components/SEO.tsx` (line 13)
 - [ ] `public/robots.txt` (line 5)
 - [ ] `public/sitemap.xml` (all URLs)
@@ -201,7 +201,7 @@ Automatically tracks:
 ## 🆘 Common Questions
 
 **Q: Do I need to change anything in the code after adding my domain?**
-A: Yes, search and replace `theautomators.com` with your actual domain in the files listed above.
+A: Yes, search and replace `theautomators.co` with your actual domain in the files listed above.
 
 **Q: How do I know if Google Analytics is working?**
 A: After adding your Measurement ID, visit your site and check the "Real-Time" reports in Google Analytics. You should see yourself as an active user.
