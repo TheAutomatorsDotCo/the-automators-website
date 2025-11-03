@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, AlertCircle, Bot, Phone, Zap, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from './SEO';
 import { StarsCanvas } from './StarBackground';
+import { saveLeadData } from '../utils/leadData';
 
 type ServiceCategory = 'automation' | 'chatbots' | 'voice-agents';
 
@@ -12,6 +13,7 @@ interface PainPoint {
 }
 
 export function AssessmentPage() {
+  const navigate = useNavigate();
   const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
   const [availableOptions, setAvailableOptions] = useState<number[]>([]);
   const [visibleOptions, setVisibleOptions] = useState<number[]>([]);
@@ -103,6 +105,25 @@ export function AssessmentPage() {
   };
 
   const serviceRecommendations = isComplete ? getServiceRecommendations() : null;
+
+  const handleContactNavigation = () => {
+    if (serviceRecommendations) {
+      // Save assessment data to localStorage
+      const selectedChallenges = selectedOptions.map(index => painPoints[index].text);
+      
+      saveLeadData({
+        source: 'assessment',
+        assessment: {
+          selectedChallenges,
+          serviceRecommendations,
+          timestamp: new Date().toISOString(),
+        },
+      });
+      
+      // Navigate to contact page
+      navigate('/contact');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
@@ -301,12 +322,12 @@ export function AssessmentPage() {
                   <span>Explore Our Services</span>
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Link>
-                <Link
-                  to="/contact"
+                <button
+                  onClick={handleContactNavigation}
                   className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-base sm:text-lg text-center"
                 >
                   Get Free Consultation
-                </Link>
+                </button>
               </div>
             </div>
           )}

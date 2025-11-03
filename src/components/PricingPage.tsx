@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Check, Zap, Rocket, Crown, Star, Shield, DollarSign, Phone, MessageCircle, Workflow, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from './SEO';
 import { StarsCanvas } from './StarBackground';
+import { saveLeadData } from '../utils/leadData';
 
 export function PricingPage() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'automation' | 'voice-agents' | 'chatbots'>('automation');
   const [currency, setCurrency] = useState<'USD' | 'ZAR'>('USD');
   const [paymentPlan, setPaymentPlan] = useState<'once-off' | '6-months' | '12-months' | '18-months'>('18-months');
@@ -239,6 +241,31 @@ export function PricingPage() {
     : activeTab === 'voice-agents' 
     ? voiceAgentsPlans 
     : chatbotsPlans;
+
+  const handlePlanSelection = (planName: string, price: string) => {
+    // Get payment plan label
+    const paymentPlanLabel = paymentOptions.find(opt => opt.value === paymentPlan)?.label || 'Pay in Full';
+    
+    // Format price display
+    const priceDisplay = price === 'Custom' 
+      ? 'Custom Pricing' 
+      : `${convertPrice(price)} (${paymentPlanLabel})`;
+    
+    // Save pricing data to localStorage
+    saveLeadData({
+      source: 'pricing',
+      pricing: {
+        planName,
+        serviceType: activeTab,
+        paymentPlan: paymentPlanLabel,
+        price: priceDisplay,
+        timestamp: new Date().toISOString(),
+      },
+    });
+    
+    // Navigate to contact page
+    navigate('/contact');
+  };
 
   const addons = [
     {
@@ -581,8 +608,8 @@ export function PricingPage() {
                     ))}
                   </ul>
 
-                  <Link
-                    to="/contact"
+                  <button
+                    onClick={() => handlePlanSelection(plan.name, plan.price)}
                     className={`block w-full py-3 sm:py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 text-base sm:text-lg ${
                       plan.highlighted
                         ? 'btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105'
@@ -590,7 +617,7 @@ export function PricingPage() {
                     }`}
                   >
                     {plan.price === 'Custom' ? 'Contact Us' : 'Get Started'}
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}

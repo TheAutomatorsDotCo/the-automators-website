@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp } from 'lucide-react';
 import { SEO } from './SEO';
 import { StarsCanvas } from './StarBackground';
+import { getLeadData, clearLeadData, formatLeadDetails } from '../utils/leadData';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -11,8 +12,22 @@ export function ContactPage() {
     company: '',
     message: '',
     interests: [] as string[],
+    additionalDetails: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [leadSource, setLeadSource] = useState<'assessment' | 'pricing' | 'direct'>('direct');
+
+  // Load lead data on mount
+  useEffect(() => {
+    const leadData = getLeadData();
+    if (leadData) {
+      const additionalDetails = formatLeadDetails(leadData);
+      setFormData(prev => ({ ...prev, additionalDetails }));
+      setLeadSource(leadData.source);
+    }
+  }, []);
 
   const interestOptions = [
     'Workflow Automation',
@@ -23,10 +38,90 @@ export function ContactPage() {
     'Custom Integration',
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      // Build the fields object with required fields first
+      // Capitalize Source Page values to match Airtable Single Select options
+      const sourcePageCapitalized = 
+        leadSource === 'assessment' ? 'Assessment' :
+        leadSource === 'pricing' ? 'Pricing' : 'Direct';
+      
+      const fields: Record<string, any> = {
+        'Full Name': formData.name,
+        'Email': formData.email,
+        'Message': formData.message,
+        'Source Page': sourcePageCapitalized,
+        'Submitted At': new Date().toISOString(),
+      };
+
+      // Add optional fields only if they have values
+      if (formData.phone) {
+        fields['Phone'] = formData.phone;
+      }
+      if (formData.company) {
+        fields['Company'] = formData.company;
+      }
+      if (formData.interests.length > 0) {
+        fields['Interests'] = formData.interests.join(', ');
+      }
+      if (formData.additionalDetails) {
+        fields['Additional Details'] = formData.additionalDetails;
+      }
+
+      // Add pricing-specific fields if available
+      const leadData = getLeadData();
+      if (leadData?.pricing) {
+        if (leadData.pricing.planName) {
+          fields['Selected Plan'] = leadData.pricing.planName;
+        }
+        if (leadData.pricing.serviceType) {
+          fields['Service Type'] = 
+            leadData.pricing.serviceType === 'automation' ? 'Automation' :
+            leadData.pricing.serviceType === 'voice-agents' ? 'Voice Agents' : 'Chatbots';
+        }
+        if (leadData.pricing.paymentPlan) {
+          fields['Payment Plan'] = leadData.pricing.paymentPlan;
+        }
+      }
+
+      const airtableData = { fields };
+
+      // Log the data being sent for debugging
+      console.log('Sending to Airtable:', airtableData);
+
+      const response = await fetch(
+        `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_AIRTABLE_TABLE_ID}`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_AIRTABLE_PAT}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(airtableData),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Airtable error details:', errorData);
+        throw new Error(errorData.error?.message || 'Failed to submit form');
+      }
+
+      // Clear lead data from localStorage
+      clearLeadData();
+      
+      // Show success message
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitError(error instanceof Error ? error.message : 'An error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInterestToggle = (interest: string) => {
@@ -239,12 +334,34 @@ export function ContactPage() {
                     />
                   </div>
 
+                  {formData.additionalDetails && (
+                    <div>
+                      <label className="block text-white mb-3">Additional Details (Auto-populated)</label>
+                      <textarea
+                        value={formData.additionalDetails}
+                        readOnly
+                        rows={8}
+                        className="w-full px-5 py-4 rounded-2xl glass border border-green-500/30 bg-green-500/5 text-white/80 resize-none cursor-not-allowed"
+                      />
+                      <p className="text-green-400/70 text-sm mt-2">
+                        ✓ Your {leadSource === 'assessment' ? 'assessment results' : 'plan selection'} has been automatically included
+                      </p>
+                    </div>
+                  )}
+
+                  {submitError && (
+                    <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/30">
+                      <p className="text-red-400 text-center">{submitError}</p>
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-5 rounded-full inline-flex items-center justify-center space-x-2"
+                    disabled={isSubmitting}
+                    className="w-full btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-5 rounded-full inline-flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>Send Message</span>
-                    <Send className="w-5 h-5" />
+                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                    {!isSubmitting && <Send className="w-5 h-5" />}
                   </button>
 
                   <p className="text-white/50 text-center">
