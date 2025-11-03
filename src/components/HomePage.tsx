@@ -8,7 +8,7 @@ import { StarsCanvas } from './StarBackground';
 export function HomePage() {
   const features = [
     {
-      icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/home-automated.png" alt="Automated Workflows" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'Automated Workflows',
       description: 'Streamline your business processes with intelligent automation that works 24/7.',
       gradient: 'from-indigo-500 to-blue-500',
@@ -16,7 +16,7 @@ export function HomePage() {
       linkText: 'Learn about workflow automation',
     },
     {
-      icon: <Clock className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/home-save-time.png" alt="Save Time" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'Save Time',
       description: 'Reclaim hours every week by eliminating repetitive tasks and manual data entry.',
       gradient: 'from-purple-500 to-pink-500',
@@ -24,7 +24,7 @@ export function HomePage() {
       linkText: 'Explore automation services',
     },
     {
-      icon: <Shield className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/home-reduce-errors.png" alt="Reduce Errors" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'Reduce Errors',
       description: 'Minimize human error with consistent, reliable automated processes.',
       gradient: 'from-cyan-500 to-teal-500',
@@ -32,7 +32,7 @@ export function HomePage() {
       linkText: 'Discover AI chatbot solutions',
     },
     {
-      icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/home-scale.png" alt="Scale Faster" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'Scale Faster',
       description: 'Grow your business without growing your admin overhead.',
       gradient: 'from-orange-500 to-red-500',
@@ -184,7 +184,7 @@ export function HomePage() {
                 className="card-3d group relative overflow-hidden rounded-2xl sm:rounded-3xl glass border border-white/10 p-6 sm:p-8 hover:border-white/20 transition-all block"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity`}></div>
-                <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${feature.gradient} text-white mb-4 sm:mb-6`}>
+                <div className="mb-4 sm:mb-6">
                   {feature.icon}
                 </div>
                 <h3 className="text-white text-lg sm:text-xl mb-2 sm:mb-3">{feature.title}</h3>

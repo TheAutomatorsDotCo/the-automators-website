@@ -44,42 +44,42 @@ export function ServicesPage() {
 
   const services = [
     {
-      icon: <Workflow className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/services-automation.png" alt="Workflow Automation" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'Workflow Automation',
       description: 'Connect your apps and automate repetitive workflows. From lead capture to customer onboarding.',
       benefits: ['Save 10-20 hours/week', 'Eliminate data entry', 'Reduce errors by 90%'],
       gradient: 'from-indigo-500 to-blue-500',
     },
     {
-      icon: <Phone className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/services-voice-agents.png" alt="Voice Agents" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'Voice Agents',
       description: 'AI-powered Voice Agents that make real phone calls, handle customer conversations, and generate 5-star reviews automatically.',
       benefits: ['Automated follow-up calls', 'Natural conversations', 'More 5-star reviews'],
       gradient: 'from-blue-500 to-cyan-500',
     },
     {
-      icon: <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/services-chatbots.png" alt="AI Chatbots" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'AI Chatbots',
       description: 'Intelligent chatbots that provide 24/7 customer support, qualify leads, and increase conversions across all channels.',
       benefits: ['24/7 availability', 'Instant responses', 'Lower support costs'],
       gradient: 'from-cyan-500 to-teal-500',
     },
     {
-      icon: <Mail className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/services-email.png" alt="Email & Communication" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'Email & Communication',
       description: 'Automate email sequences, notifications, and customer communication seamlessly.',
       benefits: ['Automated follow-ups', 'Personalized at scale', 'Higher response rates'],
       gradient: 'from-purple-500 to-pink-500',
     },
     {
-      icon: <Database className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/services-data.png" alt="Data Management" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'Data Management',
       description: 'Keep your data organized and synced across all platforms in real-time.',
       benefits: ['Real-time syncing', 'Clean organized data', 'Easy reporting'],
       gradient: 'from-green-500 to-emerald-500',
     },
     {
-      icon: <Calendar className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="/services-booking.png" alt="Scheduling & Booking" className="w-12 h-12 sm:w-16 sm:h-16" />,
       title: 'Scheduling & Booking',
       description: 'Automate appointment scheduling, reminders, and calendar management effortlessly.',
       benefits: ['24/7 booking', 'Auto reminders', 'No double bookings'],
@@ -335,7 +335,7 @@ export function ServicesPage() {
                 }`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity`}></div>
-                <div className={`relative inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${service.gradient} text-white mb-4 sm:mb-6`}>
+                <div className="relative mb-4 sm:mb-6">
                   {service.icon}
                 </div>
                 <h3 className="relative text-white mb-2 sm:mb-3">

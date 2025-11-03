@@ -336,8 +336,8 @@ export function AssessmentPage() {
           {!isComplete && (
             <div className="glass border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 backdrop-blur-xl">
               <div className="flex items-start space-x-3 sm:space-x-4">
-                <div className="flex-shrink-0 p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500">
-                  <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+                <div className="flex-shrink-0">
+                  <img src="/assessment-info.png" alt="Assessment Info" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
                 <p className="text-white/80 text-base sm:text-lg lg:text-lg">
                   <span className="text-white font-medium">Tip:</span> Select all the challenges that apply to your business. We'll recommend the best solutions based on your specific needs.
