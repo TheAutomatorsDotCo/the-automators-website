@@ -140,7 +140,7 @@ export function ChatbotDemos() {
           <h2 className="text-4xl sm:text-5xl gradient-text mb-4">
             Meet Your Always-On Team: Interactive Chatbot Demos
           </h2>
-          <p className="text-xl text-white/60 max-w-3xl mx-auto">
+          <p className="text-2xl text-white/60 max-w-3xl mx-auto">
             See how intelligent chatbots can transform customer experience and drive results 24/7.
           </p>
         </div>
@@ -171,11 +171,11 @@ export function ChatbotDemos() {
                 <div className="flex items-center space-x-3 mb-3 animate-fade-in">
                   <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-500/20">
                     <Check className="w-4 h-4 text-green-400" />
-                    <span className="text-base text-white">Resolved: {demo1State.resolvedCount}</span>
+                    <span className="text-lg text-white">Resolved: {demo1State.resolvedCount}</span>
                   </div>
                   <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20">
                     <Clock className="w-4 h-4 text-blue-400" />
-                    <span className="text-base text-white">5 min saved</span>
+                    <span className="text-lg text-white">5 min saved</span>
                   </div>
                 </div>
               )}
@@ -190,7 +190,7 @@ export function ChatbotDemos() {
                     <Bot className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-white text-base font-semibold">Support Assistant</div>
+                    <div className="text-white text-lg font-semibold">Support Assistant</div>
                     <div className="text-white/70 text-xs flex items-center">
                       <div className="w-2 h-2 rounded-full bg-green-400 mr-1"></div>
                       Always online
@@ -224,7 +224,7 @@ export function ChatbotDemos() {
                     <div className="flex items-start space-x-3">
                       <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-white text-base font-semibold mb-1">24/7 Availability</p>
+                        <p className="text-white text-lg font-semibold mb-1">24/7 Availability</p>
                         <p className="text-white/70 text-xs">
                           This instant resolution saved 5 minutes of staff time. Clients get answers instantly, 365 days a year.
                         </p>
@@ -283,11 +283,11 @@ export function ChatbotDemos() {
                 <div className="flex items-center space-x-3 mb-3 animate-fade-in">
                   <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-500/20">
                     <DollarSign className="w-4 h-4 text-green-400" />
-                    <span className="text-base text-white">Sales +1</span>
+                    <span className="text-lg text-white">Sales +1</span>
                   </div>
                   <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
                     <TrendingUp className="w-4 h-4 text-cyan-400" />
-                    <span className="text-base text-white">Engagement ↑</span>
+                    <span className="text-lg text-white">Engagement ↑</span>
                   </div>
                 </div>
               )}
@@ -302,7 +302,7 @@ export function ChatbotDemos() {
                     <Bot className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-white text-base font-semibold">Shopping Assistant</div>
+                    <div className="text-white text-lg font-semibold">Shopping Assistant</div>
                     <div className="text-white/70 text-xs flex items-center">
                       <div className="w-2 h-2 rounded-full bg-green-400 mr-1"></div>
                       Ready to help
@@ -339,7 +339,7 @@ export function ChatbotDemos() {
                           <span className="text-2xl">🎒</span>
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-white font-semibold text-base mb-1">Navigator Backpack</h4>
+                          <h4 className="text-white font-semibold text-lg mb-1">Navigator Backpack</h4>
                           <p className="text-white/60 text-xs mb-2">Fits 15" laptop • Water bottle pocket</p>
                           <div className="flex items-center justify-between">
                             <span className="text-cyan-400 font-bold">$89.99</span>
@@ -359,7 +359,7 @@ export function ChatbotDemos() {
                     <div className="flex items-start space-x-3">
                       <TrendingUp className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-white text-base font-semibold mb-1">Targeted Engagement</p>
+                        <p className="text-white text-lg font-semibold mb-1">Targeted Engagement</p>
                         <p className="text-white/70 text-xs">
                           Direct link to the recommended product removes search friction and drives sales.
                         </p>

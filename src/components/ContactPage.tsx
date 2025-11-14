@@ -143,8 +143,8 @@ export function ContactPage() {
               <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-green-500 to-emerald-500 text-white mb-8 float">
                 <CheckCircle2 className="w-12 h-12" />
               </div>
-              <h2 className="text-4xl gradient-text mb-6">Thank You!</h2>
-              <p className="text-xl text-white/70 mb-8">
+              <h2 className="text-5xl gradient-text mb-6">Thank You!</h2>
+              <p className="text-2xl text-white/70 mb-8">
                 We've received your message and will get back to you within 24 hours. Check your email for a confirmation.
               </p>
               <button
@@ -343,7 +343,7 @@ export function ContactPage() {
                         rows={8}
                         className="w-full px-5 py-4 rounded-2xl glass border border-green-500/30 bg-green-500/5 text-white/80 resize-none cursor-not-allowed"
                       />
-                      <p className="text-green-400/70 text-sm mt-2">
+                      <p className="text-green-400/70 text-base mt-2">
                         ✓ Your {leadSource === 'assessment' ? 'assessment results' : 'plan selection'} has been automatically included
                       </p>
                     </div>
@@ -382,7 +382,7 @@ export function ContactPage() {
               <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white mb-4">
                 <Users className="w-8 h-8" />
               </div>
-              <div className="text-4xl gradient-text mb-2">200+</div>
+              <div className="text-5xl gradient-text mb-2">200+</div>
               <h4 className="text-white mb-1">Happy Clients</h4>
               <p className="text-white/60">Businesses automated</p>
             </div>
@@ -390,7 +390,7 @@ export function ContactPage() {
               <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 text-white mb-4">
                 <TrendingUp className="w-8 h-8" />
               </div>
-              <div className="text-4xl gradient-text mb-2">98%</div>
+              <div className="text-5xl gradient-text mb-2">98%</div>
               <h4 className="text-white mb-1">Satisfaction Rate</h4>
               <p className="text-white/60">Client satisfaction score</p>
             </div>
@@ -398,7 +398,7 @@ export function ContactPage() {
               <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-500 text-white mb-4">
                 <Clock className="w-8 h-8" />
               </div>
-              <div className="text-4xl gradient-text mb-2">24hr</div>
+              <div className="text-5xl gradient-text mb-2">24hr</div>
               <h4 className="text-white mb-1">Response Time</h4>
               <p className="text-white/60">Average response time</p>
             </div>

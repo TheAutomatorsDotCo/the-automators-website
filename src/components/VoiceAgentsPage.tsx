@@ -173,8 +173,8 @@ export function VoiceAgentsPage() {
           <div className="glass border border-white/10 rounded-3xl p-8 sm:p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-5xl sm:text-6xl gradient-text mb-6">What Are AI Voice Agents?</h2>
-                <p className="text-white/70 text-xl mb-6">
+                <h2 className="text-6xl sm:text-7xl gradient-text mb-6">What Are AI Voice Agents?</h2>
+                <p className="text-white/70 text-2xl mb-6">
                   Voice Agents are AI-powered virtual assistants that integrate seamlessly into your automation systems. They can make real phone calls to your clients at specific points in your workflow, handling conversations naturally with human-sounding voices.
                 </p>
                 <p className="text-white/70 text-xl mb-6">
@@ -217,8 +217,8 @@ export function VoiceAgentsPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl sm:text-6xl gradient-text mb-6">How AI Voice Agents Transform Your Business</h2>
-            <p className="text-2xl text-white/60 max-w-3xl mx-auto">
+            <h2 className="text-6xl sm:text-7xl gradient-text mb-6">How AI Voice Agents Transform Your Business</h2>
+            <p className="text-3xl text-white/60 max-w-3xl mx-auto">
               From review generation to customer support, Voice Agents handle conversations that drive results.
             </p>
           </div>
@@ -248,17 +248,17 @@ export function VoiceAgentsPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10"></div>
             <div className="relative z-10">
               <div className="text-center mb-12">
-                <h2 className="text-5xl sm:text-6xl gradient-text mb-4">How It Works In Practice</h2>
+                <h2 className="text-6xl sm:text-7xl gradient-text mb-4">How It Works In Practice</h2>
               </div>
 
               <div className="bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-2xl p-8 mb-8">
-                <p className="text-white/90 text-xl leading-relaxed mb-6">
+                <p className="text-white/90 text-2xl leading-relaxed mb-6">
                   <strong className="text-white">Imagine this scenario:</strong> When a client uses your service, and the job is completed, our Voice Agent automatically schedules a courtesy call.
                 </p>
-                <p className="text-white/80 text-xl leading-relaxed mb-6">
+                <p className="text-white/80 text-2xl leading-relaxed mb-6">
                   The agent speaks naturally and asks your client about their experience. If the client is satisfied, the agent politely asks them to leave a 5-star Google review — even offering to send a direct link via text message for convenience.
                 </p>
-                <p className="text-white/80 text-xl leading-relaxed">
+                <p className="text-white/80 text-2xl leading-relaxed">
                   If the experience wasn't good, the call is automatically escalated to one of your managers for a personal follow-up. This way, you can address issues before they become negative reviews, turning potentially bad situations into opportunities to demonstrate exceptional service.
                 </p>
               </div>
@@ -269,21 +269,21 @@ export function VoiceAgentsPage() {
                     <Star className="w-6 h-6" />
                   </div>
                   <h4 className="text-white mb-2">Happy Clients</h4>
-                  <p className="text-white/60 text-base">Guided to leave 5-star reviews</p>
+                  <p className="text-white/60 text-lg">Guided to leave 5-star reviews</p>
                 </div>
                 <div className="text-center p-6 rounded-2xl bg-white/5 border border-white/5">
                   <div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 text-white mb-4">
                     <AlertTriangle className="w-6 h-6" />
                   </div>
                   <h4 className="text-white mb-2">Issues Detected</h4>
-                  <p className="text-white/60 text-base">Escalated to managers early</p>
+                  <p className="text-white/60 text-lg">Escalated to managers early</p>
                 </div>
                 <div className="text-center p-6 rounded-2xl bg-white/5 border border-white/5">
                   <div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 text-white mb-4">
                     <TrendingUp className="w-6 h-6" />
                   </div>
                   <h4 className="text-white mb-2">Better Reputation</h4>
-                  <p className="text-white/60 text-base">More positive feedback</p>
+                  <p className="text-white/60 text-lg">More positive feedback</p>
                 </div>
               </div>
             </div>
@@ -295,8 +295,8 @@ export function VoiceAgentsPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl sm:text-6xl gradient-text mb-6">AI Voice Agent Use Cases</h2>
-            <p className="text-2xl text-white/60 max-w-3xl mx-auto">
+            <h2 className="text-6xl sm:text-7xl gradient-text mb-6">AI Voice Agent Use Cases</h2>
+            <p className="text-3xl text-white/60 max-w-3xl mx-auto">
               This is just one example of how Voice Agents can boost positive feedback, identify unhappy clients early, and help businesses maintain great relationships. The possibilities are endless.
             </p>
           </div>
@@ -317,8 +317,8 @@ export function VoiceAgentsPage() {
           </div>
 
           <div className="glass border border-white/10 rounded-3xl p-8 sm:p-12">
-            <h3 className="text-3xl sm:text-4xl text-white mb-6 text-center">Custom Business Training</h3>
-            <p className="text-white/70 text-xl mb-6">
+            <h3 className="text-4xl sm:text-5xl text-white mb-6 text-center">Custom Business Training</h3>
+            <p className="text-white/70 text-2xl mb-6">
               These Voice Agents can be trained on your specific business information, allowing them to answer client questions accurately, provide updates on orders or appointments, and even handle basic sales conversations — all without human involvement.
             </p>
             <p className="text-white/70 text-xl">
@@ -332,8 +332,8 @@ export function VoiceAgentsPage() {
       <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-3 sm:mb-4">Frequently Asked Questions</h2>
-            <p className="text-base sm:text-xl text-white/60">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-3 sm:mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg sm:text-2xl text-white/60">
               Everything you need to know about AI Voice Agents
             </p>
           </div>
@@ -345,9 +345,9 @@ export function VoiceAgentsPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">What are AI voice agents?</h3>
+                  <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">What are AI voice agents?</h3>
                   {openFAQ === 1 && (
-                    <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
+                    <p className="text-white/70 mt-2 sm:mt-3 text-lg leading-relaxed">
                       AI voice agents are intelligent virtual assistants that can make real phone calls to your customers. They use natural language processing and human-sounding voices to have conversations, answer questions, and complete tasks like requesting reviews or scheduling appointments. <Link to="/services/automation" className="text-indigo-400 hover:text-indigo-300">Learn more about automation workflows</Link>.
                     </p>
                   )}
@@ -366,9 +366,9 @@ export function VoiceAgentsPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">Do voice agents sound robotic?</h3>
+                  <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">Do voice agents sound robotic?</h3>
                   {openFAQ === 2 && (
-                    <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
+                    <p className="text-white/70 mt-2 sm:mt-3 text-lg leading-relaxed">
                       Not at all! Modern AI voice agents use advanced text-to-speech technology to sound remarkably human. They understand context, respond naturally to questions, and adapt their conversation based on customer responses—creating genuine, helpful interactions that most customers can't distinguish from a human agent.
                     </p>
                   )}
@@ -387,9 +387,9 @@ export function VoiceAgentsPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">Can voice agents handle complex conversations?</h3>
+                  <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">Can voice agents handle complex conversations?</h3>
                   {openFAQ === 3 && (
-                    <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
+                    <p className="text-white/70 mt-2 sm:mt-3 text-lg leading-relaxed">
                       AI voice agents excel at structured conversations like follow-ups, appointment reminders, review requests, and lead qualification. For complex issues or upset customers, they intelligently escalate to your team. They're designed to handle 80% of routine calls, freeing your team for situations that require human judgment.
                     </p>
                   )}
@@ -408,9 +408,9 @@ export function VoiceAgentsPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0">How much do AI voice agents cost?</h3>
+                  <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">How much do AI voice agents cost?</h3>
                   {openFAQ === 4 && (
-                    <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
+                    <p className="text-white/70 mt-2 sm:mt-3 text-lg leading-relaxed">
                       Our AI Voice Agent services start at $1,997 for up to 100 calls/month. Professional plans ($3,997) include up to 500 calls/month with advanced features. We also offer custom Enterprise pricing for unlimited calls. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View detailed pricing</Link>.
                     </p>
                   )}

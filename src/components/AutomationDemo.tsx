@@ -107,10 +107,10 @@ export function AutomationDemo() {
         {/* Section Header */}
         <div className="text-center mb-16 sm:mb-24">
           <div className="h-4 sm:h-6 mb-3 sm:mb-4"></div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl gradient-text mb-4 sm:mb-6">
             See Automation in Action
           </h2>
-          <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto">
+          <p className="text-2xl sm:text-3xl text-white/60 max-w-3xl mx-auto">
             Watch how a single form submission triggers a complete automated workflow in seconds
           </p>
         </div>
@@ -126,7 +126,7 @@ export function AutomationDemo() {
                 <button
                   onClick={startAnimation}
                   disabled={isAnimating}
-                  className={`btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 rounded-full inline-flex items-center space-x-2 sm:space-x-3 text-base sm:text-lg md:text-xl ${
+                  className={`btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 rounded-full inline-flex items-center space-x-2 sm:space-x-3 text-lg sm:text-xl md:text-2xl ${
                     isAnimating ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
                   } transition-all`}
                 >
@@ -139,7 +139,7 @@ export function AutomationDemo() {
                 {isAnimating && activeStep >= 0 && activeStep < 5 && (
                   <div className="mt-4 inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass border border-white/20">
                     <div className="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 animate-pulse"></div>
-                    <span className="text-sm sm:text-base text-white/80">
+                    <span className="text-base sm:text-lg text-white/80">
                       Step {activeStep + 1} of 6
                     </span>
                   </div>
@@ -153,7 +153,7 @@ export function AutomationDemo() {
                 <div key={step.id} className="relative">
                   {/* Step Number Badge */}
                   <div className="absolute -top-3 -left-3 z-20">
-                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold text-white transition-all duration-500 ${
+                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-sm sm:text-base font-bold text-white transition-all duration-500 ${
                       activeStep === step.id 
                         ? `bg-gradient-to-br ${step.color} scale-125 shadow-lg` 
                         : activeStep > step.id
@@ -195,14 +195,14 @@ export function AutomationDemo() {
                       </div>
                       
                       {/* Title */}
-                      <h3 className={`text-center text-base sm:text-lg font-semibold mb-1.5 sm:mb-2 transition-colors duration-500 ${
+                      <h3 className={`text-center text-lg sm:text-xl font-semibold mb-1.5 sm:mb-2 transition-colors duration-500 ${
                         activeStep === step.id ? 'text-white' : 'text-white/80'
                       }`}>
                         {step.title}
                       </h3>
                       
                       {/* Description */}
-                      <p className={`text-center text-sm sm:text-base transition-all duration-500 ${
+                      <p className={`text-center text-base sm:text-lg transition-all duration-500 ${
                         activeStep === step.id 
                           ? 'text-white/90' 
                           : 'text-white/60'
@@ -229,12 +229,12 @@ export function AutomationDemo() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-2">
+                <p className="text-xl sm:text-2xl md:text-3xl text-white/90 mb-2">
                   <span className="gradient-text font-semibold">Just imagine:</span> A simple workflow like this can save you{' '}
                   <span className="text-white font-semibold">15 minutes to an hour</span> of manual work{' '}
                   <span className="text-white font-semibold">every time</span> it's used.
                 </p>
-                <p className="text-sm sm:text-base text-white/60">
+                <p className="text-base sm:text-lg text-white/60">
                   Multiply that across your team and across all your repetitive processes...
                 </p>
               </div>

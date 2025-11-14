@@ -208,8 +208,8 @@ export function ChatbotsPage() {
       <section className="relative py-12 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4">Proven Results with AI Chatbots</h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl gradient-text mb-4">Proven Results with AI Chatbots</h2>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">
               See the measurable impact AI chatbots have on customer support costs, availability, and response times
             </p>
           </div>
@@ -278,8 +278,8 @@ export function ChatbotsPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">Benefits of AI Chatbots for Business</h2>
-            <p className="text-xl text-white/60 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl gradient-text mb-6">Benefits of AI Chatbots for Business</h2>
+            <p className="text-2xl text-white/60 max-w-3xl mx-auto">
               From customer support to sales, chatbots deliver measurable results for businesses of all sizes.
             </p>
           </div>
@@ -306,8 +306,8 @@ export function ChatbotsPage() {
       <section className="relative pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl gradient-text mb-6">AI Chatbot Use Cases & Applications</h2>
-            <p className="text-xl text-white/60 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl gradient-text mb-6">AI Chatbot Use Cases & Applications</h2>
+            <p className="text-2xl text-white/60 max-w-3xl mx-auto">
               See how businesses across industries use chatbots to improve customer experience and drive growth.
             </p>
           </div>
@@ -345,8 +345,8 @@ export function ChatbotsPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10"></div>
             <div className="relative z-10">
               <div className="text-center mb-12">
-                <h2 className="text-4xl sm:text-5xl gradient-text mb-6">How We Build Your Chatbot</h2>
-                <p className="text-xl text-white/60">
+                <h2 className="text-5xl sm:text-6xl gradient-text mb-6">How We Build Your Chatbot</h2>
+                <p className="text-2xl text-white/60">
                   A simple process that gets your chatbot live in days, not months.
                 </p>
               </div>
@@ -390,8 +390,8 @@ export function ChatbotsPage() {
       <section className="relative pt-20 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text mb-3 sm:mb-4">Frequently Asked Questions</h2>
-            <p className="text-base sm:text-lg text-white/60">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-3 sm:mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg sm:text-xl text-white/60">
               Everything you need to know about AI chatbot development and deployment
             </p>
           </div>
@@ -402,7 +402,7 @@ export function ChatbotsPage() {
                 onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3"
               >
-                <h3 className="text-white text-base sm:text-lg font-semibold">What are AI chatbots?</h3>
+                <h3 className="text-white text-lg sm:text-xl font-semibold">What are AI chatbots?</h3>
                 <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-transform flex-shrink-0 ${openFAQ === 1 ? 'rotate-180' : ''}`} />
               </button>
               {openFAQ === 1 && (

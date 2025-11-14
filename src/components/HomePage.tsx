@@ -120,25 +120,25 @@ export function HomePage() {
             <h1 className="sr-only">Business Automation Solutions That Save Time and Increase Efficiency</h1>
             
             {/* Display Heading */}
-            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl gradient-text leading-tight" role="heading" aria-level="1">
+            <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl gradient-text leading-tight" role="heading" aria-level="1">
               Let's Automate The Moving Pieces
             </div>
             
-            <p className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl sm:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
               Don't let the mind-numbing, never-ending whirlwind of business admin take all the joy and freedom from your work.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 to="/services"
-                className="group btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full inline-flex items-center justify-center space-x-2 text-base sm:text-lg"
+                className="group btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full inline-flex items-center justify-center space-x-2 text-lg sm:text-xl"
               >
                 <span>How We Help</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/assessment"
-                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-base sm:text-lg inline-flex items-center justify-center"
+                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-lg sm:text-xl inline-flex items-center justify-center"
               >
                 Take Assessment
               </Link>
@@ -147,16 +147,16 @@ export function HomePage() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl gradient-text">99.9%</div>
-                <div className="text-sm sm:text-base text-white/60 mt-1">Uptime Reliability</div>
+                <div className="text-4xl sm:text-5xl gradient-text">99.9%</div>
+                <div className="text-base sm:text-lg text-white/60 mt-1">Uptime Reliability</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl gradient-text">24.66yrs</div>
-                <div className="text-sm sm:text-base text-white/60 mt-1">Work Automated</div>
+                <div className="text-4xl sm:text-5xl gradient-text">24.66yrs</div>
+                <div className="text-base sm:text-lg text-white/60 mt-1">Work Automated</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl gradient-text">98%</div>
-                <div className="text-sm sm:text-base text-white/60 mt-1">Satisfaction</div>
+                <div className="text-4xl sm:text-5xl gradient-text">98%</div>
+                <div className="text-base sm:text-lg text-white/60 mt-1">Satisfaction</div>
               </div>
             </div>
           </div>
@@ -168,10 +168,10 @@ export function HomePage() {
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-12 sm:mb-20">
             <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl gradient-text mb-4 sm:mb-6">
               Why Automate Your Business?
             </h2>
-            <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto px-4">
+            <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto px-4">
               Stop spending your valuable time on repetitive tasks. Focus on what matters most.
             </p>
           </div>
@@ -187,9 +187,9 @@ export function HomePage() {
                 <div className="mb-4 sm:mb-6">
                   {feature.icon}
                 </div>
-                <h3 className="text-white text-lg sm:text-xl mb-2 sm:mb-3">{feature.title}</h3>
-                <p className="text-white/60 text-sm sm:text-base mb-3">{feature.description}</p>
-                <span className="text-white/80 text-base group-hover:text-white inline-flex items-center gap-1">
+                <h3 className="text-white text-xl sm:text-2xl mb-2 sm:mb-3">{feature.title}</h3>
+                <p className="text-white/60 text-base sm:text-lg mb-3">{feature.description}</p>
+                <span className="text-white/80 text-lg group-hover:text-white inline-flex items-center gap-1">
                   {feature.linkText}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -203,7 +203,7 @@ export function HomePage() {
       <section className="relative pt-20 sm:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-4 sm:mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6">
               What Our Clients Think:
             </h2>
           </div>
@@ -239,7 +239,7 @@ export function HomePage() {
                   {/* Quote with decorative quotes */}
                   <div className="relative z-10 mb-5 sm:mb-6 flex-1">
                     <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-purple-500/20 mb-3 sm:mb-4" />
-                    <p className="text-white/80 leading-relaxed text-sm sm:text-[15px] italic">
+                    <p className="text-white/80 leading-relaxed text-base sm:text-base italic">
                       {testimonial.quote}
                     </p>
                   </div>
@@ -250,18 +250,18 @@ export function HomePage() {
                   {/* Author Info & Stars */}
                   <div className="relative z-10">
                     <div className="text-center mb-3">
-                      <h4 className="text-white font-semibold text-sm sm:text-base mb-1">{testimonial.name}</h4>
+                      <h4 className="text-white font-semibold text-base sm:text-lg mb-1">{testimonial.name}</h4>
                       {testimonial.link ? (
                         <a 
                           href={testimonial.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-white/50 text-xs sm:text-sm hover:text-purple-400 transition-colors inline-block"
+                          className="text-white/50 text-sm sm:text-base hover:text-purple-400 transition-colors inline-block"
                         >
                           {testimonial.title}
                         </a>
                       ) : (
-                        <p className="text-white/50 text-xs sm:text-sm">{testimonial.title}</p>
+                        <p className="text-white/50 text-sm sm:text-base">{testimonial.title}</p>
                       )}
                     </div>
                     
@@ -281,7 +281,7 @@ export function HomePage() {
           <div className="text-center">
             <Link
               to="/case-studies"
-              className="inline-flex items-center space-x-2 btn-3d bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-base sm:text-lg md:text-xl group"
+              className="inline-flex items-center space-x-2 btn-3d bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-lg sm:text-xl md:text-2xl group"
             >
               <span>See Detailed Case Studies</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -299,22 +299,22 @@ export function HomePage() {
               <div className="inline-flex p-3 sm:p-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white mb-6 sm:mb-8">
                 <Rocket className="w-10 h-10 sm:w-12 sm:h-12" />
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl text-white mb-4 sm:mb-6 px-4">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 px-4">
                 Ready to Transform Your Business?
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-white/70 mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/70 mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
                 Join hundreds of businesses that have automated their workflows and reclaimed their time.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link
                   to="/assessment"
-                  className="btn-3d bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base"
+                  className="btn-3d bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg"
                 >
                   Take the Assessment
                 </Link>
                 <Link
                   to="/pricing"
-                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-sm sm:text-base"
+                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-base sm:text-lg"
                 >
                   View Pricing
                 </Link>

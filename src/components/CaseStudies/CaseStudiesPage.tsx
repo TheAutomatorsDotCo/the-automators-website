@@ -138,7 +138,7 @@ export function CaseStudiesPage() {
                   {/* Content */}
                   <div className="lg:col-span-2">
                     <div className="flex items-center space-x-3 mb-4">
-                      <span className={`px-4 py-1 rounded-full text-base font-medium bg-gradient-to-r ${study.gradient} text-white`}>
+                      <span className={`px-4 py-1 rounded-full text-lg font-medium bg-gradient-to-r ${study.gradient} text-white`}>
                         {study.industry}
                       </span>
                     </div>
@@ -161,8 +161,8 @@ export function CaseStudiesPage() {
                           {stat.icon}
                         </div>
                         <div>
-                          <div className="text-3xl font-bold text-white">{stat.value}</div>
-                          <div className="text-base text-white/60">{stat.label}</div>
+                          <div className="text-4xl font-bold text-white">{stat.value}</div>
+                          <div className="text-lg text-white/60">{stat.label}</div>
                         </div>
                       </div>
                     ))}
@@ -176,7 +176,7 @@ export function CaseStudiesPage() {
         {/* Coming Soon */}
         <div className="mt-12 text-center">
           <div className="glass rounded-3xl border border-white/10 p-12">
-            <h3 className="text-3xl font-bold text-white mb-4">More Success Stories Coming Soon</h3>
+            <h3 className="text-4xl font-bold text-white mb-4">More Success Stories Coming Soon</h3>
             <p className="text-white/70 mb-6">
               We're working with incredible businesses across various industries. Check back soon for more case studies.
             </p>

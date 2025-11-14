@@ -152,8 +152,8 @@ export function AssessmentPage() {
           {/* Progress Bar */}
           <div className="mb-4 sm:mb-6">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-base sm:text-base text-white/60">Selected</span>
-              <span className="text-base sm:text-base text-white font-medium">
+              <span className="text-lg sm:text-lg text-white/60">Selected</span>
+              <span className="text-lg sm:text-lg text-white font-medium">
                 {selectedOptions.length} option{selectedOptions.length !== 1 ? 's' : ''}
               </span>
             </div>
@@ -183,7 +183,7 @@ export function AssessmentPage() {
                         }`}
                       >
                         <div className="flex items-center justify-between gap-3">
-                          <span className="flex-1 text-base sm:text-lg text-white leading-snug">
+                          <span className="flex-1 text-lg sm:text-xl text-white leading-snug">
                             {painPoints[index].text}
                           </span>
                           <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all flex-shrink-0" />
@@ -199,7 +199,7 @@ export function AssessmentPage() {
                 <div className="flex justify-center mb-8">
                   <button
                     onClick={handleNext}
-                    className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-base sm:text-lg inline-flex items-center gap-2"
+                    className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-lg sm:text-xl inline-flex items-center gap-2"
                   >
                     <span>None of these apply</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -231,8 +231,8 @@ export function AssessmentPage() {
                         <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-white text-xl sm:text-2xl mb-2">Workflow Automation</h3>
-                        <p className="text-white/70 text-base sm:text-lg mb-3">
+                        <h3 className="text-white text-2xl sm:text-3xl mb-2">Workflow Automation</h3>
+                        <p className="text-white/70 text-lg sm:text-xl mb-3">
                           Automate repetitive tasks, connect your tools, and streamline your operations.
                         </p>
                         <div className="flex items-center gap-2">
@@ -242,7 +242,7 @@ export function AssessmentPage() {
                               style={{ width: `${(serviceRecommendations.automation / selectedOptions.length) * 100}%` }}
                             />
                           </div>
-                          <span className="text-white/60 text-sm">{serviceRecommendations.automation} match{serviceRecommendations.automation !== 1 ? 'es' : ''}</span>
+                          <span className="text-white/60 text-base">{serviceRecommendations.automation} match{serviceRecommendations.automation !== 1 ? 'es' : ''}</span>
                         </div>
                       </div>
                     </div>
@@ -256,8 +256,8 @@ export function AssessmentPage() {
                         <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-white text-xl sm:text-2xl mb-2">AI Chatbots</h3>
-                        <p className="text-white/70 text-base sm:text-lg mb-3">
+                        <h3 className="text-white text-2xl sm:text-3xl mb-2">AI Chatbots</h3>
+                        <p className="text-white/70 text-lg sm:text-xl mb-3">
                           Provide instant customer support, qualify leads, and answer questions 24/7.
                         </p>
                         <div className="flex items-center gap-2">
@@ -267,7 +267,7 @@ export function AssessmentPage() {
                               style={{ width: `${(serviceRecommendations.chatbots / selectedOptions.length) * 100}%` }}
                             />
                           </div>
-                          <span className="text-white/60 text-sm">{serviceRecommendations.chatbots} match{serviceRecommendations.chatbots !== 1 ? 'es' : ''}</span>
+                          <span className="text-white/60 text-base">{serviceRecommendations.chatbots} match{serviceRecommendations.chatbots !== 1 ? 'es' : ''}</span>
                         </div>
                       </div>
                     </div>
@@ -281,8 +281,8 @@ export function AssessmentPage() {
                         <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-white text-xl sm:text-2xl mb-2">Voice Agents</h3>
-                        <p className="text-white/70 text-base sm:text-lg mb-3">
+                        <h3 className="text-white text-2xl sm:text-3xl mb-2">Voice Agents</h3>
+                        <p className="text-white/70 text-lg sm:text-xl mb-3">
                           Handle phone calls, schedule appointments, and provide phone support automatically.
                         </p>
                         <div className="flex items-center gap-2">
@@ -292,7 +292,7 @@ export function AssessmentPage() {
                               style={{ width: `${(serviceRecommendations['voice-agents'] / selectedOptions.length) * 100}%` }}
                             />
                           </div>
-                          <span className="text-white/60 text-sm">{serviceRecommendations['voice-agents']} match{serviceRecommendations['voice-agents'] !== 1 ? 'es' : ''}</span>
+                          <span className="text-white/60 text-base">{serviceRecommendations['voice-agents']} match{serviceRecommendations['voice-agents'] !== 1 ? 'es' : ''}</span>
                         </div>
                       </div>
                     </div>
@@ -339,7 +339,7 @@ export function AssessmentPage() {
                 <div className="flex-shrink-0">
                   <img src="/assessment-info.png" alt="Assessment Info" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
-                <p className="text-white/80 text-base sm:text-lg lg:text-lg">
+                <p className="text-white/80 text-lg sm:text-xl lg:text-xl">
                   <span className="text-white font-medium">Tip:</span> Select all the challenges that apply to your business. We'll recommend the best solutions based on your specific needs.
                 </p>
               </div>

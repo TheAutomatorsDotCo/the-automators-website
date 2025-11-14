@@ -103,7 +103,7 @@ export function DeviceDoctorCaseStudy() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-6 sm:pb-8">
         <Link
           to="/case-studies"
-          className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-2xl sm:text-3xl"
+          className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-3xl sm:text-4xl"
         >
           <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           <span>Back to Case Studies</span>
@@ -120,13 +120,13 @@ export function DeviceDoctorCaseStudy() {
             className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
           />
         </div>
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight">
           Device Doctor: <span className="gradient-text">Hundreds of Hours</span> Saved Weekly
         </h1>
-        <p className="text-2xl sm:text-3xl lg:text-3xl text-white/70 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed">
+        <p className="text-3xl sm:text-4xl lg:text-4xl text-white/70 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed">
           Operating in the high-stakes world of insured electronics repair, Device Doctor needed flawless, rapid service. We revolutionized their operations with intelligent automation that handles hundreds of claims monthly while delivering precision and efficiency at every touchpoint.
         </p>
-        <a href="#impact" className="text-cyan-400 font-medium text-2xl sm:text-3xl hover:text-cyan-300 transition-colors">
+        <a href="#impact" className="text-cyan-400 font-medium text-3xl sm:text-4xl hover:text-cyan-300 transition-colors">
           See the transformation ↓
         </a>
       </section>
@@ -136,8 +136,8 @@ export function DeviceDoctorCaseStudy() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-            <h2 className="text-5xl sm:text-6xl lg:text-6xl font-bold gradient-text mb-4 sm:mb-6">The Tangible Impact</h2>
-            <p className="text-2xl sm:text-3xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
+            <h2 className="text-6xl sm:text-7xl lg:text-7xl font-bold gradient-text mb-4 sm:mb-6">The Tangible Impact</h2>
+            <p className="text-3xl sm:text-4xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
               Real automation delivers real results. Here's how we transformed Device Doctor's operations from manual bottlenecks into streamlined workflows that scale effortlessly.
             </p>
           </div>
@@ -145,8 +145,8 @@ export function DeviceDoctorCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {/* Time Saved Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-5xl sm:text-6xl font-bold text-white mb-2">30%</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 mb-4 sm:mb-6">Manager's Time Freed Up</p>
+              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">30%</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Manager's Time Freed Up</p>
               <div className="h-40 sm:h-48">
                 <Doughnut data={timeSavedData} options={doughnutOptions} />
               </div>
@@ -154,8 +154,8 @@ export function DeviceDoctorCaseStudy() {
 
             {/* Inquiries Reduction Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-5xl sm:text-6xl font-bold text-white mb-2">87%</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 mb-4 sm:mb-6">Reduction in Daily Inquiries</p>
+              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">87%</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Reduction in Daily Inquiries</p>
               <div className="h-40 sm:h-48">
                 <Bar data={inquiriesData} options={barOptions} />
               </div>
@@ -166,9 +166,9 @@ export function DeviceDoctorCaseStudy() {
               <div className="flex items-center justify-center mb-3 sm:mb-4">
                 <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400" />
               </div>
-              <span className="text-5xl sm:text-6xl font-bold text-cyan-400 mb-3 sm:mb-4 text-center">100+</span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">Hours Saved Weekly</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 text-center">Our automation handles hundreds of manual tasks every week, freeing the team to focus on what truly matters.</p>
+              <span className="text-6xl sm:text-7xl font-bold text-cyan-400 mb-3 sm:mb-4 text-center">100+</span>
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Hours Saved Weekly</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 text-center">Our automation handles hundreds of manual tasks every week, freeing the team to focus on what truly matters.</p>
             </div>
 
             {/* Cost Savings Card */}
@@ -176,9 +176,9 @@ export function DeviceDoctorCaseStudy() {
               <div className="flex items-center justify-center mb-3 sm:mb-4">
                 <DollarSign className="w-10 h-10 sm:w-12 sm:h-12 text-green-400" />
               </div>
-              <span className="text-5xl sm:text-6xl font-bold text-green-400 mb-3 sm:mb-4 text-center">R12,000</span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">Saved Per Month</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 text-center">Reduced operational costs through streamlined processes, automated follow-ups, and efficient resource management.</p>
+              <span className="text-6xl sm:text-7xl font-bold text-green-400 mb-3 sm:mb-4 text-center">R12,000</span>
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Saved Per Month</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 text-center">Reduced operational costs through streamlined processes, automated follow-ups, and efficient resource management.</p>
             </div>
           </div>
         </div>
@@ -190,8 +190,8 @@ export function DeviceDoctorCaseStudy() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center">
               <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-              <h2 className="text-5xl sm:text-6xl lg:text-6xl font-bold gradient-text mb-6 sm:mb-8">The Challenge</h2>
-              <p className="text-2xl sm:text-3xl text-white/70 mb-8 sm:mb-10 leading-relaxed">
+              <h2 className="text-6xl sm:text-7xl lg:text-7xl font-bold gradient-text mb-6 sm:mb-8">The Challenge</h2>
+              <p className="text-3xl sm:text-4xl text-white/70 mb-8 sm:mb-10 leading-relaxed">
                 In insured electronics repair, efficiency isn't optional—it's survival. Device Doctor faced mounting pressure from manual processes that couldn't scale with demand.
               </p>
             </div>
@@ -200,7 +200,7 @@ export function DeviceDoctorCaseStudy() {
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <X className="w-6 h-6 text-red-400 mr-3 flex-shrink-0" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Manual Claim Processing</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white">Manual Claim Processing</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
                   Hundreds of monthly claims arriving in various formats (PDFs, emails, forms) required tedious manual data extraction, causing delays and potential errors.
@@ -210,7 +210,7 @@ export function DeviceDoctorCaseStudy() {
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <X className="w-6 h-6 text-red-400 mr-3 flex-shrink-0" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Communication Overload</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white">Communication Overload</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
                   23 daily routine inquiries overwhelmed admin and reception staff, pulling them away from essential, high-value work.
@@ -220,7 +220,7 @@ export function DeviceDoctorCaseStudy() {
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <X className="w-6 h-6 text-red-400 mr-3 flex-shrink-0" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Follow-Up Fatigue</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white">Follow-Up Fatigue</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
                   Manually tracking claims, chasing client responses, and monitoring courier deliveries consumed massive amounts of time and led to missed issues.
@@ -230,7 +230,7 @@ export function DeviceDoctorCaseStudy() {
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <X className="w-6 h-6 text-red-400 mr-3 flex-shrink-0" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Slow Parts Sourcing</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white">Slow Parts Sourcing</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
                   Manually requesting quotes from suppliers and managing inventory was inefficient, extending repair turnaround times significantly.
@@ -246,8 +246,8 @@ export function DeviceDoctorCaseStudy() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-            <h2 className="text-5xl sm:text-6xl lg:text-6xl font-bold gradient-text mb-4 sm:mb-6">The Solution: Industry-First Automation</h2>
-            <p className="text-2xl sm:text-3xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
+            <h2 className="text-6xl sm:text-7xl lg:text-7xl font-bold gradient-text mb-4 sm:mb-6">The Solution: Industry-First Automation</h2>
+            <p className="text-3xl sm:text-4xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
               We didn't offer generic solutions. Using the 80/20 rule, we identified and automated the processes delivering the biggest impact, transforming bottlenecks into competitive advantages.
             </p>
           </div>
@@ -259,7 +259,7 @@ export function DeviceDoctorCaseStudy() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 sm:px-6 py-3 sm:py-4 font-medium transition-all text-2xl sm:text-3xl ${
+                  className={`px-4 sm:px-6 py-3 sm:py-4 font-medium transition-all text-3xl sm:text-4xl ${
                     activeTab === tab.id
                       ? 'text-cyan-400 border-b-2 border-cyan-400'
                       : 'text-white/60 hover:text-white/80'
@@ -275,14 +275,14 @@ export function DeviceDoctorCaseStudy() {
               {activeTab === 'claim-processing' && (
                 <div className="space-y-6 sm:space-y-8">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Automated Data Extraction & Integration</h3>
-                    <p className="text-2xl sm:text-3xl text-white/70 leading-relaxed mb-4">
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">Automated Data Extraction & Integration</h3>
+                    <p className="text-3xl sm:text-4xl text-white/70 leading-relaxed mb-4">
                       Our system automatically extracts and formats essential information from any claim format—PDF, email, or form—and seamlessly integrates it into Device Doctor's workshop management system. No more manual data entry, no more errors.
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Streamlined Client Onboarding</h3>
-                    <p className="text-2xl sm:text-3xl text-white/70 leading-relaxed mb-4">
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">Streamlined Client Onboarding</h3>
+                    <p className="text-3xl sm:text-4xl text-white/70 leading-relaxed mb-4">
                       As soon as claim data is saved, clients are instantly contacted via email and SMS with clear next steps. Our smart forms use conditional logic to automatically book couriers, share office details, or schedule mobile technicians based on client choices and their specific location.
                     </p>
                   </div>

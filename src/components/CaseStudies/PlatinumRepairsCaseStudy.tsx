@@ -103,7 +103,7 @@ export function PlatinumRepairsCaseStudy() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-6 sm:pb-8">
         <Link
           to="/case-studies"
-          className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-2xl sm:text-3xl"
+          className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-3xl sm:text-4xl"
         >
           <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           <span>Back to Case Studies</span>
@@ -136,8 +136,8 @@ export function PlatinumRepairsCaseStudy() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-            <h2 className="text-5xl sm:text-6xl lg:text-6xl font-bold gradient-text mb-4 sm:mb-6">The Tangible Impact</h2>
-            <p className="text-2xl sm:text-3xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
+            <h2 className="text-6xl sm:text-7xl lg:text-7xl font-bold gradient-text mb-4 sm:mb-6">The Tangible Impact</h2>
+            <p className="text-3xl sm:text-4xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
               Our automations aren't just about processes; they deliver real, measurable results. Here's a snapshot of the value we've unlocked for Platinum Repairs.
             </p>
           </div>
@@ -145,8 +145,8 @@ export function PlatinumRepairsCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {/* Time Saved Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-5xl sm:text-6xl font-bold text-white mb-2">30%</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 mb-4 sm:mb-6">Manager's Time Freed Up</p>
+              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">30%</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Manager's Time Freed Up</p>
               <div className="h-40 sm:h-48">
                 <Doughnut data={timeSavedData} options={doughnutOptions} />
               </div>
@@ -154,8 +154,8 @@ export function PlatinumRepairsCaseStudy() {
 
             {/* Inquiries Reduction Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-5xl sm:text-6xl font-bold text-white mb-2">87%</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 mb-4 sm:mb-6">Reduction in Daily Inquiries</p>
+              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">87%</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Reduction in Daily Inquiries</p>
               <div className="h-40 sm:h-48">
                 <Bar data={inquiriesData} options={barOptions} />
               </div>
@@ -166,9 +166,9 @@ export function PlatinumRepairsCaseStudy() {
               <div className="flex items-center justify-center mb-3 sm:mb-4">
                 <MessageSquare className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-400" />
               </div>
-              <span className="text-5xl sm:text-6xl font-bold text-indigo-400 mb-3 sm:mb-4 text-center">200+</span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">AI Chats Monthly</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 text-center">Our chatbot successfully handles over 200 client chats every month, providing instant answers 24/7.</p>
+              <span className="text-6xl sm:text-7xl font-bold text-indigo-400 mb-3 sm:mb-4 text-center">200+</span>
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">AI Chats Monthly</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 text-center">Our chatbot successfully handles over 200 client chats every month, providing instant answers 24/7.</p>
             </div>
 
             {/* Cost Savings Card */}
@@ -176,9 +176,9 @@ export function PlatinumRepairsCaseStudy() {
               <div className="flex items-center justify-center mb-3 sm:mb-4">
                 <DollarSign className="w-10 h-10 sm:w-12 sm:h-12 text-green-400" />
               </div>
-              <span className="text-5xl sm:text-6xl font-bold text-green-400 mb-3 sm:mb-4 text-center">R12,000</span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">Saved Per Month</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 text-center">By reducing manual tasks and streamlining support, we save Platinum Repairs an estimated R12,000 in monthly operational costs.</p>
+              <span className="text-6xl sm:text-7xl font-bold text-green-400 mb-3 sm:mb-4 text-center">R12,000</span>
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Saved Per Month</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 text-center">By reducing manual tasks and streamlining support, we save Platinum Repairs an estimated R12,000 in monthly operational costs.</p>
             </div>
           </div>
         </div>
@@ -189,8 +189,8 @@ export function PlatinumRepairsCaseStudy() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-            <h2 className="text-5xl sm:text-6xl lg:text-6xl font-bold gradient-text mb-4 sm:mb-6">Our Solutions in Action</h2>
-            <p className="text-2xl sm:text-3xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
+            <h2 className="text-6xl sm:text-7xl lg:text-7xl font-bold gradient-text mb-4 sm:mb-6">Our Solutions in Action</h2>
+            <p className="text-3xl sm:text-4xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
               We've implemented thousands of automations, big and small, to keep communication and systems perfectly in sync. Explore our key strategies, grouped by how they transform the business.
             </p>
           </div>
@@ -202,7 +202,7 @@ export function PlatinumRepairsCaseStudy() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 sm:px-6 py-3 sm:py-4 font-medium transition-all text-2xl sm:text-3xl ${
+                  className={`px-4 sm:px-6 py-3 sm:py-4 font-medium transition-all text-3xl sm:text-4xl ${
                     activeTab === tab.id
                       ? 'text-indigo-400 border-b-2 border-indigo-400'
                       : 'text-white/60 hover:text-white/80'
@@ -218,14 +218,14 @@ export function PlatinumRepairsCaseStudy() {
               {activeTab === 'client-comms' && (
                 <div className="space-y-6 sm:space-y-8">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">AI Chatbot & Voice Agents</h3>
-                    <p className="text-2xl sm:text-3xl text-white/70 leading-relaxed">
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">AI Chatbot & Voice Agents</h3>
+                    <p className="text-3xl sm:text-4xl text-white/70 leading-relaxed">
                       Our AI chatbot resolves the majority of common client questions 24/7, handling over 200 chats per month and reducing daily inquiries from 23 to just 3. For proactive outreach, our <strong className="text-white">AI Voice Agent calls clients</strong> to drive Google reviews and ensures every courtesy call is followed up, creating a seamless, professional experience that saves the team valuable time.
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Automatic Emails & Follow-ups</h3>
-                    <p className="text-2xl sm:text-3xl text-white/70 leading-relaxed">
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">Automatic Emails & Follow-ups</h3>
+                    <p className="text-3xl sm:text-4xl text-white/70 leading-relaxed">
                       Nothing slips through the cracks. If a client hasn't responded, our system sends polite reminders. It tracks courier progress in real-time and automatically flags any claim that stalls—whether due to client inaction, courier delays, or internal issues—escalating to a manager when necessary.
                     </p>
                   </div>
@@ -235,7 +235,7 @@ export function PlatinumRepairsCaseStudy() {
               {activeTab === 'operations' && (
                 <div className="space-y-6 sm:space-y-8">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Insurance Claim Processing</h3>
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">Insurance Claim Processing</h3>
                     <p className="text-2xl sm:text-3xl text-white/70 leading-relaxed">
                       We built a system that automatically extracts and formats data from hundreds of monthly claims—regardless of PDF, email, or form format. This data flows directly into the workshop system, and clients are instantly contacted via email and SMS with dynamic, location-aware smart forms to arrange assessments or repairs, 24/7.
                     </p>

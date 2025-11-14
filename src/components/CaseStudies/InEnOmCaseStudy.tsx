@@ -103,7 +103,7 @@ export function InEnOmCaseStudy() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-6 sm:pb-8">
         <Link
           to="/case-studies"
-          className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-2xl sm:text-3xl"
+          className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-3xl sm:text-4xl"
         >
           <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           <span>Back to Case Studies</span>
@@ -120,13 +120,13 @@ export function InEnOmCaseStudy() {
             className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
           />
         </div>
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight">
           IN&OM Suid-Afrika: A <span className="gradient-text">Complete Digital Ecosystem</span>
         </h1>
-        <p className="text-2xl sm:text-3xl lg:text-3xl text-white/70 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed">
+        <p className="text-3xl sm:text-4xl lg:text-4xl text-white/70 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed">
           We built a comprehensive business platform for the Afrikaans-speaking community in South Africa, combining a business directory, job portal, marketplace, and community sections—all powered by intelligent automation and modern technology.
         </p>
-        <a href="#impact" className="text-green-400 font-medium text-2xl sm:text-3xl hover:text-green-300 transition-colors">
+        <a href="#impact" className="text-green-400 font-medium text-3xl sm:text-4xl hover:text-green-300 transition-colors">
           See what we delivered ↓
         </a>
       </section>
@@ -136,8 +136,8 @@ export function InEnOmCaseStudy() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-            <h2 className="text-5xl sm:text-6xl lg:text-6xl font-bold gradient-text mb-4 sm:mb-6">Project Delivery</h2>
-            <p className="text-2xl sm:text-3xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
+            <h2 className="text-6xl sm:text-7xl lg:text-7xl font-bold gradient-text mb-4 sm:mb-6">Project Delivery</h2>
+            <p className="text-3xl sm:text-4xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
               A complete end-to-end platform built from the ground up, delivering multiple revenue streams and serving an entire community.
             </p>
           </div>
@@ -145,8 +145,8 @@ export function InEnOmCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {/* Features Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-5xl sm:text-6xl font-bold text-white mb-2">15+</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 mb-4 sm:mb-6">Major Features Built</p>
+              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">15+</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Major Features Built</p>
               <div className="h-40 sm:h-48">
                 <Bar data={featuresData} options={barOptions} />
               </div>
@@ -154,8 +154,8 @@ export function InEnOmCaseStudy() {
 
             {/* Integration Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-5xl sm:text-6xl font-bold text-white mb-2">100%</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 mb-4 sm:mb-6">Integration Complete</p>
+              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">100%</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Integration Complete</p>
               <div className="h-40 sm:h-48">
                 <Doughnut data={integrationsData} options={doughnutOptions} />
               </div>
@@ -166,9 +166,9 @@ export function InEnOmCaseStudy() {
               <div className="flex items-center justify-center mb-3 sm:mb-4">
                 <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-green-400" />
               </div>
-              <span className="text-5xl sm:text-6xl font-bold text-green-400 mb-3 sm:mb-4 text-center">13+</span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">Pages Developed</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 text-center">From homepage to admin panel, fully responsive across all devices.</p>
+              <span className="text-6xl sm:text-7xl font-bold text-green-400 mb-3 sm:mb-4 text-center">13+</span>
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Pages Developed</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 text-center">From homepage to admin panel, fully responsive across all devices.</p>
             </div>
 
             {/* Automation Card */}
@@ -176,9 +176,9 @@ export function InEnOmCaseStudy() {
               <div className="flex items-center justify-center mb-3 sm:mb-4">
                 <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-amber-400" />
               </div>
-              <span className="text-5xl sm:text-6xl font-bold text-amber-400 mb-3 sm:mb-4 text-center">15,000</span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">Monthly Automations</h3>
-              <p className="text-2xl sm:text-3xl text-white/70 text-center">Automated email communications and feedback via webhook integration.</p>
+              <span className="text-6xl sm:text-7xl font-bold text-amber-400 mb-3 sm:mb-4 text-center">15,000</span>
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Monthly Automations</h3>
+              <p className="text-3xl sm:text-4xl text-white/70 text-center">Automated email communications and feedback via webhook integration.</p>
             </div>
           </div>
         </div>
@@ -190,8 +190,8 @@ export function InEnOmCaseStudy() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center">
               <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-              <h2 className="text-5xl sm:text-6xl lg:text-6xl font-bold gradient-text mb-6 sm:mb-8">The Challenge</h2>
-              <p className="text-2xl sm:text-3xl text-white/70 mb-8 sm:mb-10 leading-relaxed">
+              <h2 className="text-6xl sm:text-7xl lg:text-7xl font-bold gradient-text mb-6 sm:mb-8">The Challenge</h2>
+              <p className="text-3xl sm:text-4xl text-white/70 mb-8 sm:mb-10 leading-relaxed">
                 IN&OM Suid-Afrika needed a comprehensive digital platform to serve the Afrikaans-speaking business community. The challenge was to combine multiple complex systems into one cohesive, user-friendly platform.
               </p>
             </div>
@@ -200,7 +200,7 @@ export function InEnOmCaseStudy() {
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <Package className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Multi-Feature Platform</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white">Multi-Feature Platform</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
                   Building a business directory, job portal, marketplace, and community hub—all in one platform with seamless navigation.
@@ -210,7 +210,7 @@ export function InEnOmCaseStudy() {
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <Users className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Subscription Management</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white">Subscription Management</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
                   Creating a flexible subscription system allowing businesses to purchase multiple packages with seamless payment integration.
@@ -220,7 +220,7 @@ export function InEnOmCaseStudy() {
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <ShoppingBag className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Content Management</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white">Content Management</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
                   Developing an intuitive system for businesses to manage profiles, offers, job listings, and marketplace items independently.
@@ -230,7 +230,7 @@ export function InEnOmCaseStudy() {
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <Zap className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Automation Integration</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white">Automation Integration</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
                   Integrating automated email communications triggered by platform events with a monthly capacity of 15,000 runs.
@@ -246,8 +246,8 @@ export function InEnOmCaseStudy() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-            <h2 className="text-5xl sm:text-6xl lg:text-6xl font-bold gradient-text mb-4 sm:mb-6">The Solution: A Complete Digital Ecosystem</h2>
-            <p className="text-2xl sm:text-3xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
+            <h2 className="text-6xl sm:text-7xl lg:text-7xl font-bold gradient-text mb-4 sm:mb-6">The Solution: A Complete Digital Ecosystem</h2>
+            <p className="text-3xl sm:text-4xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
               We delivered a fully-featured, scalable platform built with modern technology and best practices, designed to grow with the business.
             </p>
           </div>
@@ -259,7 +259,7 @@ export function InEnOmCaseStudy() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 sm:px-6 py-3 sm:py-4 font-medium transition-all text-2xl sm:text-3xl ${
+                  className={`px-4 sm:px-6 py-3 sm:py-4 font-medium transition-all text-3xl sm:text-4xl ${
                     activeTab === tab.id
                       ? 'text-green-400 border-b-2 border-green-400'
                       : 'text-white/60 hover:text-white/80'
@@ -275,14 +275,14 @@ export function InEnOmCaseStudy() {
               {activeTab === 'platform' && (
                 <div className="space-y-6 sm:space-y-8">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Business Directory & Profiles</h3>
-                    <p className="text-2xl sm:text-3xl text-white/70 leading-relaxed mb-4">
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">Business Directory & Profiles</h3>
+                    <p className="text-3xl sm:text-4xl text-white/70 leading-relaxed mb-4">
                       Businesses can create comprehensive profiles with image uploads, social media integration, and detailed information. The directory features advanced search and filtering, making it easy for users to discover services.
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Job Portal (Werksgeleenthede)</h3>
-                    <p className="text-2xl sm:text-3xl text-white/70 leading-relaxed mb-4">
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">Job Portal (Werksgeleenthede)</h3>
+                    <p className="text-3xl sm:text-4xl text-white/70 leading-relaxed mb-4">
                       A complete job listing and application system with automated workflows. Employers can post positions, and job seekers can apply directly through the platform with automatic notification systems.
                     </p>
                   </div>
