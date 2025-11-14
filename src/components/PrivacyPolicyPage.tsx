@@ -235,7 +235,7 @@ export function PrivacyPolicyPage() {
                 If you have questions or comments about this Privacy Policy, please contact us at:
               </p>
               <div className="text-white/60 space-y-2">
-                <p>Email: sales@theautomators.co.za</p>
+                <p>Email: sales@theautomators.co</p>
                 <p>Phone: +27 82 770 6456</p>
               </div>
             </div>

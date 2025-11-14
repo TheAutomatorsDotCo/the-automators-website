@@ -58,7 +58,7 @@ Links to service pages:
 
 ### Column 4: Contact Information
 Contact details and social media:
-- **Email**: sales@theautomators.co.za (mailto link with Mail icon)
+- **Email**: sales@theautomators.co (mailto link with Mail icon)
 - **Phone**: +27 82 770 6456 (tel link with Phone icon)
 - **Social**: Facebook link with icon button
 
@@ -165,7 +165,7 @@ className="text-white/70 hover:text-white transition-colors text-sm inline-block
 ## Contact Information (Update When Changed)
 
 **Current Contact Details**:
-- Email: sales@theautomators.co.za
+- Email: sales@theautomators.co
 - Phone: +27 82 770 6456
 - Facebook: https://www.facebook.com/theautomators.co
 

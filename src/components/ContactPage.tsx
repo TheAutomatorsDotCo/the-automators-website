@@ -203,10 +203,10 @@ export function ContactPage() {
                     <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
-                    <div>
-                      <h4 className="text-white mb-1">Email</h4>
-                      <p className="text-white/60">sales@theautomators.co.za</p>
-                    </div>
+                  <div>
+                    <h4 className="text-white mb-1">Email</h4>
+                    <p className="text-white/60">sales@theautomators.co</p>
+                  </div>
                   </div>
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">

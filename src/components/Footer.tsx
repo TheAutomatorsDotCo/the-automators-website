@@ -79,12 +79,12 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:sales@theautomators.co.za"
+                  href="mailto:sales@theautomators.co"
                   className="text-white/70 hover:text-white transition-colors text-sm flex items-center space-x-2 group"
-                  aria-label="Email us at sales@theautomators.co.za"
+                  aria-label="Email us at sales@theautomators.co"
                 >
                   <Mail className="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors" />
-                  <span>sales@theautomators.co.za</span>
+                  <span>sales@theautomators.co</span>
                 </a>
               </li>
               <li>

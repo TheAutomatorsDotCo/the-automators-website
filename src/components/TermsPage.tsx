@@ -147,7 +147,7 @@ export function TermsPage() {
                 If you have any questions about these Terms and Conditions, please contact us:
               </p>
               <p className="text-white/60">
-                Email: sales@theautomators.co.za
+                Email: sales@theautomators.co
               </p>
             </div>
 
