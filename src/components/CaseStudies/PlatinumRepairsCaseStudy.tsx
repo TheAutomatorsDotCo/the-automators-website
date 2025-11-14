@@ -1,16 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, BarChart3, TrendingUp, MessageSquare, DollarSign, CheckCircle } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ArrowLeft, BarChart3, TrendingUp, MessageSquare, DollarSign, CheckCircle, ArrowRight } from 'lucide-react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
 import { StarsCanvas } from '../StarBackground';
+import { saveLeadData } from '../../utils/leadData';
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
 export function PlatinumRepairsCaseStudy() {
   const [activeTab, setActiveTab] = useState('client-comms');
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    // Save case study referral data
+    saveLeadData({
+      source: 'case-study',
+      caseStudy: {
+        caseStudyName: 'Platinum Repairs',
+        timestamp: new Date().toISOString(),
+      },
+    });
+    
+    // Navigate to contact page
+    navigate('/contact');
+  };
 
   // Chart data
   const timeSavedData = {
@@ -309,7 +325,7 @@ export function PlatinumRepairsCaseStudy() {
       <section className="py-16 sm:py-20 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="glass rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16 border border-white/10">
-            <div className="text-center mb-8 sm:mb-12">
+            <div className="text-center">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8">Are you tired of these bottlenecks?</h2>
               <div className="max-w-md mx-auto text-2xl sm:text-3xl space-y-2 sm:space-y-3 mb-8 sm:mb-10">
                 <p className="text-white/70">
@@ -325,25 +341,20 @@ export function PlatinumRepairsCaseStudy() {
                   Inconsistent customer service
                 </p>
               </div>
-              <p className="text-2xl sm:text-3xl lg:text-3xl text-white/80 mb-4">
+              <p className="text-2xl sm:text-3xl lg:text-3xl text-white/80 mb-6">
                 Let us help you streamline. Our solutions are budget-friendly, require no long-term contracts, and are designed to empower your business.
               </p>
-              <p className="text-2xl sm:text-3xl text-indigo-400 font-medium">
-                Book a chat below and get 50% off your first 3 months (mention this case study for your discount)
+              <p className="text-xl sm:text-2xl text-indigo-400 font-medium mb-8">
+                Mention this case study when booking to claim your discount
               </p>
-            </div>
-            
-            {/* Airtable Form Embed */}
-            <div className="max-w-3xl mx-auto">
-              <iframe 
-                className="airtable-embed rounded-xl" 
-                src="https://airtable.com/embed/appOPjh4b6moMoFw6/pagxWsYdS1xQWlg6h/form" 
-                frameBorder="0" 
-                onMouseWheel="" 
-                width="100%" 
-                height="1080" 
-                style={{ background: 'transparent', border: '1px solid rgba(255, 255, 255, 0.1)' }}
-              />
+              
+              <button
+                onClick={handleGetStarted}
+                className="btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-full inline-flex items-center justify-center space-x-3 text-xl sm:text-2xl font-bold hover:scale-105 transition-all shadow-lg hover:shadow-xl"
+              >
+                <span>Get 50% Off</span>
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
             </div>
           </div>
         </div>

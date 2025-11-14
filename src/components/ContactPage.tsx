@@ -17,7 +17,7 @@ export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [leadSource, setLeadSource] = useState<'assessment' | 'pricing' | 'direct'>('direct');
+  const [leadSource, setLeadSource] = useState<'assessment' | 'pricing' | 'case-study' | 'direct'>('direct');
 
   // Load lead data on mount
   useEffect(() => {
@@ -48,7 +48,8 @@ export function ContactPage() {
       // Capitalize Source Page values to match Airtable Single Select options
       const sourcePageCapitalized = 
         leadSource === 'assessment' ? 'Assessment' :
-        leadSource === 'pricing' ? 'Pricing' : 'Direct';
+        leadSource === 'pricing' ? 'Pricing' :
+        leadSource === 'case-study' ? 'Case Study' : 'Direct';
       
       const fields: Record<string, any> = {
         'Full Name': formData.name,
@@ -85,6 +86,13 @@ export function ContactPage() {
         }
         if (leadData.pricing.paymentPlan) {
           fields['Payment Plan'] = leadData.pricing.paymentPlan;
+        }
+      }
+
+      // Add case study-specific fields if available
+      if (leadData?.caseStudy) {
+        if (leadData.caseStudy.caseStudyName) {
+          fields['Case Study'] = leadData.caseStudy.caseStudyName;
         }
       }
 
@@ -344,7 +352,7 @@ export function ContactPage() {
                         className="w-full px-5 py-4 rounded-2xl glass border border-green-500/30 bg-green-500/5 text-white/80 resize-none cursor-not-allowed"
                       />
                       <p className="text-green-400/70 text-base mt-2">
-                        ✓ Your {leadSource === 'assessment' ? 'assessment results' : 'plan selection'} has been automatically included
+                        ✓ Your {leadSource === 'assessment' ? 'assessment results' : leadSource === 'pricing' ? 'plan selection' : 'case study referral'} has been automatically included
                       </p>
                     </div>
                   )}

@@ -19,10 +19,16 @@ export interface PricingLeadData {
   timestamp: string;
 }
 
+export interface CaseStudyLeadData {
+  caseStudyName: string;
+  timestamp: string;
+}
+
 export interface LeadData {
-  source: 'assessment' | 'pricing' | 'direct';
+  source: 'assessment' | 'pricing' | 'case-study' | 'direct';
   assessment?: AssessmentLeadData;
   pricing?: PricingLeadData;
+  caseStudy?: CaseStudyLeadData;
 }
 
 const LEAD_DATA_KEY = 'automators_lead_data';
@@ -110,6 +116,17 @@ export function formatPricingDetails(pricing: PricingLeadData): string {
 }
 
 /**
+ * Format case study data for "Additional Details" field
+ */
+export function formatCaseStudyDetails(caseStudy: CaseStudyLeadData): string {
+  let details = '=== CASE STUDY REFERRAL ===\n\n';
+  details += `Referred from: ${caseStudy.caseStudyName}\n`;
+  details += `User interested in similar solutions\n`;
+  
+  return details;
+}
+
+/**
  * Format complete lead data for "Additional Details" field
  */
 export function formatLeadDetails(leadData: LeadData): string {
@@ -122,6 +139,11 @@ export function formatLeadDetails(leadData: LeadData): string {
   if (leadData.pricing) {
     if (details) details += '\n\n';
     details += formatPricingDetails(leadData.pricing);
+  }
+  
+  if (leadData.caseStudy) {
+    if (details) details += '\n\n';
+    details += formatCaseStudyDetails(leadData.caseStudy);
   }
   
   if (!details) {
