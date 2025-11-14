@@ -485,3 +485,160 @@ This pricing page is now optimized to:
 5. Build trust and transparency
 6. Differentiate from competitors
 
+---
+
+## November 2024 Pricing Model Update
+
+### Summary
+Major pricing restructure to differentiate service offerings with distinct pricing models for each service type.
+
+### Updated Schema Markup
+
+**Product Schema - Updated Pricing Range:**
+```json
+{
+  "@type": "AggregateOffer",
+  "priceCurrency": "USD",
+  "lowPrice": "99",        // Changed from "1449" (now reflects chatbot starting price)
+  "highPrice": "Custom",   // Changed from "9997"
+  "availability": "https://schema.org/InStock"
+}
+```
+
+**FAQPage Schema - Updated:**
+- FAQ #1 updated to reflect custom automation pricing
+- FAQ #11 added for chatbot subscription model
+- All pricing references updated
+
+### Updated SEO Metadata
+
+**Page Title:**
+- **Before**: "Workflow Automation Pricing: From $1,449 | Flexible Plans"
+- **After**: "Automation & AI Pricing: Custom Solutions | From $99/month"
+
+**Meta Description:**
+- **Before**: "Transparent automation pricing starting at $1,449..."
+- **After**: "Transparent pricing tailored to your needs. Custom workflow automation solutions, AI Voice Agents from $1,499 (flexible payment plans), and AI Chatbots from $99/month (subscription)..."
+
+**Keywords Added:**
+- custom automation pricing
+- custom automation quote
+- chatbot subscription
+- monthly chatbot pricing
+- EUR automation pricing
+
+### Updated Pricing Structure by Service
+
+#### Automation (Custom Pricing)
+- **Model**: Consultation-based custom quotes
+- **Layout**: Single centered card
+- **Starting Price**: "Custom Pricing - Contact Us"
+- **Payment Plans**: Not applicable (discussed during consultation)
+- **Keywords Focus**: "custom automation", "automation consultation", "tailored automation"
+
+#### Chatbots (Subscription Model)
+- **Model**: Monthly recurring subscription
+- **Tiers**: Basic ($99), Professional ($129), Advanced ($299)
+- **Add-ons**: Table Rows, Vector DB, Messages, File Storage
+- **Guarantee**: 14-day money-back
+- **Keywords Focus**: "chatbot subscription", "monthly chatbot", "cancel anytime chatbot"
+
+#### Voice Agents (One-Time + Plans)
+- **Model**: One-time purchase with payment plans
+- **Tiers**: Starter ($1,499), Professional ($1,749), Enterprise (Custom)
+- **Payment Plans**: 6, 12, or 18 months
+- **Keywords Focus**: "voice agent pricing", "AI phone calls pricing"
+
+### Updated Unique Strengths
+
+**Current Differentiators (November 2024):**
+- ✅ **Flexible Pricing Models**: Different models for different needs
+- ✅ **Custom Automation**: No one-size-fits-all packages
+- ✅ **Low-Cost Entry**: Chatbots start at $99/month
+- ✅ **Multi-Currency**: USD, EUR, ZAR support
+- ✅ **No Contracts (Chatbots)**: Cancel anytime subscription
+- ✅ **Payment Plans (Voice Agents)**: Spread costs over 6-18 months
+- ✅ **Transparent Pricing**: No hidden fees across all services
+- ✅ **Risk Reversal**: 14-30 day guarantees depending on service
+
+### FAQ Updates (11 FAQs Total)
+
+**Key FAQ Changes:**
+1. FAQ #1: Custom automation pricing explanation
+2. FAQ #3: Differentiated pricing by service type
+3. FAQ #4: Payment plans (Voice Agents only)
+4. FAQ #11: New chatbot subscription FAQ (added)
+
+### SEO Impact
+
+**New Featured Snippet Opportunities:**
+- "How much does workflow automation cost?" → Custom pricing answer
+- "How does chatbot pricing work?" → Subscription model explanation
+- "What are chatbot add-ons?" → Add-on pricing list
+- "Do I need a contract for chatbot?" → No contracts answer
+
+**Improved Long-Tail Keywords:**
+- "custom automation consultation free"
+- "chatbot $99 per month"
+- "automation pricing tailored to business"
+- "voice agent payment plans"
+- "EUR chatbot pricing"
+
+### Mobile Optimization Maintained
+
+All pricing changes maintain existing mobile responsiveness:
+- Responsive currency toggles
+- Adaptive pricing card layouts
+- Mobile-friendly FAQ accordions
+- Touch-friendly payment plan selectors (Voice Agents)
+
+### Technical SEO Notes
+
+**Internal Linking:**
+- Automation CTA → /contact (Schedule Consultation)
+- FAQ #1 → /contact (Get Custom Quote)
+- Voice Agents maintained existing linking
+
+**Structured Data Validation:**
+- lowPrice reflects actual minimum (chatbot tier)
+- highPrice indicates custom pricing availability
+- All required schema.org properties maintained
+
+### Monitoring Recommendations
+
+**SEO Metrics to Track:**
+1. Ranking for "custom automation pricing"
+2. Impressions for "chatbot subscription" queries
+3. Click-through rate on "From $99/month" snippet
+4. Featured snippet captures (target 3+ new snippets)
+5. International traffic increase (EUR pricing appeal)
+
+**Conversion Tracking:**
+1. Automation consultation requests
+2. Chatbot subscription signups by tier
+3. Voice agent inquiries with payment plan selection
+4. Currency selection distribution
+
+### Expected SEO Benefits
+
+**Short-Term (1-3 months):**
+- Improved rankings for "cheap chatbot" queries
+- Better position for "custom automation" searches
+- Increased European traffic (EUR support)
+- More qualified consultation bookings
+
+**Long-Term (3-6 months):**
+- Authority for "chatbot subscription" topic cluster
+- Featured snippets for pricing FAQs
+- Reduced bounce rate from clearer pricing
+- Higher conversion from price-qualified traffic
+
+---
+
+**Update Date**: November 14, 2024
+**Status**: ✅ COMPLETE
+**Schema Validated**: Yes
+**No Linter Errors**: Confirmed
+**Mobile Responsive**: Maintained
+**International SEO**: Enhanced (EUR)
+

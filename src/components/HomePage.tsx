@@ -87,7 +87,7 @@ export function HomePage() {
               "bestRating": "5"
             },
             "sameAs": [
-              "https://linkedin.com/company/theautomators"
+              "https://www.facebook.com/theautomators.co"
             ]
           },
           {

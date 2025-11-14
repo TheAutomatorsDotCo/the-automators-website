@@ -1,7 +1,129 @@
 # Website Changes Reference Document
 
 ## Overview
-This document outlines all changes made to add Voice Agents and Chatbots pages to The Automators website, along with updates to the Services page.
+This document outlines all major changes made to The Automators website.
+
+---
+
+## 🎯 MAJOR PRICING MODEL OVERHAUL - November 14, 2024
+
+### Summary
+Complete restructure of pricing models to differentiate services with appropriate pricing strategies for each offering.
+
+### Changes Made
+
+#### 1. Automation Pricing - Custom Model
+**Changed From:** Three-tier packages ($1,449, $1,949, Custom) with payment plans
+**Changed To:** Single custom pricing card requiring consultation
+
+**Key Updates:**
+- Removed preset pricing tiers
+- Single centered pricing card
+- Consultation-based quoting
+- No payment plan dropdowns
+- Features emphasize discovery process
+- CTA: "Schedule Free Consultation"
+
+#### 2. Chatbot Pricing - Subscription Model
+**Changed From:** One-time purchase ($1,799, $2,999, Custom) with payment plans
+**Changed To:** Monthly subscription ($99, $129, $299/month)
+
+**New Tiers:**
+- **Basic**: $99/month (500 messages, 1,000 table rows, FAQ bot)
+- **Professional**: $129/month (5,000 messages, 100,000 rows, multi-channel)
+- **Advanced**: $299/month (expandable limits, 10GB storage, human handover)
+
+**Add-ons:**
+- Table Rows: $50/100k rows
+- Vector DB Storage: $40/1GB
+- Messages & Events: $40/5k messages
+- File Storage: $20/10GB
+
+**Updated Guarantee:** 14-day money-back (from 30-day)
+
+#### 3. Voice Agents Pricing - Unchanged
+- Maintained one-time purchase model
+- Payment plans still available (6, 12, 18 months)
+- Prices: $1,499, $1,749, Custom
+
+#### 4. Multi-Currency Support
+**Added:** EUR currency option
+- USD (primary)
+- EUR (1 USD = 0.95 EUR)
+- ZAR (1 USD = 18 ZAR)
+
+Applied across all pricing, add-ons, and lead tracking
+
+#### 5. Payment Plans Restructured
+**Previous:** Available for all services
+**Now:** Only available for Voice Agents
+
+- **Automation**: Custom pricing, no payment plans
+- **Voice Agents**: Payment plans available ✓
+- **Chatbots**: Monthly subscription, no payment plans
+
+### Technical Changes
+
+**Files Modified:**
+- `src/components/PricingPage.tsx` (major restructure)
+  - Updated automation plans array (single card)
+  - Updated chatbot plans array (3 subscription tiers)
+  - Added EUR currency toggle
+  - Conditional payment plan display
+  - Updated hero section (dynamic by tab)
+  - Updated all FAQs (11 total)
+  - Updated SEO metadata
+  - Updated schema markup
+  - Dynamic money-back guarantee
+  - Chatbot-specific add-ons
+  - Centered automation card layout
+
+- `src/components/ContactPage.tsx` (verified compatibility)
+  - Handles "Custom Pricing" for automation
+  - Handles "Monthly Subscription" for chatbots
+  - Handles payment plans for voice agents
+
+### SEO Updates
+
+**Page Title:**
+- Before: "Workflow Automation Pricing: From $1,449 | Flexible Plans"
+- After: "Automation & AI Pricing: Custom Solutions | From $99/month"
+
+**Schema Markup:**
+- lowPrice: Changed from "1449" to "99"
+- highPrice: Changed from "9997" to "Custom"
+
+**Keywords Added:**
+- custom automation pricing
+- custom automation quote
+- chatbot subscription
+- monthly chatbot pricing
+- EUR automation pricing
+
+### Documentation Updated
+- ✅ PRICING_MESSAGING_UPDATE.md (comprehensive new section)
+- ✅ SEO_IMPLEMENTATION_PRICING.md (pricing structure update)
+- ✅ CHANGES_REFERENCE.md (this log)
+
+### Lead Tracking
+All pricing models properly save to localStorage and flow to ContactPage/Airtable:
+- Automation: "Custom Pricing"
+- Chatbots: Monthly subscription with currency
+- Voice Agents: Calculated with payment plan
+
+### Status
+- ✅ Implementation Complete
+- ✅ No Linter Errors
+- ✅ Mobile Responsive
+- ✅ Lead Tracking Verified
+- ✅ Documentation Updated
+
+---
+
+## 📄 VOICE AGENTS & CHATBOTS PAGES - January 2025
+
+### Overview
+This section outlines all changes made to add Voice Agents and Chatbots pages to The Automators website, along with updates to the Services page.
 
 ---
 

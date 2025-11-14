@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import { HomePage } from './components/HomePage';
 import { AssessmentPage } from './components/AssessmentPage';
 import { ServicesPage } from './components/ServicesPage';
@@ -49,6 +50,7 @@ export default function App() {
               <Route path="*" element={<HomePage />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </Router>
     </HelmetProvider>
