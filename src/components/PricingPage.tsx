@@ -1,13 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { Check, Zap, Rocket, Crown, Star, Shield, DollarSign, Phone, MessageCircle, Workflow, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Check, Zap, Rocket, Crown, Star, Shield, DollarSign, Phone, MessageCircle, Workflow, ChevronDown, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from './SEO';
 import { StarsCanvas } from './StarBackground';
 import { saveLeadData } from '../utils/leadData';
 
-export function PricingPage() {
+interface PricingPageProps {
+  category: 'automation' | 'voice-agents' | 'chatbots';
+}
+
+// SEO configuration per category
+const seoConfig = {
+  automation: {
+    title: 'Workflow Automation Pricing | Custom Solutions',
+    description: 'Get custom workflow automation pricing tailored to your business needs. Free consultation, dedicated specialist, and ongoing support included.',
+    path: '/pricing/automation',
+    keywords: 'workflow automation pricing, custom automation cost, business automation services, automation consultant pricing',
+  },
+  'voice-agents': {
+    title: 'AI Voice Agent Pricing | From $99/month',
+    description: 'AI Voice Agent pricing starting at $99/month. Make automated phone calls, follow up with customers, and generate reviews. No contracts, cancel anytime.',
+    path: '/pricing/voice-agents',
+    keywords: 'voice agent pricing, AI phone calls cost, automated calling service pricing, voice AI subscription',
+  },
+  chatbots: {
+    title: 'AI Chatbot Pricing | From $99/month',
+    description: 'AI Chatbot pricing starting at $99/month. 24/7 customer support across website, WhatsApp, and Facebook. No setup fees, cancel anytime.',
+    path: '/pricing/chatbots',
+    keywords: 'chatbot pricing, AI chatbot cost, customer support bot pricing, chatbot subscription',
+  },
+};
+
+// Category display names
+const categoryNames = {
+  automation: 'Workflow Automation',
+  'voice-agents': 'AI Voice Agents',
+  chatbots: 'AI Chatbots',
+};
+
+export function PricingPage({ category }: PricingPageProps) {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'automation' | 'voice-agents' | 'chatbots'>('automation');
   const [currency, setCurrency] = useState<'USD' | 'ZAR' | 'EUR'>('USD');
   const [paymentPlan, setPaymentPlan] = useState<'once-off' | '6-months' | '12-months' | '18-months'>('18-months');
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
@@ -92,6 +124,7 @@ export function PricingPage() {
       ],
       highlighted: true,
       gradient: 'from-indigo-500 via-purple-500 to-pink-500',
+      isSubscription: false,
     },
   ];
 
@@ -99,58 +132,66 @@ export function PricingPage() {
     {
       name: 'Starter',
       icon: <img src="/voice-starter.png" alt="Voice Starter" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$1,499',
-      period: 'one-time + usage',
-      description: 'Get started with AI voice agents for your business',
+      price: '$99',
+      period: 'per month',
+      description: 'Perfect for small businesses with consistent but moderate call volume. Ideal for internal tools and basic automation needs.',
       features: [
-        'Up to 100 calls/month',
-        'Basic voice agent setup',
-        'Post-service follow-up workflow',
-        'Review generation system',
-        'Manager escalation logic',
-        'Email support',
-        'Training video',
+        '200 call minutes per month',
+        '5 calls at the same time',
+        '1 standard agent personality',
+        'Basic scripted conversations',
+        'Surveys & simple reminders',
+        'Setup & maintenance included',
+        'Basic call logs',
+        'Email support (24-hour response)',
+        'Extra minutes: $0.36/minute',
       ],
       highlighted: false,
       gradient: 'from-blue-500 to-cyan-500',
+      isSubscription: true,
     },
     {
       name: 'Professional',
       icon: <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$1,749',
-      period: 'one-time + usage',
-      description: 'Scale your customer engagement with advanced voice AI',
+      price: '$199',
+      period: 'per month',
+      description: 'Growing businesses requiring superior audio quality for regional service and moderate-to-high call volume. Professional-grade features included.',
       features: [
-        'Up to 500 calls/month',
-        'Advanced voice agent training',
-        'Multiple call workflows',
-        'Custom business training',
-        'Appointment reminder system',
-        'Lead qualification flows',
-        'Email and chat support',
-        'Live training session',
+        '550 call minutes per month',
+        '10 calls at the same time',
+        '3 unique agent personalities',
+        'Advanced multi-step conversations',
+        'Lead qualification & upselling',
+        'Crystal-clear audio quality',
+        'Setup & maintenance included',
+        'CRM & Helpdesk sync (HubSpot, Zapier, Sheets)',
+        'Priority chat support (4-hour response)',
+        'Extra minutes: $0.28/minute',
       ],
       highlighted: true,
       gradient: 'from-indigo-500 via-purple-500 to-pink-500',
+      isSubscription: true,
     },
     {
-      name: 'Enterprise',
-      icon: <img src="/enterprise-icon.png" alt="Enterprise" className="w-12 h-12 sm:w-16 sm:h-16" />,
+      name: 'Custom',
+      icon: <img src="/enterprise-icon.png" alt="Custom" className="w-12 h-12 sm:w-16 sm:h-16" />,
       price: 'Custom',
       period: 'pricing',
-      description: 'Enterprise-grade voice AI with unlimited capabilities',
+      description: 'Enterprise-grade voice AI for high-volume operations. Low-latency performance with dedicated support for mission-critical applications.',
       features: [
-        'Unlimited calls',
-        'Fully custom voice agents',
-        'Multi-language support',
-        'Advanced NLP training',
-        'CRM integration',
-        'Dedicated voice specialist',
-        'Optimization reviews',
-        'Custom development',
+        'Unlimited call minutes',
+        '15+ calls at the same time',
+        'Unlimited agents & custom voices',
+        'AI learning & real-time adaptation',
+        'Ultra-fast voice responses',
+        'Full API access & custom integrations',
+        'Advanced dashboards & analytics',
+        'Dedicated support & account manager',
+        'Extra minutes: $0.05/minute',
       ],
       highlighted: false,
       gradient: 'from-orange-500 to-red-500',
+      isSubscription: false,
     },
   ];
 
@@ -217,9 +258,10 @@ export function PricingPage() {
     },
   ];
 
-  const plans = activeTab === 'automation' 
+  // Get plans based on category prop
+  const plans = category === 'automation' 
     ? automationPlans 
-    : activeTab === 'voice-agents' 
+    : category === 'voice-agents' 
     ? voiceAgentsPlans 
     : chatbotsPlans;
 
@@ -252,12 +294,12 @@ export function PricingPage() {
       priceDisplay = `${convertPrice(price)} (${paymentPlanLabel})`;
     }
     
-    // Save pricing data to localStorage
+    // Save pricing data to localStorage - use category prop instead of activeTab
     saveLeadData({
       source: 'pricing',
       pricing: {
         planName,
-        serviceType: activeTab,
+        serviceType: category,
         paymentPlan: paymentPlanLabel,
         price: priceDisplay,
         timestamp: new Date().toISOString(),
@@ -322,7 +364,34 @@ export function PricingPage() {
     },
   ];
 
-  const currentAddons = activeTab === 'chatbots' ? chatbotAddons : addons;
+  const voiceAgentAddons = [
+    {
+      name: 'Additional Minutes',
+      price: '$50',
+      description: 'Per 500 minutes',
+      icon: <Phone className="w-4 h-4 sm:w-5 sm:h-5" />,
+    },
+    {
+      name: 'Extra Agent Personality',
+      price: '$99/mo',
+      description: 'Add custom voice personality',
+      icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />,
+    },
+    {
+      name: 'CRM Integration Setup',
+      price: '$297',
+      description: 'One-time setup fee',
+      icon: <Workflow className="w-4 h-4 sm:w-5 sm:h-5" />,
+    },
+    {
+      name: 'Custom Voice Training',
+      price: '$497',
+      description: 'One-time training fee',
+      icon: <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />,
+    },
+  ];
+
+  const currentAddons = category === 'chatbots' ? chatbotAddons : category === 'voice-agents' ? voiceAgentAddons : addons;
 
   // Convert addon prices (no payment plan applied)
   const convertAddonPrice = (price: string): string => {
@@ -367,23 +436,26 @@ export function PricingPage() {
     return price;
   };
 
+  // Get current SEO config
+  const currentSeo = seoConfig[category];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
-        title="Automation & AI Pricing: Custom Solutions | From $99/month"
-        description="Transparent pricing tailored to your needs. Custom workflow automation solutions, AI Voice Agents from $1,499 (flexible payment plans), and AI Chatbots from $99/month (subscription). Schedule a free consultation."
-        path="/pricing"
-        keywords="automation pricing, custom automation pricing, workflow automation cost, business automation services, chatbot pricing, chatbot subscription, voice agent pricing, flexible payment plans, monthly chatbot pricing, custom automation quote"
+        title={currentSeo.title}
+        description={currentSeo.description}
+        path={currentSeo.path}
+        keywords={currentSeo.keywords}
         structuredData={[
           {
             "@context": "https://schema.org",
             "@type": "Product",
-            "name": "Business Automation Services",
-            "description": "Professional automation services with flexible one-time pricing",
+            "name": categoryNames[category],
+            "description": currentSeo.description,
             "offers": {
               "@type": "AggregateOffer",
               "priceCurrency": "USD",
-              "lowPrice": "99",
+              "lowPrice": category === 'automation' ? 'Custom' : "99",
               "highPrice": "Custom",
               "availability": "https://schema.org/InStock"
             }
@@ -415,14 +487,6 @@ export function PricingPage() {
                   "@type": "Answer",
                   "text": "Not at all! We handle all the technical implementation and provide training so you can manage your automations with confidence."
                 }
-              },
-              {
-                "@type": "Question",
-                "name": "How much does workflow automation cost?",
-                "acceptedAnswer":                 {
-                  "@type": "Answer",
-                  "text": "Workflow automation pricing is custom-tailored to your specific needs. Every business has unique workflows, integrations, and requirements. Schedule a free consultation to discuss your needs and receive a personalized quote."
-                }
               }
             ]
           }
@@ -434,19 +498,30 @@ export function PricingPage() {
       {/* Hero Section */}
       <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl gradient-text mb-4 sm:mb-6">
-            Transparent Automation Pricing Plans
+          {/* Back to All Pricing Link */}
+          <div className="mb-6">
+            <Link
+              to="/pricing"
+              className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              <span>Back to All Services</span>
+            </Link>
+          </div>
+          
+          <div className="h-2 sm:h-4 mb-4 sm:mb-6"></div>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl gradient-text mb-4 sm:mb-6">
+            {categoryNames[category]} Pricing
           </h1>
-          <p className="text-2xl sm:text-3xl text-white/60 max-w-3xl mx-auto mb-4">
-            {activeTab === 'chatbots' 
+          <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto mb-4">
+            {category === 'chatbots' 
               ? 'Simple monthly subscription pricing. Scale as you grow with flexible add-ons. No setup fees, cancel anytime.'
-              : activeTab === 'automation'
+              : category === 'automation'
               ? 'Custom automation solutions tailored to your unique business needs. Schedule a free consultation to get your personalized quote.'
-              : 'Own your automation forever with flexible payment options. Pay in full or spread over 6, 12, or 18 months—you choose what works for your business.'}
+              : 'Simple monthly subscription pricing. Scale your calling capacity as you grow. No setup fees, cancel anytime.'}
           </p>
           <p className="text-lg sm:text-xl text-indigo-400 font-semibold mb-8 sm:mb-12">
-            {activeTab === 'chatbots' ? 'Starting at $99/month' : activeTab === 'voice-agents' ? 'Starting at $1,499' : 'Custom Pricing - Contact Us'}
+            {category === 'chatbots' ? 'Starting at $99/month' : category === 'voice-agents' ? 'Starting at $99/month' : 'Custom Pricing - Contact Us'}
           </p>
 
           {/* Currency Toggle */}
@@ -485,43 +560,6 @@ export function PricingPage() {
               <span className="font-medium">ZAR</span>
             </button>
           </div>
-
-          {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
-            <button
-              onClick={() => setActiveTab('automation')}
-              className={`flex items-center space-x-1.5 sm:space-x-2 px-3.5 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-sm sm:text-lg ${
-                activeTab === 'automation'
-                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
-                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-              }`}
-            >
-              <Workflow className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-              <span>Automation</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('voice-agents')}
-              className={`flex items-center space-x-1.5 sm:space-x-2 px-3.5 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-sm sm:text-lg ${
-                activeTab === 'voice-agents'
-                  ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white border-2 border-pink-300/50 shadow-lg shadow-pink-500/50'
-                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-              }`}
-            >
-              <Phone className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-              <span>Voice Agents</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('chatbots')}
-              className={`flex items-center space-x-1.5 sm:space-x-2 px-3.5 sm:px-6 py-2 sm:py-3 rounded-full transition-all text-sm sm:text-lg ${
-                activeTab === 'chatbots'
-                  ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white border-2 border-teal-300/50 shadow-lg shadow-cyan-500/50'
-                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-              }`}
-            >
-              <MessageCircle className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-              <span>Chatbots</span>
-            </button>
-          </div>
         </div>
       </section>
 
@@ -530,17 +568,17 @@ export function PricingPage() {
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl gradient-text mb-3 sm:mb-4">
-              {activeTab === 'automation' && 'Workflow Automation Pricing'}
-              {activeTab === 'voice-agents' && 'AI Voice Agent Pricing'}
-              {activeTab === 'chatbots' && 'AI Chatbot Pricing'}
+              {category === 'automation' && 'Workflow Automation Pricing'}
+              {category === 'voice-agents' && 'AI Voice Agent Pricing'}
+              {category === 'chatbots' && 'AI Chatbot Pricing'}
             </h2>
             <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto">
-              {activeTab === 'automation' && 'Every business is unique. Get a custom automation solution designed specifically for your workflows, team size, and goals. No cookie-cutter packages.'}
-              {activeTab === 'voice-agents' && 'AI-powered phone calls and customer conversations. Own forever with flexible payment plans and pay-per-use calling.'}
-              {activeTab === 'chatbots' && 'Intelligent 24/7 customer support with simple monthly pricing. Scale your bot with add-ons as you grow. No contracts, cancel anytime.'}
+              {category === 'automation' && 'Every business is unique. Get a custom automation solution designed specifically for your workflows, team size, and goals. No cookie-cutter packages.'}
+              {category === 'voice-agents' && 'AI-powered phone calls and customer conversations. Simple monthly subscription with included minutes and pay-as-you-go overage.'}
+              {category === 'chatbots' && 'Intelligent 24/7 customer support with simple monthly pricing. Scale your bot with add-ons as you grow. No contracts, cancel anytime.'}
             </p>
           </div>
-          <div className={`grid gap-6 sm:gap-8 ${activeTab === 'automation' ? 'lg:grid-cols-1 max-w-2xl mx-auto' : 'lg:grid-cols-3'}`}>
+          <div className={`grid gap-6 sm:gap-8 ${category === 'automation' ? 'lg:grid-cols-1 max-w-2xl mx-auto' : 'lg:grid-cols-3'}`}>
             {plans.map((plan, index) => (
               <div
                 key={index}
@@ -562,7 +600,7 @@ export function PricingPage() {
                   <h3 className="text-white mb-2 text-2xl sm:text-3xl">{plan.name}</h3>
                   
                   {/* Payment Plan Selector */}
-                  {plan.price !== 'Custom' && !plan.isSubscription && activeTab === 'voice-agents' && (
+                  {plan.price !== 'Custom' && !plan.isSubscription && category === 'voice-agents' && (
                     <div className="mb-3 sm:mb-4 relative">
                       <button
                         type="button"
@@ -702,8 +740,10 @@ export function PricingPage() {
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-5xl sm:text-6xl md:text-7xl gradient-text mb-4 sm:mb-6">Add-Ons</h2>
             <p className="text-2xl sm:text-3xl text-white/60">
-              {activeTab === 'chatbots' 
-                ? 'Expand your chatbot capabilities with these optional upgrades' 
+              {category === 'chatbots' 
+                ? 'Expand your chatbot capabilities with these optional upgrades'
+                : category === 'voice-agents'
+                ? 'Scale your voice agent capabilities with these optional add-ons'
                 : 'Enhance your automation package with these optional services'}
             </p>
           </div>
@@ -740,22 +780,22 @@ export function PricingPage() {
                 <Shield className="w-8 h-8 sm:w-10 sm:h-10" />
               </div>
               <h2 className="text-4xl sm:text-5xl gradient-text mb-4 sm:mb-6">
-                {activeTab === 'chatbots' ? '14-Day Money-Back Guarantee' : '30-Day Money-Back Guarantee'}
+                {category === 'chatbots' || category === 'voice-agents' ? '14-Day Money-Back Guarantee' : '30-Day Money-Back Guarantee'}
               </h2>
               <p className="text-lg sm:text-xl md:text-2xl text-white/70 mb-8 sm:mb-12">
-                {activeTab === 'chatbots' 
+                {category === 'chatbots' 
                   ? "Try our chatbot service risk-free. If you're not satisfied within 14 days, we'll refund your first month – no questions asked."
-                  : activeTab === 'automation'
-                  ? "We're confident in our solutions. If you're not completely satisfied within 30 days of project completion, we'll refund your investment – no questions asked."
-                  : "We're confident you'll love your automation. If you're not completely satisfied within 30 days, we'll refund your investment – no questions asked."}
+                  : category === 'voice-agents'
+                  ? "Try our voice agent service risk-free. If you're not satisfied within 14 days, we'll refund your first month – no questions asked."
+                  : "We're confident in our solutions. If you're not completely satisfied within 30 days of project completion, we'll refund your investment – no questions asked."}
               </p>
               <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
                 <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
                   <h4 className="text-white mb-1 sm:mb-2 text-lg sm:text-xl">
-                    {activeTab === 'chatbots' ? 'No Contracts' : activeTab === 'automation' ? 'Custom Solutions' : 'Flexible Payment Plans'}
+                    {category === 'chatbots' || category === 'voice-agents' ? 'No Contracts' : 'Custom Solutions'}
                   </h4>
                   <p className="text-white/60 text-base sm:text-lg">
-                    {activeTab === 'chatbots' ? 'Cancel anytime, no questions' : activeTab === 'automation' ? 'Tailored to your needs' : 'Own forever, pay your way'}
+                    {category === 'chatbots' || category === 'voice-agents' ? 'Cancel anytime, no questions' : 'Tailored to your needs'}
                   </p>
                 </div>
                 <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
@@ -827,7 +867,7 @@ export function PricingPage() {
                   <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">Are there any monthly fees or subscriptions?</h3>
                   {openFAQ === 3 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
-                      For Workflow Automation: Custom one-time pricing based on your needs. Once built, you own it forever with no ongoing fees (unless you choose optional maintenance). For Voice Agents: pay in full or choose 6, 12, or 18-month payment plans—you own them forever. For Chatbots: monthly subscription starting at $99/month with no contracts. Cancel anytime.
+                      For Voice Agents: monthly subscription starting at $99/month with no contracts. Cancel anytime. For Chatbots: monthly subscription starting at $99/month with no contracts. Cancel anytime. For Workflow Automation: Custom one-time pricing based on your needs. Once built, you own it forever with no ongoing fees (unless you choose optional maintenance).
                     </p>
                   )}
                 </div>
@@ -844,10 +884,10 @@ export function PricingPage() {
                 className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3"
               >
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">What are payment plans and how do they work?</h3>
+                  <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">How does billing work?</h3>
                   {openFAQ === 4 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
-                      For Voice Agents: spread costs over 6, 12, or 18 months with a small premium (15%, 25%, or 35% respectively). This is NOT a subscription—you're paying for a one-time purchase via installments. Once paid off, you own it forever. For Workflow Automation: custom pricing is discussed during your consultation and payment terms are tailored to your needs. For Chatbots: simple monthly subscription with no payment plan options.
+                      Payment plans are no longer offered. Voice Agents and Chatbots are simple monthly subscriptions—pay month-to-month with no contracts. Cancel anytime. Workflow Automation uses custom pricing discussed during your consultation with flexible payment terms tailored to your needs.
                     </p>
                   )}
                 </div>
@@ -947,7 +987,7 @@ export function PricingPage() {
                   <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">How does the money-back guarantee work?</h3>
                   {openFAQ === 9 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
-                      For Workflow Automation & Voice Agents: 30-day money-back guarantee from project completion. If you're not satisfied, we'll refund your investment. For Chatbots: 14-day money-back guarantee on your first month's subscription. We're confident you'll love our services and want you to feel completely risk-free.
+                      For Voice Agents & Chatbots: 14-day money-back guarantee on your first month's subscription. If you're not satisfied, we'll refund your payment. For Workflow Automation: 30-day money-back guarantee from project completion. We're confident you'll love our services and want you to feel completely risk-free.
                     </p>
                   )}
                 </div>

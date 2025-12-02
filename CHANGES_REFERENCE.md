@@ -602,7 +602,427 @@ All pages include multiple CTAs linking to:
 
 ---
 
+---
+
+## 🎯 VOICE AGENTS SUBSCRIPTION MODEL UPDATE - December 2, 2024
+
+### Summary
+Converted Voice Agents from a one-time purchase model with payment plans to a monthly subscription model, aligning it with the Chatbots pricing structure.
+
+### Changes Made
+
+#### 1. Voice Agents Pricing - Subscription Model
+**Changed From:** One-time purchase ($1,499, $1,749, Custom) with 6, 12, 18-month payment plans
+**Changed To:** Monthly subscription ($99, $199, Custom/month)
+
+**New Tiers:**
+- **Starter**: $99/month (400 minutes, 1 agent, basic scripted conversations, CSV logs, email support, $0.25/extra min)
+- **Professional**: $199/month (2,000 minutes, 3 agents, dynamic conversations, CRM sync, priority chat, $0.09/extra min)
+- **Custom**: Custom pricing (5,000+ minutes, unlimited agents, AI learning, full API, account manager, $0.05/extra min)
+
+**Key Changes:**
+- Removed payment plan dropdown (6, 12, 18 months)
+- Added `isSubscription: true` flag to all Voice Agent plans
+- Payment plan logic automatically hidden for subscription services
+- 14-day money-back guarantee (changed from 30-day to match Chatbots)
+
+#### 2. Voice Agents Add-ons
+**Changed From:** Generic automation add-ons
+**Changed To:** Voice Agent-specific add-ons
+
+**New Add-ons:**
+- Additional Minutes: $50 per 500 minutes
+- Extra Agent Personality: $99/month
+- CRM Integration Setup: $297 one-time
+- Custom Voice Training: $497 one-time
+
+#### 3. VoiceAgentsPage.tsx Updates
+**Added comprehensive pricing section:**
+- Three-tier pricing cards matching PricingPage structure
+- Multi-currency support (USD, EUR, ZAR)
+- Currency toggle buttons
+- Add-ons section with 4 options
+- Links to `/pricing` for plan selection
+- Updated FAQ #4 with new subscription pricing
+
+**Updated SEO:**
+- Changed structured data from single "Offer" to "AggregateOffer"
+- Updated lowPrice from "1997" to "99"
+- Updated highPrice to "Custom"
+
+#### 4. PricingPage.tsx Updates
+
+**Hero Section:**
+- Updated Voice Agents description: "Simple monthly subscription pricing. Scale your calling capacity as you grow. No setup fees, cancel anytime."
+- Updated starting price: "Starting at $99/month"
+
+**Service Grid:**
+- Updated Voice Agents description: "Simple monthly subscription with included minutes and pay-as-you-go overage."
+
+**FAQs Updated:**
+- **FAQ #3**: Updated to list Voice Agents first as monthly subscription
+- **FAQ #4**: Changed from "What are payment plans..." to "How does billing work?" - removed payment plan references
+- **FAQ #9**: Updated guarantee to 14-day for Voice Agents & Chatbots, 30-day for Automation
+
+**Money-Back Guarantee Section:**
+- Voice Agents now show 14-day guarantee (like Chatbots)
+- Updated guarantee card text to show "No Contracts" for Voice Agents
+- Dynamic guarantee description based on active tab
+
+**SEO Metadata:**
+- Updated description: "AI Voice Agents from $99/month (subscription)"
+- Added keywords: "voice agent subscription", "monthly voice agent pricing"
+
+### Technical Implementation
+
+**Files Modified:**
+1. `src/components/PricingPage.tsx`
+   - Updated `voiceAgentsPlans` array (lines 98-155)
+   - Added `voiceAgentAddons` array
+   - Updated `currentAddons` logic to include voice agents
+   - Updated hero section dynamic text
+   - Updated service grid description
+   - Updated 3 FAQs
+   - Updated money-back guarantee section
+   - Updated SEO metadata
+
+2. `src/components/VoiceAgentsPage.tsx`
+   - Added currency state management
+   - Added comprehensive pricing section with 3 tiers
+   - Added currency toggle (USD, EUR, ZAR)
+   - Added add-ons section with 4 options
+   - Updated FAQ #4 with new pricing
+   - Updated SEO structured data
+
+3. `CHANGES_REFERENCE.md`
+   - Documented all changes
+
+### Lead Tracking
+Voice Agents now flow through subscription logic:
+- Saves as "Monthly Subscription" to localStorage
+- Format: "$99/month", "$199/month", or "Custom Pricing"
+- Contact form receives Voice Agents as subscription service
+
+### Pricing Comparison
+
+**Before:**
+- Starter: $1,499 one-time (with payment plans: $1,724 - $2,024)
+- Professional: $1,749 one-time (with payment plans: $2,011 - $2,361)
+- Enterprise: Custom
+
+**After:**
+- Starter: $99/month ($1,188/year)
+- Professional: $199/month ($2,388/year)
+- Custom: Custom pricing
+
+### Benefits of Subscription Model
+1. **Lower barrier to entry**: $99 vs $1,499 upfront
+2. **Predictable recurring revenue**
+3. **Consistent with Chatbots**: Both AI services now use subscription
+4. **Clearer differentiation**: Automation (custom), Voice & Chatbots (subscription)
+5. **Scalable pricing**: Usage-based with included minutes + overage
+
+### Status
+- ✅ Implementation Complete
+- ✅ No Linter Errors
+- ✅ Multi-currency Support Working
+- ✅ Lead Tracking Updated
+- ✅ SEO Metadata Updated
+- ✅ Documentation Complete
+
+---
+
+## 🎯 VOICE AGENTS TECHNICAL SPECIFICATIONS UPDATE - December 2, 2024
+
+### Summary
+Updated Voice Agents pricing with accurate technical specifications including call minutes, concurrency limits, overage rates, and audio quality specifications based on actual service capabilities.
+
+### Changes Made
+
+#### 1. Updated Call Minutes Allocation
+**Before:**
+- Starter: 400 minutes/month
+- Professional: 2,000 minutes/month
+- Custom: 5,000+ minutes/month
+
+**After:**
+- Starter: 250 minutes/month
+- Professional: 550 minutes/month
+- Custom: Unlimited minutes
+
+**Rationale:** Aligned with actual service capacity and more realistic usage patterns.
+
+#### 2. Added Concurrency Limits
+**New Technical Specification:**
+- Starter: 5 concurrent calls
+- Professional: 10 concurrent calls/agents
+- Custom: 15+ concurrent calls
+
+**Impact:** Provides clarity on simultaneous call handling capacity for each tier.
+
+#### 3. Updated Overage Rates
+**Before:**
+- Starter: $0.25/minute
+- Professional: $0.09/minute
+- Custom: $0.05/minute
+
+**After:**
+- Starter: $0.36/minute
+- Professional: $0.28/minute
+- Custom: $0.05/minute
+
+**Rationale:** Reflects actual per-minute costs for voice AI services.
+
+#### 4. Added Audio Quality Specifications
+**New for Professional Tier:**
+- 44.1kHz PCM audio output (highest fidelity)
+- Standard audio for Starter
+- Custom audio configurations for Custom tier
+
+**Impact:** Differentiates Professional tier with superior audio quality for businesses requiring high-fidelity voice calls.
+
+#### 5. Added Development & Maintenance Inclusion
+**New Feature Added:**
+- Starter: Development & maintenance included
+- Professional: Development & maintenance included
+- Custom: Dedicated support & account manager
+
+**Impact:** Clarifies that setup and ongoing maintenance are included in all pricing tiers.
+
+#### 6. Added Low-Latency TTS for Custom Tier
+**New Technical Feature:**
+- Custom tier now explicitly includes low-latency text-to-speech
+- Critical for mission-critical, high-volume applications
+
+#### 7. Updated Target User Descriptions
+
+**Starter:**
+- **Before:** "Perfect for small businesses getting started with AI voice calls"
+- **After:** "Perfect for small businesses with consistent but moderate call volume. Ideal for internal tools and basic automation needs."
+
+**Professional:**
+- **Before:** "Scale your business with dynamic AI conversations and integrations"
+- **After:** "Growing businesses requiring superior audio quality for regional service and moderate-to-high call volume. Professional-grade features included."
+
+**Custom:**
+- **Before:** "Enterprise-grade voice AI with unlimited capabilities"
+- **After:** "Enterprise-grade voice AI for high-volume operations. Low-latency performance with dedicated support for mission-critical applications."
+
+### Technical Specifications Table
+
+| Feature | Starter | Professional | Custom |
+|---------|---------|--------------|--------|
+| **Monthly Price** | $99 | $199 | Custom |
+| **Call Minutes** | 250 | 550 | Unlimited |
+| **Concurrency** | 5 calls | 10 calls | 15+ calls |
+| **Overage Rate** | $0.36/min | $0.28/min | $0.05/min |
+| **Audio Quality** | Standard | 44.1kHz PCM | Custom |
+| **Support SLA** | Email (24hr) | Priority Chat (4hr) | Dedicated Manager (1hr) |
+| **Development** | Included | Included | Included |
+| **Special Features** | Basic scripted | CRM sync, Multi-step | Low-latency TTS, API |
+
+### Files Modified
+
+1. **src/components/PricingPage.tsx**
+   - Updated `voiceAgentsPlans` array with new technical specs
+   - Updated all three tiers (Starter, Professional, Custom)
+   - Maintained subscription model (`isSubscription: true`)
+
+2. **src/components/VoiceAgentsPage.tsx**
+   - Updated pricing section to match PricingPage specs
+   - Updated Starter, Professional, and Custom tier features
+   - Updated FAQ #4 with new minutes (250, 550)
+   - Updated tier descriptions with target user information
+
+3. **CHANGES_REFERENCE.md**
+   - Documented all technical specification updates
+
+### Implementation Details
+
+**Feature List Updates (all tiers merged existing + new):**
+
+**Starter:**
+- 250 call minutes per month ✓
+- 5 concurrent calls ✓
+- 1 standard agent personality
+- Basic scripted conversations
+- Surveys & simple reminders
+- Development & maintenance included ✓
+- Basic call logs (CSV export)
+- Email support (24-hour response)
+- Overage: $0.36/minute ✓
+
+**Professional:**
+- 550 call minutes per month ✓
+- 10 concurrent calls/agents ✓
+- 3 unique agent personalities
+- Dynamic, multi-step conversations
+- Lead qualification & upselling
+- 44.1kHz PCM audio (highest fidelity) ✓
+- Development & maintenance included ✓
+- CRM & Helpdesk sync (HubSpot, Zapier, Sheets)
+- Priority chat support & 4-hour SLA
+- Overage: $0.28/minute ✓
+
+**Custom:**
+- Unlimited call minutes ✓
+- 15+ concurrent calls ✓
+- Unlimited agents & custom voices
+- AI learning & real-time adaptation
+- Low-latency TTS ✓
+- Full API access & custom webhooks
+- BI dashboards & analytics
+- Dedicated support & account manager ✓
+- Overage: $0.05/minute
+
+### Status
+- ✅ Implementation Complete
+- ✅ No Linter Errors (only unused import warnings)
+- ✅ Both PricingPage and VoiceAgentsPage Updated
+- ✅ Technical Specifications Accurate
+- ✅ Target User Descriptions Updated
+- ✅ FAQ Updated
+- ✅ Documentation Complete
+
+---
+
+## 🎯 VOICE AGENTS JARGON REMOVAL - December 2, 2024
+
+### Summary
+Simplified all technical jargon in Voice Agents pricing to make it easily understandable for non-technical SME clients.
+
+### Changes Made
+
+#### 1. Simplified Technical Terms
+
+**Concurrency → Simultaneous Calls:**
+- **Before:** "5 concurrent calls", "10 concurrent calls/agents", "15+ concurrent calls"
+- **After:** "5 calls at the same time", "10 calls at the same time", "15+ calls at the same time"
+- **Rationale:** "Concurrent" is technical jargon; "at the same time" is universally understood
+
+**Audio Quality:**
+- **Before:** "44.1kHz PCM audio (highest fidelity)"
+- **After:** "Crystal-clear audio quality"
+- **Rationale:** Technical specifications like kHz and PCM are irrelevant to SME clients who just want good audio
+
+**Low-Latency TTS:**
+- **Before:** "Low-latency TTS"
+- **After:** "Ultra-fast voice responses"
+- **Rationale:** "Latency" and "TTS" (text-to-speech) are technical terms; clients care about fast responses
+
+**Development → Setup:**
+- **Before:** "Development & maintenance included"
+- **After:** "Setup & maintenance included"
+- **Rationale:** "Development" sounds more technical; "Setup" is clearer for non-technical users
+
+**Overage → Extra Minutes:**
+- **Before:** "Overage: $0.36/minute"
+- **After:** "Extra minutes: $0.36/minute"
+- **Rationale:** "Overage" is billing jargon; "Extra minutes" is self-explanatory
+
+**Dynamic → Advanced:**
+- **Before:** "Dynamic, multi-step conversations"
+- **After:** "Advanced multi-step conversations"
+- **Rationale:** "Dynamic" is more technical; "Advanced" is clearer
+
+**CSV Export:**
+- **Before:** "Basic call logs (CSV export)"
+- **After:** "Basic call logs"
+- **Rationale:** SME clients don't need to know the file format; they just need logs
+
+**SLA → Response Time:**
+- **Before:** "Priority chat support & 4-hour SLA"
+- **After:** "Priority chat support (4-hour response)"
+- **Rationale:** "SLA" (Service Level Agreement) is business jargon; "response" is clearer
+
+**API/Webhooks:**
+- **Before:** "Full API access & custom webhooks"
+- **After:** "Full API access & custom integrations"
+- **Rationale:** Kept "API" for Custom tier (enterprise users understand it), but "integrations" is clearer than "webhooks"
+
+**BI Dashboards:**
+- **Before:** "BI dashboards & analytics"
+- **After:** "Advanced dashboards & analytics"
+- **Rationale:** "BI" (Business Intelligence) is jargon; "Advanced" conveys the same meaning
+
+#### 2. Updated Files
+
+**Both PricingPage.tsx and VoiceAgentsPage.tsx:**
+- All three tiers (Starter, Professional, Custom) updated with simplified language
+- FAQ #4 updated to use "crystal-clear audio quality" instead of "44.1kHz PCM audio"
+- Consistent terminology across both pages
+
+### Before vs After Comparison
+
+| Technical Term | Before | After |
+|----------------|--------|-------|
+| Concurrency | "5 concurrent calls" | "5 calls at the same time" |
+| Audio Specs | "44.1kHz PCM audio" | "Crystal-clear audio quality" |
+| Latency | "Low-latency TTS" | "Ultra-fast voice responses" |
+| Development | "Development & maintenance" | "Setup & maintenance" |
+| Overage | "Overage: $0.36/minute" | "Extra minutes: $0.36/minute" |
+| Dynamic | "Dynamic conversations" | "Advanced conversations" |
+| CSV | "CSV export" | (removed) |
+| SLA | "4-hour SLA" | "4-hour response" |
+| Webhooks | "custom webhooks" | "custom integrations" |
+| BI | "BI dashboards" | "Advanced dashboards" |
+
+### Impact
+
+**Improved User Experience:**
+- Non-technical SME clients can now easily understand all features
+- Removed unnecessary technical specifications that don't add value
+- Focused on benefits rather than technical implementation details
+
+**Maintained Clarity:**
+- Enterprise-level terms (API, integrations) kept where appropriate for Custom tier
+- All changes maintain accuracy while improving readability
+- No loss of meaningful information
+
+### Status
+- ✅ All Technical Jargon Removed or Simplified
+- ✅ Both Pages Updated Consistently
+- ✅ FAQ Updated
+- ✅ Non-Technical Language Throughout
+- ✅ No Linter Errors
+
+---
+
+---
+
+## 🎯 STARTER PLAN MINUTES ADJUSTMENT - December 2, 2024
+
+### Summary
+Reduced Starter plan call minutes from 250 to 200 minutes per month to better align with entry-level usage patterns.
+
+### Changes Made
+
+#### 1. Updated Starter Plan Minutes
+- **Before:** 250 call minutes per month
+- **After:** 200 call minutes per month
+
+#### 2. Files Updated
+- ✅ **PricingPage.tsx** - voiceAgentsPlans Starter tier
+- ✅ **VoiceAgentsPage.tsx** - Starter pricing card
+- ✅ **VoiceAgentsPage.tsx** - FAQ #4 pricing details
+
+#### 3. Current Pricing Structure
+
+| Tier | Price | Minutes | Per Minute |
+|------|-------|---------|------------|
+| **Starter** | $99/mo | 200 | ~$0.50 |
+| **Professional** | $199/mo | 550 | ~$0.36 |
+| **Custom** | Custom | Unlimited | Custom |
+
+### Status
+- ✅ Starter Plan Updated to 200 Minutes
+- ✅ All References Updated Consistently
+- ✅ FAQ Updated
+- ✅ No Linter Errors
+
+---
+
 **Document Created:** 2025-01-XX
-**Last Updated:** 2025-01-XX
-**Version:** 1.0
+**Last Updated:** 2024-12-02
+**Version:** 1.4
 

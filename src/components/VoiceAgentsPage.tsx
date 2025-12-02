@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, PhoneCall, Star, MessageCircle, Users, TrendingUp, Brain, CheckCircle, AlertTriangle, UserCheck, ChevronDown } from 'lucide-react';
+import { Phone, PhoneCall, Star, MessageCircle, Users, TrendingUp, Brain, CheckCircle, AlertTriangle, UserCheck, ChevronDown, DollarSign, Zap, Rocket, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -7,6 +7,7 @@ import { StarsCanvas } from './StarBackground';
 
 export function VoiceAgentsPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [currency, setCurrency] = useState<'USD' | 'ZAR' | 'EUR'>('USD');
   const features = [
     {
       icon: <Phone className="w-8 h-8" />,
@@ -82,10 +83,10 @@ export function VoiceAgentsPage() {
               "name": "The Automators"
             },
             "offers": {
-              "@type": "Offer",
+              "@type": "AggregateOffer",
               "priceCurrency": "USD",
-              "price": "1997",
-              "priceValidUntil": "2024-12-31",
+              "lowPrice": "99",
+              "highPrice": "Custom",
               "availability": "https://schema.org/InStock",
               "url": "https://theautomators.co/services/voice-agents"
             },
@@ -328,6 +329,387 @@ export function VoiceAgentsPage() {
         </div>
       </section>
 
+      {/* Pricing Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-6xl sm:text-7xl gradient-text mb-6">Voice Agent Pricing Plans</h2>
+            <p className="text-3xl text-white/60 max-w-3xl mx-auto mb-8">
+              Simple monthly subscription pricing. Scale your calling capacity as you grow. No setup fees, cancel anytime.
+            </p>
+            
+            {/* Currency Toggle */}
+            <div className="flex items-center justify-center gap-3 sm:gap-4">
+              <button
+                onClick={() => setCurrency('USD')}
+                className={`flex items-center space-x-1.5 sm:space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
+                  currency === 'USD'
+                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
+                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+                }`}
+              >
+                <DollarSign className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="font-medium">USD</span>
+              </button>
+              <button
+                onClick={() => setCurrency('EUR')}
+                className={`flex items-center space-x-1.5 sm:space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
+                  currency === 'EUR'
+                    ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-2 border-cyan-300/50 shadow-lg shadow-blue-500/50'
+                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+                }`}
+              >
+                <span className="font-bold text-sm sm:text-base">€</span>
+                <span className="font-medium">EUR</span>
+              </button>
+              <button
+                onClick={() => setCurrency('ZAR')}
+                className={`flex items-center space-x-1.5 sm:space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
+                  currency === 'ZAR'
+                    ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white border-2 border-emerald-300/50 shadow-lg shadow-green-500/50'
+                    : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
+                }`}
+              >
+                <span className="font-bold text-sm sm:text-base">R</span>
+                <span className="font-medium">ZAR</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+            {/* Starter Plan */}
+            <div className="card-3d relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] glass border border-white/10 hover:border-white/20 transition-all">
+              <div className="p-6 sm:p-8">
+                <div className="mb-4 sm:mb-6">
+                  <img src="/voice-starter.png" alt="Voice Starter" className="w-12 h-12 sm:w-16 sm:h-16" />
+                </div>
+                <h3 className="text-white mb-2 text-2xl sm:text-3xl">Starter</h3>
+                <div className="mb-4 sm:mb-6">
+                  <div className="text-4xl sm:text-5xl text-white mb-2">
+                    {currency === 'USD' && '$99'}
+                    {currency === 'EUR' && '€94'}
+                    {currency === 'ZAR' && 'R 1,782'}
+                    <span className="text-white/50 ml-2 text-lg sm:text-xl">/month</span>
+                  </div>
+                </div>
+                <p className="text-white/60 mb-6 sm:mb-8 text-lg sm:text-xl">Perfect for small businesses with consistent but moderate call volume. Ideal for internal tools and basic automation needs.</p>
+                
+                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">200 call minutes per month</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">5 calls at the same time</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">1 standard agent personality</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Basic scripted conversations</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Surveys & simple reminders</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Setup & maintenance included</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Basic call logs</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Email support (24-hour response)</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Extra minutes: $0.36/minute</span>
+                  </li>
+                </ul>
+
+                <Link
+                  to="/pricing"
+                  className="block w-full py-3 sm:py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 text-lg sm:text-xl glass border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 hover:scale-105"
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+
+            {/* Professional Plan */}
+            <div className="card-3d relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] glass border border-purple-500 lg:scale-105 transition-all">
+              <div className="relative bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-1.5 px-4 text-center">
+                <span className="text-white font-medium text-xs sm:text-sm tracking-wider uppercase">Most Popular</span>
+              </div>
+              <div className="p-6 sm:p-8">
+                <div className="mb-4 sm:mb-6">
+                  <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />
+                </div>
+                <h3 className="text-white mb-2 text-2xl sm:text-3xl">Professional</h3>
+                <div className="mb-4 sm:mb-6">
+                  <div className="text-4xl sm:text-5xl text-white mb-2">
+                    {currency === 'USD' && '$199'}
+                    {currency === 'EUR' && '€189'}
+                    {currency === 'ZAR' && 'R 3,582'}
+                    <span className="text-white/50 ml-2 text-lg sm:text-xl">/month</span>
+                  </div>
+                </div>
+                <p className="text-white/60 mb-6 sm:mb-8 text-lg sm:text-xl">Growing businesses requiring superior audio quality for regional service and moderate-to-high call volume. Professional-grade features included.</p>
+                
+                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">550 call minutes per month</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">10 calls at the same time</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">3 unique agent personalities</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Advanced multi-step conversations</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Lead qualification & upselling</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Crystal-clear audio quality</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Setup & maintenance included</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">CRM & Helpdesk sync (HubSpot, Zapier, Sheets)</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Priority chat support (4-hour response)</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Extra minutes: $0.28/minute</span>
+                  </li>
+                </ul>
+
+                <Link
+                  to="/pricing"
+                  className="block w-full py-3 sm:py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 text-lg sm:text-xl btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105"
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+
+            {/* Custom Plan */}
+            <div className="card-3d relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] glass border border-white/10 hover:border-white/20 transition-all">
+              <div className="p-6 sm:p-8">
+                <div className="mb-4 sm:mb-6">
+                  <img src="/enterprise-icon.png" alt="Custom" className="w-12 h-12 sm:w-16 sm:h-16" />
+                </div>
+                <h3 className="text-white mb-2 text-2xl sm:text-3xl">Custom</h3>
+                <div className="mb-4 sm:mb-6">
+                  <span className="text-4xl sm:text-5xl text-white">Custom</span>
+                </div>
+                <p className="text-white/60 mb-6 sm:mb-8 text-lg sm:text-xl">Enterprise-grade voice AI for high-volume operations. Low-latency performance with dedicated support for mission-critical applications.</p>
+                
+                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Unlimited call minutes</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">15+ calls at the same time</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Unlimited agents & custom voices</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">AI learning & real-time adaptation</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Ultra-fast voice responses</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Full API access & custom integrations</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Advanced dashboards & analytics</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Dedicated support & account manager</span>
+                  </li>
+                  <li className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
+                    <span className="text-white/70 text-lg sm:text-xl">Extra minutes: $0.05/minute</span>
+                  </li>
+                </ul>
+
+                <Link
+                  to="/contact"
+                  className="block w-full py-3 sm:py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 text-lg sm:text-xl glass border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 hover:scale-105"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Add-ons */}
+          <div className="text-center mb-8">
+            <h3 className="text-4xl sm:text-5xl gradient-text mb-4">Add-Ons</h3>
+            <p className="text-xl text-white/60">Scale your voice agent capabilities with these optional add-ons</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="card-3d glass border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center space-x-3">
+                  <div className="p-2.5 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-white text-lg">Additional Minutes</h4>
+                </div>
+                <span className="text-purple-400 font-semibold text-lg">
+                  {currency === 'USD' && '$50'}
+                  {currency === 'EUR' && '€48'}
+                  {currency === 'ZAR' && 'R 900'}
+                </span>
+              </div>
+              <p className="text-white/60 text-base">Per 500 minutes</p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center space-x-3">
+                  <div className="p-2.5 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
+                    <Star className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-white text-lg">Extra Agent</h4>
+                </div>
+                <span className="text-purple-400 font-semibold text-lg">
+                  {currency === 'USD' && '$99/mo'}
+                  {currency === 'EUR' && '€94/mo'}
+                  {currency === 'ZAR' && 'R 1,782/mo'}
+                </span>
+              </div>
+              <p className="text-white/60 text-base">Add custom voice personality</p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center space-x-3">
+                  <div className="p-2.5 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
+                    <Workflow className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-white text-lg">CRM Setup</h4>
+                </div>
+                <span className="text-purple-400 font-semibold text-lg">
+                  {currency === 'USD' && '$297'}
+                  {currency === 'EUR' && '€282'}
+                  {currency === 'ZAR' && 'R 5,346'}
+                </span>
+              </div>
+              <p className="text-white/60 text-base">One-time setup fee</p>
+            </div>
+
+            <div className="card-3d glass border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center space-x-3">
+                  <div className="p-2.5 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
+                    <Rocket className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-white text-lg">Voice Training</h4>
+                </div>
+                <span className="text-purple-400 font-semibold text-lg">
+                  {currency === 'USD' && '$497'}
+                  {currency === 'EUR' && '€472'}
+                  {currency === 'ZAR' && 'R 8,946'}
+                </span>
+              </div>
+              <p className="text-white/60 text-base">One-time training fee</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
@@ -411,7 +793,7 @@ export function VoiceAgentsPage() {
                   <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">How much do AI voice agents cost?</h3>
                   {openFAQ === 4 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-lg leading-relaxed">
-                      Our AI Voice Agent services start at $1,997 for up to 100 calls/month. Professional plans ($3,997) include up to 500 calls/month with advanced features. We also offer custom Enterprise pricing for unlimited calls. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View detailed pricing</Link>.
+                      Our AI Voice Agent services start at $99/month for the Starter plan (200 minutes). Professional plans are $199/month (550 minutes) with advanced features including crystal-clear audio quality. We also offer custom Enterprise pricing for unlimited minutes and high-volume operations. No contracts, cancel anytime. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View detailed pricing</Link>.
                     </p>
                   )}
                 </div>

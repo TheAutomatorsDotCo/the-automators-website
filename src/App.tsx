@@ -9,6 +9,7 @@ import { AutomationPage } from './components/AutomationPage';
 import { VoiceAgentsPage } from './components/VoiceAgentsPage';
 import { ChatbotsPage } from './components/ChatbotsPage';
 import { PricingPage } from './components/PricingPage';
+import { PricingLandingPage } from './components/PricingLandingPage';
 import { ContactPage } from './components/ContactPage';
 import { CaseStudiesPage } from './components/CaseStudies/CaseStudiesPage';
 import { PlatinumRepairsCaseStudy } from './components/CaseStudies/PlatinumRepairsCaseStudy';
@@ -38,7 +39,10 @@ export default function App() {
               <Route path="/services/automation" element={<AutomationPage />} />
               <Route path="/services/voice-agents" element={<VoiceAgentsPage />} />
               <Route path="/services/chatbots" element={<ChatbotsPage />} />
-              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/pricing" element={<PricingLandingPage />} />
+              <Route path="/pricing/automation" element={<PricingPage category="automation" />} />
+              <Route path="/pricing/voice-agents" element={<PricingPage category="voice-agents" />} />
+              <Route path="/pricing/chatbots" element={<PricingPage category="chatbots" />} />
               <Route path="/case-studies" element={<CaseStudiesPage />} />
               <Route path="/case-studies/platinum-repairs" element={<PlatinumRepairsCaseStudy />} />
               <Route path="/case-studies/device-doctor" element={<DeviceDoctorCaseStudy />} />
