@@ -1,195 +1,161 @@
 # Git Push Reference Guide
 
-Quick reference for pushing changes to GitHub (which auto-deploys to Vercel).
+## Overview
+This document outlines how to commit and push changes to Git for The Automators website. The site is hosted on Vercel, which automatically deploys when changes are pushed to the `main` branch.
 
-## Basic Workflow
+---
 
-### 1. Check Status
-See what files have been modified:
-```powershell
-cd "e:\the automators website"
+## Quick Reference Commands
+
+### Basic Git Push (3 Commands)
+```bash
+git add .
+git commit -m "Your commit message here"
+git push origin main
+```
+
+### Check Status Before Pushing
+```bash
 git status
 ```
 
-### 2. Stage Changes
-Add specific files:
-```powershell
-git add src/components/AssessmentPage.tsx
+This shows:
+- **Modified (M)** - Files that have been changed
+- **Untracked (U)** - New files not yet tracked by Git
+- **Staged** - Files ready to be committed
+
+---
+
+## Step-by-Step Process
+
+### 1. Check What Files Have Changed
+```bash
+git status
 ```
 
-Or add all modified files:
-```powershell
+### 2. Stage All Changes
+```bash
 git add .
+```
+This adds all modified and new files to staging.
+
+To add specific files only:
+```bash
+git add src/components/PricingPage.tsx
+git add src/components/VoiceAgentsPage.tsx
 ```
 
 ### 3. Commit Changes
-Commit with a descriptive message:
-```powershell
-git commit -m "Your descriptive commit message here"
+```bash
+git commit -m "Brief description of changes"
 ```
 
-### 4. Push to GitHub
-Push to main branch:
-```powershell
+**Good commit message examples:**
+- `"Update pricing pages with new subscription model"`
+- `"Add PricingLandingPage component"`
+- `"Fix mobile responsiveness on VoiceAgentsPage"`
+- `"Update Voice Agents technical specifications"`
+
+### 4. Push to Remote (Triggers Vercel Deployment)
+```bash
 git push origin main
 ```
 
 ---
 
-## Common Scenarios
+## Batch File Method (Windows)
 
-### Push Single File
-```powershell
-cd "e:\the automators website"
-git add src/components/HomePage.tsx
-git commit -m "Update homepage hero section"
-git push origin main
-```
+If you prefer a one-click solution, create a file called `git-push.bat`:
 
-### Push Multiple Files
-```powershell
-cd "e:\the automators website"
-git add src/components/HomePage.tsx src/components/Header.tsx
-git commit -m "Update homepage and header"
-git push origin main
-```
+```batch
+@echo off
+cd /d "e:\the automators website"
 
-### Push All Changes
-```powershell
-cd "e:\the automators website"
+echo Adding all files to staging...
 git add .
-git commit -m "Update multiple components"
+
+echo.
+set /p msg="Enter commit message: "
+echo Committing changes...
+git commit -m "%msg%"
+
+echo.
+echo Pushing to origin main...
 git push origin main
+
+echo.
+echo Done! Your changes should now be deploying on Vercel.
+pause
 ```
+
+Double-click the `.bat` file to run it.
 
 ---
 
-## PowerShell Syntax Notes
+## Vercel Deployment
 
-**Important:** Use semicolons (`;`) NOT `&&` in PowerShell:
-- ✅ Correct: `cd "e:\the automators website"; git status`
-- ❌ Wrong: `cd "e:\the automators website" && git status`
+### Automatic Deployment
+- Vercel is connected to the Git repository
+- Every push to `main` triggers an automatic deployment
+- Deployment typically takes 1-3 minutes
 
----
-
-## Full One-Liner Commands
-
-### Check Status
-```powershell
-cd "e:\the automators website"; git status
-```
-
-### Stage and Commit Specific File
-```powershell
-cd "e:\the automators website"; git add src/components/AssessmentPage.tsx; git commit -m "Update assessment page"
-```
-
-### Stage, Commit, and Push
-```powershell
-cd "e:\the automators website"; git add .; git commit -m "Update website"; git push origin main
-```
+### Checking Deployment Status
+1. Go to [vercel.com](https://vercel.com)
+2. Log in to your account
+3. Select "The Automators" project
+4. View deployment status and logs
 
 ---
 
-## Useful Git Commands
+## Common Git Commands
 
-### View Recent Commits
-```powershell
-cd "e:\the automators website"; git log --oneline -5
-```
-
-### View Changes Before Committing
-```powershell
-cd "e:\the automators website"; git diff src/components/AssessmentPage.tsx
-```
-
-### Unstage a File
-```powershell
-cd "e:\the automators website"; git restore --staged src/components/AssessmentPage.tsx
-```
-
-### Discard Changes (Be Careful!)
-```powershell
-cd "e:\the automators website"; git restore src/components/AssessmentPage.tsx
-```
-
-### View Remote Repository
-```powershell
-cd "e:\the automators website"; git remote -v
-```
-
----
-
-## Commit Message Best Practices
-
-### Good Examples:
-- `"Add interactive quiz to assessment page"`
-- `"Fix mobile responsiveness on pricing page"`
-- `"Update hero section with new CTA"`
-- `"Optimize images and add lazy loading"`
-- `"Implement dark mode toggle"`
-
-### Bad Examples:
-- `"update"` (too vague)
-- `"fix stuff"` (not descriptive)
-- `"changes"` (no context)
-
----
-
-## Vercel Auto-Deployment
-
-Once you push to the `main` branch:
-1. GitHub receives the commit
-2. Vercel automatically detects the change
-3. Vercel builds and deploys (1-2 minutes)
-4. Changes are live at: **the-automators-website**
-
-Check deployment status at: https://vercel.com/dashboard
+| Command | Description |
+|---------|-------------|
+| `git status` | Check current status of files |
+| `git add .` | Stage all changes |
+| `git add <file>` | Stage specific file |
+| `git commit -m "msg"` | Commit staged changes |
+| `git push origin main` | Push to remote main branch |
+| `git pull origin main` | Pull latest from remote |
+| `git log --oneline -5` | View last 5 commits |
+| `git diff` | View unstaged changes |
+| `git diff --staged` | View staged changes |
 
 ---
 
 ## Troubleshooting
 
-### Line Ending Warning
-```
-warning: LF will be replaced by CRLF
-```
-**Solution:** This is normal on Windows. Can be safely ignored.
+### "Nothing to commit"
+Your working directory is clean - no changes to push.
 
-### Authentication Issues
-If prompted for credentials, use:
-- **Username:** Your GitHub username
-- **Password:** Personal Access Token (not your GitHub password)
+### "Rejected - non-fast-forward"
+Someone else pushed changes. Pull first:
+```bash
+git pull origin main
+git push origin main
+```
 
-### Generate Personal Access Token:
-1. Go to GitHub.com → Settings → Developer settings → Personal access tokens
-2. Generate new token (classic)
-3. Select scopes: `repo` (full control)
-4. Copy and save the token securely
+### "Permission denied"
+Check your Git credentials are set up correctly.
+
+### Vercel Build Failed
+1. Check the Vercel dashboard for error logs
+2. Common issues: TypeScript errors, missing dependencies
+3. Fix the error locally, then push again
 
 ---
 
-## Quick Reference Sheet
+## File Status Indicators (in IDE)
 
-| Task | Command |
-|------|---------|
-| Check status | `git status` |
-| Stage file | `git add filename` |
-| Stage all | `git add .` |
-| Commit | `git commit -m "message"` |
-| Push | `git push origin main` |
-| View log | `git log --oneline` |
-| Undo staging | `git restore --staged filename` |
-| Discard changes | `git restore filename` |
+| Indicator | Meaning |
+|-----------|---------|
+| **M** | Modified - file has changes |
+| **U** | Untracked - new file not in Git |
+| **A** | Added - staged for commit |
+| **D** | Deleted - file will be removed |
+| **R** | Renamed |
 
 ---
 
-## Project Path
-**Full Path:** `E:\the automators website`
-
-**Repository:** TheAutomatorsDotCo/the-automators-website
-
-**Branch:** main
-
-**Remote:** origin (GitHub)
-
+**Document Created:** 2024-12-02
+**Last Updated:** 2024-12-02

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Clock, Check, TrendingUp, RotateCcw, User, Bot, DollarSign, Users } from 'lucide-react';
+import { useState } from 'react';
+import { Clock, Check, TrendingUp, RotateCcw, Bot, DollarSign, Users } from 'lucide-react';
 
 interface Message {
   type: 'bot' | 'user';

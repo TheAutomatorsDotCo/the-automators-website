@@ -1,4 +1,3 @@
-import React from 'react';
 import { SEO } from './SEO';
 import { StarsCanvas } from './StarBackground';
 
