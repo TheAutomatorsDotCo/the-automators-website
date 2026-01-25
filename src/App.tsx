@@ -17,6 +17,7 @@ import { DeviceDoctorCaseStudy } from './components/CaseStudies/DeviceDoctorCase
 import { InEnOmCaseStudy } from './components/CaseStudies/InEnOmCaseStudy';
 import { TermsPage } from './components/TermsPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
+import { TicketsPage } from './components/TicketsPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 
@@ -50,6 +51,7 @@ export default function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/tickets" element={<TicketsPage />} />
               {/* 404 redirect to home */}
               <Route path="*" element={<HomePage />} />
             </Routes>
