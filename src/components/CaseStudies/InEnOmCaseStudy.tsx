@@ -158,10 +158,10 @@ export function InEnOmCaseStudy() {
           <img 
             src="/in-en-om-logo.png" 
             alt="IN&OM Suid-Afrika - Afrikaans community business platform logo"
-            width={320}
+            width={160}
             height={160}
             loading="eager"
-            className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
+            className="h-32 sm:h-40 lg:h-48 w-auto object-contain"
           />
         </div>
         <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight">
@@ -186,7 +186,7 @@ export function InEnOmCaseStudy() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
             {/* Features Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
               <p className="text-6xl sm:text-7xl font-bold text-white mb-2">15+</p>
@@ -240,7 +240,7 @@ export function InEnOmCaseStudy() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <Package className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
@@ -450,7 +450,7 @@ export function InEnOmCaseStudy() {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-4">More Success Stories</h2>
             <p className="text-xl sm:text-2xl text-white/70 max-w-2xl mx-auto">See how we've helped other businesses transform their operations.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
             {getRelatedCaseStudies('in-en-om').map((study) => (
               <Link
                 key={study.id}

@@ -158,10 +158,10 @@ export function DeviceDoctorCaseStudy() {
           <img 
             src="/dd-logo.png" 
             alt="Device Doctor - electronics repair and insurance automation case study"
-            width={192}
-            height={96}
+            width={400}
+            height={72}
             loading="eager"
-            className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
+            className="h-28 sm:h-32 lg:h-36 w-auto object-contain"
           />
         </div>
         <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight">
@@ -186,7 +186,7 @@ export function DeviceDoctorCaseStudy() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
             {/* Time Saved Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
               <p className="text-6xl sm:text-7xl font-bold text-white mb-2">30%</p>
@@ -240,7 +240,7 @@ export function DeviceDoctorCaseStudy() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
               <div className="glass p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-4">
                   <X className="w-6 h-6 text-red-400 mr-3 flex-shrink-0" />
@@ -432,7 +432,7 @@ export function DeviceDoctorCaseStudy() {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-4">More Success Stories</h2>
             <p className="text-xl sm:text-2xl text-white/70 max-w-2xl mx-auto">See how we've helped other businesses transform their operations.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
             {getRelatedCaseStudies('device-doctor').map((study) => (
               <Link
                 key={study.id}
