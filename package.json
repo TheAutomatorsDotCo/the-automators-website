@@ -58,11 +58,14 @@
             "@types/node": "^20.10.0",
             "@types/react-dom": "^19.2.2",
             "@vitejs/plugin-react-swc": "^3.10.2",
+            "puppeteer": "^24.37.1",
             "typescript": "^5.9.3",
             "vite": "6.3.5"
       },
       "scripts": {
             "dev": "vite",
-            "build": "vite build"
+            "build": "vite build",
+            "build:prerender": "vite build && node scripts/prerender.mjs",
+            "prerender": "node scripts/prerender.mjs"
       }
 }

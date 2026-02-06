@@ -99,6 +99,32 @@ export function CaseStudiesPage() {
       slug: '/case-studies/in-en-om',
       gradient: 'from-green-500 to-emerald-500',
     },
+    {
+      id: 'epic-deals',
+      title: 'Scaling Trust in Tech',
+      company: 'Epic Deals',
+      industry: 'Pre-Owned Tech Marketplace',
+      description: 'How intelligent automation helped South Africa\'s leading pre-owned tech marketplace compete with teams twice their size while maintaining the personal touch.',
+      stats: [
+        {
+          label: 'Messages/Month',
+          value: '15,000+',
+          icon: <TrendingUp className="w-6 h-6" />,
+        },
+        {
+          label: 'Response Reliability',
+          value: '99.9%',
+          icon: <Zap className="w-6 h-6" />,
+        },
+        {
+          label: 'Products Tracked',
+          value: '10,000+',
+          icon: <Users className="w-6 h-6" />,
+        },
+      ],
+      slug: '/case-studies/epic-deals',
+      gradient: 'from-amber-500 to-orange-500',
+    },
     // Add more case studies here as you create them
   ];
 
@@ -109,6 +135,30 @@ export function CaseStudiesPage() {
         description="See how The Automators has helped businesses save time, reduce costs, and scale operations with AI automation, chatbots, and workflow optimization."
         path="/case-studies"
         keywords="automation case studies, business automation success stories, AI implementation examples, workflow automation results, automation ROI"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Business Automation Case Studies",
+            "description": "See how The Automators has helped businesses save time, reduce costs, and scale operations with AI automation, chatbots, and workflow optimization.",
+            "url": "https://theautomators.co/case-studies",
+            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://theautomators.co" },
+            "hasPart": [
+              { "@type": "Article", "name": "Platinum Repairs Case Study", "url": "https://theautomators.co/case-studies/platinum-repairs" },
+              { "@type": "Article", "name": "Device Doctor Case Study", "url": "https://theautomators.co/case-studies/device-doctor" },
+              { "@type": "Article", "name": "IN&OM Suid-Afrika Case Study", "url": "https://theautomators.co/case-studies/in-en-om" },
+              { "@type": "Article", "name": "Epic Deals Case Study", "url": "https://theautomators.co/case-studies/epic-deals" }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theautomators.co/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies" }
+            ]
+          }
+        ]}
       />
       <StarsCanvas />
 

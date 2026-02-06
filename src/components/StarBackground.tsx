@@ -2,8 +2,39 @@ import { Points, PointMaterial } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import type { PointsProps } from "@react-three/fiber";
 import * as random from "maath/random";
-import { useState, useRef, Suspense } from "react";
+import { useState, useRef, Suspense, Component } from "react";
+import type { ReactNode } from "react";
 import type { Points as PointsType } from "three";
+
+/**
+ * Error boundary that catches WebGL/Three.js failures gracefully.
+ * When WebGL is unavailable (e.g., headless browsers, old devices),
+ * renders nothing instead of crashing the entire React app.
+ */
+class CanvasErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch() {
+    // WebGL context creation failed -- silently degrade
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null;
+    }
+    return this.props.children;
+  }
+}
 
 export const StarBackground = (props: PointsProps) => {
   const ref = useRef<PointsType | null>(null);
@@ -40,12 +71,14 @@ export const StarBackground = (props: PointsProps) => {
 };
 
 export const StarsCanvas = () => (
-  <div className="w-full h-auto fixed inset-0 -z-10">
-    <Canvas camera={{ position: [0, 0, 1] }}>
-      <Suspense fallback={null}>
-        <StarBackground />
-      </Suspense>
-    </Canvas>
-  </div>
+  <CanvasErrorBoundary>
+    <div className="w-full h-auto fixed inset-0 -z-10">
+      <Canvas camera={{ position: [0, 0, 1] }}>
+        <Suspense fallback={null}>
+          <StarBackground />
+        </Suspense>
+      </Canvas>
+    </div>
+  </CanvasErrorBoundary>
 );
 

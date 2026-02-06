@@ -6,6 +6,7 @@ import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
 import { StarsCanvas } from '../StarBackground';
 import { saveLeadData } from '../../utils/leadData';
+import { getRelatedCaseStudies } from './caseStudiesData';
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
@@ -111,7 +112,31 @@ export function DeviceDoctorCaseStudy() {
         title="Device Doctor Case Study - Hundreds of Hours Saved Through Automation"
         description="See how The Automators helped Device Doctor revolutionize operations, reduce inquiries by 87%, and save hundreds of hours weekly with AI automation and workflow optimization."
         path="/case-studies/device-doctor"
+        type="article"
         keywords="electronics repair automation, insurance claim automation, business process automation, workflow automation case study, AI chatbot results"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Device Doctor Case Study - Hundreds of Hours Saved Through Automation",
+            "author": { "@type": "Organization", "name": "The Automators" },
+            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://theautomators.co" },
+            "datePublished": "2025-11-03",
+            "dateModified": "2026-02-06",
+            "image": "https://theautomators.co/dd-logo.png",
+            "url": "https://theautomators.co/case-studies/device-doctor",
+            "description": "See how The Automators helped Device Doctor revolutionize operations, reduce inquiries by 87%, and save hundreds of hours weekly with AI automation and workflow optimization."
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theautomators.co/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://theautomators.co/case-studies" },
+              { "@type": "ListItem", "position": 3, "name": "Device Doctor" }
+            ]
+          }
+        ]}
       />
       <StarsCanvas />
 
@@ -132,7 +157,10 @@ export function DeviceDoctorCaseStudy() {
         <div className="flex justify-center mb-6 sm:mb-8">
           <img 
             src="/dd-logo.png" 
-            alt="Device Doctor logo"
+            alt="Device Doctor - electronics repair and insurance automation case study"
+            width={192}
+            height={96}
+            loading="eager"
             className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
           />
         </div>
@@ -161,7 +189,7 @@ export function DeviceDoctorCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {/* Time Saved Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">30%</h3>
+              <p className="text-6xl sm:text-7xl font-bold text-white mb-2">30%</p>
               <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Manager's Time Freed Up</p>
               <div className="h-40 sm:h-48">
                 <Doughnut data={timeSavedData} options={doughnutOptions} />
@@ -170,7 +198,7 @@ export function DeviceDoctorCaseStudy() {
 
             {/* Inquiries Reduction Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">87%</h3>
+              <p className="text-6xl sm:text-7xl font-bold text-white mb-2">87%</p>
               <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Reduction in Daily Inquiries</p>
               <div className="h-40 sm:h-48">
                 <Bar data={inquiriesData} options={barOptions} />
@@ -183,7 +211,7 @@ export function DeviceDoctorCaseStudy() {
                 <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400" />
               </div>
               <span className="text-6xl sm:text-7xl font-bold text-cyan-400 mb-3 sm:mb-4 text-center">100+</span>
-              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Hours Saved Weekly</h3>
+              <p className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Hours Saved Weekly</p>
               <p className="text-3xl sm:text-4xl text-white/70 text-center">Our automation handles hundreds of manual tasks every week, freeing the team to focus on what truly matters.</p>
             </div>
 
@@ -193,7 +221,7 @@ export function DeviceDoctorCaseStudy() {
                 <DollarSign className="w-10 h-10 sm:w-12 sm:h-12 text-green-400" />
               </div>
               <span className="text-6xl sm:text-7xl font-bold text-green-400 mb-3 sm:mb-4 text-center">R12,000</span>
-              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Saved Per Month</h3>
+              <p className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Saved Per Month</p>
               <p className="text-3xl sm:text-4xl text-white/70 text-center">Reduced operational costs through streamlined processes, automated follow-ups, and efficient resource management.</p>
             </div>
           </div>
@@ -393,6 +421,35 @@ export function DeviceDoctorCaseStudy() {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Case Studies */}
+      <section className="py-16 sm:py-20 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-4">More Success Stories</h2>
+            <p className="text-xl sm:text-2xl text-white/70 max-w-2xl mx-auto">See how we've helped other businesses transform their operations.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {getRelatedCaseStudies('device-doctor').map((study) => (
+              <Link
+                key={study.id}
+                to={study.slug}
+                className="group glass rounded-2xl border border-white/10 p-6 sm:p-8 hover:border-white/20 transition-all"
+              >
+                <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${study.gradient} text-white mb-4`}>
+                  {study.company}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">{study.title}</h3>
+                <p className="text-white/70 mb-4 leading-relaxed">{study.description}</p>
+                <span className="inline-flex items-center space-x-2 text-cyan-400 font-medium text-sm group-hover:space-x-3 transition-all">
+                  <span>Read Case Study</span>
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

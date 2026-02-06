@@ -15,9 +15,11 @@ import { CaseStudiesPage } from './components/CaseStudies/CaseStudiesPage';
 import { PlatinumRepairsCaseStudy } from './components/CaseStudies/PlatinumRepairsCaseStudy';
 import { DeviceDoctorCaseStudy } from './components/CaseStudies/DeviceDoctorCaseStudy';
 import { InEnOmCaseStudy } from './components/CaseStudies/InEnOmCaseStudy';
+import { EpicDealsCaseStudy } from './components/CaseStudies/EpicDealsCaseStudy';
 import { TermsPage } from './components/TermsPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TicketsPage } from './components/TicketsPage';
+import { NotFoundPage } from './components/NotFoundPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 
@@ -48,12 +50,13 @@ export default function App() {
               <Route path="/case-studies/platinum-repairs" element={<PlatinumRepairsCaseStudy />} />
               <Route path="/case-studies/device-doctor" element={<DeviceDoctorCaseStudy />} />
               <Route path="/case-studies/in-en-om" element={<InEnOmCaseStudy />} />
+              <Route path="/case-studies/epic-deals" element={<EpicDealsCaseStudy />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="/tickets" element={<TicketsPage />} />
-              {/* 404 redirect to home */}
-              <Route path="*" element={<HomePage />} />
+              {/* 404 Page */}
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
           <Footer />

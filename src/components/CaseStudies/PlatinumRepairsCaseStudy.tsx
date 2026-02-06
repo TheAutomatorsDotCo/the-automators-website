@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, BarChart3, TrendingUp, MessageSquare, DollarSign, CheckCircle, ArrowRight } from 'lucide-react';
+import { ArrowLeft, BarChart3, TrendingUp, MessageSquare, DollarSign, CheckCircle, ArrowRight, BookOpen } from 'lucide-react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
 import { StarsCanvas } from '../StarBackground';
 import { saveLeadData } from '../../utils/leadData';
+import { getRelatedCaseStudies } from './caseStudiesData';
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
@@ -111,7 +112,31 @@ export function PlatinumRepairsCaseStudy() {
         title="Platinum Repairs Case Study - How We Save Hundreds of Hours Weekly"
         description="Discover how The Automators helped Platinum Repairs save hundreds of hours every week with AI automation, chatbots, and voice agents. Real results, real ROI."
         path="/case-studies/platinum-repairs"
+        type="article"
         keywords="automation case study, business automation results, AI chatbot case study, workflow automation ROI, business process automation success"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Platinum Repairs Case Study - How We Save Hundreds of Hours Weekly",
+            "author": { "@type": "Organization", "name": "The Automators" },
+            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://theautomators.co" },
+            "datePublished": "2025-11-03",
+            "dateModified": "2026-02-06",
+            "image": "https://theautomators.co/pr-logo.png",
+            "url": "https://theautomators.co/case-studies/platinum-repairs",
+            "description": "Discover how The Automators helped Platinum Repairs save hundreds of hours every week with AI automation, chatbots, and voice agents. Real results, real ROI."
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theautomators.co/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://theautomators.co/case-studies" },
+              { "@type": "ListItem", "position": 3, "name": "Platinum Repairs" }
+            ]
+          }
+        ]}
       />
       <StarsCanvas />
 
@@ -132,7 +157,10 @@ export function PlatinumRepairsCaseStudy() {
         <div className="flex justify-center mb-6 sm:mb-8">
           <img 
             src="/pr-logo.png" 
-            alt="Platinum Repairs logo"
+            alt="Platinum Repairs - insured electronics repair company logo"
+            width={192}
+            height={96}
+            loading="eager"
             className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
           />
         </div>
@@ -161,7 +189,7 @@ export function PlatinumRepairsCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {/* Time Saved Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">30%</h3>
+              <p className="text-6xl sm:text-7xl font-bold text-white mb-2">30%</p>
               <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Manager's Time Freed Up</p>
               <div className="h-40 sm:h-48">
                 <Doughnut data={timeSavedData} options={doughnutOptions} />
@@ -170,7 +198,7 @@ export function PlatinumRepairsCaseStudy() {
 
             {/* Inquiries Reduction Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">87%</h3>
+              <p className="text-6xl sm:text-7xl font-bold text-white mb-2">87%</p>
               <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Reduction in Daily Inquiries</p>
               <div className="h-40 sm:h-48">
                 <Bar data={inquiriesData} options={barOptions} />
@@ -183,7 +211,7 @@ export function PlatinumRepairsCaseStudy() {
                 <MessageSquare className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-400" />
               </div>
               <span className="text-6xl sm:text-7xl font-bold text-indigo-400 mb-3 sm:mb-4 text-center">200+</span>
-              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">AI Chats Monthly</h3>
+              <p className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">AI Chats Monthly</p>
               <p className="text-3xl sm:text-4xl text-white/70 text-center">Our chatbot successfully handles over 200 client chats every month, providing instant answers 24/7.</p>
             </div>
 
@@ -193,7 +221,7 @@ export function PlatinumRepairsCaseStudy() {
                 <DollarSign className="w-10 h-10 sm:w-12 sm:h-12 text-green-400" />
               </div>
               <span className="text-6xl sm:text-7xl font-bold text-green-400 mb-3 sm:mb-4 text-center">R12,000</span>
-              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Saved Per Month</h3>
+              <p className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Saved Per Month</p>
               <p className="text-3xl sm:text-4xl text-white/70 text-center">By reducing manual tasks and streamlining support, we save Platinum Repairs an estimated R12,000 in monthly operational costs.</p>
             </div>
           </div>
@@ -317,6 +345,35 @@ export function PlatinumRepairsCaseStudy() {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Case Studies */}
+      <section className="py-16 sm:py-20 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-4">More Success Stories</h2>
+            <p className="text-xl sm:text-2xl text-white/70 max-w-2xl mx-auto">See how we've helped other businesses transform their operations.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {getRelatedCaseStudies('platinum-repairs').map((study) => (
+              <Link
+                key={study.id}
+                to={study.slug}
+                className="group glass rounded-2xl border border-white/10 p-6 sm:p-8 hover:border-white/20 transition-all"
+              >
+                <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${study.gradient} text-white mb-4`}>
+                  {study.company}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">{study.title}</h3>
+                <p className="text-white/70 mb-4 leading-relaxed">{study.description}</p>
+                <span className="inline-flex items-center space-x-2 text-indigo-400 font-medium text-sm group-hover:space-x-3 transition-all">
+                  <span>Read Case Study</span>
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

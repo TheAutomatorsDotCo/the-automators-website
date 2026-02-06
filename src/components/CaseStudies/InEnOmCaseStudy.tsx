@@ -6,6 +6,7 @@ import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
 import { StarsCanvas } from '../StarBackground';
 import { saveLeadData } from '../../utils/leadData';
+import { getRelatedCaseStudies } from './caseStudiesData';
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
@@ -111,7 +112,31 @@ export function InEnOmCaseStudy() {
         title="IN&OM Suid-Afrika Case Study - Comprehensive Business Platform Development"
         description="Discover how The Automators built a comprehensive business platform for IN&OM Suid-Afrika, featuring directory, job portal, marketplace, and community sections with full automation integration."
         path="/case-studies/in-en-om"
+        type="article"
         keywords="web platform development, business directory development, job portal development, marketplace platform, React Firebase development, subscription platform"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "IN&OM Suid-Afrika Case Study - Comprehensive Business Platform Development",
+            "author": { "@type": "Organization", "name": "The Automators" },
+            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://theautomators.co" },
+            "datePublished": "2025-11-03",
+            "dateModified": "2026-02-06",
+            "image": "https://theautomators.co/in-en-om-logo.png",
+            "url": "https://theautomators.co/case-studies/in-en-om",
+            "description": "Discover how The Automators built a comprehensive business platform for IN&OM Suid-Afrika, featuring directory, job portal, marketplace, and community sections with full automation integration."
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theautomators.co/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://theautomators.co/case-studies" },
+              { "@type": "ListItem", "position": 3, "name": "IN&OM Suid-Afrika" }
+            ]
+          }
+        ]}
       />
       <StarsCanvas />
 
@@ -132,7 +157,10 @@ export function InEnOmCaseStudy() {
         <div className="flex justify-center mb-6 sm:mb-8">
           <img 
             src="/in-en-om-logo.png" 
-            alt="IN&OM Suid-Afrika logo"
+            alt="IN&OM Suid-Afrika - Afrikaans community business platform logo"
+            width={320}
+            height={160}
+            loading="eager"
             className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
           />
         </div>
@@ -161,7 +189,7 @@ export function InEnOmCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {/* Features Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">15+</h3>
+              <p className="text-6xl sm:text-7xl font-bold text-white mb-2">15+</p>
               <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Major Features Built</p>
               <div className="h-40 sm:h-48">
                 <Bar data={featuresData} options={barOptions} />
@@ -170,7 +198,7 @@ export function InEnOmCaseStudy() {
 
             {/* Integration Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <h3 className="text-6xl sm:text-7xl font-bold text-white mb-2">100%</h3>
+              <p className="text-6xl sm:text-7xl font-bold text-white mb-2">100%</p>
               <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Integration Complete</p>
               <div className="h-40 sm:h-48">
                 <Doughnut data={integrationsData} options={doughnutOptions} />
@@ -183,7 +211,7 @@ export function InEnOmCaseStudy() {
                 <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-green-400" />
               </div>
               <span className="text-6xl sm:text-7xl font-bold text-green-400 mb-3 sm:mb-4 text-center">13+</span>
-              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Pages Developed</h3>
+              <p className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Pages Developed</p>
               <p className="text-3xl sm:text-4xl text-white/70 text-center">From homepage to admin panel, fully responsive across all devices.</p>
             </div>
 
@@ -193,7 +221,7 @@ export function InEnOmCaseStudy() {
                 <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-amber-400" />
               </div>
               <span className="text-6xl sm:text-7xl font-bold text-amber-400 mb-3 sm:mb-4 text-center">15,000</span>
-              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Monthly Automations</h3>
+              <p className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Monthly Automations</p>
               <p className="text-3xl sm:text-4xl text-white/70 text-center">Automated email communications and feedback via webhook integration.</p>
             </div>
           </div>
@@ -411,6 +439,35 @@ export function InEnOmCaseStudy() {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Case Studies */}
+      <section className="py-16 sm:py-20 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-4">More Success Stories</h2>
+            <p className="text-xl sm:text-2xl text-white/70 max-w-2xl mx-auto">See how we've helped other businesses transform their operations.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {getRelatedCaseStudies('in-en-om').map((study) => (
+              <Link
+                key={study.id}
+                to={study.slug}
+                className="group glass rounded-2xl border border-white/10 p-6 sm:p-8 hover:border-white/20 transition-all"
+              >
+                <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${study.gradient} text-white mb-4`}>
+                  {study.company}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">{study.title}</h3>
+                <p className="text-white/70 mb-4 leading-relaxed">{study.description}</p>
+                <span className="inline-flex items-center space-x-2 text-green-400 font-medium text-sm group-hover:space-x-3 transition-all">
+                  <span>Read Case Study</span>
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
