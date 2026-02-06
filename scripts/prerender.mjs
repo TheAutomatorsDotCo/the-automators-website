@@ -20,7 +20,53 @@ import { createServer } from 'http';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join, extname } from 'path';
 import { fileURLToPath } from 'url';
-import puppeteer from 'puppeteer';
+
+/**
+ * Launch browser with the right Chromium for the environment:
+ * - Vercel/CI (Linux without system libs): @sparticuz/chromium + puppeteer-core
+ * - Local development (Windows/Mac): regular puppeteer with bundled Chromium
+ *
+ * Detection: use @sparticuz/chromium when running on Linux (Vercel, GitHub Actions, etc.)
+ * because those environments lack the system libraries Puppeteer's Chromium needs.
+ * On Windows/Mac, use regular puppeteer which bundles a working Chromium.
+ */
+async function launchBrowser() {
+  const commonArgs = [
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-gpu',
+    '--disable-software-rasterizer',
+    '--disable-dev-shm-usage',
+    '--disable-web-security',
+    '--disable-features=IsolateOrigins',
+    '--disable-site-isolation-trials',
+    '--ignore-gpu-blocklist',
+    '--use-gl=swiftshader',
+  ];
+
+  const isCI = process.platform === 'linux';
+
+  if (isCI) {
+    // On Linux/Vercel/CI: use @sparticuz/chromium which bundles all system libs
+    const chromium = (await import('@sparticuz/chromium')).default;
+    const puppeteerCore = (await import('puppeteer-core')).default;
+
+    console.log('[prerender] Using @sparticuz/chromium (CI/Vercel environment)');
+    return puppeteerCore.launch({
+      args: [...chromium.args, ...commonArgs],
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    });
+  } else {
+    // On Windows/Mac: use regular puppeteer with its bundled Chromium
+    console.log('[prerender] Using puppeteer with bundled Chromium (local environment)');
+    const puppeteer = (await import('puppeteer')).default;
+    return puppeteer.launch({
+      headless: true,
+      args: commonArgs,
+    });
+  }
+}
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const DIST_DIR = join(__dirname, '..', 'dist');
@@ -204,24 +250,9 @@ async function prerender() {
   // Start the static file server using the original HTML for SPA fallback
   const server = await startServer(originalHtml);
 
-  // Launch Puppeteer
+  // Launch browser (auto-detects Vercel vs local environment)
   console.log('[prerender] Launching browser...');
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-gpu',
-      '--disable-software-rasterizer',
-      '--disable-dev-shm-usage',
-      '--disable-web-security',
-      '--disable-features=IsolateOrigins',
-      '--disable-site-isolation-trials',
-      // Suppress WebGL warnings
-      '--ignore-gpu-blocklist',
-      '--use-gl=swiftshader',
-    ],
-  });
+  const browser = await launchBrowser();
 
   console.log(`[prerender] Browser launched. Rendering ${ROUTES.length} routes...\n`);
 
