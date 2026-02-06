@@ -8,9 +8,8 @@ src/components/CaseStudies/
 └── PlatinumRepairsCaseStudy.tsx     ← Example case study
 
 Documentation/
-├── CASE_STUDIES_GUIDE.md                    ← Detailed guide
-├── CASE_STUDIES_IMPLEMENTATION_SUMMARY.md   ← What was built
-└── CASE_STUDIES_QUICK_REFERENCE.md          ← This file
+├── CASE_STUDIES_GUIDE.md            ← Detailed guide
+└── CASE_STUDIES_QUICK_REFERENCE.md  ← This file
 
 Modified Files/
 ├── src/App.tsx                      ← Added routes
@@ -303,9 +302,8 @@ Check:
 
 1. Check `CASE_STUDIES_GUIDE.md` for detailed instructions
 2. Review `PlatinumRepairsCaseStudy.tsx` for working example
-3. Look at `CASE_STUDIES_IMPLEMENTATION_SUMMARY.md` for overview
-4. Test in browser console for errors
-5. Check component imports and exports
+3. Test in browser console for errors
+4. Check component imports and exports
 
 ## 🎉 You're Ready!
 
