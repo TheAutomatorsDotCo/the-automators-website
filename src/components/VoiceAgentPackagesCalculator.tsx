@@ -545,18 +545,36 @@ export function VoiceAgentPackagesCalculator() {
                 <input
                   type="range"
                   min="50"
-                  max="10000"
+                  max="5050"
                   step="50"
-                  value={abandonedCarts}
-                  onChange={(e) => setAbandonedCarts(Number(e.target.value))}
+                  value={Math.min(abandonedCarts, 5050)}
+                  onChange={(e) => {
+                    const val = Number(e.target.value);
+                    setAbandonedCarts(val > 5000 ? 5001 : val);
+                  }}
                   className="w-full h-3 bg-white/10 rounded-lg appearance-none cursor-pointer slider mb-3"
                 />
-                <input
-                  type="number"
-                  value={abandonedCarts}
-                  onChange={(e) => setAbandonedCarts(Number(e.target.value))}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-xl font-bold text-center focus:outline-none focus:border-purple-500 transition-colors"
-                />
+                {abandonedCarts > 5000 ? (
+                  <div className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-purple-500/20 to-indigo-500/20 border border-purple-500/30 text-white text-xl font-bold text-center">
+                    5,000+
+                  </div>
+                ) : (
+                  <input
+                    type="number"
+                    min={50}
+                    max={5000}
+                    value={abandonedCarts}
+                    onChange={(e) => {
+                      const val = Number(e.target.value);
+                      if (val > 5000) {
+                        setAbandonedCarts(5001);
+                      } else {
+                        setAbandonedCarts(val);
+                      }
+                    }}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-xl font-bold text-center focus:outline-none focus:border-purple-500 transition-colors"
+                  />
+                )}
               </div>
               
               <div>
@@ -566,8 +584,8 @@ export function VoiceAgentPackagesCalculator() {
                 <input
                   type="range"
                   min={currency === 'ZAR' ? 500 : currency === 'EUR' ? 25 : 30}
-                  max={currency === 'ZAR' ? 10000 : currency === 'EUR' ? 500 : 550}
-                  step={currency === 'ZAR' ? 100 : 10}
+                  max={currency === 'ZAR' ? 54000 : currency === 'EUR' ? 2850 : 3000}
+                  step={currency === 'ZAR' ? 500 : 50}
                   value={cartValue}
                   onChange={(e) => setCartValue(Number(e.target.value))}
                   className="w-full h-3 bg-white/10 rounded-lg appearance-none cursor-pointer slider mb-3"
