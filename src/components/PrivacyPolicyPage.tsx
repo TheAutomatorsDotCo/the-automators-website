@@ -1,4 +1,3 @@
-import React from 'react';
 import { SEO } from './SEO';
 import { StarsCanvas } from './StarBackground';
 
@@ -7,9 +6,9 @@ export function PrivacyPolicyPage() {
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
         title="Privacy Policy"
-        description="Privacy policy for The Automators. Learn how we collect, use, and protect your personal information."
+        description="Privacy policy for The Automators' WhatsApp notification service. Learn how we collect, use, and protect your personal information."
         path="/privacy-policy"
-        keywords="privacy policy, data protection, privacy statement"
+        keywords="privacy policy, data protection, WhatsApp notifications, privacy statement"
       />
       {/* Spinning Stars Background */}
       <StarsCanvas />
@@ -22,10 +21,10 @@ export function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            Your privacy is important to us. This policy outlines how we handle your information.
+            How we collect, use, store, and disclose personal information when you interact with our WhatsApp notification service.
           </p>
           <p className="text-sm text-white/40 mt-4">
-            Last Updated: November 2, 2025
+            Last Updated: 19 April 2026
           </p>
         </div>
       </section>
@@ -34,208 +33,235 @@ export function PrivacyPolicyPage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="glass border border-white/10 rounded-3xl p-8 sm:p-12 space-y-12">
-            
+
             {/* Introduction */}
             <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">Introduction</h2>
-              <p className="text-white/70 leading-relaxed mb-4">
-                At The Automators, we are committed to protecting your privacy and ensuring the security of your 
-                personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard 
-                your information when you use our services.
-              </p>
               <p className="text-white/70 leading-relaxed">
-                Please read this privacy policy carefully. If you do not agree with the terms of this privacy 
-                policy, please do not access or use our services.
+                This Privacy Policy explains how The Automators ("we", "us", "our") collects, uses, stores,
+                and discloses personal information when you interact with our WhatsApp notification service
+                (the "Service"). By using the Service you agree to the practices described below.
               </p>
             </div>
 
-            {/* Information Collection */}
+            {/* 1. Who we are */}
             <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">1. Information We Collect</h2>
-              <p className="text-white/70 leading-relaxed mb-4">
-                We may collect information about you in a variety of ways. The information we may collect via 
-                our services includes:
-              </p>
-              
-              <h3 className="text-xl text-white mb-3 mt-6">Personal Data</h3>
-              <p className="text-white/70 leading-relaxed mb-4">
-                Personally identifiable information, such as your name, email address, phone number, and company 
-                information, that you voluntarily give to us when you contact us or when you choose to participate 
-                in various activities related to our services.
-              </p>
-
-              <h3 className="text-xl text-white mb-3 mt-6">Derivative Data</h3>
-              <p className="text-white/70 leading-relaxed mb-4">
-                Information our servers automatically collect when you access our services, such as your IP address, 
-                browser type, operating system, access times, and the pages you have viewed directly before and 
-                after accessing our services.
-              </p>
-
-              <h3 className="text-xl text-white mb-3 mt-6">Financial Data</h3>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">1. Who we are</h2>
               <p className="text-white/70 leading-relaxed">
-                Financial information, such as data related to your payment method (e.g., valid credit card number, 
-                card brand, expiration date) that we may collect when you purchase, order, return, exchange, or 
-                request information about our services. We store only very limited, if any, financial information 
-                that we collect. All financial information is stored by our payment processor and you are encouraged 
-                to review their privacy policy and contact them directly for responses to your questions.
+                The Service is operated by The Automators, based in South Africa. You can contact us at{' '}
+                <a href="mailto:sales@theautomators.co" className="text-purple-400 hover:text-purple-300 underline">
+                  sales@theautomators.co
+                </a>.
               </p>
             </div>
 
-            {/* How We Use Information */}
+            {/* 2. What information we collect */}
             <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">2. How We Use Your Information</h2>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">2. What information we collect</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                We use the information we collect or receive to:
+                We only collect the minimum information needed to deliver notifications over WhatsApp. Specifically:
               </p>
+
+              <h3 className="text-xl text-white mb-3 mt-6">Information you or our customer provides to us</h3>
               <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
-                <li>Provide, operate, and maintain our services</li>
-                <li>Improve, personalize, and expand our services</li>
-                <li>Understand and analyze how you use our services</li>
-                <li>Develop new products, services, features, and functionality</li>
-                <li>Communicate with you, either directly or through one of our partners, including for customer service, 
-                    to provide you with updates and other information relating to the service, and for marketing and 
-                    promotional purposes</li>
-                <li>Process your transactions and manage your orders</li>
-                <li>Send you emails and other communications</li>
-                <li>Find and prevent fraud</li>
-                <li>Comply with legal obligations</li>
+                <li>Your WhatsApp phone number</li>
+                <li>Your name or contact label, if supplied</li>
+                <li>Any message content you send to our WhatsApp business number</li>
+                <li>Preferences such as opt in status, language, and notification categories</li>
               </ul>
-            </div>
 
-            {/* Information Protection */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">3. How We Protect Your Information</h2>
-              <p className="text-white/70 leading-relaxed mb-4">
-                We use administrative, technical, and physical security measures to help protect your personal 
-                information. While we have taken reasonable steps to secure the personal information you provide 
-                to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, 
-                and no method of data transmission can be guaranteed against any interception or other type of misuse.
-              </p>
-              <p className="text-white/70 leading-relaxed">
-                Any information disclosed online is vulnerable to interception and misuse by unauthorized parties. 
-                Therefore, we cannot guarantee complete security if you provide personal information.
-              </p>
-            </div>
+              <h3 className="text-xl text-white mb-3 mt-6">Information we collect automatically</h3>
+              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
+                <li>Timestamps of messages sent and received</li>
+                <li>Delivery and read receipts returned by WhatsApp</li>
+                <li>Technical metadata such as message IDs and status codes</li>
+                <li>Basic logs used for troubleshooting and abuse prevention</li>
+              </ul>
 
-            {/* Cookies */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">4. Cookies and Tracking Technologies</h2>
-              <p className="text-white/70 leading-relaxed mb-4">
-                We may use cookies, web beacons, tracking pixels, and other tracking technologies on our services 
-                to help customize the service and improve your experience. When you access our services, your 
-                personal information is not collected through the use of tracking technology. Most browsers are 
-                set to accept cookies by default.
-              </p>
-              <p className="text-white/70 leading-relaxed">
-                You can remove or reject cookies, but be aware that such action could affect the availability and 
-                functionality of our services. You may not decline web beacons. However, they can be rendered 
-                ineffective by declining all cookies or by modifying your web browser's settings to notify you 
-                each time a cookie is tendered, permitting you to accept or decline cookies on an individual basis.
+              <p className="text-white/70 leading-relaxed mt-4">
+                We do not collect location data, contact lists, financial account details, or sensitive
+                categories of personal data through the Service.
               </p>
             </div>
 
-            {/* Third-Party Disclosure */}
+            {/* 3. How we use your information */}
             <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">5. Disclosure of Your Information</h2>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">3. How we use your information</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                We may share information we have collected about you in certain situations. Your information may 
-                be disclosed as follows:
-              </p>
-
-              <h3 className="text-xl text-white mb-3 mt-6">By Law or to Protect Rights</h3>
-              <p className="text-white/70 leading-relaxed mb-4">
-                If we believe the release of information about you is necessary to respond to legal process, to 
-                investigate or remedy potential violations of our policies, or to protect the rights, property, 
-                and safety of others, we may share your information as permitted or required by any applicable 
-                law, rule, or regulation.
-              </p>
-
-              <h3 className="text-xl text-white mb-3 mt-6">Third-Party Service Providers</h3>
-              <p className="text-white/70 leading-relaxed mb-4">
-                We may share your information with third parties that perform services for us or on our behalf, 
-                including payment processing, data analysis, email delivery, hosting services, customer service, 
-                and marketing assistance.
-              </p>
-
-              <h3 className="text-xl text-white mb-3 mt-6">Business Transfers</h3>
-              <p className="text-white/70 leading-relaxed">
-                We may share or transfer your information in connection with, or during negotiations of, any 
-                merger, sale of company assets, financing, or acquisition of all or a portion of our business 
-                to another company.
-              </p>
-            </div>
-
-            {/* Third-Party Links */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">6. Third-Party Websites</h2>
-              <p className="text-white/70 leading-relaxed">
-                Our services may contain links to third-party websites and applications of interest, including 
-                advertisements and external services, that are not affiliated with us. Once you have used these 
-                links to leave our services, any information you provide to these third parties is not covered 
-                by this Privacy Policy, and we cannot guarantee the safety and privacy of your information. 
-                Before visiting and providing any information to any third-party websites, you should inform 
-                yourself of the privacy policies and practices (if any) of the third party responsible for that 
-                website, and should take those steps necessary to, in your discretion, protect the privacy of 
-                your information.
-              </p>
-            </div>
-
-            {/* Your Rights */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">7. Your Privacy Rights</h2>
-              <p className="text-white/70 leading-relaxed mb-4">
-                Depending on your location and applicable law, you may have the following rights regarding your 
-                personal information:
+                We use the information described above to:
               </p>
               <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
-                <li>The right to access – You have the right to request copies of your personal data</li>
-                <li>The right to rectification – You have the right to request that we correct any information 
-                    you believe is inaccurate or complete information you believe is incomplete</li>
-                <li>The right to erasure – You have the right to request that we erase your personal data, 
-                    under certain conditions</li>
-                <li>The right to restrict processing – You have the right to request that we restrict the 
-                    processing of your personal data, under certain conditions</li>
-                <li>The right to object to processing – You have the right to object to our processing of 
-                    your personal data, under certain conditions</li>
-                <li>The right to data portability – You have the right to request that we transfer the data 
-                    that we have collected to another organization, or directly to you, under certain conditions</li>
+                <li>Deliver the WhatsApp notifications you or our customer has requested</li>
+                <li>Respond to inbound messages you send to our business number</li>
+                <li>Maintain a record of opt ins and opt outs</li>
+                <li>Diagnose technical issues and prevent abuse of the Service</li>
+                <li>Comply with our legal and regulatory obligations</li>
               </ul>
               <p className="text-white/70 leading-relaxed mt-4">
-                If you make a request, we have one month to respond to you. If you would like to exercise any 
-                of these rights, please contact us.
+                We do not sell your personal information. We do not use your WhatsApp messages to train
+                machine learning or AI models.
               </p>
             </div>
 
-            {/* Children's Privacy */}
+            {/* 4. Legal basis for processing */}
             <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">8. Children's Privacy</h2>
-              <p className="text-white/70 leading-relaxed">
-                We do not knowingly solicit information from or market to children under the age of 13. If we 
-                learn that we have collected personal information from a child under age 13 without verification 
-                of parental consent, we will delete that information as quickly as possible. If you believe we 
-                might have any information from or about a child under 13, please contact us.
-              </p>
-            </div>
-
-            {/* Changes to Privacy Policy */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">9. Changes to This Privacy Policy</h2>
-              <p className="text-white/70 leading-relaxed">
-                We may update this Privacy Policy from time to time in order to reflect, for example, changes 
-                to our practices or for other operational, legal, or regulatory reasons. We will notify you of 
-                any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date 
-                at the top of this Privacy Policy.
-              </p>
-            </div>
-
-            {/* Contact Information */}
-            <div className="pt-8 border-t border-white/10">
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">Contact Us</h2>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">4. Legal basis for processing</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                If you have questions or comments about this Privacy Policy, please contact us at:
+                Where applicable law requires a legal basis for processing (for example the EU or UK GDPR), we rely on:
+              </p>
+              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
+                <li>Your consent, which you give by opting in to receive messages and which you can withdraw at any time</li>
+                <li>Our legitimate interest in operating and securing the Service</li>
+                <li>Performance of a contract when the Service is provided to a customer who has a relationship with you</li>
+                <li>Compliance with legal obligations</li>
+              </ul>
+            </div>
+
+            {/* 5. How we share your information */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">5. How we share your information</h2>
+              <p className="text-white/70 leading-relaxed mb-4">
+                We share information only with:
+              </p>
+              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
+                <li>
+                  <span className="text-white">Meta Platforms, Inc.</span>, which operates the WhatsApp Business
+                  Platform used to deliver messages
+                </li>
+                <li>
+                  <span className="text-white">Infrastructure providers</span> that host our application and
+                  database (for example our cloud hosting and database providers)
+                </li>
+                <li>
+                  <span className="text-white">Authorities</span> when required by law, subpoena, or to protect
+                  our rights or the safety of others
+                </li>
+              </ul>
+              <p className="text-white/70 leading-relaxed mt-4">
+                We do not share your data with advertisers or data brokers.
+              </p>
+            </div>
+
+            {/* 6. International transfers */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">6. International transfers</h2>
+              <p className="text-white/70 leading-relaxed">
+                Our service providers may process your information outside of your country of residence.
+                Where transfers occur, we rely on recognised safeguards such as Standard Contractual Clauses
+                or equivalent mechanisms required by your local law.
+              </p>
+            </div>
+
+            {/* 7. How long we keep your information */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">7. How long we keep your information</h2>
+              <p className="text-white/70 leading-relaxed">
+                We retain message records, opt in status, and related metadata for as long as needed to
+                provide the Service and for a reasonable period afterwards for legal, audit, and dispute
+                resolution purposes. Typical retention is 24 months after your last interaction, after
+                which data is deleted or anonymised, except where longer retention is required by law.
+              </p>
+            </div>
+
+            {/* 8. Your rights */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">8. Your rights</h2>
+              <p className="text-white/70 leading-relaxed mb-4">
+                Depending on where you live, you may have the right to:
+              </p>
+              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
+                <li>Access the personal information we hold about you</li>
+                <li>Correct inaccurate information</li>
+                <li>Delete your information</li>
+                <li>Withdraw your consent to receive messages</li>
+                <li>Object to or restrict certain processing</li>
+                <li>Port your information to another provider</li>
+                <li>Lodge a complaint with your local data protection authority</li>
+              </ul>
+              <p className="text-white/70 leading-relaxed mt-4">
+                To exercise any of these rights, email us at{' '}
+                <a href="mailto:sales@theautomators.co" className="text-purple-400 hover:text-purple-300 underline">
+                  sales@theautomators.co
+                </a>
+                . You can also stop receiving messages at any time by replying{' '}
+                <span className="text-white">STOP</span> to any WhatsApp message from us.
+              </p>
+            </div>
+
+            {/* 9. How to request data deletion */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">9. How to request data deletion</h2>
+              <p className="text-white/70 leading-relaxed">
+                To request deletion of your information, email{' '}
+                <a href="mailto:sales@theautomators.co" className="text-purple-400 hover:text-purple-300 underline">
+                  sales@theautomators.co
+                </a>{' '}
+                with the subject line "Data Deletion Request" and the WhatsApp phone number you would like
+                removed. We will confirm deletion within 30 days.
+              </p>
+            </div>
+
+            {/* 10. Security */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">10. Security</h2>
+              <p className="text-white/70 leading-relaxed">
+                We apply reasonable technical and organisational measures to protect your information,
+                including encryption in transit, access controls, and audit logging. No system is perfectly
+                secure, so we cannot guarantee absolute security.
+              </p>
+            </div>
+
+            {/* 11. Children */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">11. Children</h2>
+              <p className="text-white/70 leading-relaxed">
+                The Service is not directed to children under 13 (or the equivalent minimum age in your
+                jurisdiction). We do not knowingly collect personal information from children. If you
+                believe a child has provided us information, please contact us and we will delete it.
+              </p>
+            </div>
+
+            {/* 12. Third party services */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">12. Third party services</h2>
+              <p className="text-white/70 leading-relaxed">
+                Your use of WhatsApp is also governed by Meta's own terms and privacy policy, available at{' '}
+                <a
+                  href="https://www.whatsapp.com/legal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-400 hover:text-purple-300 underline"
+                >
+                  https://www.whatsapp.com/legal
+                </a>
+                . We are not responsible for Meta's practices.
+              </p>
+            </div>
+
+            {/* 13. Changes to this policy */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">13. Changes to this policy</h2>
+              <p className="text-white/70 leading-relaxed">
+                We may update this Privacy Policy from time to time. When we do, we will update the "Last
+                updated" date at the top of this page. Material changes will be communicated through the
+                Service or by other reasonable means.
+              </p>
+            </div>
+
+            {/* 14. Contact us */}
+            <div className="pt-8 border-t border-white/10">
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">14. Contact us</h2>
+              <p className="text-white/70 leading-relaxed mb-4">
+                Questions or concerns about this policy can be sent to:
               </p>
               <div className="text-white/60 space-y-2">
-                <p>Email: sales@theautomators.co</p>
+                <p className="text-white">The Automators</p>
+                <p>South Africa</p>
+                <p>
+                  Email:{' '}
+                  <a href="mailto:sales@theautomators.co" className="text-purple-400 hover:text-purple-300 underline">
+                    sales@theautomators.co
+                  </a>
+                </p>
                 <p>Phone: +27 82 770 6456</p>
               </div>
             </div>
@@ -246,4 +272,3 @@ export function PrivacyPolicyPage() {
     </div>
   );
 }
-
