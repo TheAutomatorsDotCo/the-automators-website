@@ -298,7 +298,6 @@ export function ServicesPage() {
       {/* Hero Section */}
       <section className="relative pt-32 sm:pt-40 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
-          <div className="h-6 sm:h-10 mb-4 sm:mb-6"></div>
           <h1 className="text-6xl sm:text-7xl md:text-7xl lg:text-8xl gradient-text mb-4 sm:mb-6 max-w-4xl mx-auto">
             Professional Business Automation Services
           </h1>
@@ -638,7 +637,7 @@ export function ServicesPage() {
                 </Link>
                 <Link
                   to="/pricing"
-                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-lg sm:text-xl"
+                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full btn-secondary transition-all text-lg sm:text-xl"
                 >
                   View Pricing
                 </Link>

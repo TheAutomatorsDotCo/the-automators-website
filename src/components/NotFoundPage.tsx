@@ -34,7 +34,7 @@ export function NotFoundPage() {
             </Link>
             <Link
               to="/case-studies"
-              className="inline-flex items-center space-x-3 glass border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg hover:border-white/40 transition-all"
+              className="inline-flex items-center space-x-3 btn-secondary px-8 py-4 rounded-full font-bold text-lg transition-all"
             >
               <BookOpen className="w-5 h-5" />
               <span>View Case Studies</span>

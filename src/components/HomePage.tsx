@@ -138,7 +138,7 @@ export function HomePage() {
               </Link>
               <Link
                 to="/assessment"
-                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-lg sm:text-xl inline-flex items-center justify-center"
+                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full btn-secondary transition-all text-lg sm:text-xl inline-flex items-center justify-center"
               >
                 Take Assessment
               </Link>
@@ -151,8 +151,8 @@ export function HomePage() {
                 <div className="text-base sm:text-lg text-white/60 mt-1">Uptime Reliability</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl sm:text-5xl gradient-text">24.66yrs</div>
-                <div className="text-base sm:text-lg text-white/60 mt-1">Work Automated</div>
+                <div className="text-4xl sm:text-5xl gradient-text">50,000+</div>
+                <div className="text-base sm:text-lg text-white/60 mt-1">Hours Automated</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl sm:text-5xl gradient-text">98%</div>
@@ -204,7 +204,7 @@ export function HomePage() {
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6">
-              What Our Clients Think:
+              What Our Clients Think
             </h2>
           </div>
 
@@ -314,7 +314,7 @@ export function HomePage() {
                 </Link>
                 <Link
                   to="/pricing"
-                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-base sm:text-lg"
+                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full btn-secondary transition-all text-base sm:text-lg"
                 >
                   View Pricing
                 </Link>

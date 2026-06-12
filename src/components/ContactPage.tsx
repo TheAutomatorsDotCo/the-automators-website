@@ -1,8 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp } from 'lucide-react';
 import { SEO } from './SEO';
 import { StarsCanvas } from './StarBackground';
 import { getLeadData, clearLeadData, formatLeadDetails } from '../utils/leadData';
+
+// Extend Window to include the Turnstile API
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (container: string | HTMLElement, options: TurnstileOptions) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+    onTurnstileLoad?: () => void;
+  }
+}
+
+interface TurnstileOptions {
+  sitekey: string;
+  callback: (token: string) => void;
+  'expired-callback'?: () => void;
+  'error-callback'?: () => void;
+  theme?: 'light' | 'dark' | 'auto';
+  size?: 'normal' | 'compact';
+}
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -14,10 +37,17 @@ export function ContactPage() {
     interests: [] as string[],
     additionalDetails: '',
   });
+  // Honeypot field -- hidden from real users, auto-filled by bots
+  const [honeypot, setHoneypot] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [leadSource, setLeadSource] = useState<'assessment' | 'pricing' | 'case-study' | 'direct'>('direct');
+
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
 
   // Load lead data on mount
   useEffect(() => {
@@ -29,6 +59,47 @@ export function ContactPage() {
     }
   }, []);
 
+  // Load Cloudflare Turnstile script and render the widget
+  useEffect(() => {
+    const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+    if (!siteKey) return;
+
+    const renderWidget = () => {
+      if (window.turnstile && turnstileContainerRef.current && !turnstileWidgetId.current) {
+        turnstileWidgetId.current = window.turnstile.render(turnstileContainerRef.current, {
+          sitekey: siteKey,
+          theme: 'dark',
+          callback: (token: string) => setTurnstileToken(token),
+          'expired-callback': () => setTurnstileToken(''),
+          'error-callback': () => setTurnstileToken(''),
+        });
+      }
+    };
+
+    if (window.turnstile) {
+      renderWidget();
+    } else {
+      window.onTurnstileLoad = renderWidget;
+
+      const existing = document.querySelector('script[data-turnstile]');
+      if (!existing) {
+        const script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad';
+        script.async = true;
+        script.defer = true;
+        script.setAttribute('data-turnstile', 'true');
+        document.head.appendChild(script);
+      }
+    }
+
+    return () => {
+      if (window.turnstile && turnstileWidgetId.current) {
+        window.turnstile.remove(turnstileWidgetId.current);
+        turnstileWidgetId.current = null;
+      }
+    };
+  }, []);
+
   const interestOptions = [
     'Workflow Automation',
     'Email Automation',
@@ -38,95 +109,86 @@ export function ContactPage() {
     'Custom Integration',
   ];
 
+  const validateForm = (): boolean => {
+    const errors: Record<string, string> = {};
+
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      errors.name = 'Please enter your name (at least 2 characters).';
+    }
+
+    if (!formData.email.trim() || !EMAIL_REGEX.test(formData.email.trim())) {
+      errors.email = 'Please enter a valid email address.';
+    }
+
+    if (!formData.message.trim() || formData.message.trim().length < 10) {
+      errors.message = 'Please enter a message (at least 10 characters).';
+    }
+
+    if (!turnstileToken) {
+      errors.turnstile = 'Please complete the security verification below.';
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSubmitError(null);
 
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
     try {
-      // Build the fields object with required fields first
-      // Capitalize Source Page values to match Airtable Single Select options
-      const sourcePageCapitalized = 
-        leadSource === 'assessment' ? 'Assessment' :
-        leadSource === 'pricing' ? 'Pricing' :
-        leadSource === 'case-study' ? 'Case Study' : 'Direct';
-      
-      const fields: Record<string, any> = {
-        'Full Name': formData.name,
-        'Email': formData.email,
-        'Message': formData.message,
-        'Source Page': sourcePageCapitalized,
-        'Submitted At': new Date().toISOString(),
+      const leadData = getLeadData();
+
+      const payload: Record<string, unknown> = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim() || null,
+        company: formData.company.trim() || null,
+        message: formData.message.trim(),
+        interests: formData.interests,
+        additionalDetails: formData.additionalDetails.trim() || null,
+        leadSource,
+        turnstileToken,
+        // Honeypot (submitted but expected empty -- server validates)
+        website: honeypot,
+        url: '',
       };
 
-      // Add optional fields only if they have values
-      if (formData.phone) {
-        fields['Phone'] = formData.phone;
-      }
-      if (formData.company) {
-        fields['Company'] = formData.company;
-      }
-      if (formData.interests.length > 0) {
-        fields['Interests'] = formData.interests.join(', ');
-      }
-      if (formData.additionalDetails) {
-        fields['Additional Details'] = formData.additionalDetails;
-      }
-
-      // Add pricing-specific fields if available
-      const leadData = getLeadData();
       if (leadData?.pricing) {
-        if (leadData.pricing.planName) {
-          fields['Selected Plan'] = leadData.pricing.planName;
-        }
-        if (leadData.pricing.serviceType) {
-          fields['Service Type'] = 
-            leadData.pricing.serviceType === 'automation' ? 'Automation' :
-            leadData.pricing.serviceType === 'voice-agents' ? 'Voice Agents' : 'Chatbots';
-        }
-        if (leadData.pricing.paymentPlan) {
-          fields['Payment Plan'] = leadData.pricing.paymentPlan;
-        }
+        payload.selectedPlan = leadData.pricing.planName || null;
+        payload.serviceType = leadData.pricing.serviceType || null;
+        payload.paymentPlan = leadData.pricing.paymentPlan || null;
       }
 
-      // Add case study-specific fields if available
       if (leadData?.caseStudy) {
-        if (leadData.caseStudy.caseStudyName) {
-          fields['Case Study'] = leadData.caseStudy.caseStudyName;
-        }
+        payload.caseStudy = leadData.caseStudy.caseStudyName || null;
       }
 
-      const airtableData = { fields };
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
 
-      // Log the data being sent for debugging
-      console.log('Sending to Airtable:', airtableData);
+      const data = await response.json() as { success?: boolean; error?: string };
 
-      const response = await fetch(
-        `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_AIRTABLE_TABLE_ID}`,
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${import.meta.env.VITE_AIRTABLE_PAT}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(airtableData),
-        }
-      );
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Airtable error details:', errorData);
-        throw new Error(errorData.error?.message || 'Failed to submit form');
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to submit form. Please try again.');
       }
 
-      // Clear lead data from localStorage
       clearLeadData();
-      
-      // Show success message
       setSubmitted(true);
     } catch (error) {
-      console.error('Error submitting form:', error);
       setSubmitError(error instanceof Error ? error.message : 'An error occurred. Please try again.');
+      // Reset Turnstile on failure so the user can re-verify
+      if (window.turnstile && turnstileWidgetId.current) {
+        window.turnstile.reset(turnstileWidgetId.current);
+        setTurnstileToken('');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -182,7 +244,6 @@ export function ContactPage() {
           "description": "Get in touch with The Automators for business automation solutions"
         }}
       />
-      {/* Spinning Stars Background */}
       <StarsCanvas />
 
       {/* Hero Section */}
@@ -261,7 +322,22 @@ export function ContactPage() {
             <div className="lg:col-span-2">
               <div className="card-3d glass border border-white/10 rounded-[2.5rem] p-10">
                 <h3 className="text-white mb-8">Send Us a Message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+
+                  {/* Honeypot -- hidden from real users, caught on the server */}
+                  <div style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true" tabIndex={-1}>
+                    <label htmlFor="website">Leave this field empty</label>
+                    <input
+                      id="website"
+                      name="website"
+                      type="text"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-white mb-3">Name *</label>
@@ -269,10 +345,18 @@ export function ContactPage() {
                         type="text"
                         required
                         value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors"
+                        onChange={(e) => {
+                          setFormData({ ...formData, name: e.target.value });
+                          if (validationErrors.name) setValidationErrors(prev => ({ ...prev, name: '' }));
+                        }}
+                        className={`w-full px-5 py-4 rounded-2xl glass border text-white placeholder-white/40 focus:outline-none transition-colors ${
+                          validationErrors.name ? 'border-red-500' : 'border-white/10 focus:border-purple-500'
+                        }`}
                         placeholder="John Doe"
                       />
+                      {validationErrors.name && (
+                        <p className="text-red-400 text-sm mt-1">{validationErrors.name}</p>
+                      )}
                     </div>
                     <div>
                       <label className="block text-white mb-3">Email *</label>
@@ -280,10 +364,18 @@ export function ContactPage() {
                         type="email"
                         required
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors"
+                        onChange={(e) => {
+                          setFormData({ ...formData, email: e.target.value });
+                          if (validationErrors.email) setValidationErrors(prev => ({ ...prev, email: '' }));
+                        }}
+                        className={`w-full px-5 py-4 rounded-2xl glass border text-white placeholder-white/40 focus:outline-none transition-colors ${
+                          validationErrors.email ? 'border-red-500' : 'border-white/10 focus:border-purple-500'
+                        }`}
                         placeholder="john@company.com"
                       />
+                      {validationErrors.email && (
+                        <p className="text-red-400 text-sm mt-1">{validationErrors.email}</p>
+                      )}
                     </div>
                   </div>
 
@@ -295,7 +387,7 @@ export function ContactPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors"
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+27 82 000 0000"
                       />
                     </div>
                     <div>
@@ -335,11 +427,19 @@ export function ContactPage() {
                     <textarea
                       required
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onChange={(e) => {
+                        setFormData({ ...formData, message: e.target.value });
+                        if (validationErrors.message) setValidationErrors(prev => ({ ...prev, message: '' }));
+                      }}
                       rows={6}
-                      className="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                      className={`w-full px-5 py-4 rounded-2xl glass border text-white placeholder-white/40 focus:outline-none transition-colors resize-none ${
+                        validationErrors.message ? 'border-red-500' : 'border-white/10 focus:border-purple-500'
+                      }`}
                       placeholder="Tell us about your business and what you'd like to automate..."
                     />
+                    {validationErrors.message && (
+                      <p className="text-red-400 text-sm mt-1">{validationErrors.message}</p>
+                    )}
                   </div>
 
                   {formData.additionalDetails && (
@@ -356,6 +456,14 @@ export function ContactPage() {
                       </p>
                     </div>
                   )}
+
+                  {/* Cloudflare Turnstile widget */}
+                  <div>
+                    <div ref={turnstileContainerRef} className="flex justify-start" />
+                    {validationErrors.turnstile && (
+                      <p className="text-red-400 text-sm mt-2">{validationErrors.turnstile}</p>
+                    )}
+                  </div>
 
                   {submitError && (
                     <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/30">

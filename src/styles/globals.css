@@ -242,6 +242,24 @@ html {
   transform: translateY(-1px);
 }
 
+/* Secondary CTA — visible light pill on dark backgrounds */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.25);
+}
+
+.btn-secondary:hover {
+  background: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -10px rgba(255, 255, 255, 0.35);
+}
+
+.btn-secondary:active {
+  transform: translateY(-1px);
+}
+
 /* Gradient Text */
 .gradient-text {
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);

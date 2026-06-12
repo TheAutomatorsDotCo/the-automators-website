@@ -199,7 +199,7 @@ export function AssessmentPage() {
                 <div className="flex justify-center mb-8">
                   <button
                     onClick={handleNext}
-                    className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-lg sm:text-xl inline-flex items-center gap-2"
+                    className="px-6 sm:px-8 py-3 sm:py-4 rounded-full btn-secondary transition-all text-lg sm:text-xl inline-flex items-center gap-2"
                   >
                     <span>None of these apply</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -324,7 +324,7 @@ export function AssessmentPage() {
                 </Link>
                 <button
                   onClick={handleContactNavigation}
-                  className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all text-base sm:text-lg text-center"
+                  className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-full btn-secondary transition-all text-base sm:text-lg text-center"
                 >
                   Get Free Consultation
                 </button>

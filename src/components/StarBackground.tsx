@@ -36,6 +36,11 @@ class CanvasErrorBoundary extends Component<
   }
 }
 
+// Respect the user's OS-level reduced-motion preference (guarded for prerender)
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 export const StarBackground = (props: PointsProps) => {
   const ref = useRef<PointsType | null>(null);
   const [sphere] = useState(() =>
@@ -43,6 +48,7 @@ export const StarBackground = (props: PointsProps) => {
   );
 
   useFrame((_state, delta) => {
+    if (prefersReducedMotion()) return;
     if (ref.current) {
       ref.current.rotation.x -= delta / 10;
       ref.current.rotation.y -= delta / 15;
@@ -73,7 +79,10 @@ export const StarBackground = (props: PointsProps) => {
 export const StarsCanvas = () => (
   <CanvasErrorBoundary>
     <div className="w-full h-auto fixed inset-0 -z-10">
-      <Canvas camera={{ position: [0, 0, 1] }}>
+      <Canvas
+        camera={{ position: [0, 0, 1] }}
+        frameloop={prefersReducedMotion() ? "demand" : "always"}
+      >
         <Suspense fallback={null}>
           <StarBackground />
         </Suspense>

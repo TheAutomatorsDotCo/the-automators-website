@@ -160,7 +160,7 @@ export function VoiceAgentsPage() {
             </Link>
             <Link
               to="/pricing"
-              className="px-8 py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all"
+              className="px-8 py-4 rounded-full btn-secondary transition-all"
             >
               View Pricing
             </Link>
@@ -968,7 +968,7 @@ export function VoiceAgentsPage() {
                 </Link>
                 <Link
                   to="/assessment"
-                  className="px-8 py-4 rounded-full glass border border-white/20 text-white hover:bg-white/5 transition-all"
+                  className="px-8 py-4 rounded-full btn-secondary transition-all"
                 >
                   Take Assessment
                 </Link>
