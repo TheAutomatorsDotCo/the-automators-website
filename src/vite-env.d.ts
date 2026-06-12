@@ -1,12 +1,10 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly VITE_AIRTABLE_PAT: string
-  readonly VITE_AIRTABLE_BASE_ID: string
-  readonly VITE_AIRTABLE_TABLE_ID: string
+  // Public site key for Cloudflare Turnstile widget (safe to expose client-side)
+  readonly VITE_TURNSTILE_SITE_KEY: string
 }
 
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
-

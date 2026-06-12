@@ -310,7 +310,7 @@ export function AutomationPage() {
                   <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">How much does workflow automation cost?</h3>
                   {openFAQ === 4 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-lg leading-relaxed">
-                      Our workflow automation services start at $997 for basic automations. Professional plans with up to 10 workflows are $2,497, and we offer custom Enterprise pricing for larger needs. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View our detailed pricing</Link> for complete information.
+                      Our workflow automation is custom-priced to your business—from basic automations to multi-workflow professional setups and fully custom Enterprise solutions. Every quote is tailored to your specific workflows and goals. Book a free consultation to get yours. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">Explore our plans</Link>.
                     </p>
                   )}
                 </div>

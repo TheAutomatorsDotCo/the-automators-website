@@ -168,7 +168,7 @@ export function ChatbotsPage() {
                 "name": "How much does a chatbot cost?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "AI chatbot development typically starts at $1,497 for a basic single-channel deployment. Professional multi-channel chatbots with advanced features start at $2,997. Enterprise solutions with unlimited capabilities are custom-priced based on your needs."
+                  "text": "Every chatbot is custom-priced to your business, from a basic single-channel deployment to advanced multi-channel bots and fully custom Enterprise solutions. Book a free consultation for a personalized quote."
                 }
               }
             ]
@@ -447,7 +447,7 @@ export function ChatbotsPage() {
               {openFAQ === 3 && (
                 <div className="px-4 sm:px-5 pb-4 sm:pb-5">
                   <p className="text-white/70 text-sm leading-relaxed">
-                    AI chatbot development typically starts at $1,497 for a basic single-channel deployment. Professional multi-channel chatbots with advanced features start at $2,997. Enterprise solutions with unlimited capabilities are custom-priced based on your needs. You own your chatbot forever with flexible payment options: pay in full or spread over 6, 12, or 18 months. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">View our detailed pricing</Link> for complete information.
+                    Every chatbot is custom-priced to your business—from a basic single-channel deployment to advanced multi-channel bots and fully custom Enterprise solutions. You own your chatbot, with flexible payment terms tailored to your needs. Book a free consultation for a personalized quote. <Link to="/pricing" className="text-indigo-400 hover:text-indigo-300">Explore our plans</Link>.
                   </p>
                 </div>
               )}

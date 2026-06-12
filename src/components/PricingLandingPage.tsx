@@ -26,7 +26,7 @@ const categories = [
     glowColor: 'shadow-pink-500/50',
     borderColor: 'border-pink-500/30',
     hoverBorder: 'hover:border-pink-500/60',
-    pricing: 'From $99/month',
+    pricing: 'Custom Pricing',
     path: '/pricing/voice-agents',
   },
   {
@@ -38,7 +38,7 @@ const categories = [
     glowColor: 'shadow-cyan-500/50',
     borderColor: 'border-cyan-500/30',
     hoverBorder: 'hover:border-cyan-500/60',
-    pricing: 'From $99/month',
+    pricing: 'Custom Pricing',
     path: '/pricing/chatbots',
   },
 ];
@@ -48,7 +48,7 @@ export function PricingLandingPage() {
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
         title="Pricing | Automation, Voice Agents & Chatbots"
-        description="Explore transparent pricing for our automation services. Choose from Workflow Automation, AI Voice Agents, or AI Chatbots. Custom solutions starting at $99/month."
+        description="Explore custom pricing for our automation services. Choose from Workflow Automation, AI Voice Agents, or AI Chatbots — every solution is tailored to your business with a free consultation."
         path="/pricing"
         keywords="automation pricing, voice agent pricing, chatbot pricing, AI services cost, business automation pricing"
       />

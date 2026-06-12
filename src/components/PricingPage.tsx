@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Check, Zap, Rocket, Crown, Star, Shield, DollarSign, Phone, MessageCircle, Workflow, ChevronDown, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from './SEO';
@@ -18,16 +18,16 @@ const seoConfig = {
     keywords: 'workflow automation pricing, custom automation cost, business automation services, automation consultant pricing',
   },
   'voice-agents': {
-    title: 'AI Voice Agent Pricing | From $99/month',
-    description: 'AI Voice Agent pricing starting at $99/month. Make automated phone calls, follow up with customers, and generate reviews. No contracts, cancel anytime.',
+    title: 'AI Voice Agent Pricing | Custom Solutions',
+    description: 'Custom AI Voice Agent solutions tailored to your business. Make automated phone calls, follow up with customers, and generate reviews. Book a free consultation for a personalized quote.',
     path: '/pricing/voice-agents',
-    keywords: 'voice agent pricing, AI phone calls cost, automated calling service pricing, voice AI subscription',
+    keywords: 'voice agent pricing, AI phone calls, automated calling service, voice AI solutions',
   },
   chatbots: {
-    title: 'AI Chatbot Pricing | From $99/month',
-    description: 'AI Chatbot pricing starting at $99/month. 24/7 customer support across website, WhatsApp, and Facebook. No setup fees, cancel anytime.',
+    title: 'AI Chatbot Pricing | Custom Solutions',
+    description: 'Custom AI Chatbot solutions for 24/7 customer support across website, WhatsApp, and Facebook. Book a free consultation for a personalized quote.',
     path: '/pricing/chatbots',
-    keywords: 'chatbot pricing, AI chatbot cost, customer support bot pricing, chatbot subscription',
+    keywords: 'chatbot pricing, AI chatbot, customer support bot, chatbot solutions',
   },
 };
 
@@ -40,71 +40,8 @@ const categoryNames = {
 
 export function PricingPage({ category }: PricingPageProps) {
   const navigate = useNavigate();
-  const [currency, setCurrency] = useState<'USD' | 'ZAR' | 'EUR'>('USD');
-  const [paymentPlan, setPaymentPlan] = useState<'once-off' | '6-months' | '12-months' | '18-months'>('18-months');
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  
-  // Payment plan multipliers
-  const paymentMultipliers = {
-    'once-off': 1.0,
-    '6-months': 1.15,
-    '12-months': 1.25,
-    '18-months': 1.35
-  };
-  
-  // Payment plan options
-  const paymentOptions = [
-    { value: 'once-off', label: 'Pay in Full', badge: 'Best Value', icon: '✓' },
-    { value: '6-months', label: '6 Monthly Payments', badge: '', icon: '💳' },
-    { value: '12-months', label: '12 Monthly Payments', badge: '', icon: '💳' },
-    { value: '18-months', label: '18 Monthly Payments', badge: '', icon: '💳' },
-  ];
-  
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = () => setOpenDropdown(null);
-    if (openDropdown !== null) {
-      document.addEventListener('click', handleClickOutside);
-      return () => document.removeEventListener('click', handleClickOutside);
-    }
-  }, [openDropdown]);
-  
-  // Exchange rates: 1 USD = 18 ZAR, 1 USD = 0.95 EUR (approximate)
-  const convertPrice = (usdPrice: string, showMonthly: boolean = false): string => {
-    if (usdPrice === 'Custom' || usdPrice.includes('Starting')) {
-      return usdPrice;
-    }
-    
-    const numPrice = parseFloat(usdPrice.replace(/[$,]/g, ''));
-    const multiplier = paymentMultipliers[paymentPlan];
-    const totalPrice = numPrice * multiplier;
-    
-    if (showMonthly && paymentPlan !== 'once-off') {
-      const months = parseInt(paymentPlan.split('-')[0]);
-      const monthlyPrice = totalPrice / months;
-      
-      if (currency === 'ZAR') {
-        const zarMonthly = Math.round(monthlyPrice * 18);
-        return `R ${zarMonthly.toLocaleString()}/mo`;
-      } else if (currency === 'EUR') {
-        const eurMonthly = Math.round(monthlyPrice * 0.95);
-        return `€${eurMonthly.toLocaleString()}/mo`;
-      }
-      return `$${Math.round(monthlyPrice).toLocaleString()}/mo`;
-    }
-    
-    if (currency === 'ZAR') {
-      const zarPrice = Math.round(totalPrice * 18);
-      return `R ${zarPrice.toLocaleString()}`;
-    } else if (currency === 'EUR') {
-      const eurPrice = Math.round(totalPrice * 0.95);
-      return `€${eurPrice.toLocaleString()}`;
-    }
-    
-    return `$${Math.round(totalPrice).toLocaleString()}`;
-  };
-  
+
   const automationPlans = [
     {
       name: 'Custom Automation Solution',
@@ -132,11 +69,11 @@ export function PricingPage({ category }: PricingPageProps) {
     {
       name: 'Starter',
       icon: <img src="/voice-starter.png" alt="Voice Starter" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$99',
-      period: 'per month',
+      price: 'Custom',
+      period: 'pricing',
       description: 'Perfect for small businesses with consistent but moderate call volume. Ideal for internal tools and basic automation needs.',
       features: [
-        '200 call minutes per month',
+        'Included monthly call minutes',
         '5 calls at the same time',
         '1 standard agent personality',
         'Basic scripted conversations',
@@ -144,20 +81,19 @@ export function PricingPage({ category }: PricingPageProps) {
         'Setup & maintenance included',
         'Basic call logs',
         'Email support (24-hour response)',
-        'Extra minutes: $0.36/minute',
       ],
       highlighted: false,
       gradient: 'from-blue-500 to-cyan-500',
-      isSubscription: true,
+      isSubscription: false,
     },
     {
       name: 'Professional',
       icon: <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$199',
-      period: 'per month',
+      price: 'Custom',
+      period: 'pricing',
       description: 'Growing businesses requiring superior audio quality for regional service and moderate-to-high call volume. Professional-grade features included.',
       features: [
-        '550 call minutes per month',
+        'Higher included call volume',
         '10 calls at the same time',
         '3 unique agent personalities',
         'Advanced multi-step conversations',
@@ -166,11 +102,10 @@ export function PricingPage({ category }: PricingPageProps) {
         'Setup & maintenance included',
         'CRM & Helpdesk sync (HubSpot, Zapier, Sheets)',
         'Priority chat support (4-hour response)',
-        'Extra minutes: $0.28/minute',
       ],
       highlighted: true,
       gradient: 'from-indigo-500 via-purple-500 to-pink-500',
-      isSubscription: true,
+      isSubscription: false,
     },
     {
       name: 'Custom',
@@ -187,7 +122,6 @@ export function PricingPage({ category }: PricingPageProps) {
         'Full API access & custom integrations',
         'Advanced dashboards & analytics',
         'Dedicated support & account manager',
-        'Extra minutes: $0.05/minute',
       ],
       highlighted: false,
       gradient: 'from-orange-500 to-red-500',
@@ -199,8 +133,8 @@ export function PricingPage({ category }: PricingPageProps) {
     {
       name: 'Basic',
       icon: <img src="/chatbot-starter.png" alt="Chatbot Basic" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$99',
-      period: 'per month',
+      price: 'Custom',
+      period: 'pricing',
       description: 'FAQ bot for businesses getting started with AI',
       features: [
         'FAQ bot (website or URL link)',
@@ -218,8 +152,8 @@ export function PricingPage({ category }: PricingPageProps) {
     {
       name: 'Professional',
       icon: <img src="/professional-icon.png" alt="Professional" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$129',
-      period: 'per month',
+      price: 'Custom',
+      period: 'pricing',
       description: 'Multi-channel bot with enhanced capabilities',
       features: [
         '5,000 messages per month',
@@ -238,8 +172,8 @@ export function PricingPage({ category }: PricingPageProps) {
     {
       name: 'Advanced',
       icon: <img src="/enterprise-icon.png" alt="Advanced" className="w-12 h-12 sm:w-16 sm:h-16" />,
-      price: '$299',
-      period: 'per month + AI costs',
+      price: 'Custom',
+      period: 'pricing',
       description: 'Professional chatbot with unlimited capabilities',
       features: [
         'Multiple channels (Website, WhatsApp, Facebook)',
@@ -265,47 +199,19 @@ export function PricingPage({ category }: PricingPageProps) {
     ? voiceAgentsPlans 
     : chatbotsPlans;
 
-  const handlePlanSelection = (planName: string, price: string, isSubscription?: boolean) => {
-    // Format price display based on subscription or one-time purchase
-    let priceDisplay: string;
-    let paymentPlanLabel: string;
-
-    if (price === 'Custom') {
-      priceDisplay = 'Custom Pricing';
-      paymentPlanLabel = 'Custom';
-    } else if (isSubscription) {
-      // For chatbot subscriptions, show monthly pricing
-      const monthlyPrice = parseFloat(price.replace('$', ''));
-      let formattedPrice = '';
-      
-      if (currency === 'USD') {
-        formattedPrice = `$${monthlyPrice}/month`;
-      } else if (currency === 'EUR') {
-        formattedPrice = `€${Math.round(monthlyPrice * 0.95)}/month`;
-      } else if (currency === 'ZAR') {
-        formattedPrice = `R ${Math.round(monthlyPrice * 18).toLocaleString()}/month`;
-      }
-      
-      priceDisplay = formattedPrice;
-      paymentPlanLabel = 'Monthly Subscription';
-    } else {
-      // For one-time purchases (automation/voice agents)
-      paymentPlanLabel = paymentOptions.find(opt => opt.value === paymentPlan)?.label || 'Pay in Full';
-      priceDisplay = `${convertPrice(price)} (${paymentPlanLabel})`;
-    }
-    
-    // Save pricing data to localStorage - use category prop instead of activeTab
+  const handlePlanSelection = (planName: string) => {
+    // All plans use custom pricing — capture the selected plan and route to contact
     saveLeadData({
       source: 'pricing',
       pricing: {
         planName,
         serviceType: category,
-        paymentPlan: paymentPlanLabel,
-        price: priceDisplay,
+        paymentPlan: 'Custom',
+        price: 'Custom Pricing',
         timestamp: new Date().toISOString(),
       },
     });
-    
+
     // Navigate to contact page
     navigate('/contact');
   };
@@ -313,25 +219,21 @@ export function PricingPage({ category }: PricingPageProps) {
   const addons = [
     {
       name: 'Additional Workflow',
-      price: '$297',
       description: 'Add another automated workflow to your package',
       icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Monthly Maintenance',
-      price: '$497/mo',
       description: 'Ongoing support, updates, and optimization',
       icon: <Shield className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Training Session',
-      price: '$397',
       description: 'Additional 1-hour training for your team',
       icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Custom Integration',
-      price: 'Starting at $797',
       description: 'Connect to unique or proprietary systems',
       icon: <DollarSign className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
@@ -340,26 +242,22 @@ export function PricingPage({ category }: PricingPageProps) {
   const chatbotAddons = [
     {
       name: 'Table Rows',
-      price: '$50',
-      description: 'Per 100,000 rows',
+      description: 'Expandable structured data storage',
       icon: <Workflow className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Vector DB Storage',
-      price: '$40',
-      description: 'Per 1GB of storage',
+      description: 'Additional knowledgebase storage',
       icon: <Crown className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Messages & Events',
-      price: '$40',
-      description: 'For 5,000 messages per month',
+      description: 'Expand your monthly message volume',
       icon: <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'File Storage',
-      price: '$20',
-      description: 'Per 10GB of storage',
+      description: 'Additional file storage capacity',
       icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
   ];
@@ -367,74 +265,27 @@ export function PricingPage({ category }: PricingPageProps) {
   const voiceAgentAddons = [
     {
       name: 'Additional Minutes',
-      price: '$50',
-      description: 'Per 500 minutes',
+      description: 'Expand your monthly call capacity',
       icon: <Phone className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Extra Agent Personality',
-      price: '$99/mo',
       description: 'Add custom voice personality',
       icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'CRM Integration Setup',
-      price: '$297',
-      description: 'One-time setup fee',
+      description: 'Connect your CRM and helpdesk tools',
       icon: <Workflow className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
     {
       name: 'Custom Voice Training',
-      price: '$497',
-      description: 'One-time training fee',
+      description: 'Tailored voice and tone training',
       icon: <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />,
     },
   ];
 
   const currentAddons = category === 'chatbots' ? chatbotAddons : category === 'voice-agents' ? voiceAgentAddons : addons;
-
-  // Convert addon prices (no payment plan applied)
-  const convertAddonPrice = (price: string): string => {
-    if (price.includes('Starting')) {
-      if (currency === 'ZAR') {
-        const match = price.match(/\$(\d+)/);
-        if (match) {
-          const zarPrice = Math.round(parseFloat(match[1]) * 18);
-          return `Starting at R ${zarPrice.toLocaleString()}`;
-        }
-      } else if (currency === 'EUR') {
-        const match = price.match(/\$(\d+)/);
-        if (match) {
-          const eurPrice = Math.round(parseFloat(match[1]) * 0.95);
-          return `Starting at €${eurPrice.toLocaleString()}`;
-        }
-      }
-      return price;
-    }
-    
-    if (price.includes('/mo')) {
-      const numPrice = parseFloat(price.replace(/[$,/mo]/g, ''));
-      if (currency === 'ZAR') {
-        const zarPrice = Math.round(numPrice * 18);
-        return `R ${zarPrice.toLocaleString()}/mo`;
-      } else if (currency === 'EUR') {
-        const eurPrice = Math.round(numPrice * 0.95);
-        return `€${eurPrice.toLocaleString()}/mo`;
-      }
-      return price;
-    }
-    
-    // For regular addon prices, just convert currency without payment plan
-    const numPrice = parseFloat(price.replace(/[$,]/g, ''));
-    if (currency === 'ZAR') {
-      const zarPrice = Math.round(numPrice * 18);
-      return `R ${zarPrice.toLocaleString()}`;
-    } else if (currency === 'EUR') {
-      const eurPrice = Math.round(numPrice * 0.95);
-      return `€${eurPrice.toLocaleString()}`;
-    }
-    return price;
-  };
 
   // Get current SEO config
   const currentSeo = seoConfig[category];
@@ -455,7 +306,7 @@ export function PricingPage({ category }: PricingPageProps) {
             "offers": {
               "@type": "AggregateOffer",
               "priceCurrency": "USD",
-              "lowPrice": category === 'automation' ? 'Custom' : "99",
+              "lowPrice": "Custom",
               "highPrice": "Custom",
               "availability": "https://schema.org/InStock"
             }
@@ -514,52 +365,15 @@ export function PricingPage({ category }: PricingPageProps) {
             {categoryNames[category]} Pricing
           </h1>
           <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto mb-4">
-            {category === 'chatbots' 
-              ? 'Simple monthly subscription pricing. Scale as you grow with flexible add-ons. No setup fees, cancel anytime.'
+            {category === 'chatbots'
+              ? 'Custom chatbot solutions tailored to your business. Scale as you grow with flexible add-ons and the channels you need.'
               : category === 'automation'
               ? 'Custom automation solutions tailored to your unique business needs. Schedule a free consultation to get your personalized quote.'
-              : 'Simple monthly subscription pricing. Scale your calling capacity as you grow. No setup fees, cancel anytime.'}
+              : 'Custom voice agent solutions tailored to your business. Scale your calling capacity as you grow.'}
           </p>
           <p className="text-lg sm:text-xl text-indigo-400 font-semibold mb-8 sm:mb-12">
-            {category === 'chatbots' ? 'Starting at $99/month' : category === 'voice-agents' ? 'Starting at $99/month' : 'Custom Pricing - Contact Us'}
+            Custom Pricing - Contact Us
           </p>
-
-          {/* Currency Toggle */}
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <button
-              onClick={() => setCurrency('USD')}
-              className={`flex items-center space-x-1.5 sm:space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
-                currency === 'USD'
-                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-2 border-purple-300/50 shadow-lg shadow-purple-500/50'
-                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-              }`}
-            >
-              <DollarSign className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span className="font-medium">USD</span>
-            </button>
-            <button
-              onClick={() => setCurrency('EUR')}
-              className={`flex items-center space-x-1.5 sm:space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
-                currency === 'EUR'
-                  ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-2 border-cyan-300/50 shadow-lg shadow-blue-500/50'
-                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-              }`}
-            >
-              <span className="font-bold text-sm sm:text-base">€</span>
-              <span className="font-medium">EUR</span>
-            </button>
-            <button
-              onClick={() => setCurrency('ZAR')}
-              className={`flex items-center space-x-1.5 sm:space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 text-base sm:text-lg ${
-                currency === 'ZAR'
-                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white border-2 border-emerald-300/50 shadow-lg shadow-green-500/50'
-                  : 'glass border border-white/10 text-white/60 hover:text-white hover:border-white/20'
-              }`}
-            >
-              <span className="font-bold text-sm sm:text-base">R</span>
-              <span className="font-medium">ZAR</span>
-            </button>
-          </div>
         </div>
       </section>
 
@@ -574,8 +388,8 @@ export function PricingPage({ category }: PricingPageProps) {
             </h2>
             <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto">
               {category === 'automation' && 'Every business is unique. Get a custom automation solution designed specifically for your workflows, team size, and goals. No cookie-cutter packages.'}
-              {category === 'voice-agents' && 'AI-powered phone calls and customer conversations. Simple monthly subscription with included minutes and pay-as-you-go overage.'}
-              {category === 'chatbots' && 'Intelligent 24/7 customer support with simple monthly pricing. Scale your bot with add-ons as you grow. No contracts, cancel anytime.'}
+              {category === 'voice-agents' && 'AI-powered phone calls and customer conversations. Every solution is custom-built around your call volume, integrations, and goals.'}
+              {category === 'chatbots' && 'Intelligent 24/7 customer support, custom-built for your business. Scale your bot with add-ons across the channels you need.'}
             </p>
           </div>
           <div className={`grid gap-6 sm:gap-8 ${category === 'automation' ? 'lg:grid-cols-1 max-w-2xl mx-auto' : 'lg:grid-cols-3'}`}>
@@ -598,111 +412,10 @@ export function PricingPage({ category }: PricingPageProps) {
                     {plan.icon}
                   </div>
                   <h3 className="text-white mb-2 text-2xl sm:text-3xl">{plan.name}</h3>
-                  
-                  {/* Payment Plan Selector */}
-                  {plan.price !== 'Custom' && !plan.isSubscription && category === 'voice-agents' && (
-                    <div className="mb-3 sm:mb-4 relative">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setOpenDropdown(openDropdown === index ? null : index);
-                        }}
-                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-base sm:text-lg rounded-lg sm:rounded-xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 text-white font-medium hover:from-white/15 hover:to-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center justify-between"
-                      >
-                        <span className="flex items-center gap-3 sm:gap-4">
-                          <span className="inline-block min-w-[16px]">{paymentOptions.find(opt => opt.value === paymentPlan)?.icon}</span>
-                          <span>{paymentOptions.find(opt => opt.value === paymentPlan)?.label}</span>
-                          {paymentOptions.find(opt => opt.value === paymentPlan)?.badge && (
-                            <span className={`text-xs sm:text-sm px-2 py-0.5 rounded-full ${
-                              paymentPlan === 'once-off' 
-                                ? 'bg-green-500/20 text-green-300' 
-                                : 'bg-orange-500/20 text-orange-300'
-                            }`}>
-                              {paymentOptions.find(opt => opt.value === paymentPlan)?.badge}
-                            </span>
-                          )}
-                        </span>
-                        <ChevronDown className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform ${openDropdown === index ? 'rotate-180' : ''}`} />
-                      </button>
-                      
-                      {openDropdown === index && (
-                        <div 
-                          className="absolute z-50 w-full mt-2 rounded-lg sm:rounded-xl bg-[#1a1a2e]/95 border-2 border-white/20 shadow-2xl overflow-hidden backdrop-blur-xl"
-                          style={{ backgroundColor: 'rgba(26, 26, 46, 0.98)' }}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          {paymentOptions.map((option) => (
-                            <button
-                              key={option.value}
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setPaymentPlan(option.value as any);
-                                setOpenDropdown(null);
-                              }}
-                              className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-left flex items-center justify-between transition-all ${
-                                paymentPlan === option.value
-                                  ? 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 text-white'
-                                  : 'text-white/80 hover:bg-white/10 hover:text-white'
-                              }`}
-                            >
-                              <span className="flex items-center gap-3 sm:gap-4">
-                                <span className="inline-block min-w-[16px]">{option.icon}</span>
-                                <span className="font-medium">{option.label}</span>
-                              </span>
-                              {option.badge && (
-                                <span className={`text-[10px] sm:text-xs px-2 py-1 rounded-full ${
-                                  option.value === 'once-off' 
-                                    ? 'bg-green-500/30 text-green-300' 
-                                    : 'bg-orange-500/30 text-orange-300'
-                                }`}>
-                                  {option.badge}
-                                </span>
-                              )}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
-                  
+
                   <div className="mb-4 sm:mb-6">
-                    {plan.isSubscription ? (
-                      <div>
-                        <div className="text-4xl sm:text-5xl text-white mb-2">
-                          {currency === 'USD' && `$${plan.price.replace('$', '')}`}
-                          {currency === 'EUR' && `€${Math.round(parseFloat(plan.price.replace('$', '')) * 0.95)}`}
-                          {currency === 'ZAR' && `R ${Math.round(parseFloat(plan.price.replace('$', '')) * 18).toLocaleString()}`}
-                          <span className="text-white/50 ml-2 text-lg sm:text-xl">/month</span>
-                        </div>
-                        {plan.period.includes('AI costs') && (
-                          <div className="text-base sm:text-lg text-white/50">
-                            + AI costs
-                          </div>
-                        )}
-                      </div>
-                    ) : paymentPlan !== 'once-off' && plan.price !== 'Custom' ? (
-                      <div>
-                        <div className="text-4xl sm:text-5xl text-white mb-2">
-                          <span className="text-white/70 text-2xl sm:text-3xl mr-1">from</span>
-                          {convertPrice(plan.price, true)}
-                        </div>
-                        <div className="text-base sm:text-lg text-white/50">
-                          Total: {convertPrice(plan.price)} over {paymentPlan.split('-')[0]} months
-                        </div>
-                      </div>
-                    ) : (
-                      <div>
-                        {plan.price !== 'Custom' && (
-                          <span className="text-white/70 text-2xl sm:text-3xl mr-1">from</span>
-                        )}
-                        <span className="text-4xl sm:text-5xl text-white">{convertPrice(plan.price)}</span>
-                        {plan.period !== 'pricing' && (
-                          <span className="text-white/50 ml-2 text-base sm:text-lg">{plan.period}</span>
-                        )}
-                      </div>
-                    )}
+                    <span className="text-4xl sm:text-5xl text-white">Custom</span>
+                    <span className="text-white/50 ml-2 text-base sm:text-lg">pricing</span>
                   </div>
                   <p className="text-white/60 mb-6 sm:mb-8 text-lg sm:text-xl">{plan.description}</p>
                   
@@ -718,14 +431,14 @@ export function PricingPage({ category }: PricingPageProps) {
                   </ul>
 
                   <button
-                    onClick={() => handlePlanSelection(plan.name, plan.price, plan.isSubscription)}
+                    onClick={() => handlePlanSelection(plan.name)}
                     className={`block w-full py-3 sm:py-4 px-6 rounded-full text-center font-semibold transition-all duration-300 text-lg sm:text-xl ${
                       plan.highlighted
                         ? 'btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:scale-105'
                         : 'glass border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 hover:scale-105'
                     }`}
                   >
-                    {plan.price === 'Custom' ? 'Contact Us' : 'Get Started'}
+                    Contact Us
                   </button>
                 </div>
               </div>
@@ -761,7 +474,6 @@ export function PricingPage({ category }: PricingPageProps) {
                     </div>
                     <h4 className="text-white text-lg sm:text-xl">{addon.name}</h4>
                   </div>
-                  <span className="text-purple-400 font-semibold text-lg sm:text-xl">{convertAddonPrice(addon.price)}</span>
                 </div>
                 <p className="text-white/60 text-lg sm:text-xl">{addon.description}</p>
               </div>
@@ -867,7 +579,7 @@ export function PricingPage({ category }: PricingPageProps) {
                   <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">Are there any monthly fees or subscriptions?</h3>
                   {openFAQ === 3 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
-                      For Voice Agents: monthly subscription starting at $99/month with no contracts. Cancel anytime. For Chatbots: monthly subscription starting at $99/month with no contracts. Cancel anytime. For Workflow Automation: Custom one-time pricing based on your needs. Once built, you own it forever with no ongoing fees (unless you choose optional maintenance).
+                      Every solution is custom-priced to your needs. Voice Agents and Chatbots can be set up as flexible monthly plans with no long-term contracts, while Workflow Automation is typically custom one-time pricing—once built, you own it with no ongoing fees (unless you choose optional maintenance). We'll walk through the right structure for you during your free consultation.
                     </p>
                   )}
                 </div>
@@ -887,7 +599,7 @@ export function PricingPage({ category }: PricingPageProps) {
                   <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">How does billing work?</h3>
                   {openFAQ === 4 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
-                      Payment plans are no longer offered. Voice Agents and Chatbots are simple monthly subscriptions—pay month-to-month with no contracts. Cancel anytime. Workflow Automation uses custom pricing discussed during your consultation with flexible payment terms tailored to your needs.
+                      All billing is tailored to your custom solution and agreed up front—no surprises. Voice Agents and Chatbots can run as flexible month-to-month plans with no contracts, and Workflow Automation uses custom pricing discussed during your consultation with payment terms tailored to your needs.
                     </p>
                   )}
                 </div>
@@ -1027,7 +739,7 @@ export function PricingPage({ category }: PricingPageProps) {
                   <h3 className="text-white font-semibold text-lg sm:text-xl mb-0">How does chatbot pricing work?</h3>
                   {openFAQ === 11 && (
                     <p className="text-white/70 mt-2 sm:mt-3 text-base leading-relaxed">
-                      Chatbot pricing is subscription-based with three tiers: Basic ($99/month), Professional ($129/month), and Advanced ($299/month). All plans include NLP with your favorite AI model, and AI usage is billed separately. You can expand your chatbot capabilities with add-ons like additional messages, storage, and table rows. There are no setup fees or contracts—cancel anytime.
+                      Chatbot solutions come in three tiers—Basic, Professional, and Advanced—each custom-priced to your needs. All plans include NLP with your favorite AI model, and AI usage is billed at cost. You can expand your chatbot with add-ons like additional messages, storage, and table rows. We'll put together a tailored quote during your free consultation.
                     </p>
                   )}
                 </div>
