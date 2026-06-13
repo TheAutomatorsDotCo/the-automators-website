@@ -2125,6 +2125,78 @@ html {
   display: inline-block;
 }
 
+/* Assessment multi-select cards */
+.assessment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.assessment-card {
+  border: 1.5px solid transparent;
+  border-radius: 18px;
+  background:
+    linear-gradient(#141426, #141426) padding-box,
+    linear-gradient(rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.11)) border-box;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.assessment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px -12px rgba(139, 92, 246, 0.45);
+  background:
+    linear-gradient(#161628, #161628) padding-box,
+    linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.22)) border-box;
+}
+
+.assessment-card--selected,
+.assessment-card--selected:hover {
+  background:
+    linear-gradient(#1c1c30, #1c1c30) padding-box,
+    linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899) border-box;
+  box-shadow: 0 10px 36px -12px rgba(139, 92, 246, 0.5);
+}
+
+/* Assessment checkbox */
+.assessment-checkbox {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.assessment-card:hover .assessment-checkbox {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.assessment-checkbox--checked,
+.assessment-card:hover .assessment-checkbox--checked {
+  border-color: transparent;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+  box-shadow: 0 2px 12px -2px rgba(139, 92, 246, 0.85);
+}
+
+.assessment-checkbox svg {
+  width: 15px;
+  height: 15px;
+  color: #ffffff;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.assessment-checkbox--checked svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
 @keyframes blob {
   0%, 100% {
     transform: translate(0)scale(1);
