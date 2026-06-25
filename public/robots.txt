@@ -12,3 +12,6 @@ Crawl-delay: 1
 # Disallow: /admin/
 # Disallow: /private/
 
+# Campaign landing pages (noindex in meta, also blocked from crawlers here)
+Disallow: /chatbots-for-ecommerce
+

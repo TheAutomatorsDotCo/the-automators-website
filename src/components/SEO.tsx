@@ -9,6 +9,7 @@ interface SEOProps {
   image?: string;
   keywords?: string;
   structuredData?: object | object[];
+  noindex?: boolean;
 }
 
 export function SEO({ 
@@ -18,7 +19,8 @@ export function SEO({
   type = 'website',
   image = 'https://images.unsplash.com/photo-1637401937636-f7d5bb75e0a9?w=1200&h=630&fit=crop',
   keywords = 'business automation, workflow automation, process automation, save time, efficiency',
-  structuredData 
+  structuredData,
+  noindex = false,
 }: SEOProps) {
   const siteUrl = 'https://theautomators.co';
   const fullUrl = `${siteUrl}${path}`;
@@ -31,6 +33,7 @@ export function SEO({
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={fullUrl} />
 
       {/* Open Graph / Facebook */}
