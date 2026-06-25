@@ -389,7 +389,7 @@ export function ContactPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="contact-grid grid lg:grid-cols-3 gap-8">
             {/* Contact Info sidebar */}
             <div className="lg:col-span-1 space-y-6">
               <div className="card-3d glass border border-white/10 rounded-3xl p-8">

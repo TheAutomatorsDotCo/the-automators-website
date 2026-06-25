@@ -361,7 +361,7 @@ export function EcommerceChatbotsLandingPage() {
           </p>
 
           {/* Platform trust bar */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-10">
+          <div className="platform-badges flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-10">
             <span className="w-full text-center text-white/50 text-sm sm:w-auto">Works with:</span>
             {PLATFORM_BADGES.map(({ Logo, name }) => (
               <div
@@ -429,7 +429,7 @@ export function EcommerceChatbotsLandingPage() {
                 <h3 className="relative text-white text-xl mb-3">{title}</h3>
                 <p className="relative text-white/60 mb-4">{body}</p>
                 {extra && (
-                  <div className="relative flex items-center gap-3 flex-wrap">
+                  <div className="platform-badges relative flex items-center gap-3 flex-wrap">
                     {([
                       { Logo: ShopifyLogo, label: 'Shopify' },
                       { Logo: WooCommerceLogo, label: 'WooCommerce' },

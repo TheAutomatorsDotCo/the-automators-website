@@ -2555,3 +2555,17 @@ html {
   inherits: false;
   initial-value: 1;
 }
+
+/* ─── Scoped mobile overflow fixes ──────────────────────────────────────── */
+
+/* Contact page: force the lg:grid-cols-3 grid into a single clamped column
+   below the lg breakpoint so it can't exceed the viewport width. */
+@media (max-width: 1023px) {
+  .contact-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Ecommerce page: the hero platform-badge bar and in-card badge row need
+   flex-wrap + gap because those Tailwind utilities are absent from this
+   pre-compiled stylesheet. */
+.platform-badges { flex-wrap: wrap; gap: 0.5rem; }
+@media (min-width: 40rem) { .platform-badges { gap: 1rem; } }
