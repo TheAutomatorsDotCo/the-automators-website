@@ -207,6 +207,10 @@ export function ContactPage() {
 
     if (!validateForm()) return;
 
+    // #region agent log
+    fetch('http://127.0.0.1:7826/ingest/d8afe84f-de4c-4333-a3a9-72e206ed07ea',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'c019bd'},body:JSON.stringify({sessionId:'c019bd',location:'ContactPage.tsx:validateForm-passed',message:'Form passed validation',data:{turnstileTokenPresent:!!turnstileToken,turnstileTokenLength:turnstileToken.length},timestamp:Date.now(),hypothesisId:'H-D'})}).catch(()=>{});
+    // #endregion
+
     setIsSubmitting(true);
 
     try {
@@ -242,7 +246,12 @@ export function ContactPage() {
         body: JSON.stringify(payload),
       });
 
-      const data = await response.json() as { success?: boolean; error?: string };
+      // #region agent log
+      const rawText = await response.text();
+      fetch('http://127.0.0.1:7826/ingest/d8afe84f-de4c-4333-a3a9-72e206ed07ea',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'c019bd'},body:JSON.stringify({sessionId:'c019bd',location:'ContactPage.tsx:handleSubmit',message:'API response captured',data:{status:response.status,statusText:response.statusText,bodyFirst200:rawText.slice(0,200),turnstileTokenPresent:!!turnstileToken,turnstileTokenLength:turnstileToken.length},timestamp:Date.now(),hypothesisId:'H-A,H-C,H-D'})}).catch(()=>{});
+      let data: { success?: boolean; error?: string };
+      try { data = JSON.parse(rawText); } catch { data = { error: `Non-JSON response (${response.status}): ${rawText.slice(0, 100)}` }; }
+      // #endregion
 
       if (!response.ok || !data.success) {
         throw new Error(data.error || 'Failed to submit form. Please try again.');
