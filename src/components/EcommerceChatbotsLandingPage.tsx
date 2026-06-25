@@ -86,7 +86,7 @@ function StickyBookBar() {
 
   return (
     <div
-      className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 glass border border-white/20 rounded-full px-4 py-2.5 shadow-2xl shadow-black/40 motion-safe:transition-all motion-safe:duration-300 ${
+      className={`fixed bottom-6 right-4 sm:right-6 z-50 flex items-center gap-3 glass border border-white/20 rounded-full px-4 py-2.5 shadow-2xl shadow-black/40 motion-safe:transition-all motion-safe:duration-300 ${
         show ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       aria-hidden={!show}
@@ -194,7 +194,7 @@ function AbandonedCartDemo() {
       <div ref={scrollRef} className="p-4 min-h-[220px] max-h-[220px] overflow-y-auto space-y-3">
         {messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[82%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
+            <div className={`max-w-[82%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
               msg.type === 'bot'
                 ? 'bg-white/10 text-white rounded-tl-none'
                 : 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-tr-none'
