@@ -45,10 +45,6 @@ async function verifyTurnstile(token: string, remoteip?: string): Promise<boolea
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // #region agent log
-  console.log('[submit-form] invoked — node:', process.version, 'method:', req.method);
-  // #endregion
-
   try {
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Method not allowed' });
@@ -83,16 +79,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ error: 'Security verification is required. Please complete the challenge.' });
     }
 
-    // #region agent log
-    console.log('[submit-form] turnstile token present, calling verifyTurnstile');
-    // #endregion
-
     const remoteIp = (req.headers['x-forwarded-for'] as string)?.split(',')[0].trim() || req.socket?.remoteAddress;
     const turnstileValid = await verifyTurnstile(turnstileToken, remoteIp);
-
-    // #region agent log
-    console.log('[submit-form] turnstileValid:', turnstileValid);
-    // #endregion
 
     if (!turnstileValid) {
       return res.status(400).json({ error: 'Security verification failed. Please refresh the page and try again.' });
@@ -126,10 +114,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ error: 'Form submission service is unavailable. Please contact us directly.' });
     }
 
-    // #region agent log
-    console.log('[submit-form] forwarding to n8n webhook');
-    // #endregion
-
     const payload = {
       name: name.trim(),
       email: email.trim().toLowerCase(),
@@ -159,18 +143,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(502).json({ error: 'Failed to submit form. Please try again or contact us directly.' });
     }
 
-    // #region agent log
-    console.log('[submit-form] success');
-    // #endregion
-
     return res.status(200).json({ success: true });
 
   } catch (err: unknown) {
-    // #region agent log
     const msg = err instanceof Error ? err.message : String(err);
-    const stack = err instanceof Error ? err.stack : '';
-    console.error('[submit-form] UNHANDLED EXCEPTION:', msg, stack);
-    // #endregion
-    return res.status(500).json({ error: `Server error: ${msg}` });
+    console.error('[submit-form] unhandled exception:', msg);
+    return res.status(500).json({ error: 'An unexpected error occurred. Please try again or contact us directly.' });
   }
 }
