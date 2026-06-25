@@ -361,14 +361,14 @@ export function EcommerceChatbotsLandingPage() {
           </p>
 
           {/* Platform trust bar */}
-          <div className="flex items-center justify-center gap-3 sm:gap-4 flex-wrap mb-10">
-            <span className="text-white/50 text-sm">Works with:</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-10">
+            <span className="w-full text-center text-white/50 text-sm sm:w-auto">Works with:</span>
             {PLATFORM_BADGES.map(({ Logo, name }) => (
               <div
                 key={name}
-                className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/70 text-sm"
+                className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/5 border border-white/10 text-white/70 text-sm"
               >
-                <Logo className="w-5 h-5" />
+                <Logo className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>{name}</span>
               </div>
             ))}

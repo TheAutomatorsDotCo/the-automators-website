@@ -324,13 +324,13 @@ export function ContactPage() {
         <div className="container mx-auto text-center relative z-10 max-w-4xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-white/70 text-sm mb-8">
             <Calendar className="w-4 h-4 text-indigo-400" />
-            <span>Free 30-minute discovery call — no obligation</span>
+            <span>Free 30-minute discovery call (no obligation)</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6">
             Let's Talk About Your Automation Needs
           </h1>
           <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10">
-            Book a free discovery call and we'll map out exactly how to automate your business — or send us a message below if you'd prefer.
+            Book a free discovery call and we'll map out exactly how to automate your business, or send us a message below if you'd prefer.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -361,7 +361,7 @@ export function ContactPage() {
                 Book Your Free Discovery Call
               </h2>
               <p className="text-lg text-white/70 mb-8">
-                Tell us about your business. We'll show you exactly what automation can do for your revenue and operations — no pitch, just clarity.
+                Tell us about your business. We'll show you exactly what automation can do for your revenue and operations (no pitch, just clarity).
               </p>
 
               <BookButton label="Book my free discovery call" className="text-lg px-10 py-5" />
