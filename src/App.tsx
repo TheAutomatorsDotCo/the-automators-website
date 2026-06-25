@@ -19,6 +19,7 @@ import { EpicDealsCaseStudy } from './components/CaseStudies/EpicDealsCaseStudy'
 import { TermsPage } from './components/TermsPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TicketsPage } from './components/TicketsPage';
+import { EcommerceChatbotsLandingPage } from './components/EcommerceChatbotsLandingPage';
 import { NotFoundPage } from './components/NotFoundPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
@@ -55,6 +56,8 @@ export default function App() {
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="/tickets" element={<TicketsPage />} />
+              {/* Campaign landing pages — not in nav, noindex */}
+              <Route path="/chatbots-for-ecommerce" element={<EcommerceChatbotsLandingPage />} />
               {/* 404 Page */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
