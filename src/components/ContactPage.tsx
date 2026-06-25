@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp } from 'lucide-react';
+import {
+  Mail, Phone, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp,
+  Calendar, Shield, CheckCircle, X, ArrowDown,
+} from 'lucide-react';
 import { SEO } from './SEO';
 import { StarsCanvas } from './StarBackground';
 import { getLeadData, clearLeadData, formatLeadDetails } from '../utils/leadData';
@@ -25,7 +28,76 @@ interface TurnstileOptions {
   size?: 'normal' | 'compact';
 }
 
+const DISCOVERY_CALL_URL = 'https://calendar.app.google/nzwvc4fVpzkPqmAX6';
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// ---------------------------------------------------------------------------
+// Book button — matches ecommerce page CTA style
+// ---------------------------------------------------------------------------
+
+function BookButton({ label = 'Book a free discovery call', className = '' }: { label?: string; className?: string }) {
+  return (
+    <a
+      href={DISCOVERY_CALL_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-full inline-flex items-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${className}`}
+    >
+      <Calendar className="w-5 h-5" />
+      <span>{label}</span>
+    </a>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Sticky booking bar — appears after scrolling, dismissible
+// ---------------------------------------------------------------------------
+
+function StickyBookBar() {
+  const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 450);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const show = visible && !dismissed;
+
+  return (
+    <div
+      className={`fixed bottom-8 right-6 z-50 flex items-center gap-3 glass border border-white/20 rounded-full px-4 py-2.5 shadow-2xl shadow-black/40 motion-safe:transition-all motion-safe:duration-300 ${
+        show ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+      }`}
+      aria-hidden={!show}
+    >
+      <a
+        href={DISCOVERY_CALL_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        tabIndex={show ? 0 : -1}
+        className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-sm font-semibold px-5 py-2 rounded-full inline-flex items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+      >
+        <Calendar className="w-4 h-4" />
+        Book a free discovery call
+      </a>
+      <button
+        onClick={() => setDismissed(true)}
+        tabIndex={show ? 0 : -1}
+        className="text-white/50 hover:text-white/80 transition-colors p-1 rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+        aria-label="Dismiss booking prompt"
+      >
+        <X className="w-4 h-4" />
+      </button>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Main component
+// ---------------------------------------------------------------------------
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -37,7 +109,6 @@ export function ContactPage() {
     interests: [] as string[],
     additionalDetails: '',
   });
-  // Honeypot field -- hidden from real users, auto-filled by bots
   const [honeypot, setHoneypot] = useState('');
   const [turnstileToken, setTurnstileToken] = useState('');
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
@@ -49,7 +120,6 @@ export function ContactPage() {
   const turnstileContainerRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | null>(null);
 
-  // Load lead data on mount
   useEffect(() => {
     const leadData = getLeadData();
     if (leadData) {
@@ -59,7 +129,6 @@ export function ContactPage() {
     }
   }, []);
 
-  // Load Cloudflare Turnstile script and render the widget
   useEffect(() => {
     const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
     if (!siteKey) return;
@@ -153,7 +222,6 @@ export function ContactPage() {
         additionalDetails: formData.additionalDetails.trim() || null,
         leadSource,
         turnstileToken,
-        // Honeypot (submitted but expected empty -- server validates)
         website: honeypot,
         url: '',
       };
@@ -184,7 +252,6 @@ export function ContactPage() {
       setSubmitted(true);
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : 'An error occurred. Please try again.');
-      // Reset Turnstile on failure so the user can re-verify
       if (window.turnstile && turnstileWidgetId.current) {
         window.turnstile.reset(turnstileWidgetId.current);
         setTurnstileToken('');
@@ -215,14 +282,17 @@ export function ContactPage() {
               </div>
               <h2 className="text-5xl gradient-text mb-6">Thank You!</h2>
               <p className="text-2xl text-white/70 mb-8">
-                We've received your message and will get back to you within 24 hours. Check your email for a confirmation.
+                We've received your message and will get back to you within 24 hours.
               </p>
-              <button
-                onClick={() => setSubmitted(false)}
-                className="btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-full"
-              >
-                Send Another Message
-              </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                >
+                  Send Another Message
+                </button>
+                <BookButton label="Book a discovery call" />
+              </div>
             </div>
           </div>
         </div>
@@ -234,36 +304,93 @@ export function ContactPage() {
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
         title="Contact Us"
-        description="Schedule a free consultation to discuss your automation needs. We're here to help transform your business with intelligent automation solutions."
+        description="Book a free discovery call or send us a message. We're here to help transform your business with intelligent automation solutions."
         path="/contact"
-        keywords="contact automation company, schedule consultation, business automation inquiry, get automation quote"
+        keywords="contact automation company, schedule consultation, book discovery call, business automation inquiry, get automation quote"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "ContactPage",
           "name": "Contact The Automators",
-          "description": "Get in touch with The Automators for business automation solutions"
+          "description": "Get in touch with The Automators for business automation solutions",
         }}
       />
       <StarsCanvas />
+      <StickyBookBar />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto text-center relative z-10">
-          <div className="h-10 mb-6"></div>
+      {/* ================================================================
+          HERO
+      ================================================================= */}
+      <section className="relative pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto text-center relative z-10 max-w-4xl">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-white/70 text-sm mb-8">
+            <Calendar className="w-4 h-4 text-indigo-400" />
+            <span>Free 30-minute discovery call — no obligation</span>
+          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl gradient-text mb-6">
             Let's Talk About Your Automation Needs
           </h1>
-          <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            Schedule a free consultation to discuss how we can help automate your business processes and save you time.
+          <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10">
+            Book a free discovery call and we'll map out exactly how to automate your business — or send us a message below if you'd prefer.
           </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <BookButton label="Book a free discovery call" className="text-lg px-10 py-5" />
+            <a
+              href="#contact-form"
+              className="inline-flex items-center gap-2 text-white/60 hover:text-white/90 transition-colors text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded"
+            >
+              or send us a message
+              <ArrowDown className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      {/* ================================================================
+          PRIMARY CTA — booking card (mirrors ecommerce page pattern)
+      ================================================================= */}
+      <section className="relative py-6 sm:py-10 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-2xl relative z-10">
+          <div className="relative overflow-hidden rounded-[2.5rem] glass border border-white/10 p-10 sm:p-14 text-center">
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
+            <div className="relative z-10">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white mb-6">
+                <Calendar className="w-8 h-8" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl gradient-text mb-4">
+                Book Your Free Discovery Call
+              </h2>
+              <p className="text-lg text-white/70 mb-8">
+                Tell us about your business. We'll show you exactly what automation can do for your revenue and operations — no pitch, just clarity.
+              </p>
+
+              <BookButton label="Book my free discovery call" className="text-lg px-10 py-5" />
+
+              <div className="flex items-center justify-center gap-6 mt-8 text-white/60 text-sm flex-wrap">
+                <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> 30 minutes</span>
+                <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4" /> No obligation</span>
+                <span className="flex items-center gap-2"><Shield className="w-4 h-4" /> No pressure</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          CONTACT FORM & INFO
+      ================================================================= */}
+      <section id="contact-form" className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
+
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl gradient-text mb-3">Or Send Us a Message</h2>
+            <p className="text-white/60 max-w-xl mx-auto">
+              Prefer to write it out? Fill in the form and we'll get back to you within 24 hours.
+            </p>
+          </div>
+
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
+            {/* Contact Info sidebar */}
             <div className="lg:col-span-1 space-y-6">
               <div className="card-3d glass border border-white/10 rounded-3xl p-8">
                 <h3 className="text-white mb-6">Contact Information</h3>
@@ -272,10 +399,10 @@ export function ContactPage() {
                     <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
-                  <div>
-                    <h4 className="text-white mb-1">Email</h4>
-                    <p className="text-white/60">sales@theautomators.co</p>
-                  </div>
+                    <div>
+                      <h4 className="text-white mb-1">Email</h4>
+                      <p className="text-white/60">sales@theautomators.co</p>
+                    </div>
                   </div>
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
@@ -292,7 +419,7 @@ export function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-white mb-1">Business Hours</h4>
-                      <p className="text-white/60">Mon-Fri: 9am - 6pm SAST</p>
+                      <p className="text-white/60">Mon–Fri: 9am – 6pm SAST</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -307,13 +434,23 @@ export function ContactPage() {
                 </div>
               </div>
 
+              {/* Discovery call prompt card */}
               <div className="relative overflow-hidden rounded-3xl glass border border-white/10 p-8">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10" />
                 <div className="relative z-10">
-                  <h4 className="text-white mb-3">Free Consultation</h4>
-                  <p className="text-white/70">
-                    Every engagement starts with a free 30-minute consultation to understand your needs and explore solutions.
+                  <h4 className="text-white mb-3">Prefer a call?</h4>
+                  <p className="text-white/70 mb-5 text-sm leading-relaxed">
+                    Book a free 30-minute discovery call and we'll walk through your automation opportunities together.
                   </p>
+                  <a
+                    href={DISCOVERY_CALL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full cursor-pointer hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  >
+                    <Calendar className="w-4 h-4" />
+                    Book a discovery call
+                  </a>
                 </div>
               </div>
             </div>
@@ -324,7 +461,7 @@ export function ContactPage() {
                 <h3 className="text-white mb-8">Send Us a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6" noValidate>
 
-                  {/* Honeypot -- hidden from real users, caught on the server */}
+                  {/* Honeypot — hidden from real users, caught on the server */}
                   <div style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true" tabIndex={-1}>
                     <label htmlFor="website">Leave this field empty</label>
                     <input
@@ -410,7 +547,7 @@ export function ContactPage() {
                           key={option}
                           type="button"
                           onClick={() => handleInterestToggle(option)}
-                          className={`text-left px-5 py-3 rounded-2xl border-2 transition-all ${
+                          className={`text-left px-5 py-3 rounded-2xl border-2 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 ${
                             formData.interests.includes(option)
                               ? 'border-purple-500 bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-white'
                               : 'border-white/10 glass text-white/70 hover:border-white/20'
@@ -474,13 +611,13 @@ export function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-5 rounded-full inline-flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-5 rounded-full inline-flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   >
                     <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                     {!isSubmitting && <Send className="w-5 h-5" />}
                   </button>
 
-                  <p className="text-white/50 text-center">
+                  <p className="text-white/50 text-center text-sm">
                     We typically respond within 24 hours during business days
                   </p>
                 </form>
@@ -490,7 +627,9 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* Trust Indicators */}
+      {/* ================================================================
+          TRUST INDICATORS
+      ================================================================= */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="grid sm:grid-cols-3 gap-6">
