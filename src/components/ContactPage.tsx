@@ -28,7 +28,7 @@ interface TurnstileOptions {
   size?: 'normal' | 'compact';
 }
 
-const DISCOVERY_CALL_URL = 'https://calendar.app.google/nzwvc4fVpzkPqmAX6';
+const DISCOVERY_CALL_URL = 'https://meet.brevo.com/braam-raubenheimer/discovery-call';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
