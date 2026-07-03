@@ -2556,7 +2556,18 @@ html {
   initial-value: 1;
 }
 
-/* ─── Scoped mobile overflow fixes ──────────────────────────────────────── */
+.trust-stat-icon {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.trust-stat-value.gradient-text {
+  display: block;
+  margin-top: 0.25rem;
+}
 
 /* Contact page: force the lg:grid-cols-3 grid into a single clamped column
    below the lg breakpoint so it can't exceed the viewport width. */

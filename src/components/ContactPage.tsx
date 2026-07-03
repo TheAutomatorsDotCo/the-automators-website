@@ -364,9 +364,9 @@ export function ContactPage() {
                 Tell us about your business. We'll show you exactly what automation can do for your revenue and operations (no pitch, just clarity).
               </p>
 
-              <BookButton label="Book my free discovery call" className="text-lg px-10 py-5" />
+              <BookButton label="Book my free discovery call" className="text-lg px-10 py-5 mb-6" />
 
-              <div className="flex items-center justify-center gap-6 mt-8 text-white/60 text-sm flex-wrap">
+              <div className="flex items-center justify-center gap-6 text-white/60 text-sm flex-wrap">
                 <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> 30 minutes</span>
                 <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4" /> No obligation</span>
                 <span className="flex items-center gap-2"><Shield className="w-4 h-4" /> No pressure</span>
@@ -382,7 +382,7 @@ export function ContactPage() {
       <section id="contact-form" className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl relative z-10">
 
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl gradient-text mb-3">Or Send Us a Message</h2>
             <p className="text-white/60 max-w-xl mx-auto">
               Prefer to write it out? Fill in the form and we'll get back to you within 24 hours.
@@ -439,7 +439,7 @@ export function ContactPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10" />
                 <div className="relative z-10">
                   <h4 className="text-white mb-3">Prefer a call?</h4>
-                  <p className="text-white/70 mb-5 text-sm leading-relaxed">
+                  <p className="text-white/70 mb-6 text-sm leading-relaxed">
                     Book a free 30-minute discovery call and we'll walk through your automation opportunities together.
                   </p>
                   <a
@@ -634,26 +634,26 @@ export function ContactPage() {
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="grid sm:grid-cols-3 gap-6">
             <div className="card-3d glass border border-white/10 rounded-3xl p-8 text-center">
-              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white mb-4">
+              <div className="trust-stat-icon p-4 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
                 <Users className="w-8 h-8" />
               </div>
-              <div className="text-5xl gradient-text mb-2">200+</div>
+              <div className="trust-stat-value text-5xl gradient-text mb-2">200+</div>
               <h4 className="text-white mb-1">Happy Clients</h4>
               <p className="text-white/60">Businesses automated</p>
             </div>
             <div className="card-3d glass border border-white/10 rounded-3xl p-8 text-center">
-              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 text-white mb-4">
+              <div className="trust-stat-icon p-4 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 text-white">
                 <TrendingUp className="w-8 h-8" />
               </div>
-              <div className="text-5xl gradient-text mb-2">98%</div>
+              <div className="trust-stat-value text-5xl gradient-text mb-2">98%</div>
               <h4 className="text-white mb-1">Satisfaction Rate</h4>
               <p className="text-white/60">Client satisfaction score</p>
             </div>
             <div className="card-3d glass border border-white/10 rounded-3xl p-8 text-center">
-              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-500 text-white mb-4">
+              <div className="trust-stat-icon p-4 rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-500 text-white">
                 <Clock className="w-8 h-8" />
               </div>
-              <div className="text-5xl gradient-text mb-2">24hr</div>
+              <div className="trust-stat-value text-5xl gradient-text mb-2">24hr</div>
               <h4 className="text-white mb-1">Response Time</h4>
               <p className="text-white/60">Average response time</p>
             </div>
