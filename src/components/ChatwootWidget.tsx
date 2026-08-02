@@ -11,6 +11,11 @@ const DOM_SELECTORS = [
 
 declare global {
   interface Window {
+    chatwootSettings?: {
+      position?: 'left' | 'right';
+      type?: 'standard' | 'expanded_bubble';
+      launcherTitle?: string;
+    };
     chatwootSDK?: {
       run: (config: { websiteToken: string; baseUrl: string }) => void;
     };
@@ -45,6 +50,7 @@ function cleanupChatwoot(script?: HTMLScriptElement | null) {
 
   delete window.$chatwoot;
   delete window.chatwootSDK;
+  delete window.chatwootSettings;
 }
 
 /**
@@ -70,6 +76,13 @@ export function ChatwootWidget() {
       script.async = true;
       document.body.appendChild(script);
     }
+
+    // Must be set before chatwootSDK.run() — controls bubble position/style/title
+    window.chatwootSettings = {
+      position: 'right',
+      type: 'expanded_bubble',
+      launcherTitle: 'Need help? ',
+    };
 
     const runSdk = () => {
       window.chatwootSDK?.run({ websiteToken, baseUrl });
