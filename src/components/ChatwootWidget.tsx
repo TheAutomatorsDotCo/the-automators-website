@@ -9,13 +9,15 @@ const DOM_SELECTORS = [
   '.woot--bubble-holder',
 ];
 
+export type ChatwootSettings = {
+  position?: 'left' | 'right';
+  type?: 'standard' | 'expanded_bubble';
+  launcherTitle?: string;
+};
+
 declare global {
   interface Window {
-    chatwootSettings?: {
-      position?: 'left' | 'right';
-      type?: 'standard' | 'expanded_bubble';
-      launcherTitle?: string;
-    };
+    chatwootSettings?: ChatwootSettings;
     chatwootSDK?: {
       run: (config: { websiteToken: string; baseUrl: string }) => void;
     };
@@ -25,6 +27,12 @@ declare global {
     };
   }
 }
+
+type ChatwootWidgetProps = {
+  websiteToken?: string;
+  baseUrl?: string;
+  settings?: ChatwootSettings;
+};
 
 function removeChatwootDom() {
   for (const selector of DOM_SELECTORS) {
@@ -55,15 +63,23 @@ function cleanupChatwoot(script?: HTMLScriptElement | null) {
 
 /**
  * Loads the Chatwoot website SDK only while mounted.
- * Intended for the /chat-test page — do not mount sitewide without an explicit decision.
+ * Intended for test pages — do not mount sitewide without an explicit decision.
  */
-export function ChatwootWidget() {
+export function ChatwootWidget({
+  websiteToken: websiteTokenProp,
+  baseUrl: baseUrlProp,
+  settings,
+}: ChatwootWidgetProps) {
   useEffect(() => {
-    const websiteToken = import.meta.env.VITE_CHATWOOT_WEBSITE_TOKEN;
-    const baseUrl = import.meta.env.VITE_CHATWOOT_BASE_URL || DEFAULT_BASE_URL;
+    const websiteToken =
+      websiteTokenProp || import.meta.env.VITE_CHATWOOT_WEBSITE_TOKEN;
+    const baseUrl =
+      baseUrlProp ||
+      import.meta.env.VITE_CHATWOOT_BASE_URL ||
+      DEFAULT_BASE_URL;
 
     if (!websiteToken) {
-      console.warn('[Chatwoot] VITE_CHATWOOT_WEBSITE_TOKEN is not set; widget will not load.');
+      console.warn('[Chatwoot] website token is not set; widget will not load.');
       return;
     }
 
@@ -78,7 +94,7 @@ export function ChatwootWidget() {
     }
 
     // Must be set before chatwootSDK.run() — controls bubble position/style/title
-    window.chatwootSettings = {
+    window.chatwootSettings = settings ?? {
       position: 'right',
       type: 'expanded_bubble',
       launcherTitle: 'Need help? ',
@@ -98,7 +114,7 @@ export function ChatwootWidget() {
       script?.removeEventListener('load', runSdk);
       cleanupChatwoot(script);
     };
-  }, []);
+  }, [websiteTokenProp, baseUrlProp, settings]);
 
   return null;
 }

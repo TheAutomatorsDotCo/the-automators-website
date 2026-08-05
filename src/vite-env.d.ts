@@ -9,6 +9,8 @@ interface ImportMetaEnv {
   readonly VITE_CHATWOOT_BASE_URL?: string
   // Chatwoot website inbox token (public; safe to expose client-side)
   readonly VITE_CHATWOOT_WEBSITE_TOKEN?: string
+  // Second Chatwoot website inbox token (public; /chat-test-2)
+  readonly VITE_CHATWOOT_WEBSITE_TOKEN_2?: string
 }
 
 interface ImportMeta {
