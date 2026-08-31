@@ -18,7 +18,10 @@ export function ChatTestPage() {
         noindex
       />
       <StarsCanvas />
-      <ChatwootWidget settings={SETTINGS} />
+      <ChatwootWidget
+        websiteToken={import.meta.env.VITE_CHATWOOT_WEBSITE_TOKEN}
+        settings={SETTINGS}
+      />
 
       <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-2xl text-center relative z-10">

@@ -29,7 +29,8 @@ declare global {
 }
 
 type ChatwootWidgetProps = {
-  websiteToken?: string;
+  /** Required per page so a missing env var cannot silently load another inbox */
+  websiteToken: string | undefined;
   baseUrl?: string;
   settings?: ChatwootSettings;
 };
@@ -71,8 +72,7 @@ export function ChatwootWidget({
   settings,
 }: ChatwootWidgetProps) {
   useEffect(() => {
-    const websiteToken =
-      websiteTokenProp || import.meta.env.VITE_CHATWOOT_WEBSITE_TOKEN;
+    const websiteToken = websiteTokenProp;
     const baseUrl =
       baseUrlProp ||
       import.meta.env.VITE_CHATWOOT_BASE_URL ||

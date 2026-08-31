@@ -6,7 +6,7 @@ import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
 import { StarsCanvas } from '../StarBackground';
 import { saveLeadData } from '../../utils/leadData';
-import { getRelatedCaseStudies } from './caseStudiesData';
+import { EPIC_DEALS_VOLUME, EPIC_DEALS_VOLUME_LABEL, getRelatedCaseStudies } from './caseStudiesData';
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
@@ -31,10 +31,10 @@ export function EpicDealsCaseStudy() {
 
   // Chart data
   const messagesData = {
-    labels: ['Growing', 'Peak'],
+    labels: ['Typical', 'Peak'],
     datasets: [{
-      label: 'Monthly Messages',
-      data: [8000, 15000],
+      label: 'Monthly Conversations',
+      data: [9000, 16000],
       backgroundColor: ['#f59e0b', '#f97316'],
       borderColor: ['#f59e0b', '#f97316'],
       borderWidth: 2,
@@ -110,7 +110,7 @@ export function EpicDealsCaseStudy() {
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e] pt-32 pb-16 sm:pb-20">
       <SEO
         title="Epic Deals Case Study - Scaling Trust in South Africa's Tech Market"
-        description="Discover how The Automators helped Epic Deals handle 5,697+ monthly messages with AI automation, achieving 99.9% reliability while competing with teams twice their size."
+        description={`Discover how The Automators helped Epic Deals handle ${EPIC_DEALS_VOLUME} ${EPIC_DEALS_VOLUME_LABEL.toLowerCase()} with AI automation, achieving 99.9% reliability while competing with teams twice their size.`}
         path="/case-studies/epic-deals"
         type="article"
         keywords="AI chatbot case study, pre-owned tech marketplace automation, customer service automation, trade-in automation, South Africa tech business"
@@ -122,10 +122,10 @@ export function EpicDealsCaseStudy() {
             "author": { "@type": "Organization", "name": "The Automators" },
             "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://theautomators.co" },
             "datePublished": "2025-11-03",
-            "dateModified": "2026-02-06",
+            "dateModified": "2026-08-31",
             "image": "https://theautomators.co/epic-deals-logo.png",
             "url": "https://theautomators.co/case-studies/epic-deals",
-            "description": "Discover how The Automators helped Epic Deals handle 5,697+ monthly messages with AI automation, achieving 99.9% reliability while competing with teams twice their size."
+            "description": `Discover how The Automators helped Epic Deals handle ${EPIC_DEALS_VOLUME} ${EPIC_DEALS_VOLUME_LABEL.toLowerCase()} with AI automation, achieving 99.9% reliability while competing with teams twice their size.`
           },
           {
             "@context": "https://schema.org",
@@ -189,8 +189,8 @@ export function EpicDealsCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
             {/* Messages Card with Chart */}
             <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10">
-              <p className="text-6xl sm:text-7xl font-bold text-white mb-2">15,000+</p>
-              <p className="text-3xl sm:text-4xl text-white/70 mb-4 sm:mb-6">Messages/Month</p>
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2 leading-tight">{EPIC_DEALS_VOLUME}</p>
+              <p className="text-2xl sm:text-3xl text-white/70 mb-4 sm:mb-6">{EPIC_DEALS_VOLUME_LABEL}</p>
               <div className="h-40 sm:h-48">
                 <Bar data={messagesData} options={barOptions} />
               </div>
@@ -258,7 +258,7 @@ export function EpicDealsCaseStudy() {
                   <h3 className="text-3xl sm:text-4xl font-bold text-white">24/7 Expectations</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
-                  Customers expected instant responses about pricing, device conditions, and trade-in values—at all hours.
+                  Customers expected instant responses about pricing, device conditions, and trade-in values, at all hours.
                 </p>
               </div>
 
@@ -278,7 +278,7 @@ export function EpicDealsCaseStudy() {
                   <h3 className="text-3xl sm:text-4xl font-bold text-white">Trust-Based Business Model</h3>
                 </div>
                 <p className="text-white/70 leading-relaxed">
-                  In a market scarred by scams, every interaction had to reinforce reliability—manual errors or delays could damage reputation.
+                  In a market scarred by scams, every interaction had to reinforce reliability: manual errors or delays could damage reputation.
                 </p>
               </div>
             </div>
@@ -323,18 +323,18 @@ export function EpicDealsCaseStudy() {
                   <div>
                     <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">AI-Powered Customer Service</h3>
                     <p className="text-3xl sm:text-4xl text-white/70 leading-relaxed mb-4">
-                      A custom chatbot handles product specifications, pricing inquiries, grading explanations, and shipping details—delivering instant, accurate responses 24/7. It even recommends live products directly from their website, helping customers find exactly what they need.
+                      A custom chatbot handles product specifications, pricing inquiries, grading explanations, and shipping details, delivering instant, accurate responses 24/7. It even recommends live products directly from their website, helping customers find exactly what they need.
                     </p>
                   </div>
                   <div>
                     <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">Seamless Escalation</h3>
                     <p className="text-3xl sm:text-4xl text-white/70 leading-relaxed mb-4">
-                      The AI handles 95%+ of inquiries autonomously. For complex cases requiring human judgment, it seamlessly transfers to team members with full context preserved—no customer ever has to repeat themselves.
+                      The AI handles 95%+ of inquiries autonomously. For complex cases requiring human judgment, it seamlessly transfers to team members with full context preserved: no customer ever has to repeat themselves.
                     </p>
                   </div>
                   <div className="glass bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 sm:p-6">
                     <p className="text-3xl sm:text-4xl text-white/90 leading-relaxed">
-                      <strong className="text-amber-400">The Result:</strong> Up to 15,000 monthly messages handled with zero handoff queue, empowering the team to focus on high-value customer interactions.
+                      <strong className="text-amber-400">The Result:</strong> {EPIC_DEALS_VOLUME} {EPIC_DEALS_VOLUME_LABEL.toLowerCase()} handled with zero handoff queue, empowering the team to focus on high-value customer interactions.
                     </p>
                   </div>
                 </div>
@@ -373,7 +373,7 @@ export function EpicDealsCaseStudy() {
                   <div>
                     <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 sm:mb-3">Competing at Scale</h3>
                     <p className="text-3xl sm:text-4xl text-white/70 leading-relaxed mb-4">
-                      With automation handling the volume, Epic Deals' 29-person team now competes effectively with companies twice their size—without sacrificing the personal touch that defines their brand.
+                      With automation handling the volume, Epic Deals' 29-person team now competes effectively with companies twice their size, without sacrificing the personal touch that defines their brand.
                     </p>
                   </div>
                   <div className="glass bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 sm:p-6">
@@ -396,14 +396,14 @@ export function EpicDealsCaseStudy() {
             <span className="text-amber-400 font-medium text-xl sm:text-2xl tracking-wider uppercase mb-4 block">The Impact</span>
             <h2 className="text-6xl sm:text-7xl lg:text-7xl font-bold gradient-text mb-4 sm:mb-6">Measurable Results That Matter</h2>
             <p className="text-3xl sm:text-4xl text-white/70 max-w-3xl mx-auto mb-10 sm:mb-12">
-              Automation didn't just save time—it transformed how Epic Deals operates and scales.
+              Automation didn't just save time: it transformed how Epic Deals operates and scales.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             <div className="glass rounded-2xl p-6 sm:p-8 border border-white/10 text-center">
-              <span className="text-5xl sm:text-6xl font-bold text-amber-400 mb-2 block">15,000+</span>
-              <p className="text-2xl sm:text-3xl font-bold text-white mb-2">Monthly Messages</p>
+              <span className="text-3xl sm:text-4xl font-bold text-amber-400 mb-2 block">{EPIC_DEALS_VOLUME}</span>
+              <p className="text-2xl sm:text-3xl font-bold text-white mb-2">Conversations a month</p>
               <p className="text-base sm:text-lg text-white/70">Handled seamlessly at peak volumes</p>
             </div>
 
@@ -449,7 +449,7 @@ export function EpicDealsCaseStudy() {
                 <Quote className="w-12 h-12 sm:w-16 sm:h-16 text-amber-400 opacity-50" />
               </div>
               <blockquote className="text-2xl sm:text-3xl lg:text-4xl text-white text-center leading-relaxed mb-8">
-                "Automation allowed us to compete with teams twice our size. Normal work just disappeared, and we could focus on what matters—getting every device right and delighting our customers."
+                "Automation allowed us to compete with teams twice our size. Normal work just disappeared, and we could focus on what matters, getting every device right and delighting our customers."
               </blockquote>
               <div className="text-center">
                 <p className="text-xl sm:text-2xl font-bold text-white">Brad Eyre</p>
@@ -472,7 +472,7 @@ export function EpicDealsCaseStudy() {
                 The transformation touched every part of the business. From customer service to operations, automation created infrastructure for unlimited growth.
               </p>
               <p className="text-2xl sm:text-3xl text-white/70 leading-relaxed">
-                Epic Deals didn't just save money—they gained the capacity to pursue aggressive expansion and M&A strategies while maintaining the quality that built their reputation.
+                Epic Deals didn't just save money: they gained the capacity to pursue aggressive expansion and M&A strategies while maintaining the quality that built their reputation.
               </p>
             </div>
             <div className="glass p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/10">
@@ -544,10 +544,7 @@ export function EpicDealsCaseStudy() {
             <div className="text-center">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8">Ready to Scale Without Losing Your Soul?</h2>
               <p className="text-2xl sm:text-3xl lg:text-3xl text-white/80 max-w-2xl mx-auto mb-8 sm:mb-10">
-                See how intelligent automation can help your business compete with companies twice your size—while keeping what makes you special.
-              </p>
-              <p className="text-xl sm:text-2xl text-amber-400 font-medium mb-8">
-                Mention this case study when booking to claim your discount
+                See how intelligent automation can help your business compete with companies twice your size, while keeping what makes you special.
               </p>
               
               <button

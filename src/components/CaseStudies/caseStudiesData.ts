@@ -1,3 +1,12 @@
+/**
+ * Canonical Epic Deals chatbot volume. Use this string on the case study,
+ * listing page, and /chatbots-for-ecommerce so the cold-email funnel never
+ * quotes a second number. Unit is conversations (not messages).
+ * Cold email copy must match: "9,000 to 16,000 conversations a month".
+ */
+export const EPIC_DEALS_VOLUME = '9,000 to 16,000';
+export const EPIC_DEALS_VOLUME_LABEL = 'Conversations a month';
+
 export interface RelatedCaseStudy {
   id: string;
   company: string;
@@ -36,7 +45,7 @@ export const allCaseStudies: RelatedCaseStudy[] = [
     id: 'epic-deals',
     company: 'Epic Deals',
     title: 'Scaling Trust in Tech',
-    description: '15,000+ monthly messages handled with 99.9% reliability via AI automation.',
+    description: `${EPIC_DEALS_VOLUME} ${EPIC_DEALS_VOLUME_LABEL.toLowerCase()} handled with 99.9% reliability via AI automation.`,
     slug: '/case-studies/epic-deals',
     gradient: 'from-amber-500 to-orange-500',
   },

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Users, Zap } from 'lucide-react';
 import { SEO } from '../SEO';
 import { StarsCanvas } from '../StarBackground';
+import { EPIC_DEALS_VOLUME, EPIC_DEALS_VOLUME_LABEL } from './caseStudiesData';
 
 interface CaseStudy {
   id: string;
@@ -107,8 +108,8 @@ export function CaseStudiesPage() {
       description: 'How intelligent automation helped South Africa\'s leading pre-owned tech marketplace compete with teams twice their size while maintaining the personal touch.',
       stats: [
         {
-          label: 'Messages/Month',
-          value: '15,000+',
+          label: EPIC_DEALS_VOLUME_LABEL,
+          value: EPIC_DEALS_VOLUME,
           icon: <TrendingUp className="w-6 h-6" />,
         },
         {
