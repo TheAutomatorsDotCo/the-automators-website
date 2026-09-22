@@ -1,104 +1,144 @@
 # Privacy Policy
 
-**Last updated: 19 April 2026**
-
-This Privacy Policy explains how [The Automators / Your Legal Entity Name] ("we", "us", "our") collects, uses, stores, and discloses personal information when you interact with our WhatsApp notification service (the "Service"). By using the Service you agree to the practices described below.
+**Last updated: 22 September 2026**
 
 ## 1. Who we are
 
-The Service is operated by [Your Legal Entity Name], based in [City, Country]. You can contact us at [contact email, e.g. privacy@yourdomain.com].
+The Automators (Pty) Ltd, registration number 2025/800843/07 ("we", "us"), builds workflow automations, AI chatbots, voice agents and custom business systems.
 
-## 2. What information we collect
+- **Address:** 1 Vergenoegd Bordeaux Estate, Ametis Street, Klerksdorp, North West, 2572, South Africa
+- **Information Officer:** Braam Raubenheimer
+- **Privacy requests:** braam@theautomators.co | +27 82 770 6456
+- **Information Regulator registration:** 2026-061974
 
-We only collect the minimum information needed to deliver notifications over WhatsApp. Specifically:
+## 2. What this policy covers
 
-**Information you or our customer provides to us**
-- Your WhatsApp phone number
-- Your name or contact label, if supplied
-- Any message content you send to our WhatsApp business number
-- Preferences such as opt in status, language, and notification categories
+This policy explains how we handle personal information when you visit our website, contact us or book a call, when you or your organisation are a client, supplier or partner of ours, when you receive messages through our WhatsApp notification service, and when you chat with a bot we run for ourselves.
 
-**Information we collect automatically**
-- Timestamps of messages sent and received
-- Delivery and read receipts returned by WhatsApp
-- Technical metadata such as message IDs and status codes
-- Basic logs used for troubleshooting and abuse prevention
+It follows the Protection of Personal Information Act 4 of 2013 (POPIA) and, where they apply, the EU and UK General Data Protection Regulations (GDPR). Under POPIA, information about companies and other organisations can also be personal information, so this policy covers it too.
 
-We do not collect location data, contact lists, financial account details, or sensitive categories of personal data through the Service.
+**When we work for a client, the client is in charge.** If we build or run a system for a client, the client decides why and how the personal information in it is used. The client is the "responsible party" (the "controller" under GDPR) and we are its "operator" (its "processor"). Section 9 explains what we commit to in that role. If your information is in a system we run for one of our clients, please contact that client first. We will help them respond.
 
-## 3. How we use your information
+## 3. What we collect, and where it comes from
 
-We use the information described above to:
-- Deliver the WhatsApp notifications you or our customer has requested
-- Respond to inbound messages you send to our business number
-- Maintain a record of opt ins and opt outs
-- Diagnose technical issues and prevent abuse of the Service
-- Comply with our legal and regulatory obligations
+| When | What |
+| --- | --- |
+| You visit our website | Pages viewed, device and browser type, approximate location from your IP address, collected through Google Analytics cookies |
+| You contact us or book a call | Your name, email address, phone number, organisation and role, your message, and your answers to the booking questions |
+| You are a client, supplier or partner | Contact details of the people we deal with, what we discuss and agree, proposals, contracts, invoices and payment records |
+| You receive our WhatsApp notifications | Your WhatsApp number, the name or label you or our customer supplied, messages sent and received, your opt-in and opt-out choices, and delivery data such as timestamps and read receipts |
+| You chat with our own bot | The messages you send and any contact details you choose to give |
 
-We do not sell your personal information. We do not use your WhatsApp messages to train machine learning or AI models.
+Most of it comes from you. Some comes from your organisation (for example when a client names you as its contact), from public business sources such as your company's website, or from our customers when they ask us to send you WhatsApp notifications.
 
-## 4. Legal basis for processing
+Giving us your information is voluntary. If you don't, we may not be able to reply to you, hold a call, deliver a service or pay you.
 
-Where applicable law requires a legal basis for processing (for example the EU or UK GDPR), we rely on:
-- Your consent, which you give by opting in to receive messages and which you can withdraw at any time
-- Our legitimate interest in operating and securing the Service
-- Performance of a contract when the Service is provided to a customer who has a relationship with you
-- Compliance with legal obligations
+We don't ask for special personal information (such as health, religious beliefs, race, biometric data or criminal records) or identity numbers for our own purposes. Please don't send them to us.
 
-## 5. How we share your information
+## 4. Why we use it
 
-We share information only with:
-- **Meta Platforms, Inc.**, which operates the WhatsApp Business Platform used to deliver messages
-- **Infrastructure providers** that host our application and database (for example our cloud hosting and database providers)
-- **Authorities** when required by law, subpoena, or to protect our rights or the safety of others
+| Purpose | Basis under POPIA section 11 (and GDPR article 6 where it applies) |
+| --- | --- |
+| Reply to enquiries and hold calls you book | You asked us to, or it is a step towards a contract with you |
+| Deliver, support and invoice our services | Performance of our contract with you or your organisation |
+| Keep accounting and tax records | Legal obligation |
+| Understand how our website is used and improve it | Our legitimate interest, and your consent to analytics cookies where the law requires it |
+| Keep our systems and your information secure | Our legitimate interest and legal obligations |
+| Send WhatsApp notifications | Your consent, or the instruction of our customer who is responsible for them |
 
-We do not share your data with advertisers or data brokers.
+We don't sell personal information. We don't use it to train our own artificial intelligence or machine learning models. Where a chat reply is generated for us, it may be produced by an AI model provider reached through OpenRouter, and we send only what is needed to produce that reply.
 
-## 6. International transfers
+## 5. Direct marketing
 
-Our service providers may process your information outside of your country of residence. Where transfers occur, we rely on recognised safeguards such as Standard Contractual Clauses or equivalent mechanisms required by your local law.
+We send marketing by email, SMS or WhatsApp only to people who have agreed to receive it, or to our existing clients about services similar to ones they already use, as section 69 of POPIA allows. Every message tells you how to opt out, and you can opt out at any time by replying or by emailing us.
 
-## 7. How long we keep your information
+## 6. Who we share it with
 
-We retain message records, opt in status, and related metadata for as long as needed to provide the Service and for a reasonable period afterwards for legal, audit, and dispute resolution purposes. Typical retention is [for example: 24 months after your last interaction], after which data is deleted or anonymised, except where longer retention is required by law.
+Only with the service providers we need to run the business, who are bound by contract to protect it and use it only for us:
 
-## 8. Your rights
+- **Google** for email, calendar, video calls and website analytics
+- **Brevo** for call bookings and email we send to people who have opted in
+- **Zoho** for invoicing and accounting
+- **Hetzner Online** for the servers that run our automation platform, in Germany
+- A specialist infrastructure partner who maintains our automation server
+- **Cloudflare** for our domain's DNS and security
+- **Supabase** for database hosting
+- **Meta Platforms** for the WhatsApp Business Platform
+- **AI model providers**, reached through OpenRouter, when a chatbot needs to generate a reply
+- **Our accountants and professional advisers**
+- **Authorities**, only when the law requires it
 
-Depending on where you live, you may have the right to:
-- Access the personal information we hold about you
-- Correct inaccurate information
-- Delete your information
-- Withdraw your consent to receive messages
-- Object to or restrict certain processing
-- Port your information to another provider
-- Lodge a complaint with your local data protection authority
+We don't share personal information with advertisers or data brokers.
 
-To exercise any of these rights, email us at [contact email]. You can also stop receiving messages at any time by replying **STOP** to any WhatsApp message from us.
+## 7. Information that leaves South Africa
 
-## 9. How to request data deletion
+Some of these providers store or process information outside South Africa, including in the European Union, the United Kingdom and the United States. We only send personal information across the border where section 72 of POPIA allows it: the recipient is bound by a law, binding corporate rules or an agreement that gives it adequate protection (such as the GDPR, or standard contractual clauses), or you have agreed, or it is needed to perform a contract with you.
 
-To request deletion of your information, email [contact email] with the subject line "Data Deletion Request" and the WhatsApp phone number you would like removed. We will confirm deletion within 30 days.
+## 8. How we protect it
 
-## 10. Security
+- Access is limited to people who need it, each with their own account. We use multi-factor authentication on systems that hold personal information.
+- Information is encrypted in transit, and at rest where our providers support it.
+- Everyone who works for us is bound to confidentiality in their contract, including after they leave.
+- Where possible, systems we build for clients run in accounts the client owns and controls, so the client can see and remove our access at any time.
+- Our platforms keep logs of access and changes.
+- By default our automation server doesn't store the information passing through successful runs, only from failed runs, which we keep for a limited time to fix errors.
+- If we believe personal information we are responsible for has been accessed or acquired by someone without authority, we notify the Information Regulator and the people affected as soon as reasonably possible, as section 22 of POPIA requires. When we are acting for a client, we tell the client immediately so it can do the same.
 
-We apply reasonable technical and organisational measures to protect your information, including encryption in transit, access controls, and audit logging. No system is perfectly secure, so we cannot guarantee absolute security.
+## 9. When we act for our clients
 
-## 11. Children
+When we build or run a system for a client, we:
 
-The Service is not directed to children under 13 (or the equivalent minimum age in your jurisdiction). We do not knowingly collect personal information from children. If you believe a child has provided us information, please contact us and we will delete it.
+- process personal information only on the client's documented instructions and for the client's purposes
+- keep it confidential and secure, as sections 20 and 21 of POPIA require, and article 28 of the GDPR where it applies
+- work under a written agreement with the client
+- tell the client immediately about any suspected security compromise
+- use other service providers for the client's data only with the client's agreement
+- help the client respond to requests from the people whose information it is
+- return or delete the information when the work ends, unless the law requires us to keep it
 
-## 12. Third party services
+## 10. How long we keep it
 
-Your use of WhatsApp is also governed by Meta's own terms and privacy policy, available at https://www.whatsapp.com/legal. We are not responsible for Meta's practices.
+| Information | How long |
+| --- | --- |
+| Enquiries that don't lead to work | Up to 24 months after our last contact |
+| Client and supplier records, contracts, invoices | As long as tax and company law requires, currently five to seven years depending on the record |
+| WhatsApp notification data | 24 months after your last interaction |
+| Website analytics | 14 months |
 
-## 13. Changes to this policy
+After that we delete it or remove anything that identifies you.
 
-We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Material changes will be communicated through the Service or by other reasonable means.
+## 11. Your rights
 
-## 14. Contact us
+You can ask us whether we hold personal information about you and for a copy, ask us to correct or delete it, object to how we use it (including for direct marketing), and withdraw consent you have given. If the GDPR applies to you, you can also ask us to restrict processing or to give you your information in a portable format.
 
-Questions or concerns about this policy can be sent to:
+Email our Information Officer at braam@theautomators.co with your request. We will confirm who you are before acting and reply within 30 days.
 
-[Your Legal Entity Name]
-[Street Address, City, Postal Code, Country]
-Email: [contact email]
+If you're unhappy with how we've handled your information, you can complain to the Information Regulator, or to your local data protection authority if the GDPR applies to you.
+
+## 12. The Information Regulator
+
+- **Address:** Woodmead North Office Park, 54 Maxwell Drive, Woodmead, Johannesburg, 2191
+- **Postal:** PO Box 31533, Braamfontein, Johannesburg, 2017
+- **Complaints:** POPIAComplaints@inforegulator.org.za
+- **General enquiries:** enquiries@inforegulator.org.za | 0800 017 160
+- **Website:** www.inforegulator.org.za
+
+## 13. Children
+
+Our website and services are not aimed at children, and we don't knowingly collect children's information for our own purposes. Some systems we run for clients may hold information about children. There we act only on the client's instructions, and the client is responsible for the lawful basis, as sections 34 and 35 of POPIA require.
+
+## 14. Cookies
+
+Our website uses Google Analytics cookies to understand how visitors use it. You can block or delete cookies in your browser settings, or install Google's Analytics opt-out browser add-on.
+
+## 15. Our WhatsApp notification service
+
+Reply **STOP** to any message to stop receiving them. To have your information deleted, email braam@theautomators.co with the subject "Data Deletion Request" and the phone number concerned. We confirm deletion within 30 days. Your use of WhatsApp itself is covered by Meta's terms at whatsapp.com/legal.
+
+## 16. Changes to this policy
+
+When we change this policy we update the date at the top, and we tell our clients about any material change.
+
+## 17. Contact
+
+The Automators (Pty) Ltd, Information Officer: Braam Raubenheimer, braam@theautomators.co, +27 82 770 6456.

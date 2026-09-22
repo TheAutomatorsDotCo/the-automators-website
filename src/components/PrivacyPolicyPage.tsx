@@ -1,19 +1,58 @@
+import type { ReactNode } from 'react';
 import { SEO } from './SEO';
 import { StarsCanvas } from './StarBackground';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from './ui/table';
+
+const PRIVACY_EMAIL = 'braam@theautomators.co';
+
+function PrivacyEmail() {
+  return (
+    <a href={`mailto:${PRIVACY_EMAIL}`} className="text-purple-400 hover:text-purple-300 underline">
+      {PRIVACY_EMAIL}
+    </a>
+  );
+}
+
+function PrivacyPhone() {
+  return (
+    <a href="tel:+27827706456" className="text-purple-400 hover:text-purple-300 underline">
+      +27 82 770 6456
+    </a>
+  );
+}
+
+const headClass = 'text-white px-3 py-3 align-bottom';
+const cellClass = 'text-white/70 align-top px-3 py-3 leading-relaxed';
+const rowClass = 'border-white/10 hover:bg-white/5';
+
+function PolicyTable({ children }: { children: ReactNode }) {
+  return (
+    <div className="w-full" style={{ overflowX: 'auto' }}>
+      <Table className="text-sm" style={{ minWidth: '36rem' }}>
+        {children}
+      </Table>
+    </div>
+  );
+}
 
 export function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
         title="Privacy Policy"
-        description="Privacy policy for The Automators' WhatsApp notification service. Learn how we collect, use, and protect your personal information."
+        description="How The Automators (Pty) Ltd collects, uses and protects personal information on our website, for clients and partners, and through WhatsApp, under POPIA."
         path="/privacy-policy"
-        keywords="privacy policy, data protection, WhatsApp notifications, privacy statement"
+        keywords="privacy policy, POPIA, data protection, The Automators, personal information, WhatsApp notifications"
       />
-      {/* Spinning Stars Background */}
       <StarsCanvas />
 
-      {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
           <div className="h-10 mb-6"></div>
@@ -21,248 +60,467 @@ export function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            How we collect, use, store, and disclose personal information when you interact with our WhatsApp notification service.
+            How we handle personal information when you visit our website, contact us, work with us,
+            receive WhatsApp notifications, or chat with a bot we run.
           </p>
           <p className="text-sm text-white/40 mt-4">
-            Last Updated: 19 April 2026
+            Last updated: 22 September 2026
           </p>
         </div>
       </section>
 
-      {/* Privacy Content */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="glass border border-white/10 rounded-3xl p-8 sm:p-12 space-y-12">
 
-            {/* Introduction */}
-            <div>
-              <p className="text-white/70 leading-relaxed">
-                This Privacy Policy explains how The Automators ("we", "us", "our") collects, uses, stores,
-                and discloses personal information when you interact with our WhatsApp notification service
-                (the "Service"). By using the Service you agree to the practices described below.
-              </p>
-            </div>
-
-            {/* 1. Who we are */}
             <div>
               <h2 className="text-2xl sm:text-3xl gradient-text mb-4">1. Who we are</h2>
-              <p className="text-white/70 leading-relaxed">
-                The Service is operated by The Automators, based in South Africa. You can contact us at{' '}
-                <a href="mailto:sales@theautomators.co" className="text-purple-400 hover:text-purple-300 underline">
-                  sales@theautomators.co
-                </a>.
-              </p>
-            </div>
-
-            {/* 2. What information we collect */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">2. What information we collect</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                We only collect the minimum information needed to deliver notifications over WhatsApp. Specifically:
-              </p>
-
-              <h3 className="text-xl text-white mb-3 mt-6">Information you or our customer provides to us</h3>
-              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
-                <li>Your WhatsApp phone number</li>
-                <li>Your name or contact label, if supplied</li>
-                <li>Any message content you send to our WhatsApp business number</li>
-                <li>Preferences such as opt in status, language, and notification categories</li>
-              </ul>
-
-              <h3 className="text-xl text-white mb-3 mt-6">Information we collect automatically</h3>
-              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
-                <li>Timestamps of messages sent and received</li>
-                <li>Delivery and read receipts returned by WhatsApp</li>
-                <li>Technical metadata such as message IDs and status codes</li>
-                <li>Basic logs used for troubleshooting and abuse prevention</li>
-              </ul>
-
-              <p className="text-white/70 leading-relaxed mt-4">
-                We do not collect location data, contact lists, financial account details, or sensitive
-                categories of personal data through the Service.
-              </p>
-            </div>
-
-            {/* 3. How we use your information */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">3. How we use your information</h2>
-              <p className="text-white/70 leading-relaxed mb-4">
-                We use the information described above to:
-              </p>
-              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
-                <li>Deliver the WhatsApp notifications you or our customer has requested</li>
-                <li>Respond to inbound messages you send to our business number</li>
-                <li>Maintain a record of opt ins and opt outs</li>
-                <li>Diagnose technical issues and prevent abuse of the Service</li>
-                <li>Comply with our legal and regulatory obligations</li>
-              </ul>
-              <p className="text-white/70 leading-relaxed mt-4">
-                We do not sell your personal information. We do not use your WhatsApp messages to train
-                machine learning or AI models.
-              </p>
-            </div>
-
-            {/* 4. Legal basis for processing */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">4. Legal basis for processing</h2>
-              <p className="text-white/70 leading-relaxed mb-4">
-                Where applicable law requires a legal basis for processing (for example the EU or UK GDPR), we rely on:
-              </p>
-              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
-                <li>Your consent, which you give by opting in to receive messages and which you can withdraw at any time</li>
-                <li>Our legitimate interest in operating and securing the Service</li>
-                <li>Performance of a contract when the Service is provided to a customer who has a relationship with you</li>
-                <li>Compliance with legal obligations</li>
-              </ul>
-            </div>
-
-            {/* 5. How we share your information */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">5. How we share your information</h2>
-              <p className="text-white/70 leading-relaxed mb-4">
-                We share information only with:
+                The Automators (Pty) Ltd, registration number 2025/800843/07 ("we", "us"), builds workflow
+                automations, AI chatbots, voice agents and custom business systems.
               </p>
               <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
                 <li>
-                  <span className="text-white">Meta Platforms, Inc.</span>, which operates the WhatsApp Business
-                  Platform used to deliver messages
+                  <span className="text-white">Address:</span> 1 Vergenoegd Bordeaux Estate, Ametis Street,
+                  Klerksdorp, North West, 2572, South Africa
                 </li>
                 <li>
-                  <span className="text-white">Infrastructure providers</span> that host our application and
-                  database (for example our cloud hosting and database providers)
+                  <span className="text-white">Information Officer:</span> Braam Raubenheimer
                 </li>
                 <li>
-                  <span className="text-white">Authorities</span> when required by law, subpoena, or to protect
-                  our rights or the safety of others
+                  <span className="text-white">Privacy requests:</span> <PrivacyEmail /> | <PrivacyPhone />
+                </li>
+                <li>
+                  <span className="text-white">Information Regulator registration:</span> 2026-061974
                 </li>
               </ul>
-              <p className="text-white/70 leading-relaxed mt-4">
-                We do not share your data with advertisers or data brokers.
-              </p>
             </div>
 
-            {/* 6. International transfers */}
             <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">6. International transfers</h2>
-              <p className="text-white/70 leading-relaxed">
-                Our service providers may process your information outside of your country of residence.
-                Where transfers occur, we rely on recognised safeguards such as Standard Contractual Clauses
-                or equivalent mechanisms required by your local law.
-              </p>
-            </div>
-
-            {/* 7. How long we keep your information */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">7. How long we keep your information</h2>
-              <p className="text-white/70 leading-relaxed">
-                We retain message records, opt in status, and related metadata for as long as needed to
-                provide the Service and for a reasonable period afterwards for legal, audit, and dispute
-                resolution purposes. Typical retention is 24 months after your last interaction, after
-                which data is deleted or anonymised, except where longer retention is required by law.
-              </p>
-            </div>
-
-            {/* 8. Your rights */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">8. Your rights</h2>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">2. What this policy covers</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                Depending on where you live, you may have the right to:
+                This policy explains how we handle personal information when you visit our website, contact
+                us or book a call, when you or your organisation are a client, supplier or partner of ours,
+                when you receive messages through our WhatsApp notification service, and when you chat with
+                a bot we run for ourselves.
+              </p>
+              <p className="text-white/70 leading-relaxed mb-4">
+                It follows the Protection of Personal Information Act 4 of 2013 (POPIA) and, where they
+                apply, the EU and UK General Data Protection Regulations (GDPR). Under POPIA, information
+                about companies and other organisations can also be personal information, so this policy
+                covers it too.
+              </p>
+              <p className="text-white/70 leading-relaxed">
+                <span className="text-white">When we work for a client, the client is in charge.</span> If we
+                build or run a system for a client, the client decides why and how the personal information
+                in it is used. The client is the "responsible party" (the "controller" under GDPR) and we
+                are its "operator" (its "processor"). Section 9 explains what we commit to in that role. If
+                your information is in a system we run for one of our clients, please contact that client
+                first. We will help them respond.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">3. What we collect, and where it comes from</h2>
+              <PolicyTable>
+                <TableHeader>
+                  <TableRow className={rowClass}>
+                    <TableHead className={headClass}>When</TableHead>
+                    <TableHead className={headClass}>What</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>You visit our website</TableCell>
+                    <TableCell className={cellClass}>
+                      Pages viewed, device and browser type, approximate location from your IP address,
+                      collected through Google Analytics cookies
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>You contact us or book a call</TableCell>
+                    <TableCell className={cellClass}>
+                      Your name, email address, phone number, organisation and role, your message, and your
+                      answers to the booking questions
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>You are a client, supplier or partner</TableCell>
+                    <TableCell className={cellClass}>
+                      Contact details of the people we deal with, what we discuss and agree, proposals,
+                      contracts, invoices and payment records
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>You receive our WhatsApp notifications</TableCell>
+                    <TableCell className={cellClass}>
+                      Your WhatsApp number, the name or label you or our customer supplied, messages sent
+                      and received, your opt-in and opt-out choices, and delivery data such as timestamps
+                      and read receipts
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>You chat with our own bot</TableCell>
+                    <TableCell className={cellClass}>
+                      The messages you send and any contact details you choose to give
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </PolicyTable>
+              <p className="text-white/70 leading-relaxed mt-4">
+                Most of it comes from you. Some comes from your organisation (for example when a client
+                names you as its contact), from public business sources such as your company's website, or
+                from our customers when they ask us to send you WhatsApp notifications.
+              </p>
+              <p className="text-white/70 leading-relaxed mt-4">
+                Giving us your information is voluntary. If you don't, we may not be able to reply to you,
+                hold a call, deliver a service or pay you.
+              </p>
+              <p className="text-white/70 leading-relaxed mt-4">
+                We don't ask for special personal information (such as health, religious beliefs, race,
+                biometric data or criminal records) or identity numbers for our own purposes. Please don't
+                send them to us.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">4. Why we use it</h2>
+              <PolicyTable>
+                <TableHeader>
+                  <TableRow className={rowClass}>
+                    <TableHead className={headClass}>Purpose</TableHead>
+                    <TableHead className={headClass}>
+                      Basis under POPIA section 11 (and GDPR article 6 where it applies)
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>Reply to enquiries and hold calls you book</TableCell>
+                    <TableCell className={cellClass}>
+                      You asked us to, or it is a step towards a contract with you
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>Deliver, support and invoice our services</TableCell>
+                    <TableCell className={cellClass}>
+                      Performance of our contract with you or your organisation
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>Keep accounting and tax records</TableCell>
+                    <TableCell className={cellClass}>Legal obligation</TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>Understand how our website is used and improve it</TableCell>
+                    <TableCell className={cellClass}>
+                      Our legitimate interest, and your consent to analytics cookies where the law requires it
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>Keep our systems and your information secure</TableCell>
+                    <TableCell className={cellClass}>Our legitimate interest and legal obligations</TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>Send WhatsApp notifications</TableCell>
+                    <TableCell className={cellClass}>
+                      Your consent, or the instruction of our customer who is responsible for them
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </PolicyTable>
+              <p className="text-white/70 leading-relaxed mt-4">
+                We don't sell personal information. We don't use it to train our own artificial intelligence
+                or machine learning models. Where a chat reply is generated for us, it may be produced by an
+                AI model provider reached through OpenRouter, and we send only what is needed to produce
+                that reply.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">5. Direct marketing</h2>
+              <p className="text-white/70 leading-relaxed">
+                We send marketing by email, SMS or WhatsApp only to people who have agreed to receive it,
+                or to our existing clients about services similar to ones they already use, as section 69 of
+                POPIA allows. Every message tells you how to opt out, and you can opt out at any time by
+                replying or by emailing us.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">6. Who we share it with</h2>
+              <p className="text-white/70 leading-relaxed mb-4">
+                Only with the service providers we need to run the business, who are bound by contract to
+                protect it and use it only for us:
               </p>
               <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
-                <li>Access the personal information we hold about you</li>
-                <li>Correct inaccurate information</li>
-                <li>Delete your information</li>
-                <li>Withdraw your consent to receive messages</li>
-                <li>Object to or restrict certain processing</li>
-                <li>Port your information to another provider</li>
-                <li>Lodge a complaint with your local data protection authority</li>
+                <li>
+                  <span className="text-white">Google</span> for email, calendar, video calls and website analytics
+                </li>
+                <li>
+                  <span className="text-white">Brevo</span> for call bookings and email we send to people who have opted in
+                </li>
+                <li>
+                  <span className="text-white">Zoho</span> for invoicing and accounting
+                </li>
+                <li>
+                  <span className="text-white">Hetzner Online</span> for the servers that run our automation platform, in Germany
+                </li>
+                <li>
+                  A specialist infrastructure partner who maintains our automation server
+                </li>
+                <li>
+                  <span className="text-white">Cloudflare</span> for our domain's DNS and security
+                </li>
+                <li>
+                  <span className="text-white">Supabase</span> for database hosting
+                </li>
+                <li>
+                  <span className="text-white">Meta Platforms</span> for the WhatsApp Business Platform
+                </li>
+                <li>
+                  <span className="text-white">AI model providers</span>, reached through OpenRouter, when a chatbot needs to generate a reply
+                </li>
+                <li>
+                  <span className="text-white">Our accountants and professional advisers</span>
+                </li>
+                <li>
+                  <span className="text-white">Authorities</span>, only when the law requires it
+                </li>
               </ul>
               <p className="text-white/70 leading-relaxed mt-4">
-                To exercise any of these rights, email us at{' '}
-                <a href="mailto:sales@theautomators.co" className="text-purple-400 hover:text-purple-300 underline">
-                  sales@theautomators.co
+                We don't share personal information with advertisers or data brokers.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">7. Information that leaves South Africa</h2>
+              <p className="text-white/70 leading-relaxed">
+                Some of these providers store or process information outside South Africa, including in the
+                European Union, the United Kingdom and the United States. We only send personal information
+                across the border where section 72 of POPIA allows it: the recipient is bound by a law,
+                binding corporate rules or an agreement that gives it adequate protection (such as the GDPR,
+                or standard contractual clauses), or you have agreed, or it is needed to perform a contract
+                with you.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">8. How we protect it</h2>
+              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
+                <li>
+                  Access is limited to people who need it, each with their own account. We use multi-factor
+                  authentication on systems that hold personal information.
+                </li>
+                <li>Information is encrypted in transit, and at rest where our providers support it.</li>
+                <li>
+                  Everyone who works for us is bound to confidentiality in their contract, including after
+                  they leave.
+                </li>
+                <li>
+                  Where possible, systems we build for clients run in accounts the client owns and controls,
+                  so the client can see and remove our access at any time.
+                </li>
+                <li>Our platforms keep logs of access and changes.</li>
+                <li>
+                  By default our automation server doesn't store the information passing through successful
+                  runs, only from failed runs, which we keep for a limited time to fix errors.
+                </li>
+                <li>
+                  If we believe personal information we are responsible for has been accessed or acquired by
+                  someone without authority, we notify the Information Regulator and the people affected as
+                  soon as reasonably possible, as section 22 of POPIA requires. When we are acting for a
+                  client, we tell the client immediately so it can do the same.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">9. When we act for our clients</h2>
+              <p className="text-white/70 leading-relaxed mb-4">
+                When we build or run a system for a client, we:
+              </p>
+              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
+                <li>
+                  process personal information only on the client's documented instructions and for the
+                  client's purposes
+                </li>
+                <li>
+                  keep it confidential and secure, as sections 20 and 21 of POPIA require, and article 28 of
+                  the GDPR where it applies
+                </li>
+                <li>work under a written agreement with the client</li>
+                <li>tell the client immediately about any suspected security compromise</li>
+                <li>use other service providers for the client's data only with the client's agreement</li>
+                <li>help the client respond to requests from the people whose information it is</li>
+                <li>
+                  return or delete the information when the work ends, unless the law requires us to keep it
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">10. How long we keep it</h2>
+              <PolicyTable>
+                <TableHeader>
+                  <TableRow className={rowClass}>
+                    <TableHead className={headClass}>Information</TableHead>
+                    <TableHead className={headClass}>How long</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>Enquiries that don't lead to work</TableCell>
+                    <TableCell className={cellClass}>Up to 24 months after our last contact</TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>Client and supplier records, contracts, invoices</TableCell>
+                    <TableCell className={cellClass}>
+                      As long as tax and company law requires, currently five to seven years depending on the
+                      record
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>WhatsApp notification data</TableCell>
+                    <TableCell className={cellClass}>24 months after your last interaction</TableCell>
+                  </TableRow>
+                  <TableRow className={rowClass}>
+                    <TableCell className={cellClass}>Website analytics</TableCell>
+                    <TableCell className={cellClass}>14 months</TableCell>
+                  </TableRow>
+                </TableBody>
+              </PolicyTable>
+              <p className="text-white/70 leading-relaxed mt-4">
+                After that we delete it or remove anything that identifies you.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">11. Your rights</h2>
+              <p className="text-white/70 leading-relaxed mb-4">
+                You can ask us whether we hold personal information about you and for a copy, ask us to
+                correct or delete it, object to how we use it (including for direct marketing), and withdraw
+                consent you have given. If the GDPR applies to you, you can also ask us to restrict
+                processing or to give you your information in a portable format.
+              </p>
+              <p className="text-white/70 leading-relaxed mb-4">
+                Email our Information Officer at <PrivacyEmail /> with your request. We will confirm who you
+                are before acting and reply within 30 days.
+              </p>
+              <p className="text-white/70 leading-relaxed">
+                If you're unhappy with how we've handled your information, you can complain to the
+                Information Regulator, or to your local data protection authority if the GDPR applies to you.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">12. The Information Regulator</h2>
+              <ul className="text-white/70 leading-relaxed space-y-2 list-disc list-inside ml-4">
+                <li>
+                  <span className="text-white">Address:</span> Woodmead North Office Park, 54 Maxwell Drive,
+                  Woodmead, Johannesburg, 2191
+                </li>
+                <li>
+                  <span className="text-white">Postal:</span> PO Box 31533, Braamfontein, Johannesburg, 2017
+                </li>
+                <li>
+                  <span className="text-white">Complaints:</span>{' '}
+                  <a
+                    href="mailto:POPIAComplaints@inforegulator.org.za"
+                    className="text-purple-400 hover:text-purple-300 underline"
+                  >
+                    POPIAComplaints@inforegulator.org.za
+                  </a>
+                </li>
+                <li>
+                  <span className="text-white">General enquiries:</span>{' '}
+                  <a
+                    href="mailto:enquiries@inforegulator.org.za"
+                    className="text-purple-400 hover:text-purple-300 underline"
+                  >
+                    enquiries@inforegulator.org.za
+                  </a>
+                  {' '}| 0800 017 160
+                </li>
+                <li>
+                  <span className="text-white">Website:</span>{' '}
+                  <a
+                    href="https://www.inforegulator.org.za"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-400 hover:text-purple-300 underline"
+                  >
+                    www.inforegulator.org.za
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">13. Children</h2>
+              <p className="text-white/70 leading-relaxed">
+                Our website and services are not aimed at children, and we don't knowingly collect
+                children's information for our own purposes. Some systems we run for clients may hold
+                information about children. There we act only on the client's instructions, and the client
+                is responsible for the lawful basis, as sections 34 and 35 of POPIA require.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">14. Cookies</h2>
+              <p className="text-white/70 leading-relaxed">
+                Our website uses Google Analytics cookies to understand how visitors use it. You can block
+                or delete cookies in your browser settings, or install{' '}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-400 hover:text-purple-300 underline"
+                >
+                  Google's Analytics opt-out browser add-on
                 </a>
-                . You can also stop receiving messages at any time by replying{' '}
-                <span className="text-white">STOP</span> to any WhatsApp message from us.
+                .
               </p>
             </div>
 
-            {/* 9. How to request data deletion */}
             <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">9. How to request data deletion</h2>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">15. Our WhatsApp notification service</h2>
               <p className="text-white/70 leading-relaxed">
-                To request deletion of your information, email{' '}
-                <a href="mailto:sales@theautomators.co" className="text-purple-400 hover:text-purple-300 underline">
-                  sales@theautomators.co
-                </a>{' '}
-                with the subject line "Data Deletion Request" and the WhatsApp phone number you would like
-                removed. We will confirm deletion within 30 days.
-              </p>
-            </div>
-
-            {/* 10. Security */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">10. Security</h2>
-              <p className="text-white/70 leading-relaxed">
-                We apply reasonable technical and organisational measures to protect your information,
-                including encryption in transit, access controls, and audit logging. No system is perfectly
-                secure, so we cannot guarantee absolute security.
-              </p>
-            </div>
-
-            {/* 11. Children */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">11. Children</h2>
-              <p className="text-white/70 leading-relaxed">
-                The Service is not directed to children under 13 (or the equivalent minimum age in your
-                jurisdiction). We do not knowingly collect personal information from children. If you
-                believe a child has provided us information, please contact us and we will delete it.
-              </p>
-            </div>
-
-            {/* 12. Third party services */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">12. Third party services</h2>
-              <p className="text-white/70 leading-relaxed">
-                Your use of WhatsApp is also governed by Meta's own terms and privacy policy, available at{' '}
+                Reply <span className="text-white">STOP</span> to any message to stop receiving them. To
+                have your information deleted, email <PrivacyEmail /> with the subject "Data Deletion
+                Request" and the phone number concerned. We confirm deletion within 30 days. Your use of
+                WhatsApp itself is covered by Meta's terms at{' '}
                 <a
                   href="https://www.whatsapp.com/legal"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-purple-400 hover:text-purple-300 underline"
                 >
-                  https://www.whatsapp.com/legal
+                  whatsapp.com/legal
                 </a>
-                . We are not responsible for Meta's practices.
+                .
               </p>
             </div>
 
-            {/* 13. Changes to this policy */}
             <div>
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">13. Changes to this policy</h2>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">16. Changes to this policy</h2>
               <p className="text-white/70 leading-relaxed">
-                We may update this Privacy Policy from time to time. When we do, we will update the "Last
-                updated" date at the top of this page. Material changes will be communicated through the
-                Service or by other reasonable means.
+                When we change this policy we update the date at the top, and we tell our clients about any
+                material change.
               </p>
             </div>
 
-            {/* 14. Contact us */}
             <div className="pt-8 border-t border-white/10">
-              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">14. Contact us</h2>
-              <p className="text-white/70 leading-relaxed mb-4">
-                Questions or concerns about this policy can be sent to:
-              </p>
+              <h2 className="text-2xl sm:text-3xl gradient-text mb-4">17. Contact</h2>
               <div className="text-white/60 space-y-2">
-                <p className="text-white">The Automators</p>
-                <p>South Africa</p>
+                <p className="text-white">The Automators (Pty) Ltd</p>
+                <p>Information Officer: Braam Raubenheimer</p>
                 <p>
-                  Email:{' '}
-                  <a href="mailto:sales@theautomators.co" className="text-purple-400 hover:text-purple-300 underline">
-                    sales@theautomators.co
-                  </a>
+                  Email: <PrivacyEmail />
                 </p>
-                <p>Phone: +27 82 770 6456</p>
+                <p>
+                  Phone: <PrivacyPhone />
+                </p>
               </div>
             </div>
 
