@@ -71,7 +71,7 @@ export function PrivacyPolicyPage() {
 
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="glass border border-white/10 rounded-3xl p-8 sm:p-12 space-y-12">
+          <div className="glass border border-white/10 rounded-3xl p-8 sm:p-12 space-y-8">
 
             <div>
               <h2 className="text-2xl sm:text-3xl gradient-text mb-4">1. Who we are</h2>
