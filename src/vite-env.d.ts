@@ -5,12 +5,10 @@ interface ImportMetaEnv {
   readonly VITE_TURNSTILE_SITE_KEY: string
   // Optional override for the discovery-call booking URL
   readonly VITE_BOOKING_URL?: string
-  // Chatwoot self-hosted base URL (public)
+  // Chatwoot self-hosted base URL (public). Optional override.
   readonly VITE_CHATWOOT_BASE_URL?: string
-  // Chatwoot website inbox token (public; safe to expose client-side)
+  // Chatwoot website inbox token (public; safe to expose client-side). Optional override.
   readonly VITE_CHATWOOT_WEBSITE_TOKEN?: string
-  // Second Chatwoot website inbox token (public; /chat-test-2)
-  readonly VITE_CHATWOOT_WEBSITE_TOKEN_2?: string
 }
 
 interface ImportMeta {

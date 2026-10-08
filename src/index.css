@@ -2580,3 +2580,16 @@ html {
    pre-compiled stylesheet. */
 .platform-badges { flex-wrap: wrap; gap: 0.5rem; }
 @media (min-width: 40rem) { .platform-badges { gap: 1rem; } }
+
+/* Sitewide chat bubble occupies the bottom-right. Lift booking bars above it. */
+.above-chat-bubble {
+  bottom: 5.75rem;
+}
+.above-chat-pad {
+  padding-bottom: 10.5rem;
+}
+@media (min-width: 40rem) {
+  .above-chat-pad {
+    padding-bottom: 0;
+  }
+}

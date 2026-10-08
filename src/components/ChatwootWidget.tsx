@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 
 const DEFAULT_BASE_URL = 'https://chat.theautomators.co';
+/** Public website inbox token from the live /chat-test widget. */
+const DEFAULT_WEBSITE_TOKEN = 'GKSNCK4J6MBzyfVGSMyKHSzk';
 const SCRIPT_ID = 'chatwoot-sdk';
 const DOM_SELECTORS = [
   '#cw-bubble-holder',
@@ -9,10 +11,16 @@ const DOM_SELECTORS = [
   '.woot--bubble-holder',
 ];
 
-export type ChatwootSettings = {
+type ChatwootSettings = {
   position?: 'left' | 'right';
   type?: 'standard' | 'expanded_bubble';
   launcherTitle?: string;
+};
+
+const SITE_SETTINGS: ChatwootSettings = {
+  position: 'right',
+  type: 'expanded_bubble',
+  launcherTitle: 'Need help? ',
 };
 
 declare global {
@@ -27,13 +35,6 @@ declare global {
     };
   }
 }
-
-type ChatwootWidgetProps = {
-  /** Required per page so a missing env var cannot silently load another inbox */
-  websiteToken: string | undefined;
-  baseUrl?: string;
-  settings?: ChatwootSettings;
-};
 
 function removeChatwootDom() {
   for (const selector of DOM_SELECTORS) {
@@ -63,42 +64,29 @@ function cleanupChatwoot(script?: HTMLScriptElement | null) {
 }
 
 /**
- * Loads the Chatwoot website SDK only while mounted.
- * Intended for test pages — do not mount sitewide without an explicit decision.
+ * Loads the Chatwoot website SDK once for the whole site.
+ * Stays mounted for the session so route changes do not reload the widget.
  */
-export function ChatwootWidget({
-  websiteToken: websiteTokenProp,
-  baseUrl: baseUrlProp,
-  settings,
-}: ChatwootWidgetProps) {
+export function ChatwootWidget() {
   useEffect(() => {
-    const websiteToken = websiteTokenProp;
-    const baseUrl =
-      baseUrlProp ||
-      import.meta.env.VITE_CHATWOOT_BASE_URL ||
-      DEFAULT_BASE_URL;
-
-    if (!websiteToken) {
-      console.warn('[Chatwoot] website token is not set; widget will not load.');
-      return;
-    }
+    const websiteToken =
+      import.meta.env.VITE_CHATWOOT_WEBSITE_TOKEN || DEFAULT_WEBSITE_TOKEN;
+    const baseUrl = (
+      import.meta.env.VITE_CHATWOOT_BASE_URL || DEFAULT_BASE_URL
+    ).replace(/\/$/, '');
 
     let script = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
 
     if (!script) {
       script = document.createElement('script');
       script.id = SCRIPT_ID;
-      script.src = `${baseUrl.replace(/\/$/, '')}/packs/js/sdk.js`;
+      script.src = `${baseUrl}/packs/js/sdk.js`;
       script.async = true;
       document.body.appendChild(script);
     }
 
     // Must be set before chatwootSDK.run() — controls bubble position/style/title
-    window.chatwootSettings = settings ?? {
-      position: 'right',
-      type: 'expanded_bubble',
-      launcherTitle: 'Need help? ',
-    };
+    window.chatwootSettings = SITE_SETTINGS;
 
     const runSdk = () => {
       window.chatwootSDK?.run({ websiteToken, baseUrl });
@@ -114,7 +102,7 @@ export function ChatwootWidget({
       script?.removeEventListener('load', runSdk);
       cleanupChatwoot(script);
     };
-  }, [websiteTokenProp, baseUrlProp, settings]);
+  }, []);
 
   return null;
 }

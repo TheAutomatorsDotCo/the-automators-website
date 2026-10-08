@@ -273,6 +273,17 @@ async function prerender() {
       page.on('console', () => {});
       page.on('pageerror', () => {});
 
+      // The sitewide chat widget keeps a websocket open, which prevents
+      // networkidle. Block it here and strip any DOM it injected before save.
+      await page.setRequestInterception(true);
+      page.on('request', (request) => {
+        if (request.url().includes('chat.theautomators.co')) {
+          request.abort().catch(() => {});
+          return;
+        }
+        request.continue().catch(() => {});
+      });
+
       // Navigate and wait for network to settle
       await page.goto(`${BASE_URL}${route}`, {
         waitUntil: 'networkidle0',
@@ -293,6 +304,15 @@ async function prerender() {
       // Extra wait for react-helmet-async to update <head> meta tags
       // and for any final renders to settle
       await new Promise((r) => setTimeout(r, 2500));
+
+      await page.evaluate(() => {
+        document.getElementById('chatwoot-sdk')?.remove();
+        document
+          .querySelectorAll(
+            '#cw-bubble-holder, #cw-widget-holder, .woot-widget-holder, .woot--bubble-holder'
+          )
+          .forEach((el) => el.remove());
+      });
 
       // Get the full rendered HTML
       const html = await page.content();

@@ -63,6 +63,18 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/chat-test",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/chat-test-2",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

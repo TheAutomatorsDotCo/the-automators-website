@@ -68,7 +68,7 @@ function StickyBookBar() {
 
   return (
     <div
-      className={`fixed bottom-8 right-6 z-50 flex items-center gap-3 glass border border-white/20 rounded-full px-4 py-2.5 shadow-2xl shadow-black/40 motion-safe:transition-all motion-safe:duration-300 ${
+      className={`fixed above-chat-bubble right-6 z-50 flex items-center gap-3 glass border border-white/20 rounded-full px-4 py-2.5 shadow-2xl shadow-black/40 motion-safe:transition-all motion-safe:duration-300 ${
         show ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       aria-hidden={!show}

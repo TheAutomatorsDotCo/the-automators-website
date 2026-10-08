@@ -21,11 +21,10 @@ import { TermsPage } from './components/TermsPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TicketsPage } from './components/TicketsPage';
 import { EcommerceChatbotsLandingPage } from './components/EcommerceChatbotsLandingPage';
-import { ChatTestPage } from './components/ChatTestPage';
-import { ChatTestPage2 } from './components/ChatTestPage2';
 import { NotFoundPage } from './components/NotFoundPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
+import { ChatwootWidget } from './components/ChatwootWidget';
 
 function AppShell() {
   const { pathname } = useLocation();
@@ -57,9 +56,6 @@ function AppShell() {
           <Route path="/tickets" element={<TicketsPage />} />
           {/* Campaign landing pages: not in nav, noindex */}
           <Route path="/chatbots-for-ecommerce" element={<EcommerceChatbotsLandingPage />} />
-          {/* Internal Chatwoot widget tests: not in nav, noindex */}
-          <Route path="/chat-test" element={<ChatTestPage />} />
-          <Route path="/chat-test-2" element={<ChatTestPage2 />} />
           {/* 404 Page */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
@@ -76,6 +72,7 @@ export default function App() {
     <HelmetProvider>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
+        <ChatwootWidget />
         <ScrollToTop />
         <AppShell />
       </Router>

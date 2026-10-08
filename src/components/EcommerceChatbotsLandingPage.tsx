@@ -61,7 +61,7 @@ function PlatformMark({ Logo, name }: { Logo: React.FC<{ className?: string }>; 
 }
 
 // ---------------------------------------------------------------------------
-// Sticky booking bar: session-only dismiss. Chat widget goes in this corner later.
+// Sticky booking bar: session-only dismiss. Sits above the sitewide chat bubble.
 // ---------------------------------------------------------------------------
 
 const STICKY_DISMISS_KEY = 'ta_sticky_dismissed';
@@ -102,7 +102,7 @@ function StickyBookBar({ onVisibilityChange }: { onVisibilityChange: (visible: b
     <div
       className={`fixed z-50 motion-safe:transition-all motion-safe:duration-300 ${
         show ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
-      } inset-x-0 bottom-0 sm:inset-x-auto sm:bottom-8 sm:right-6`}
+      } above-chat-bubble inset-x-0 bottom-0 sm:inset-x-auto sm:right-6`}
       aria-hidden={!show}
     >
       <div className="flex items-center gap-3 bg-[#1a1a2e]/95 border-t border-white/20 px-4 py-3 sm:glass sm:border sm:rounded-full sm:px-4 sm:py-2.5 sm:shadow-2xl sm:shadow-black/40">
@@ -270,7 +270,7 @@ export function EcommerceChatbotsLandingPage() {
   }, []);
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e] ${stickyVisible ? 'pb-20 sm:pb-0' : ''}`}>
+    <div className={`min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e] ${stickyVisible ? 'above-chat-pad' : ''}`}>
       <SEO
         title="Ecommerce Chatbots That Recover Sales & Cut Support Costs"
         description="AI-powered chatbots built for ecommerce stores. Recover abandoned carts, answer order questions 24/7, and integrate with Shopify or WooCommerce. Book a free 25 min demo."
