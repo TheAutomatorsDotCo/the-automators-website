@@ -22,7 +22,7 @@ const SITE_SETTINGS: ChatwootSettings = {
   position: 'right',
   type: 'expanded_bubble',
   launcherTitle: 'Need help? ',
-  unavailableMessage: 'Our team is offline on weekends but Otto is here to help',
+  unavailableMessage: 'Our team is offline right now but Otto is here to help',
 };
 
 declare global {
