@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  Mail, Phone, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp,
+  Mail, MessageCircle, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp,
   Calendar, Shield, CheckCircle, X, ArrowDown,
 } from 'lucide-react';
 import { SEO } from './SEO';
@@ -401,16 +401,28 @@ export function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-white mb-1">Email</h4>
-                      <p className="text-white/60">sales@theautomators.co</p>
+                      <a
+                        href="mailto:sales@theautomators.co"
+                        className="text-white/60 hover:text-white transition-colors"
+                      >
+                        sales@theautomators.co
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-white" />
+                      <MessageCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-white mb-1">Phone</h4>
-                      <p className="text-white/60">+27 82 770 6456</p>
+                      <h4 className="text-white mb-1">WhatsApp</h4>
+                      <a
+                        href="https://wa.me/27790299611"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/60 hover:text-white transition-colors"
+                      >
+                        WhatsApp us on +27 79 029 9611
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">

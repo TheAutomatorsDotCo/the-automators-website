@@ -123,7 +123,7 @@ export function EpicDealsCaseStudy() {
             "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://theautomators.co" },
             "datePublished": "2025-11-03",
             "dateModified": "2026-08-31",
-            "image": "https://theautomators.co/epic-deals-logo.png",
+            "image": "https://www.theautomators.co/ed-logo.svg",
             "url": "https://theautomators.co/case-studies/epic-deals",
             "description": `Discover how The Automators helped Epic Deals handle ${EPIC_DEALS_VOLUME} ${EPIC_DEALS_VOLUME_LABEL.toLowerCase()} with AI automation, achieving 99.9% reliability while competing with teams twice their size.`
           },

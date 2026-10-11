@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 
 export function LandingFooter() {
   return (
@@ -39,12 +39,14 @@ export function LandingFooter() {
               </li>
               <li>
                 <a
-                  href="tel:+27827706456"
+                  href="https://wa.me/27790299611"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors text-sm flex items-center space-x-2 group"
-                  aria-label="Call us at +27 82 770 6456"
+                  aria-label="WhatsApp us on +27 79 029 9611"
                 >
-                  <Phone className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
-                  <span>+27 82 770 6456</span>
+                  <MessageCircle className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
+                  <span>WhatsApp us</span>
                 </a>
               </li>
             </ul>
