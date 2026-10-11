@@ -255,7 +255,17 @@ export function TermsPage() {
                     sales@theautomators.co
                   </a>
                 </p>
-                <p>Phone: +27 82 770 6456</p>
+                <p>
+                  WhatsApp:{' '}
+                  <a
+                    href="https://wa.me/27790299611"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-400 hover:text-purple-300 underline"
+                  >
+                    +27 79 029 9611
+                  </a>
+                </p>
               </div>
             </div>
 

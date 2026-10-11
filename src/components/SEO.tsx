@@ -17,12 +17,12 @@ export function SEO({
   description, 
   path, 
   type = 'website',
-  image = 'https://images.unsplash.com/photo-1637401937636-f7d5bb75e0a9?w=1200&h=630&fit=crop',
+  image = 'https://www.theautomators.co/logo.png',
   keywords = 'business automation, workflow automation, process automation, save time, efficiency',
   structuredData,
   noindex = false,
 }: SEOProps) {
-  const siteUrl = 'https://theautomators.co';
+  const siteUrl = 'https://www.theautomators.co';
   const fullUrl = `${siteUrl}${path}`;
   const fullTitle = `${title} | The Automators`;
 
@@ -43,6 +43,7 @@ export function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content="The Automators" />
+      <meta property="og:locale" content="en_ZA" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

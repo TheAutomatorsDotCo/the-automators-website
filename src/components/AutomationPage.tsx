@@ -56,7 +56,7 @@ export function AutomationPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
-        title="Workflow Automation: Complete Guide & Examples | 2024"
+        title="Workflow Automation: Complete Guide & Examples"
         description="Learn what workflow automation is, see real examples in action, and discover how it saves 15+ hours/week. Interactive demo included. Save time, reduce errors, scale faster."
         path="/services/automation"
         keywords="workflow automation, business workflow automation, automated workflows, workflow automation software, workflow automation solutions, business process automation"
