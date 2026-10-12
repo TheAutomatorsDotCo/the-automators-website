@@ -15,3 +15,6 @@ Crawl-delay: 1
 # Campaign landing pages (noindex in meta, also blocked from crawlers here)
 Disallow: /chatbots-for-ecommerce
 
+# Unsubscribe confirm page (noindex; query-param links only)
+Disallow: /unsubscribe
+

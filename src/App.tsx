@@ -21,6 +21,7 @@ import { TermsPage } from './components/TermsPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TicketsPage } from './components/TicketsPage';
 import { EcommerceChatbotsLandingPage } from './components/EcommerceChatbotsLandingPage';
+import { UnsubscribePage } from './components/UnsubscribePage';
 import { NotFoundPage } from './components/NotFoundPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
@@ -56,6 +57,8 @@ function AppShell() {
           <Route path="/tickets" element={<TicketsPage />} />
           {/* Campaign landing pages: not in nav, noindex */}
           <Route path="/chatbots-for-ecommerce" element={<EcommerceChatbotsLandingPage />} />
+          {/* Confirm-only unsubscribe: GET never unsubscribes; POST is /api/unsubscribe */}
+          <Route path="/unsubscribe" element={<UnsubscribePage />} />
           {/* 404 Page */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
