@@ -6,20 +6,19 @@ import { StarsCanvas } from './StarBackground';
 
 type State = 'confirm' | 'working' | 'done' | 'error';
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const TOKEN_REGEX = /^[a-f0-9]{24}$/i;
-
 export function UnsubscribePage() {
   const { search } = useLocation();
   const { e, t } = useMemo(() => {
     const p = new URLSearchParams(search);
     return { e: (p.get('e') || '').trim(), t: (p.get('t') || '').trim() };
   }, [search]);
-  const valid = EMAIL_REGEX.test(e) && e.length <= 254 && TOKEN_REGEX.test(t);
-  const [state, setState] = useState<State>(valid ? 'confirm' : 'error');
+  // Show the confirm card whenever the link has both params. GET never
+  // unsubscribes; only a button POST can, and the API rejects a bad token.
+  const hasParams = Boolean(e && t);
+  const [state, setState] = useState<State>(hasParams ? 'confirm' : 'error');
 
   async function confirm() {
-    if (!valid || state === 'working') return;
+    if (!hasParams || state === 'working') return;
     setState('working');
     try {
       const res = await fetch('/api/unsubscribe', {
