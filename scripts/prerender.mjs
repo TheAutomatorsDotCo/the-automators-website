@@ -95,6 +95,7 @@ const ROUTES = [
   '/privacy-policy',
   '/tickets',
   '/chatbots-for-ecommerce',
+  '/unsubscribe',
 ];
 
 /**

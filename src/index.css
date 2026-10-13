@@ -2581,6 +2581,20 @@ html {
 .platform-badges { flex-wrap: wrap; gap: 0.5rem; }
 @media (min-width: 40rem) { .platform-badges { gap: 1rem; } }
 
+/* Homepage H1 uses sr-only, but this pre-compiled stylesheet never emitted
+   Tailwind's utility, so the heading was visible above the hero. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* Sitewide chat bubble occupies the bottom-right. Lift booking bars above it. */
 .above-chat-bubble {
   bottom: 5.75rem;
