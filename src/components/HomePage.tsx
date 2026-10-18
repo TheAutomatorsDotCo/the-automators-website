@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Zap, Shield, TrendingUp, Clock, Rocket, Star, Quote } from 'lucide-react';
+import { ArrowRight, Zap, Shield, TrendingUp, Clock, Rocket, Star, Quote, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -80,6 +80,11 @@ export function HomePage() {
             "description": "Business automation solutions that help companies save time and increase efficiency",
             "url": "https://www.theautomators.co",
             "logo": "https://www.theautomators.co/logo.png",
+            "telephone": "+27827706456",
+            "areaServed": {
+              "@type": "Country",
+              "name": "South Africa"
+            },
             "sameAs": [
               "https://www.facebook.com/theautomators.co"
             ]
@@ -122,10 +127,19 @@ export function HomePage() {
               Don't let the mind-numbing, never-ending whirlwind of business admin take all the joy and freedom from your work.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center flex-wrap">
+              <a
+                href="https://meet.brevo.com/braam-raubenheimer/discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full inline-flex items-center justify-center space-x-2 text-lg sm:text-xl"
+              >
+                <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span>Book a Demo</span>
+              </a>
               <Link
                 to="/services"
-                className="group btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full inline-flex items-center justify-center space-x-2 text-lg sm:text-xl"
+                className="group px-6 sm:px-8 py-3 sm:py-4 rounded-full btn-secondary transition-all text-lg sm:text-xl inline-flex items-center justify-center space-x-2"
               >
                 <span>How We Help</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -299,7 +313,7 @@ export function HomePage() {
               <p className="text-lg sm:text-xl md:text-2xl text-white/70 mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
                 Join hundreds of businesses that have automated their workflows and reclaimed their time.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6">
                 <Link
                   to="/assessment"
                   className="btn-3d bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg"
@@ -313,6 +327,9 @@ export function HomePage() {
                   View Pricing
                 </Link>
               </div>
+              <p className="text-white/50 text-sm">
+                We reply within 24 hours on business days
+              </p>
             </div>
           </div>
         </div>

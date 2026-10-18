@@ -2,15 +2,10 @@ import { Points, PointMaterial } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import type { PointsProps } from "@react-three/fiber";
 import * as random from "maath/random";
-import { useState, useRef, Suspense, Component } from "react";
+import { useState, useRef, Suspense, Component, useEffect, lazy } from "react";
 import type { ReactNode } from "react";
 import type { Points as PointsType } from "three";
 
-/**
- * Error boundary that catches WebGL/Three.js failures gracefully.
- * When WebGL is unavailable (e.g., headless browsers, old devices),
- * renders nothing instead of crashing the entire React app.
- */
 class CanvasErrorBoundary extends Component<
   { children: ReactNode },
   { hasError: boolean }
@@ -36,7 +31,6 @@ class CanvasErrorBoundary extends Component<
   }
 }
 
-// Respect the user's OS-level reduced-motion preference (guarded for prerender)
 const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -44,14 +38,14 @@ const prefersReducedMotion = () =>
 export const StarBackground = (props: PointsProps) => {
   const ref = useRef<PointsType | null>(null);
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(5000), { radius: 1.2 })
+    random.inSphere(new Float32Array(1500), { radius: 1.2 })
   );
 
   useFrame((_state, delta) => {
     if (prefersReducedMotion()) return;
     if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
+      ref.current.rotation.x -= delta / 15;
+      ref.current.rotation.y -= delta / 20;
     }
   });
 
@@ -70,24 +64,51 @@ export const StarBackground = (props: PointsProps) => {
           size={0.002}
           sizeAttenuation
           depthWrite={false}
+          opacity={0.8}
         />
       </Points>
     </group>
   );
 };
 
-export const StarsCanvas = () => (
-  <CanvasErrorBoundary>
-    <div className="w-full h-auto fixed inset-0 -z-10">
+function StarCanvasInner() {
+  return (
+    <div className="w-full h-auto fixed inset-0 -z-10 motion-reduce:hidden">
       <Canvas
         camera={{ position: [0, 0, 1] }}
         frameloop={prefersReducedMotion() ? "demand" : "always"}
+        dpr={[1, 1.5]}
+        gl={{ antialias: false, powerPreference: "low-power" }}
       >
         <Suspense fallback={null}>
           <StarBackground />
         </Suspense>
       </Canvas>
     </div>
-  </CanvasErrorBoundary>
-);
+  );
+}
+
+export const StarsCanvas = () => {
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+
+    if ("requestIdleCallback" in window) {
+      const id = (window as any).requestIdleCallback(() => setShouldRender(true), { timeout: 2000 });
+      return () => (window as any).cancelIdleCallback(id);
+    } else {
+      const timer = setTimeout(() => setShouldRender(true), 100);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  if (!shouldRender) return null;
+
+  return (
+    <CanvasErrorBoundary>
+      <StarCanvasInner />
+    </CanvasErrorBoundary>
+  );
+};
 

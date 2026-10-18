@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-  Mail, MessageCircle, Phone, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp,
+  Mail, MessageCircle, Phone, MapPin, Clock, Send, Users, TrendingUp,
   Calendar, Shield, CheckCircle, X, ArrowDown,
 } from 'lucide-react';
 import { SEO } from './SEO';
@@ -100,6 +101,7 @@ function StickyBookBar() {
 // ---------------------------------------------------------------------------
 
 export function ContactPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -112,7 +114,6 @@ export function ContactPage() {
   const [honeypot, setHoneypot] = useState('');
   const [turnstileToken, setTurnstileToken] = useState('');
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [leadSource, setLeadSource] = useState<'assessment' | 'pricing' | 'case-study' | 'direct'>('direct');
@@ -249,7 +250,7 @@ export function ContactPage() {
       }
 
       clearLeadData();
-      setSubmitted(true);
+      navigate('/thank-you');
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : 'An error occurred. Please try again.');
       if (window.turnstile && turnstileWidgetId.current) {
@@ -269,36 +270,6 @@ export function ContactPage() {
         : [...prev.interests, interest],
     }));
   };
-
-  if (submitted) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
-        <StarsCanvas />
-        <div className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto max-w-2xl relative z-10">
-            <div className="glass border border-white/10 rounded-[3rem] p-16 text-center">
-              <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-green-500 to-emerald-500 text-white mb-8 float">
-                <CheckCircle2 className="w-12 h-12" />
-              </div>
-              <h2 className="text-5xl gradient-text mb-6">Thank You!</h2>
-              <p className="text-2xl text-white/70 mb-8">
-                We've received your message and will get back to you within 24 hours.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="btn-3d bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-                >
-                  Send Another Message
-                </button>
-                <BookButton label="Book a discovery call" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
