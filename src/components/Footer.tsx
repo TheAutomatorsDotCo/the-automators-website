@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, MessageCircle, Facebook } from 'lucide-react';
+import { CookieSettingsButton } from './CookieConsent';
 
 export function Footer() {
   const quickLinks = [
@@ -140,6 +141,8 @@ export function Footer() {
               >
                 Privacy Policy
               </Link>
+              <span className="text-white/30">|</span>
+              <CookieSettingsButton />
             </div>
           </div>
         </div>
