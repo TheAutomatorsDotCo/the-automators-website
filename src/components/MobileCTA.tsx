@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Calendar, MessageCircle, X } from 'lucide-react';
-import { captureAttribution } from '../lib/attribution';
+import { trackBookingClick } from '../lib/attribution';
 
 const BREVO_BOOKING_URL = 'https://meet.brevo.com/braam-raubenheimer/discovery-call';
 const WHATSAPP_URL = 'https://wa.me/27790299611';
@@ -35,11 +35,7 @@ export function MobileCTA() {
   };
 
   const handleBookClick = () => {
-    captureAttribution('booking_cta_click', { location: 'mobile_sticky' });
-  };
-
-  const handleWhatsAppClick = () => {
-    captureAttribution('whatsapp_cta_click', { location: 'mobile_sticky' });
+    trackBookingClick('sticky');
   };
 
   return (
@@ -66,7 +62,6 @@ export function MobileCTA() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={handleWhatsAppClick}
           tabIndex={show ? 0 : -1}
           className="flex-1 bg-[#25D366] text-white text-sm font-semibold px-4 py-2.5 rounded-xl inline-flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
         >

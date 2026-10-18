@@ -290,23 +290,33 @@ async function prerender() {
       // Navigate and wait for network to settle
       await page.goto(`${BASE_URL}${route}`, {
         waitUntil: 'networkidle0',
-        timeout: 45000,
+        timeout: 60000,
       });
 
-      // Wait for React to render meaningful content in #root
+      // Wait for lazy-loaded page content to render (not just Suspense fallback)
+      // Check for actual page content: h1/h2 headings, main sections, or substantial text
       await page.waitForFunction(
         () => {
           const root = document.getElementById('root');
           if (!root) return false;
-          // Must have child elements and substantial content
-          return root.children.length > 0 && root.innerHTML.length > 200;
+          
+          // Check for Suspense fallback still showing (the "Loading..." text)
+          const isLoading = root.textContent?.includes('Loading...');
+          if (isLoading) return false;
+          
+          // Must have meaningful page structure: h1, h2, section, or article
+          const hasHeading = root.querySelector('h1, h2');
+          const hasSection = root.querySelector('section, article, main');
+          const hasSubstantialContent = root.innerHTML.length > 1000;
+          
+          return (hasHeading || hasSection) && hasSubstantialContent;
         },
-        { timeout: 20000 }
+        { timeout: 30000 }
       );
 
       // Extra wait for react-helmet-async to update <head> meta tags
       // and for any final renders to settle
-      await new Promise((r) => setTimeout(r, 2500));
+      await new Promise((r) => setTimeout(r, 3000));
 
       await page.evaluate(() => {
         document.getElementById('chatwoot-sdk')?.remove();

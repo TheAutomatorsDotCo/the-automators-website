@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Zap, Clock, TrendingUp, CheckCircle, Users, ChevronDown } from 'lucide-react';
+import { Zap, Clock, TrendingUp, ArrowLeft, CheckCircle, Users, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { AutomationDemo } from './AutomationDemo';
