@@ -1,5 +1,26 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+// ---------------------------------------------------------------------------
+// In-memory rate limiter (per Vercel warm instance)
+// Max 10 unsubscribe attempts per IP per 10 minutes.
+// Caveat: This is per-instance only. On a cold start or when requests hit
+// different instances, the limit resets. For persistent limits, use an
+// external store like Upstash Redis.
+// ---------------------------------------------------------------------------
+
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const RATE_LIMIT_MAX = 10;
+const ipTimestamps = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_WINDOW_MS;
+  const hits = (ipTimestamps.get(ip) ?? []).filter(ts => ts > windowStart);
+  hits.push(now);
+  ipTimestamps.set(ip, hits);
+  return hits.length > RATE_LIMIT_MAX;
+}
+
 // Forwards an unsubscribe confirmation to the outreach suppression service.
 // No secrets here: the token in the link is verified server-side by that service.
 const UNSUBSCRIBE_ENDPOINT =
@@ -16,6 +37,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ ok: false });
+  }
+
+  // --- Rate limiting -------------------------------------------------------
+  const ip =
+    (req.headers['x-forwarded-for'] as string)?.split(',')[0].trim() ||
+    req.socket?.remoteAddress ||
+    'unknown';
+
+  if (isRateLimited(ip)) {
+    return res.status(429).json({ ok: false });
   }
 
   const body = (typeof req.body === 'string' ? safeParse(req.body) : req.body) || {};

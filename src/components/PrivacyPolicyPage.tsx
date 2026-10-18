@@ -468,9 +468,25 @@ export function PrivacyPolicyPage() {
 
             <div>
               <h2 className="text-2xl sm:text-3xl gradient-text mb-4">14. Cookies</h2>
+              <p className="text-white/70 leading-relaxed mb-4">
+                When you first visit our website, we ask whether you consent to analytics cookies.
+                Google Analytics cookies are only loaded if you click "Accept". If you decline,
+                no analytics cookies are set and we do not track your visit.
+              </p>
+              <p className="text-white/70 leading-relaxed mb-4">
+                <span className="text-white">Analytics cookies (require consent):</span> Google Analytics
+                helps us understand how visitors use the site. These cookies collect anonymous usage data
+                such as pages viewed, time on site and approximate location. They are only set after you
+                accept.
+              </p>
+              <p className="text-white/70 leading-relaxed mb-4">
+                <span className="text-white">Functional cookies (no consent required):</span> Our Chatwoot
+                chat widget uses cookies and local storage to maintain your conversation across pages.
+                These are necessary for the chat to work and do not track you for advertising or analytics.
+              </p>
               <p className="text-white/70 leading-relaxed">
-                Our website uses Google Analytics cookies to understand how visitors use it. You can block
-                or delete cookies in your browser settings, or install{' '}
+                You can change your cookie preference at any time using the "Cookie Settings" link in the
+                footer. You can also block or delete cookies in your browser settings, or install{' '}
                 <a
                   href="https://tools.google.com/dlpage/gaoptout"
                   target="_blank"

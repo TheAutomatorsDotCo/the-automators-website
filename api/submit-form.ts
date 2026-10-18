@@ -1,5 +1,27 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+// ---------------------------------------------------------------------------
+// In-memory rate limiter (per Vercel warm instance)
+// Max 5 submissions per IP per 10 minutes.
+// Caveat: This is per-instance only. On a cold start or when requests hit
+// different instances, the limit resets. Vercel does not offer a built-in
+// durable rate limiter; for persistent limits, use an external store like
+// Upstash Redis. Turnstile provides additional bot protection.
+// ---------------------------------------------------------------------------
+
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const RATE_LIMIT_MAX = 5;
+const ipTimestamps = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_WINDOW_MS;
+  const hits = (ipTimestamps.get(ip) ?? []).filter(ts => ts > windowStart);
+  hits.push(now);
+  ipTimestamps.set(ip, hits);
+  return hits.length > RATE_LIMIT_MAX;
+}
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Detects strings that look like random character sequences (e.g. "ABSqJcevQrLnXAspQA")
@@ -48,6 +70,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Method not allowed' });
+    }
+
+    // --- Rate limiting -------------------------------------------------------
+    const ip =
+      (req.headers['x-forwarded-for'] as string)?.split(',')[0].trim() ||
+      req.socket?.remoteAddress ||
+      'unknown';
+
+    if (isRateLimited(ip)) {
+      return res.status(429).json({ error: 'Too many requests. Please try again later.' });
     }
 
     const {

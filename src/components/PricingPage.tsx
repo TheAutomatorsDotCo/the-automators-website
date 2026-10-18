@@ -516,7 +516,7 @@ export function PricingPage({ category }: PricingPageProps) {
                 </div>
                 <div className="card-3d glass border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
                   <h4 className="text-white mb-1 sm:mb-2 text-lg sm:text-xl">Proven Results</h4>
-                  <p className="text-white/60 text-base sm:text-lg">Join 200+ happy clients</p>
+                  <p className="text-white/60 text-base sm:text-lg">See our case studies</p>
                 </div>
               </div>
             </div>

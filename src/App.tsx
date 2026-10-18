@@ -26,6 +26,7 @@ import { NotFoundPage } from './components/NotFoundPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 import { ChatwootWidget } from './components/ChatwootWidget';
+import { CookieConsent } from './components/CookieConsent';
 
 function AppShell() {
   const { pathname } = useLocation();
@@ -59,7 +60,9 @@ function AppShell() {
           <Route path="/chatbots-for-ecommerce" element={<EcommerceChatbotsLandingPage />} />
           {/* Confirm-only unsubscribe: GET never unsubscribes; POST is /api/unsubscribe */}
           <Route path="/unsubscribe" element={<UnsubscribePage />} />
-          {/* 404 Page */}
+          {/* 404 Page - explicit route for prerendering */}
+          <Route path="/404" element={<NotFoundPage />} />
+          {/* Catch-all 404 */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
@@ -78,6 +81,7 @@ export default function App() {
         <ChatwootWidget />
         <ScrollToTop />
         <AppShell />
+        <CookieConsent />
       </Router>
     </HelmetProvider>
   );

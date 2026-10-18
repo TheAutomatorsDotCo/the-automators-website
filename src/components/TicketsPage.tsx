@@ -23,6 +23,7 @@ export function TicketsPage() {
         description="Support tickets for The Automators."
         path="/tickets"
         keywords="tickets, support"
+        noindex={true}
       />
       {/* Spinning Stars Background */}
       <StarsCanvas />

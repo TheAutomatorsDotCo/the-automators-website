@@ -96,6 +96,7 @@ const ROUTES = [
   '/tickets',
   '/chatbots-for-ecommerce',
   '/unsubscribe',
+  '/404', // Custom 404 page - will be copied to 404.html for Vercel
 ];
 
 /**
@@ -366,6 +367,15 @@ async function prerender() {
 
   await browser.close();
   server.close();
+
+  // Copy 404/index.html to 404.html for Vercel (serves with proper 404 status)
+  const notFoundSrc = join(DIST_DIR, '404', 'index.html');
+  const notFoundDest = join(DIST_DIR, '404.html');
+  if (existsSync(notFoundSrc)) {
+    const { copyFileSync } = await import('fs');
+    copyFileSync(notFoundSrc, notFoundDest);
+    console.log('[prerender] Copied 404/index.html to 404.html for Vercel');
+  }
 
   // Summary
   console.log('='.repeat(60));
