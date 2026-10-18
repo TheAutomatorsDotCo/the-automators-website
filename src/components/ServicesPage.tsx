@@ -136,7 +136,7 @@ export function ServicesPage() {
               "@type": "Organization",
               "name": "The Automators"
             },
-            "areaServed": "Worldwide",
+            "areaServed": "South Africa",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "Automation Services",

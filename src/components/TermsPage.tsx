@@ -256,7 +256,7 @@ export function TermsPage() {
                   </a>
                 </p>
                 <p>
-                  WhatsApp:{' '}
+                  WhatsApp (chatbot):{' '}
                   <a
                     href="https://wa.me/27790299611"
                     target="_blank"
@@ -264,6 +264,15 @@ export function TermsPage() {
                     className="text-purple-400 hover:text-purple-300 underline"
                   >
                     +27 79 029 9611
+                  </a>
+                </p>
+                <p>
+                  Calls only:{' '}
+                  <a
+                    href="tel:+27827706456"
+                    className="text-purple-400 hover:text-purple-300 underline"
+                  >
+                    +27 82 770 6456
                   </a>
                 </p>
               </div>

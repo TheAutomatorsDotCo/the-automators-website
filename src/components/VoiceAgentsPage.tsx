@@ -98,7 +98,7 @@ export function VoiceAgentsPage() {
               "@type": "Organization",
               "name": "The Automators"
             },
-            "areaServed": "Worldwide",
+            "areaServed": "South Africa",
             "description": "AI-powered Voice Agents that make real phone calls, handle customer conversations, and automate review generation"
           },
           {
