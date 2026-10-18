@@ -88,7 +88,7 @@ export function PrivacyPolicyPage() {
                   <span className="text-white">Information Officer:</span> Braam Raubenheimer
                 </li>
                 <li>
-                  <span className="text-white">Privacy requests:</span> <PrivacyEmail /> | <PrivacyPhone />
+                  <span className="text-white">Privacy requests:</span> <PrivacyEmail /> | Calls only: <PrivacyPhone />
                 </li>
                 <li>
                   <span className="text-white">Information Regulator registration:</span> 2026-061974
@@ -519,7 +519,7 @@ export function PrivacyPolicyPage() {
                   Email: <PrivacyEmail />
                 </p>
                 <p>
-                  Phone: <PrivacyPhone />
+                  Calls only: <PrivacyPhone />
                 </p>
               </div>
             </div>

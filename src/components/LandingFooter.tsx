@@ -56,7 +56,7 @@ export function LandingFooter() {
                   aria-label="Call us on +27 82 770 6456"
                 >
                   <Phone className="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
-                  <span>Calls: +27 82 770 6456</span>
+                  <span>Calls only: +27 82 770 6456</span>
                 </a>
               </li>
             </ul>

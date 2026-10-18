@@ -267,7 +267,7 @@ export function TermsPage() {
                   </a>
                 </p>
                 <p>
-                  Calls:{' '}
+                  Calls only:{' '}
                   <a
                     href="tel:+27827706456"
                     className="text-purple-400 hover:text-purple-300 underline"
