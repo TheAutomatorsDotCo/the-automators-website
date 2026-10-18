@@ -11,15 +11,23 @@
  * - WebGL/Three.js console errors are suppressed (they don't affect HTML output).
  * - Heavy resources (images, fonts, media) are blocked for speed.
  * - react-helmet-async gets an extra 2s settle time for <head> meta tags.
+ * - Each route is retried up to MAX_RETRIES times on failure.
+ * - The script continues even if some routes fail (logs warnings, doesn't exit 1).
  *
  * Usage: node scripts/prerender.mjs
  * Run after `vite build` completes.
  */
 
 import { createServer } from 'http';
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from 'fs';
 import { join, extname } from 'path';
 import { fileURLToPath } from 'url';
+
+const MAX_RETRIES = 3;
+const RETRY_DELAY_MS = 2000;
+const NAVIGATION_TIMEOUT_MS = 90000;
+const CONTENT_WAIT_TIMEOUT_MS = 45000;
+const SETTLE_DELAY_MS = 2000;
 
 /**
  * Launch browser with the right Chromium for the environment:
@@ -42,12 +50,13 @@ async function launchBrowser() {
     '--disable-site-isolation-trials',
     '--ignore-gpu-blocklist',
     '--use-gl=swiftshader',
+    '--single-process',
+    '--no-zygote',
   ];
 
   const isCI = process.platform === 'linux';
 
   if (isCI) {
-    // On Linux/Vercel/CI: use @sparticuz/chromium which bundles all system libs
     const chromium = (await import('@sparticuz/chromium')).default;
     const puppeteerCore = (await import('puppeteer-core')).default;
 
@@ -56,14 +65,15 @@ async function launchBrowser() {
       args: [...chromium.args, ...commonArgs],
       executablePath: await chromium.executablePath(),
       headless: chromium.headless,
+      protocolTimeout: 180000,
     });
   } else {
-    // On Windows/Mac: use regular puppeteer with its bundled Chromium
     console.log('[prerender] Using puppeteer with bundled Chromium (local environment)');
     const puppeteer = (await import('puppeteer')).default;
     return puppeteer.launch({
       headless: true,
       args: commonArgs,
+      protocolTimeout: 180000,
     });
   }
 }
@@ -73,7 +83,6 @@ const DIST_DIR = join(__dirname, '..', 'dist');
 const PORT = 4173;
 const BASE_URL = `http://localhost:${PORT}`;
 
-// All routes to pre-render (must match App.tsx routes)
 const ROUTES = [
   '/',
   '/case-studies',
@@ -97,7 +106,7 @@ const ROUTES = [
   '/tickets',
   '/chatbots-for-ecommerce',
   '/unsubscribe',
-  '/404', // Custom 404 page - will be copied to 404.html for Vercel
+  '/404',
 ];
 
 /**
@@ -126,7 +135,6 @@ function startServer(spaFallbackHtml) {
     };
 
     const server = createServer((req, res) => {
-      // Parse URL to strip query strings / hash
       let pathname;
       try {
         pathname = new URL(req.url, BASE_URL).pathname;
@@ -134,11 +142,9 @@ function startServer(spaFallbackHtml) {
         pathname = req.url;
       }
 
-      // Resolve file path from the dist directory
       const filePath = join(DIST_DIR, pathname);
       const ext = extname(pathname);
 
-      // If the request has a file extension and the file exists, serve it
       if (ext && existsSync(filePath)) {
         try {
           const content = readFileSync(filePath);
@@ -151,7 +157,6 @@ function startServer(spaFallbackHtml) {
         }
       }
 
-      // SPA fallback: ALWAYS serve the original index.html from memory
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
       res.end(spaFallbackHtml);
     });
@@ -159,7 +164,6 @@ function startServer(spaFallbackHtml) {
     server.on('error', (err) => {
       if (err.code === 'EADDRINUSE') {
         console.error(`[prerender] ERROR: Port ${PORT} is already in use.`);
-        console.error('            Kill the process using it or change PORT in the script.');
       }
       reject(err);
     });
@@ -178,12 +182,9 @@ function startServer(spaFallbackHtml) {
  * helmet-injected (page-specific) version.
  */
 function deduplicateHeadTags(html) {
-  // Match meta tags with name or property attributes
   const metaRegex = /<meta\s+[^>]*?(?:name|property)\s*=\s*["']([^"']+)["'][^>]*?\/?>/gi;
-  // Match canonical link tags
   const canonicalRegex = /<link\s+[^>]*?rel\s*=\s*["']canonical["'][^>]*?\/?>/gi;
 
-  // Collect all meta tags with their positions
   const metaOccurrences = new Map();
   let match;
 
@@ -195,18 +196,15 @@ function deduplicateHeadTags(html) {
     metaOccurrences.get(key).push({ start: match.index, length: match[0].length });
   }
 
-  // Collect canonical link positions
   const canonicals = [];
   while ((match = canonicalRegex.exec(html)) !== null) {
     canonicals.push({ start: match.index, length: match[0].length });
   }
 
-  // Build list of ranges to remove (all but last occurrence of each duplicate)
   const toRemove = [];
 
   for (const [, occurrences] of metaOccurrences) {
     if (occurrences.length > 1) {
-      // Remove all but the last (helmet-injected) occurrence
       for (let i = 0; i < occurrences.length - 1; i++) {
         toRemove.push(occurrences[i]);
       }
@@ -221,12 +219,10 @@ function deduplicateHeadTags(html) {
 
   if (toRemove.length === 0) return html;
 
-  // Sort by position descending so removals don't shift earlier indices
   toRemove.sort((a, b) => b.start - a.start);
 
   let result = html;
   for (const { start, length } of toRemove) {
-    // Also remove surrounding whitespace/newline
     let end = start + length;
     while (end < result.length && (result[end] === '\n' || result[end] === '\r' || result[end] === ' ')) {
       end++;
@@ -237,24 +233,135 @@ function deduplicateHeadTags(html) {
   return result;
 }
 
-async function prerender() {
-  console.log('[prerender] Starting pre-render process...\n');
+/**
+ * Sleep helper with optional jitter for retry backoff.
+ */
+function sleep(ms, jitter = 0) {
+  const delay = ms + Math.random() * jitter;
+  return new Promise((r) => setTimeout(r, delay));
+}
 
-  // Verify dist/ exists
+/**
+ * Render a single route with retries.
+ * Returns { success: boolean, html?: string, error?: string }
+ */
+async function renderRouteWithRetries(browser, route) {
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    let page = null;
+    try {
+      if (attempt > 1) {
+        console.log(`[prerender]   Retry ${attempt}/${MAX_RETRIES} for ${route}...`);
+        await sleep(RETRY_DELAY_MS * attempt, 500);
+      }
+
+      page = await browser.newPage();
+      await page.setViewport({ width: 1280, height: 800 });
+
+      page.on('console', () => {});
+      page.on('pageerror', () => {});
+
+      await page.setRequestInterception(true);
+      page.on('request', (request) => {
+        const url = request.url();
+        if (url.includes('chat.theautomators.co') || url.includes('chatwoot')) {
+          request.abort().catch(() => {});
+          return;
+        }
+        request.continue().catch(() => {});
+      });
+
+      await page.goto(`${BASE_URL}${route}`, {
+        waitUntil: 'networkidle0',
+        timeout: NAVIGATION_TIMEOUT_MS,
+      });
+
+      await page.waitForFunction(
+        () => {
+          const root = document.getElementById('root');
+          if (!root) return false;
+          const text = root.textContent || '';
+          if (text.includes('Loading...')) return false;
+          const hasHeading = root.querySelector('h1, h2');
+          const hasSection = root.querySelector('section, article, main');
+          const hasContent = root.innerHTML.length > 1000;
+          return (hasHeading || hasSection) && hasContent;
+        },
+        { timeout: CONTENT_WAIT_TIMEOUT_MS }
+      );
+
+      await sleep(SETTLE_DELAY_MS);
+
+      await page.evaluate(() => {
+        document.getElementById('chatwoot-sdk')?.remove();
+        document
+          .querySelectorAll('#cw-bubble-holder, #cw-widget-holder, .woot-widget-holder, .woot--bubble-holder')
+          .forEach((el) => el.remove());
+      });
+
+      const html = await page.content();
+      await page.close().catch(() => {});
+
+      return { success: true, html };
+    } catch (err) {
+      lastError = err;
+      console.error(`[prerender]   Attempt ${attempt} failed for ${route}: ${err.message}`);
+      if (page) {
+        await page.close().catch(() => {});
+      }
+    }
+  }
+
+  return { success: false, error: lastError?.message || 'Unknown error' };
+}
+
+/**
+ * Process and save rendered HTML for a route.
+ */
+function saveRenderedHtml(route, html) {
+  const outputDir = route === '/' ? DIST_DIR : join(DIST_DIR, ...route.split('/').filter(Boolean));
+
+  if (!existsSync(outputDir)) {
+    mkdirSync(outputDir, { recursive: true });
+  }
+
+  const outputPath = join(outputDir, 'index.html');
+
+  let cleanHtml = html
+    .replace(/ data-react-helmet="true"/g, '')
+    .replace(/ data-rh="true"/g, '')
+    .replace(/ data-reactroot=""/g, '');
+
+  cleanHtml = deduplicateHeadTags(cleanHtml);
+  cleanHtml = cleanHtml.replace(/\s*<!--[^>]*?-->\s*/g, '\n');
+
+  writeFileSync(outputPath, cleanHtml, 'utf-8');
+
+  const titleMatch = cleanHtml.match(/<title[^>]*>([^<]+)<\/title>/);
+  const title = titleMatch ? titleMatch[1] : '(no title found)';
+  const hasJsonLd = cleanHtml.includes('application/ld+json');
+  const rootContent = cleanHtml.match(/<div id="root"[^>]*>([\s\S]*?)<\/div>\s*<script/);
+  const contentLength = rootContent ? rootContent[1].length : 0;
+
+  return { title, hasJsonLd, size: cleanHtml.length, contentLength };
+}
+
+async function prerender() {
+  console.log('[prerender] Starting pre-render process...');
+  console.log(`[prerender] Config: MAX_RETRIES=${MAX_RETRIES}, NAV_TIMEOUT=${NAVIGATION_TIMEOUT_MS}ms, CONTENT_TIMEOUT=${CONTENT_WAIT_TIMEOUT_MS}ms\n`);
+
   const indexPath = join(DIST_DIR, 'index.html');
   if (!existsSync(indexPath)) {
     console.error('[prerender] ERROR: dist/index.html not found. Run `vite build` first.');
     process.exit(1);
   }
 
-  // Read the ORIGINAL SPA shell before any pre-rendering modifies it
   const originalHtml = readFileSync(indexPath, 'utf-8');
   console.log(`[prerender] Original index.html loaded (${(originalHtml.length / 1024).toFixed(1)} KB)`);
 
-  // Start the static file server using the original HTML for SPA fallback
   const server = await startServer(originalHtml);
 
-  // Launch browser (auto-detects Vercel vs local environment)
   console.log('[prerender] Launching browser...');
   const browser = await launchBrowser();
 
@@ -264,145 +371,54 @@ async function prerender() {
   const errors = [];
 
   for (const route of ROUTES) {
-    let page;
-    try {
-      console.log(`[prerender] Rendering ${route}...`);
-      page = await browser.newPage();
+    console.log(`[prerender] Rendering ${route}...`);
 
-      // Set a reasonable viewport
-      await page.setViewport({ width: 1280, height: 800 });
+    const result = await renderRouteWithRetries(browser, route);
 
-      // Suppress noisy console messages (WebGL errors, Three.js warnings, etc.)
-      page.on('console', () => {});
-      page.on('pageerror', () => {});
-
-      // The sitewide chat widget keeps a websocket open, which prevents
-      // networkidle. Block it here and strip any DOM it injected before save.
-      await page.setRequestInterception(true);
-      page.on('request', (request) => {
-        if (request.url().includes('chat.theautomators.co')) {
-          request.abort().catch(() => {});
-          return;
-        }
-        request.continue().catch(() => {});
-      });
-
-      // Navigate and wait for network to settle
-      await page.goto(`${BASE_URL}${route}`, {
-        waitUntil: 'networkidle0',
-        timeout: 60000,
-      });
-
-      // Wait for lazy-loaded page content to render (not just Suspense fallback)
-      // Check for actual page content: h1/h2 headings, main sections, or substantial text
-      await page.waitForFunction(
-        () => {
-          const root = document.getElementById('root');
-          if (!root) return false;
-          
-          // Check for Suspense fallback still showing (the "Loading..." text)
-          const isLoading = root.textContent?.includes('Loading...');
-          if (isLoading) return false;
-          
-          // Must have meaningful page structure: h1, h2, section, or article
-          const hasHeading = root.querySelector('h1, h2');
-          const hasSection = root.querySelector('section, article, main');
-          const hasSubstantialContent = root.innerHTML.length > 1000;
-          
-          return (hasHeading || hasSection) && hasSubstantialContent;
-        },
-        { timeout: 30000 }
-      );
-
-      // Extra wait for react-helmet-async to update <head> meta tags
-      // and for any final renders to settle
-      await new Promise((r) => setTimeout(r, 3000));
-
-      await page.evaluate(() => {
-        document.getElementById('chatwoot-sdk')?.remove();
-        document
-          .querySelectorAll(
-            '#cw-bubble-holder, #cw-widget-holder, .woot-widget-holder, .woot--bubble-holder'
-          )
-          .forEach((el) => el.remove());
-      });
-
-      // Get the full rendered HTML
-      const html = await page.content();
-
-      // Determine output path
-      const outputDir = route === '/' ? DIST_DIR : join(DIST_DIR, ...route.split('/').filter(Boolean));
-
-      if (!existsSync(outputDir)) {
-        mkdirSync(outputDir, { recursive: true });
-      }
-
-      const outputPath = join(outputDir, 'index.html');
-
-      // Clean up React-specific data attributes and deduplicate head tags
-      let cleanHtml = html
-        .replace(/ data-react-helmet="true"/g, '')
-        .replace(/ data-rh="true"/g, '')
-        .replace(/ data-reactroot=""/g, '');
-
-      // Deduplicate meta tags and canonical links in <head>.
-      // react-helmet-async appends page-specific tags AFTER the originals from
-      // index.html. We keep the LAST occurrence of each (the helmet one).
-      cleanHtml = deduplicateHeadTags(cleanHtml);
-
-      // Clean up orphaned HTML comments from the original index.html template
-      cleanHtml = cleanHtml.replace(/\s*<!--[^>]*?-->\s*/g, '\n');
-
-      writeFileSync(outputPath, cleanHtml, 'utf-8');
+    if (result.success && result.html) {
+      const info = saveRenderedHtml(route, result.html);
       successCount++;
-
-      // Log verification info
-      const titleMatch = cleanHtml.match(/<title[^>]*>([^<]+)<\/title>/);
-      const title = titleMatch ? titleMatch[1] : '(no title found)';
-      const hasJsonLd = cleanHtml.includes('application/ld+json');
-      const rootContent = cleanHtml.match(/<div id="root"[^>]*>([\s\S]*?)<\/div>\s*<script/);
-      const contentLength = rootContent ? rootContent[1].length : 0;
-
       console.log(`[prerender]   OK  ${route}`);
-      console.log(`             Title: "${title}"`);
-      console.log(`             Size: ${(cleanHtml.length / 1024).toFixed(1)} KB | Root content: ${(contentLength / 1024).toFixed(1)} KB | JSON-LD: ${hasJsonLd ? 'yes' : 'no'}`);
-      console.log('');
-
-    } catch (err) {
-      console.error(`[prerender]   FAIL  ${route}: ${err.message}\n`);
-      errors.push({ route, error: err.message });
-    } finally {
-      if (page) await page.close().catch(() => {});
+      console.log(`             Title: "${info.title}"`);
+      console.log(`             Size: ${(info.size / 1024).toFixed(1)} KB | Root: ${(info.contentLength / 1024).toFixed(1)} KB | JSON-LD: ${info.hasJsonLd ? 'yes' : 'no'}`);
+    } else {
+      console.error(`[prerender]   FAIL  ${route}: ${result.error}`);
+      errors.push({ route, error: result.error });
     }
+    console.log('');
   }
 
   await browser.close();
   server.close();
 
-  // Copy 404/index.html to 404.html for Vercel (serves with proper 404 status)
   const notFoundSrc = join(DIST_DIR, '404', 'index.html');
   const notFoundDest = join(DIST_DIR, '404.html');
   if (existsSync(notFoundSrc)) {
-    const { copyFileSync } = await import('fs');
     copyFileSync(notFoundSrc, notFoundDest);
     console.log('[prerender] Copied 404/index.html to 404.html for Vercel');
   }
 
-  // Summary
   console.log('='.repeat(60));
   console.log(`[prerender] Done! ${successCount}/${ROUTES.length} routes pre-rendered.`);
 
   if (errors.length > 0) {
-    console.log(`\n[prerender] Failed routes:`);
+    console.log(`\n[prerender] Failed routes (${errors.length}):`);
     errors.forEach(({ route, error }) => console.log(`  - ${route}: ${error}`));
+    console.log('\n[prerender] WARNING: Some routes failed but build will continue.');
+    console.log('[prerender] Those routes will fall back to client-side rendering.');
   }
 
   if (successCount === ROUTES.length) {
     console.log('\n[prerender] All routes rendered successfully!');
   }
 
-  // Exit with error code if any routes failed
-  if (errors.length > 0) {
+  if (successCount === 0) {
+    console.error('\n[prerender] FATAL: No routes could be rendered. Failing build.');
+    process.exit(1);
+  }
+
+  if (errors.length > 0 && successCount < ROUTES.length * 0.8) {
+    console.error(`\n[prerender] FATAL: Too many failures (${errors.length}/${ROUTES.length}). Failing build.`);
     process.exit(1);
   }
 }
