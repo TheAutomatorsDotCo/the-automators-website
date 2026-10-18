@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
@@ -12,12 +11,14 @@ interface SEOProps {
   noindex?: boolean;
 }
 
+const DEFAULT_IMAGE = 'https://www.theautomators.co/og-share-1200x630.png';
+
 export function SEO({ 
   title, 
   description, 
   path, 
   type = 'website',
-  image = 'https://www.theautomators.co/logo.png',
+  image = DEFAULT_IMAGE,
   keywords = 'business automation, workflow automation, process automation, save time, efficiency',
   structuredData,
   noindex = false,
@@ -42,6 +43,8 @@ export function SEO({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="The Automators" />
       <meta property="og:locale" content="en_ZA" />
 

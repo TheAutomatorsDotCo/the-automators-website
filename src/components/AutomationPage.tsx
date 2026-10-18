@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Zap, Clock, TrendingUp, ArrowLeft, CheckCircle, Users, ChevronDown } from 'lucide-react';
+import { Zap, Clock, TrendingUp, CheckCircle, Users, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { AutomationDemo } from './AutomationDemo';
 import { StarsCanvas } from './StarBackground';
+import { PageBreadcrumbs } from './PageBreadcrumbs';
 
 export function AutomationPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -134,8 +135,13 @@ export function AutomationPage() {
       {/* Spinning Stars Background */}
       <StarsCanvas />
 
-      {/* Back Button */}
-      <div className="relative pt-20 sm:pt-24 px-4 sm:px-6 lg:px-8 z-10">
+      <PageBreadcrumbs items={[
+        { label: 'Services', href: '/services' },
+        { label: 'Workflow Automation' },
+      ]} />
+
+      {/* Hero Section */}
+      <div className="relative px-4 sm:px-6 lg:px-8 z-10">
         <div className="container mx-auto">
           <Link
             to="/services"

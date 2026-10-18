@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Users, Zap } from 'lucide-react';
 import { SEO } from '../SEO';
 import { StarsCanvas } from '../StarBackground';
+import { PageBreadcrumbs } from '../PageBreadcrumbs';
 import { EPIC_DEALS_VOLUME, EPIC_DEALS_VOLUME_LABEL } from './caseStudiesData';
 
 interface CaseStudy {
@@ -142,20 +143,20 @@ export function CaseStudiesPage() {
             "@type": "CollectionPage",
             "name": "Business Automation Case Studies",
             "description": "See how The Automators has helped businesses save time, reduce costs, and scale operations with AI automation, chatbots, and workflow optimization.",
-            "url": "https://theautomators.co/case-studies",
-            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://theautomators.co" },
+            "url": "https://www.theautomators.co/case-studies",
+            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://www.theautomators.co" },
             "hasPart": [
-              { "@type": "Article", "name": "Platinum Repairs Case Study", "url": "https://theautomators.co/case-studies/platinum-repairs" },
-              { "@type": "Article", "name": "Device Doctor Case Study", "url": "https://theautomators.co/case-studies/device-doctor" },
-              { "@type": "Article", "name": "IN&OM Suid-Afrika Case Study", "url": "https://theautomators.co/case-studies/in-en-om" },
-              { "@type": "Article", "name": "Epic Deals Case Study", "url": "https://theautomators.co/case-studies/epic-deals" }
+              { "@type": "Article", "name": "Platinum Repairs Case Study", "url": "https://www.theautomators.co/case-studies/platinum-repairs" },
+              { "@type": "Article", "name": "Device Doctor Case Study", "url": "https://www.theautomators.co/case-studies/device-doctor" },
+              { "@type": "Article", "name": "IN&OM Suid-Afrika Case Study", "url": "https://www.theautomators.co/case-studies/in-en-om" },
+              { "@type": "Article", "name": "Epic Deals Case Study", "url": "https://www.theautomators.co/case-studies/epic-deals" }
             ]
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theautomators.co/" },
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.theautomators.co/" },
               { "@type": "ListItem", "position": 2, "name": "Case Studies" }
             ]
           }
@@ -163,8 +164,12 @@ export function CaseStudiesPage() {
       />
       <StarsCanvas />
 
+      <PageBreadcrumbs items={[
+        { label: 'Case Studies' },
+      ]} />
+
       {/* Hero Section */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Real Results from <span className="gradient-text">Real Businesses</span>

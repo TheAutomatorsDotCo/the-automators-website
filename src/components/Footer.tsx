@@ -124,6 +124,11 @@ export function Footer() {
                   <span>Follow us on Facebook</span>
                 </a>
               </li>
+              <li className="pt-3 mt-1 border-t border-white/10">
+                <p className="text-white/50 text-xs">
+                  We reply within 24 hours on business days
+                </p>
+              </li>
             </ul>
           </div>
         </div>

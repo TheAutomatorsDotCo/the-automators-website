@@ -5,6 +5,7 @@ import { SEO } from './SEO';
 import { ChatbotDemos } from './ChatbotDemos';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { StarsCanvas } from './StarBackground';
+import { PageBreadcrumbs } from './PageBreadcrumbs';
 
 export function ChatbotsPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -173,8 +174,13 @@ export function ChatbotsPage() {
       {/* Spinning Stars Background */}
       <StarsCanvas />
 
+      <PageBreadcrumbs items={[
+        { label: 'Services', href: '/services' },
+        { label: 'AI Chatbots' },
+      ]} />
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl gradient-text mb-6 max-w-4xl mx-auto">
             AI Chatbots That Provide 24/7 Customer Support

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, MessageSquare, TrendingUp, CheckCircle, X, Clock, Shield, Users, Zap, ArrowRight, Quote, Package } from 'lucide-react';
+import { MessageSquare, TrendingUp, CheckCircle, X, Clock, Shield, Users, Zap, ArrowRight, Quote, Package } from 'lucide-react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
 import { StarsCanvas } from '../StarBackground';
+import { PageBreadcrumbs } from '../PageBreadcrumbs';
 import { saveLeadData } from '../../utils/leadData';
 import { EPIC_DEALS_VOLUME, EPIC_DEALS_VOLUME_LABEL, getRelatedCaseStudies } from './caseStudiesData';
 
@@ -107,7 +108,7 @@ export function EpicDealsCaseStudy() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e] pt-32 pb-16 sm:pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e] pb-16 sm:pb-20">
       <SEO
         title="Epic Deals Case Study - Scaling Trust in South Africa's Tech Market"
         description={`Discover how The Automators helped Epic Deals handle ${EPIC_DEALS_VOLUME} ${EPIC_DEALS_VOLUME_LABEL.toLowerCase()} with AI automation, achieving 99.9% reliability while competing with teams twice their size.`}
@@ -120,19 +121,19 @@ export function EpicDealsCaseStudy() {
             "@type": "Article",
             "headline": "Epic Deals Case Study - Scaling Trust in South Africa's Tech Market",
             "author": { "@type": "Organization", "name": "The Automators" },
-            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://theautomators.co" },
+            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://www.theautomators.co" },
             "datePublished": "2025-11-03",
             "dateModified": "2026-08-31",
             "image": "https://www.theautomators.co/ed-logo.svg",
-            "url": "https://theautomators.co/case-studies/epic-deals",
+            "url": "https://www.theautomators.co/case-studies/epic-deals",
             "description": `Discover how The Automators helped Epic Deals handle ${EPIC_DEALS_VOLUME} ${EPIC_DEALS_VOLUME_LABEL.toLowerCase()} with AI automation, achieving 99.9% reliability while competing with teams twice their size.`
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theautomators.co/" },
-              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://theautomators.co/case-studies" },
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.theautomators.co/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://www.theautomators.co/case-studies" },
               { "@type": "ListItem", "position": 3, "name": "Epic Deals" }
             ]
           }
@@ -140,16 +141,10 @@ export function EpicDealsCaseStudy() {
       />
       <StarsCanvas />
 
-      {/* Back Button */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-6 sm:pb-8">
-        <Link
-          to="/case-studies"
-          className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-3xl sm:text-4xl"
-        >
-          <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-          <span>Back to Case Studies</span>
-        </Link>
-      </div>
+      <PageBreadcrumbs items={[
+        { label: 'Case Studies', href: '/case-studies' },
+        { label: 'Epic Deals' },
+      ]} />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-12 sm:pb-16 lg:pb-20 text-center">

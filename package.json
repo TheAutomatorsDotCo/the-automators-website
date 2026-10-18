@@ -64,6 +64,7 @@
             "puppeteer": "^24.37.1",
             "puppeteer-core": "^24.37.2",
             "shadcn": "^4.11.0",
+            "sharp": "^0.35.5",
             "typescript": "^5.9.3",
             "vite": "^6.4.4"
       },

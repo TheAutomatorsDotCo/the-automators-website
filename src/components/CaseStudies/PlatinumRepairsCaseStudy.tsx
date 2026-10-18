@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, BarChart3, TrendingUp, MessageSquare, DollarSign, CheckCircle, ArrowRight, BookOpen } from 'lucide-react';
+import { BarChart3, TrendingUp, MessageSquare, DollarSign, CheckCircle, ArrowRight, BookOpen } from 'lucide-react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
 import { StarsCanvas } from '../StarBackground';
+import { PageBreadcrumbs } from '../PageBreadcrumbs';
 import { saveLeadData } from '../../utils/leadData';
 import { getRelatedCaseStudies } from './caseStudiesData';
 
@@ -107,7 +108,7 @@ export function PlatinumRepairsCaseStudy() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e] pt-32">
+    <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
         title="Platinum Repairs Case Study - How We Save Hundreds of Hours Weekly"
         description="Discover how The Automators helped Platinum Repairs save hundreds of hours every week with AI automation, chatbots, and voice agents. Real results, real ROI."
@@ -120,19 +121,19 @@ export function PlatinumRepairsCaseStudy() {
             "@type": "Article",
             "headline": "Platinum Repairs Case Study - How We Save Hundreds of Hours Weekly",
             "author": { "@type": "Organization", "name": "The Automators" },
-            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://theautomators.co" },
+            "publisher": { "@type": "Organization", "name": "The Automators", "url": "https://www.theautomators.co" },
             "datePublished": "2025-11-03",
             "dateModified": "2026-02-06",
-            "image": "https://theautomators.co/pr-logo.png",
-            "url": "https://theautomators.co/case-studies/platinum-repairs",
+            "image": "https://www.theautomators.co/pr-logo.png",
+            "url": "https://www.theautomators.co/case-studies/platinum-repairs",
             "description": "Discover how The Automators helped Platinum Repairs save hundreds of hours every week with AI automation, chatbots, and voice agents. Real results, real ROI."
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theautomators.co/" },
-              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://theautomators.co/case-studies" },
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.theautomators.co/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://www.theautomators.co/case-studies" },
               { "@type": "ListItem", "position": 3, "name": "Platinum Repairs" }
             ]
           }
@@ -140,16 +141,10 @@ export function PlatinumRepairsCaseStudy() {
       />
       <StarsCanvas />
 
-      {/* Back Button */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-6 sm:pb-8">
-        <Link
-          to="/case-studies"
-          className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-3xl sm:text-4xl"
-        >
-          <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-          <span>Back to Case Studies</span>
-        </Link>
-      </div>
+      <PageBreadcrumbs items={[
+        { label: 'Case Studies', href: '/case-studies' },
+        { label: 'Platinum Repairs' },
+      ]} />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-12 sm:pb-16 lg:pb-20 text-center">

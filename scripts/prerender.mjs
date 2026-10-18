@@ -90,6 +90,7 @@ const ROUTES = [
   '/pricing/voice-agents',
   '/pricing/chatbots',
   '/contact',
+  '/thank-you',
   '/assessment',
   '/terms',
   '/privacy-policy',
