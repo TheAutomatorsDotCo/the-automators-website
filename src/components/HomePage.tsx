@@ -69,7 +69,7 @@ export function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
         title="Business Automation Solutions"
-        description="Transform your business with automation solutions. Eliminate repetitive tasks, save 15+ hours per week, and scale faster. 200+ happy clients. Get started today."
+        description="Transform your business with automation solutions. Eliminate repetitive tasks, save 15+ hours per week, and scale faster. Get started today."
         path="/"
         keywords="business automation solutions, workflow automation services, business process automation, automate business tasks, automation solutions for small business"
         structuredData={[
@@ -78,14 +78,8 @@ export function HomePage() {
             "@type": "Organization",
             "name": "The Automators",
             "description": "Business automation solutions that help companies save time and increase efficiency",
-            "url": "https://theautomators.co",
-            "logo": "https://theautomators.co/logo.png",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "200",
-              "bestRating": "5"
-            },
+            "url": "https://www.theautomators.co",
+            "logo": "https://www.theautomators.co/logo.png",
             "sameAs": [
               "https://www.facebook.com/theautomators.co"
             ]

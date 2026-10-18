@@ -87,12 +87,7 @@ export function VoiceAgentsPage() {
               "lowPrice": "99",
               "highPrice": "Custom",
               "availability": "https://schema.org/InStock",
-              "url": "https://theautomators.co/services/voice-agents"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "50"
+              "url": "https://www.theautomators.co/services/voice-agents"
             }
           },
           {
