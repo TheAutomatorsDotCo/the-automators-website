@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, MessageCircle, Facebook } from 'lucide-react';
+import { Mail, MessageCircle, Phone, Facebook } from 'lucide-react';
 
 export function Footer() {
   const quickLinks = [
@@ -96,7 +96,17 @@ export function Footer() {
                   aria-label="WhatsApp us on +27 79 029 9611"
                 >
                   <MessageCircle className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
-                  <span>WhatsApp us</span>
+                  <span>WhatsApp: +27 79 029 9611</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+27827706456"
+                  className="text-white/70 hover:text-white transition-colors text-sm flex items-center space-x-2 group"
+                  aria-label="Call us on +27 82 770 6456"
+                >
+                  <Phone className="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
+                  <span>Calls: +27 82 770 6456</span>
                 </a>
               </li>
               <li className="pt-2">

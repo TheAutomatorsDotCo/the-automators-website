@@ -98,7 +98,7 @@ export function HomePage() {
               "@type": "Organization",
               "name": "The Automators"
             },
-            "areaServed": "Worldwide",
+            "areaServed": "South Africa",
             "offers": {
               "@type": "AggregateOffer",
               "priceCurrency": "USD",

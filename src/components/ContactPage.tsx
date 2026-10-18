@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  Mail, MessageCircle, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp,
+  Mail, MessageCircle, Phone, MapPin, Clock, CheckCircle2, Send, Users, TrendingUp,
   Calendar, Shield, CheckCircle, X, ArrowDown,
 } from 'lucide-react';
 import { SEO } from './SEO';
@@ -414,14 +414,28 @@ export function ContactPage() {
                       <MessageCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-white mb-1">WhatsApp</h4>
+                      <h4 className="text-white mb-1">WhatsApp (chatbot)</h4>
                       <a
                         href="https://wa.me/27790299611"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white/60 hover:text-white transition-colors"
                       >
-                        WhatsApp us on +27 79 029 9611
+                        +27 79 029 9611
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-white mb-1">Calls only</h4>
+                      <a
+                        href="tel:+27827706456"
+                        className="text-white/60 hover:text-white transition-colors"
+                      >
+                        +27 82 770 6456
                       </a>
                     </div>
                   </div>
@@ -431,7 +445,7 @@ export function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-white mb-1">Business Hours</h4>
-                      <p className="text-white/60">Mon–Fri: 9am – 6pm SAST</p>
+                      <p className="text-white/60">Mon-Fri: 08:00 - 17:00 SAST</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -440,7 +454,7 @@ export function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-white mb-1">Location</h4>
-                      <p className="text-white/60">Remote-first team serving clients worldwide</p>
+                      <p className="text-white/60">South Africa</p>
                     </div>
                   </div>
                 </div>

@@ -91,7 +91,7 @@ export function ChatbotsPage() {
               "@type": "Organization",
               "name": "The Automators"
             },
-            "areaServed": "Worldwide",
+            "areaServed": "South Africa",
             "description": "AI-powered chatbots for customer support, sales, and engagement across multiple channels"
           },
           {
