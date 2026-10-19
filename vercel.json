@@ -99,6 +99,26 @@
       "source": "/chat-test-2",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/demo",
+      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=evergreen",
+      "permanent": true
+    },
+    {
+      "source": "/d/b1",
+      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=ab1-b1",
+      "permanent": true
+    },
+    {
+      "source": "/d/c1",
+      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=ab1-c1",
+      "permanent": true
+    },
+    {
+      "source": "/d/a1",
+      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=ab1-a1",
+      "permanent": true
     }
   ],
   "rewrites": [
