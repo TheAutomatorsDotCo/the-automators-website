@@ -5,12 +5,17 @@ import { trackBookingClick } from '../lib/attribution';
 const BREVO_BOOKING_URL = 'https://meet.brevo.com/braam-raubenheimer/discovery-call';
 const WHATSAPP_URL = 'https://wa.me/27790299611';
 const DISMISS_KEY = 'ta_mobile_cta_dismissed';
+const LG_QUERY = '(min-width: 64rem)';
 
 type MobileCTAProps = {
   onVisibilityChange?: (visible: boolean) => void;
 };
 
 export function MobileCTA({ onVisibilityChange }: MobileCTAProps) {
+  const [isLg, setIsLg] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia(LG_QUERY).matches;
+  });
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(() => {
     try {
@@ -21,18 +26,28 @@ export function MobileCTA({ onVisibilityChange }: MobileCTAProps) {
   });
 
   useEffect(() => {
+    const mq = window.matchMedia(LG_QUERY);
+    const onChange = () => setIsLg(mq.matches);
+    onChange();
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 300);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const show = visible && !dismissed;
+  const show = isLg && visible && !dismissed;
 
   useEffect(() => {
     onVisibilityChange?.(show);
     return () => onVisibilityChange?.(false);
   }, [show, onVisibilityChange]);
+
+  if (!isLg) return null;
 
   const handleDismiss = () => {
     setDismissed(true);

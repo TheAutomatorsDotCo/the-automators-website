@@ -2625,131 +2625,104 @@ html {
 }
 
 /*
-  Sticky Book a demo / WhatsApp bar.
-  Mobile: full-width bar sitting above the Chatwoot expanded “Need help?”
-  bubble. 8.5rem clears the bubble (~64px) plus its offset and shadow;
-  5.75rem (the site’s older .above-chat-bubble value) still collided.
-  Desktop (lg, 64rem+): compact pill at bottom-left, clear of Chatwoot.
-  Custom CSS because this stylesheet is a pre-compiled Tailwind dump;
-  new utility classes in JSX would not be generated.
+  Sticky Book a demo / WhatsApp pill — desktop (lg, 64rem / 1024px) only.
+  Does not render on smaller viewports. Custom CSS because this stylesheet
+  is a pre-compiled Tailwind dump; new utility classes in JSX would not
+  be generated.
 */
 .sticky-cta {
-  position: fixed;
-  z-index: 40;
-  left: 0;
-  right: 0;
-  bottom: calc(env(safe-area-inset-bottom, 0px) + 8.5rem);
-}
-.sticky-cta.is-hidden {
-  opacity: 0;
-  transform: translateY(100%);
-  pointer-events: none;
-}
-.sticky-cta.is-visible {
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .sticky-cta {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-}
-
-.sticky-cta-inner {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.625rem 0.75rem;
-  background: rgba(26, 26, 46, 0.95);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.45);
-}
-
-.sticky-cta-btn {
-  flex: 1 1 0;
-  min-width: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  white-space: nowrap;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1;
-  padding: 0.65rem 0.7rem;
-  border-radius: 0.75rem;
-  color: #fff;
-  text-decoration: none;
-}
-.sticky-cta-btn svg {
-  flex-shrink: 0;
-  width: 1rem;
-  height: 1rem;
-}
-.sticky-cta-btn:hover {
-  opacity: 0.9;
-}
-.sticky-cta-btn-book {
-  background-image: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
-}
-.sticky-cta-btn-wa {
-  background-color: #25d366;
-}
-
-.sticky-cta-dismiss {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.375rem;
-  border: 0;
-  border-radius: 9999px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-}
-.sticky-cta-dismiss:hover {
-  color: rgba(255, 255, 255, 0.8);
-}
-.sticky-cta-dismiss svg {
-  width: 1rem;
-  height: 1rem;
-}
-
-/* Reserve space so the last content and footer are not covered by the bar + Chatwoot. */
-.sticky-cta-pad {
-  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 13.5rem);
+  display: none;
 }
 
 @media (min-width: 64rem) {
   .sticky-cta {
+    display: block;
+    position: fixed;
+    z-index: 40;
     left: 1.5rem;
     right: auto;
     bottom: 1.5rem;
     width: auto;
   }
   .sticky-cta.is-hidden {
+    opacity: 0;
     transform: translateY(0.75rem);
+    pointer-events: none;
+  }
+  .sticky-cta.is-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
   .sticky-cta-inner {
-    width: auto;
+    display: flex;
+    align-items: center;
     gap: 0.4rem;
-    padding: 0.4rem 0.45rem 0.4rem 0.45rem;
+    width: auto;
+    box-sizing: border-box;
+    padding: 0.4rem 0.45rem;
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 9999px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   }
   .sticky-cta-btn {
     flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
     padding: 0.5rem 0.9rem;
     border-radius: 9999px;
+    color: #fff;
+    text-decoration: none;
+  }
+  .sticky-cta-btn svg {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+  }
+  .sticky-cta-btn:hover {
+    opacity: 0.9;
+  }
+  .sticky-cta-btn-book {
+    background-image: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+  }
+  .sticky-cta-btn-wa {
+    background-color: #25d366;
+  }
+  .sticky-cta-dismiss {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.375rem;
+    border: 0;
+    border-radius: 9999px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+  .sticky-cta-dismiss:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .sticky-cta-dismiss svg {
+    width: 1rem;
+    height: 1rem;
   }
   .sticky-cta-pad {
     padding-bottom: 5.5rem;
+  }
+}
+
+@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+  .sticky-cta {
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 }
