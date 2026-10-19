@@ -122,7 +122,7 @@
     },
     {
       "source": "/d/w1-wa",
-      "destination": "https://wa.me/27790299611?text=Hi%2C%20I%27d%20like%20to%20test%20your%20bot%20%28ref%20W1-WA%29",
+      "destination": "https://wa.me/27790299611?text=Hi%2C%20I%27d%20like%20to%20test%20your%20bot.%20Ref%20W1-WA",
       "permanent": true
     },
     {
