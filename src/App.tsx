@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useCallback, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Header } from './components/Header';
@@ -44,9 +44,13 @@ function AppShell() {
   const { pathname } = useLocation();
   const isLanding = pathname === '/chatbots-for-ecommerce';
   const showMobileCTA = !isLanding && pathname !== '/thank-you' && pathname !== '/unsubscribe';
+  const [ctaVisible, setCtaVisible] = useState(false);
+  const handleCtaVisibility = useCallback((visible: boolean) => {
+    setCtaVisible(visible);
+  }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className={ctaVisible ? 'min-h-screen sticky-cta-pad' : 'min-h-screen'}>
       <Header />
       <main>
         <Suspense fallback={<PageLoader />}>
@@ -83,7 +87,7 @@ function AppShell() {
         </Suspense>
       </main>
       {isLanding ? <LandingFooter /> : <Footer />}
-      {showMobileCTA && <MobileCTA />}
+      {showMobileCTA && <MobileCTA onVisibilityChange={handleCtaVisibility} />}
     </div>
   );
 }
