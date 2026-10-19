@@ -2626,8 +2626,9 @@ html {
 
 /*
   Sticky Book a demo / WhatsApp bar.
-  Mobile: full-width bar sitting above the Chatwoot expanded bubble
-  (Need help? — bottom-right, ~64px + 20px offset ≈ 5.75rem).
+  Mobile: full-width bar sitting above the Chatwoot expanded “Need help?”
+  bubble. 8.5rem clears the bubble (~64px) plus its offset and shadow;
+  5.75rem (the site’s older .above-chat-bubble value) still collided.
   Desktop (lg, 64rem+): compact pill at bottom-left, clear of Chatwoot.
   Custom CSS because this stylesheet is a pre-compiled Tailwind dump;
   new utility classes in JSX would not be generated.
@@ -2637,7 +2638,7 @@ html {
   z-index: 40;
   left: 0;
   right: 0;
-  bottom: calc(env(safe-area-inset-bottom, 0px) + 5.75rem);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 8.5rem);
 }
 .sticky-cta.is-hidden {
   opacity: 0;
@@ -2720,9 +2721,9 @@ html {
   height: 1rem;
 }
 
-/* Reserve space so the last content and footer are not covered by the bar. */
+/* Reserve space so the last content and footer are not covered by the bar + Chatwoot. */
 .sticky-cta-pad {
-  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 10.5rem);
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 13.5rem);
 }
 
 @media (min-width: 64rem) {
