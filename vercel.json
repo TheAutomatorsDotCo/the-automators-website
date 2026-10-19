@@ -121,33 +121,18 @@
       "permanent": true
     },
     {
-      "source": "/d/w1-bot",
-      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=w1-bot",
+      "source": "/d/w1-wa",
+      "destination": "https://wa.me/27790299611?text=Hi%2C%20I%27d%20like%20to%20test%20your%20bot%20%28ref%20W1-WA%29",
       "permanent": true
     },
     {
-      "source": "/d/w1-sync-gain",
-      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=w1-sync-gain",
+      "source": "/d/w1-msg",
+      "destination": "https://m.me/theautomators.co?ref=w1-msg",
       "permanent": true
     },
     {
-      "source": "/d/w1-proof",
-      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=w1-proof",
-      "permanent": true
-    },
-    {
-      "source": "/d/w2-ops",
-      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=w2-ops",
-      "permanent": true
-    },
-    {
-      "source": "/d/w2-sync-pain",
-      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=w2-sync-pain",
-      "permanent": true
-    },
-    {
-      "source": "/d/w2-howto",
-      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=w2-howto",
+      "source": "/d/w1-web",
+      "destination": "https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=w1-web",
       "permanent": true
     }
   ],
