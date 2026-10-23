@@ -2761,3 +2761,26 @@ html {
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 }
+
+/*
+  Cookie consent banner positioning.
+  On mobile, lift the banner above the chat widget launcher (Chatwoot bubble)
+  which occupies bottom-right corner at approximately bottom: 24px, height: 48px.
+  On desktop (sm: 40rem+), the banner can sit at the bottom since there's
+  enough horizontal space that the buttons don't overlap the chat launcher.
+*/
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem;
+  bottom: 5rem; /* Clear the chat widget on mobile */
+}
+
+@media (min-width: 40rem) {
+  .cookie-banner {
+    bottom: 0;
+    padding: 1.5rem;
+  }
+}
