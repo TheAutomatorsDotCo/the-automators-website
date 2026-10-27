@@ -4,7 +4,6 @@ import { MessageSquare, TrendingUp, CheckCircle, X, Clock, Shield, Users, Zap, A
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
-import { StarsCanvas } from '../StarBackground';
 import { PageBreadcrumbs } from '../PageBreadcrumbs';
 import { saveLeadData } from '../../utils/leadData';
 import { EPIC_DEALS_VOLUME, EPIC_DEALS_VOLUME_LABEL, getRelatedCaseStudies } from './caseStudiesData';
@@ -139,7 +138,6 @@ export function EpicDealsCaseStudy() {
           }
         ]}
       />
-      <StarsCanvas />
 
       <PageBreadcrumbs items={[
         { label: 'Case Studies', href: '/case-studies' },

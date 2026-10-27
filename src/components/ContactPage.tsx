@@ -5,7 +5,6 @@ import {
   Calendar, Shield, CheckCircle, X, ArrowDown,
 } from 'lucide-react';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 import { getLeadData, clearLeadData, formatLeadDetails } from '../utils/leadData';
 
 // Extend Window to include the Turnstile API
@@ -285,7 +284,6 @@ export function ContactPage() {
           "description": "Get in touch with The Automators for business automation solutions",
         }}
       />
-      <StarsCanvas />
       <StickyBookBar />
 
       {/* ================================================================

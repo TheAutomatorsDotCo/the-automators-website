@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useState } from 'react';
+import { lazy, Suspense, useCallback, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Header } from './components/Header';
@@ -9,6 +9,45 @@ import { GoogleAnalytics } from './components/GoogleAnalytics';
 import { ChatwootWidget } from './components/ChatwootWidget';
 import { CookieConsent } from './components/CookieConsent';
 import { MobileCTA } from './components/MobileCTA';
+
+const LazyStarsCanvas = lazy(() =>
+  import('./components/StarBackground').then((m) => ({ default: m.StarsCanvas }))
+);
+
+const LEGAL_FORM_ROUTES = ['/privacy-policy', '/terms', '/contact', '/tickets', '/unsubscribe'];
+
+function ConditionalStars() {
+  const { pathname } = useLocation();
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  const isLegalOrForm = LEGAL_FORM_ROUTES.includes(pathname);
+
+  useEffect(() => {
+    if (isLegalOrForm) {
+      setShouldLoad(false);
+      return;
+    }
+
+    if ('requestIdleCallback' in window) {
+      const id = (window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(
+        () => setShouldLoad(true),
+        { timeout: 2000 }
+      );
+      return () => (window as unknown as { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(id);
+    } else {
+      const timer = setTimeout(() => setShouldLoad(true), 100);
+      return () => clearTimeout(timer);
+    }
+  }, [pathname, isLegalOrForm]);
+
+  if (isLegalOrForm || !shouldLoad) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <LazyStarsCanvas />
+    </Suspense>
+  );
+}
 
 const HomePage = lazy(() => import('./components/HomePage').then(m => ({ default: m.HomePage })));
 const AssessmentPage = lazy(() => import('./components/AssessmentPage').then(m => ({ default: m.AssessmentPage })));
@@ -51,6 +90,7 @@ function AppShell() {
 
   return (
     <div className={ctaVisible ? 'min-h-screen sticky-cta-pad' : 'min-h-screen'}>
+      <ConditionalStars />
       <Header />
       <main>
         <Suspense fallback={<PageLoader />}>

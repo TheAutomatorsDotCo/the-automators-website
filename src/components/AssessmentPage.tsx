@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ArrowRight, Bot, Phone, Zap, Check, Info } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 import { saveLeadData } from '../utils/leadData';
 
 type ServiceCategory = 'automation' | 'chatbots' | 'voice-agents';
@@ -105,8 +104,6 @@ export function AssessmentPage() {
         path="/assessment"
         keywords="business assessment, automation assessment, workflow analysis, process evaluation, efficiency test"
       />
-      {/* Spinning Stars Background */}
-      <StarsCanvas />
 
       <div className="relative pt-32 sm:pt-36 lg:pt-40 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-[720px] relative z-10">

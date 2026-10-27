@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ChatbotDemos } from './ChatbotDemos';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { StarsCanvas } from './StarBackground';
 import { PageBreadcrumbs } from './PageBreadcrumbs';
 
 export function ChatbotsPage() {
@@ -171,8 +170,6 @@ export function ChatbotsPage() {
           }
         ]}
       />
-      {/* Spinning Stars Background */}
-      <StarsCanvas />
 
       <PageBreadcrumbs items={[
         { label: 'Services', href: '/services' },

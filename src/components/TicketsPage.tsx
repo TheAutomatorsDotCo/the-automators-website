@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 
 export function TicketsPage() {
   useEffect(() => {
@@ -25,8 +24,6 @@ export function TicketsPage() {
         keywords="tickets, support"
         noindex={true}
       />
-      {/* Spinning Stars Background */}
-      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-8 px-4 sm:px-6 lg:px-8">

@@ -3,7 +3,6 @@ import { Phone, PhoneCall, Star, MessageCircle, Users, TrendingUp, Brain, CheckC
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { StarsCanvas } from './StarBackground';
 import { PageBreadcrumbs } from './PageBreadcrumbs';
 
 export function VoiceAgentsPage() {
@@ -134,8 +133,6 @@ export function VoiceAgentsPage() {
           }
         ]}
       />
-      {/* Spinning Stars Background */}
-      <StarsCanvas />
 
       <PageBreadcrumbs items={[
         { label: 'Services', href: '/services' },
