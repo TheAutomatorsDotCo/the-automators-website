@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Workflow, Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 
 const categories = [
   {
@@ -52,7 +51,6 @@ export function PricingLandingPage() {
         path="/pricing"
         keywords="automation pricing, voice agent pricing, chatbot pricing, AI services cost, business automation pricing"
       />
-      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">

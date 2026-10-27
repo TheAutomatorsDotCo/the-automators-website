@@ -3,7 +3,6 @@ import { ArrowRight, Zap, Shield, TrendingUp, Clock, Rocket, Star, Quote, Calend
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { StarsCanvas } from './StarBackground';
 
 export function HomePage() {
   const features = [
@@ -77,6 +76,7 @@ export function HomePage() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "The Automators",
+            "legalName": "The Automators (Pty) Ltd",
             "description": "Business automation solutions that help companies save time and increase efficiency",
             "url": "https://www.theautomators.co",
             "logo": "https://www.theautomators.co/logo.png",
@@ -85,8 +85,24 @@ export function HomePage() {
               "@type": "Country",
               "name": "South Africa"
             },
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+27827706456",
+                "contactType": "sales",
+                "availableLanguage": ["English", "Afrikaans"]
+              },
+              {
+                "@type": "ContactPoint",
+                "telephone": "+27790299611",
+                "contactType": "customer service",
+                "url": "https://wa.me/27790299611",
+                "availableLanguage": ["English", "Afrikaans"]
+              }
+            ],
             "sameAs": [
-              "https://www.facebook.com/theautomators.co"
+              "https://www.facebook.com/theautomators.co",
+              "https://www.instagram.com/theautomators.co"
             ]
           },
           {
@@ -107,8 +123,6 @@ export function HomePage() {
           }
         ]}
       />
-      {/* Spinning Stars Background */}
-      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">

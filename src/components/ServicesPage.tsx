@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Workflow, Database, Mail, Calendar, Zap, Sparkles, Target, CheckCircle, Phone, MessageCircle, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 
 export function ServicesPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -292,8 +291,6 @@ export function ServicesPage() {
           }
         ]}
       />
-      {/* Spinning Stars Background */}
-      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="relative pt-32 sm:pt-40 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8">

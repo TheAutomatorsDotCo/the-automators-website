@@ -6,7 +6,6 @@ import {
   X, ShoppingCart, MessageSquare, Zap, Search, Wrench, Rocket, ChevronDown,
 } from 'lucide-react';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 import { BookingButton } from './BookingButton';
 import { captureAttribution } from '../lib/attribution';
 import { EPIC_DEALS_VOLUME, EPIC_DEALS_VOLUME_LABEL } from './CaseStudies/caseStudiesData';
@@ -278,7 +277,6 @@ export function EcommerceChatbotsLandingPage() {
         keywords="ecommerce chatbot, shopify chatbot, woocommerce chatbot, abandoned cart recovery, customer support chatbot, ecommerce AI"
         noindex
       />
-      <StarsCanvas />
       <StickyBookBar onVisibilityChange={setStickyVisible} />
 
       {/* ================================================================

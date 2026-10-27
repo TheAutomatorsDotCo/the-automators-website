@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Check, Zap, Rocket, Crown, Star, Shield, DollarSign, Phone, MessageCircle, Workflow, ChevronDown, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 import { saveLeadData } from '../utils/leadData';
 
 interface PricingPageProps {
@@ -343,8 +342,6 @@ export function PricingPage({ category }: PricingPageProps) {
           }
         ]}
       />
-      {/* Spinning Stars Background */}
-      <StarsCanvas />
 
       {/* Hero Section */}
       <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
