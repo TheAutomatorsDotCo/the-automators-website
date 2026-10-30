@@ -7,7 +7,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=()',
   'Strict-Transport-Security': 'max-age=63072000; includeSubDomains',
   'Content-Security-Policy':
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://www.googletagmanager.com https://server.fillout.com https://chat.theautomators.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://analytics.google.com https://chat.theautomators.co wss://chat.theautomators.co; frame-src https://challenges.cloudflare.com https://server.fillout.com https://chat.theautomators.co; object-src 'none'; base-uri 'self';",
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://www.googletagmanager.com https://server.fillout.com https://chat.theautomators.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.google.com https://chat.theautomators.co wss://chat.theautomators.co; frame-src https://challenges.cloudflare.com https://server.fillout.com https://chat.theautomators.co; object-src 'none'; base-uri 'self';",
 };
 
 export function clientIp(request: Request): string {

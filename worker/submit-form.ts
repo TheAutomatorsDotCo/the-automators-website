@@ -7,6 +7,7 @@ const RATE_LIMIT_MAX = 5;
 const isRateLimited = createRateLimiter(RATE_LIMIT_MAX, RATE_LIMIT_WINDOW_MS);
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const UPSTREAM_TIMEOUT_MS = 10_000;
 
 function isGibberish(value: string): boolean {
   if (!value || value.trim().length === 0) return false;
@@ -36,6 +37,7 @@ async function verifyTurnstile(env: Env, token: string, remoteip?: string): Prom
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: formData.toString(),
+    signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
   });
 
   const data = (await res.json()) as { success: boolean; 'error-codes'?: string[] };
@@ -158,6 +160,7 @@ export async function handleSubmitForm(request: Request, env: Env): Promise<Resp
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     });
 
     if (!n8nResponse.ok) {

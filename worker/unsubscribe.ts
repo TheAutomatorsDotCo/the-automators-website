@@ -24,17 +24,17 @@ export async function handleUnsubscribe(request: Request, env: Env): Promise<Res
     return apiJson(request, { ok: false }, 429, NO_STORE);
   }
 
-  const body = await readBody(request);
-  const e = String(body.e || '').trim().toLowerCase();
-  const t = String(body.t || '').trim().toLowerCase();
-
-  if (!EMAIL_REGEX.test(e) || e.length > 254 || !TOKEN_REGEX.test(t)) {
-    return apiJson(request, { ok: false }, 400, NO_STORE);
-  }
-
   const endpoint = env.UNSUBSCRIBE_ENDPOINT || DEFAULT_UNSUBSCRIBE_ENDPOINT;
 
   try {
+    const body = await readBody(request);
+    const e = String(body.e || '').trim().toLowerCase();
+    const t = String(body.t || '').trim().toLowerCase();
+
+    if (!EMAIL_REGEX.test(e) || e.length > 254 || !TOKEN_REGEX.test(t)) {
+      return apiJson(request, { ok: false }, 400, NO_STORE);
+    }
+
     const upstream = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
