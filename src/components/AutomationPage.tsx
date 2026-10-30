@@ -3,7 +3,6 @@ import { Zap, Clock, TrendingUp, ArrowLeft, CheckCircle, Users, ChevronDown } fr
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
 import { AutomationDemo } from './AutomationDemo';
-import { StarsCanvas } from './StarBackground';
 import { PageBreadcrumbs } from './PageBreadcrumbs';
 
 export function AutomationPage() {
@@ -132,8 +131,6 @@ export function AutomationPage() {
           }
         ]}
       />
-      {/* Spinning Stars Background */}
-      <StarsCanvas />
 
       <PageBreadcrumbs items={[
         { label: 'Services', href: '/services' },

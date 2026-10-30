@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 
 const linkClass = 'text-purple-400 hover:text-purple-300 underline';
 
@@ -13,7 +12,6 @@ export function TermsPage() {
         path="/terms"
         keywords="terms of service, terms and conditions, WhatsApp notifications, acceptable use"
       />
-      <StarsCanvas />
 
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">

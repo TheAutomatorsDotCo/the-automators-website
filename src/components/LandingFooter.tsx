@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, MessageCircle, Phone } from 'lucide-react';
+import { Mail, MessageCircle, Phone, Facebook, Instagram } from 'lucide-react';
 
 export function LandingFooter() {
   return (
@@ -59,6 +59,32 @@ export function LandingFooter() {
                   <span>Calls only: +27 82 770 6456</span>
                 </a>
               </li>
+              <li className="pt-2 flex items-center space-x-3">
+                <a
+                  href="https://www.facebook.com/theautomators.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-sm group"
+                  aria-label="Visit our Facebook page"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Facebook className="w-4 h-4 text-white" />
+                  </div>
+                  <span>Facebook</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/theautomators.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors text-sm group"
+                  aria-label="Visit our Instagram page"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Instagram className="w-4 h-4 text-white" />
+                  </div>
+                  <span>Instagram</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -66,7 +92,7 @@ export function LandingFooter() {
         <div className="pt-8 sm:pt-10 border-t border-white/10">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 gap-4">
             <p className="text-white/50 text-sm">
-              © {new Date().getFullYear()} The Automators. All rights reserved.
+              © {new Date().getFullYear()} The Automators (Pty) Ltd (Reg. 2025/800843/07). All rights reserved.
             </p>
             <div className="flex items-center space-x-6">
               <Link to="/terms" className="text-white/50 hover:text-white/70 transition-colors text-sm">

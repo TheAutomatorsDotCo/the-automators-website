@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MailX, CheckCircle2, AlertCircle } from 'lucide-react';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 
 type State = 'confirm' | 'working' | 'done' | 'error';
 
@@ -40,7 +39,6 @@ export function UnsubscribePage() {
         path="/unsubscribe"
         noindex
       />
-      <StarsCanvas />
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="max-w-xl mx-auto glass rounded-2xl p-10 border border-white/10 text-center">
           {(state === 'confirm' || state === 'working') && (

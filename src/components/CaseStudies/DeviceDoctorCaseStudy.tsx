@@ -4,7 +4,6 @@ import { TrendingUp, MessageSquare, DollarSign, CheckCircle, X, Package, Zap, Ar
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { SEO } from '../SEO';
-import { StarsCanvas } from '../StarBackground';
 import { PageBreadcrumbs } from '../PageBreadcrumbs';
 import { saveLeadData } from '../../utils/leadData';
 import { getRelatedCaseStudies } from './caseStudiesData';
@@ -139,7 +138,6 @@ export function DeviceDoctorCaseStudy() {
           }
         ]}
       />
-      <StarsCanvas />
 
       <PageBreadcrumbs items={[
         { label: 'Case Studies', href: '/case-studies' },

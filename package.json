@@ -72,6 +72,7 @@
             "dev": "vite",
             "build": "vite build",
             "build:prerender": "vite build && node scripts/prerender.mjs",
-            "prerender": "node scripts/prerender.mjs"
+            "prerender": "node scripts/prerender.mjs",
+            "test:banner": "node scripts/test-cookie-banner.mjs"
       }
 }

@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 import {
   Table,
   TableBody,
@@ -51,7 +50,6 @@ export function PrivacyPolicyPage() {
         path="/privacy-policy"
         keywords="privacy policy, POPIA, data protection, The Automators, personal information, WhatsApp notifications"
       />
-      <StarsCanvas />
 
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center relative z-10">

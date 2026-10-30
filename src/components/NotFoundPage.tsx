@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, BookOpen, ArrowRight } from 'lucide-react';
 import { SEO } from './SEO';
-import { StarsCanvas } from './StarBackground';
 
 export function NotFoundPage() {
   return (
@@ -12,7 +11,6 @@ export function NotFoundPage() {
         description="The page you're looking for doesn't exist. Browse our case studies or return to the homepage."
         path="/404"
       />
-      <StarsCanvas />
 
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="text-center max-w-2xl mx-auto">

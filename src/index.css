@@ -549,6 +549,10 @@
     bottom: calc(var(--spacing) * -6);
   }
 
+  .bottom-0 {
+    bottom: calc(var(--spacing) * 0);
+  }
+
   .bottom-8 {
     bottom: calc(var(--spacing) * 8);
   }
@@ -1866,6 +1870,37 @@
     }
   }
 
+  @media (width >= 40rem) {
+    .sm\:p-6 {
+      padding: calc(var(--spacing) * 6);
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:items-center {
+      align-items: center;
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:w-auto {
+      width: auto;
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:flex-none {
+      flex: none;
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:text-base {
+      font-size: var(--text-base);
+      line-height: 1.5rem;
+    }
+  }
+
   @media (width >= 48rem) {
     .md\:grid-cols-2 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2724,5 +2759,28 @@ html {
 @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
   .sticky-cta {
     transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+}
+
+/*
+  Cookie consent banner positioning.
+  On mobile, lift the banner above the chat widget launcher (Chatwoot bubble)
+  which occupies bottom-right corner at approximately bottom: 24px, height: 48px.
+  On desktop (sm: 40rem+), the banner can sit at the bottom since there's
+  enough horizontal space that the buttons don't overlap the chat launcher.
+*/
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem;
+  bottom: 5rem; /* Clear the chat widget on mobile */
+}
+
+@media (min-width: 40rem) {
+  .cookie-banner {
+    bottom: 0;
+    padding: 1.5rem;
   }
 }

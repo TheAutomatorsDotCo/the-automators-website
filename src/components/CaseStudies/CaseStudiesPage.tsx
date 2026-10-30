@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Users, Zap } from 'lucide-react';
 import { SEO } from '../SEO';
-import { StarsCanvas } from '../StarBackground';
 import { PageBreadcrumbs } from '../PageBreadcrumbs';
 import { EPIC_DEALS_VOLUME, EPIC_DEALS_VOLUME_LABEL } from './caseStudiesData';
 
@@ -162,7 +161,6 @@ export function CaseStudiesPage() {
           }
         ]}
       />
-      <StarsCanvas />
 
       <PageBreadcrumbs items={[
         { label: 'Case Studies' },
