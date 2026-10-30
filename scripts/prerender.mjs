@@ -30,13 +30,13 @@ const CONTENT_WAIT_TIMEOUT_MS = 45000;
 const SETTLE_DELAY_MS = 2000;
 
 /**
- * Launch browser with the right Chromium for the environment:
- * - Vercel/CI (Linux without system libs): @sparticuz/chromium + puppeteer-core
- * - Local development (Windows/Mac): regular puppeteer with bundled Chromium
+ * Launch browser with the right Chromium for the environment.
  *
- * Detection: use @sparticuz/chromium when running on Linux (Vercel, GitHub Actions, etc.)
- * because those environments lack the system libraries Puppeteer's Chromium needs.
- * On Windows/Mac, use regular puppeteer which bundles a working Chromium.
+ * Linux (Cloudflare Workers Builds on Node 24, and other CI) does not ship Chrome.
+ * @sparticuz/chromium bundles a browser and its libraries, so the build does not
+ * depend on apt packages. If that binary cannot start, fall back to the Chrome
+ * Puppeteer downloaded during npm install. Windows and Mac use that Chrome directly.
+ * Set PUPPETEER_EXECUTABLE_PATH to force a browser.
  */
 async function launchBrowser() {
   const commonArgs = [
@@ -54,21 +54,40 @@ async function launchBrowser() {
     '--no-zygote',
   ];
 
-  const isCI = process.platform === 'linux';
-
-  if (isCI) {
-    const chromium = (await import('@sparticuz/chromium')).default;
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
     const puppeteerCore = (await import('puppeteer-core')).default;
-
-    console.log('[prerender] Using @sparticuz/chromium (CI/Vercel environment)');
+    console.log('[prerender] Using PUPPETEER_EXECUTABLE_PATH');
     return puppeteerCore.launch({
-      args: [...chromium.args, ...commonArgs],
-      executablePath: await chromium.executablePath(),
-      headless: chromium.headless,
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+      headless: true,
+      args: commonArgs,
       protocolTimeout: 180000,
     });
-  } else {
+  }
+
+  if (process.platform !== 'linux') {
     console.log('[prerender] Using puppeteer with bundled Chromium (local environment)');
+    const puppeteer = (await import('puppeteer')).default;
+    return puppeteer.launch({
+      headless: true,
+      args: commonArgs,
+      protocolTimeout: 180000,
+    });
+  }
+
+  try {
+    const chromium = (await import('@sparticuz/chromium')).default;
+    const puppeteerCore = (await import('puppeteer-core')).default;
+    chromium.setGraphicsMode = false;
+    console.log('[prerender] Using @sparticuz/chromium (Linux build image)');
+    return await puppeteerCore.launch({
+      args: [...chromium.args, ...commonArgs],
+      executablePath: await chromium.executablePath(),
+      headless: true,
+      protocolTimeout: 180000,
+    });
+  } catch (err) {
+    console.warn(`[prerender] @sparticuz/chromium failed (${err.message}). Falling back to Puppeteer Chrome.`);
     const puppeteer = (await import('puppeteer')).default;
     return puppeteer.launch({
       headless: true,
@@ -265,7 +284,13 @@ async function renderRouteWithRetries(browser, route) {
       await page.setRequestInterception(true);
       page.on('request', (request) => {
         const url = request.url();
-        if (url.includes('chat.theautomators.co') || url.includes('chatwoot')) {
+        // Fillout keeps the network busy on /tickets and makes network-idle waits time out.
+        // The form still loads for real visitors. Chat widget traffic is not part of the HTML.
+        if (
+          url.includes('chat.theautomators.co') ||
+          url.includes('chatwoot') ||
+          url.includes('fillout.com')
+        ) {
           request.abort().catch(() => {});
           return;
         }
@@ -273,7 +298,7 @@ async function renderRouteWithRetries(browser, route) {
       });
 
       await page.goto(`${BASE_URL}${route}`, {
-        waitUntil: 'networkidle0',
+        waitUntil: 'domcontentloaded',
         timeout: NAVIGATION_TIMEOUT_MS,
       });
 
@@ -317,8 +342,20 @@ async function renderRouteWithRetries(browser, route) {
 }
 
 /**
- * Process and save rendered HTML for a route.
+ * Publish the unrendered app shell when a route cannot be pre-rendered.
+ * Cloudflare serves a real 404 for paths with no file, so a failed route
+ * (especially /tickets) must still have an index.html or the URL will 404.
+ * The browser then renders the page itself.
  */
+function writeSpaShell(route, html) {
+  const outputDir = route === '/' ? DIST_DIR : join(DIST_DIR, ...route.split('/').filter(Boolean));
+  if (!existsSync(outputDir)) {
+    mkdirSync(outputDir, { recursive: true });
+  }
+  writeFileSync(join(outputDir, 'index.html'), html, 'utf-8');
+  console.log(`[prerender]   SHELL ${route} will still be served and rendered in the browser`);
+}
+
 function saveRenderedHtml(route, html) {
   const outputDir = route === '/' ? DIST_DIR : join(DIST_DIR, ...route.split('/').filter(Boolean));
 
@@ -384,6 +421,7 @@ async function prerender() {
     } else {
       console.error(`[prerender]   FAIL  ${route}: ${result.error}`);
       errors.push({ route, error: result.error });
+      writeSpaShell(route, originalHtml);
     }
     console.log('');
   }
@@ -395,7 +433,7 @@ async function prerender() {
   const notFoundDest = join(DIST_DIR, '404.html');
   if (existsSync(notFoundSrc)) {
     copyFileSync(notFoundSrc, notFoundDest);
-    console.log('[prerender] Copied 404/index.html to 404.html for Vercel');
+    console.log('[prerender] Copied 404/index.html to 404.html for Cloudflare 404 responses');
   }
 
   console.log('='.repeat(60));

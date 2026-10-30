@@ -1,0 +1,39 @@
+# Security headers for static pages. API responses set the same headers in the Worker.
+/*
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+	X-XSS-Protection: 1; mode=block
+	Referrer-Policy: strict-origin-when-cross-origin
+	Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+	Strict-Transport-Security: max-age=63072000; includeSubDomains
+	Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://www.googletagmanager.com https://server.fillout.com https://chat.theautomators.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://analytics.google.com https://chat.theautomators.co wss://chat.theautomators.co; frame-src https://challenges.cloudflare.com https://server.fillout.com https://chat.theautomators.co; object-src 'none'; base-uri 'self';
+
+/sitemap.xml
+	Content-Type: application/xml; charset=utf-8
+	Cache-Control: public, max-age=0, must-revalidate
+
+/BingSiteAuth.xml
+	Content-Type: application/xml; charset=utf-8
+
+/robots.txt
+	Content-Type: text/plain; charset=utf-8
+
+/unsubscribe
+	Cache-Control: no-store
+	X-Robots-Tag: noindex, nofollow
+
+/tickets
+	X-Robots-Tag: noindex, nofollow
+
+# Every workers.dev host, including production, previews, and version URLs.
+# The real domain does not match these rules, so it stays indexable.
+# API responses on workers.dev set this header in the Worker, because
+# _headers is not applied to Worker responses.
+https://:name.:account.workers.dev/*
+	X-Robots-Tag: noindex
+
+https://:preview.:name.:account.workers.dev/*
+	X-Robots-Tag: noindex
+
+https://:deploy.:preview.:name.:account.workers.dev/*
+	X-Robots-Tag: noindex

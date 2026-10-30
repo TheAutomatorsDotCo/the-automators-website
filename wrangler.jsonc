@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "the-automators-website",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-30",
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // /contact/ and /contact.html redirect to /contact.
+    "html_handling": "drop-trailing-slash",
+    // Unknown paths serve dist/404.html with HTTP 404.
+    "not_found_handling": "404-page",
+    // Static pages are served directly. Only API calls run the Worker first.
+    "run_worker_first": ["/api/*"]
+  },
+  // Branch previews use this block. It is empty because previews share the
+  // production asset setup. Secrets are added in the dashboard, not here.
+  "previews": {}
+}
