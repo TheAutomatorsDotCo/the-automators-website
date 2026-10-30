@@ -34,6 +34,10 @@ build
 .env.local
 .env.production.local
 .env.development.local
+.dev.vars
+
+# Wrangler local state
+.wrangler
 
 # OS files
 Thumbs.db

@@ -1,0 +1,10 @@
+# Permanent campaign redirects. Same targets as the old Vercel redirects.
+/chat-test / 308
+/chat-test-2 / 308
+/demo https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=evergreen 308
+/d/b1 https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=ab1-b1 308
+/d/c1 https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=ab1-c1 308
+/d/a1 https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=ab1-a1 308
+/d/w1-wa https://wa.me/27790299611?text=Hi%2C%20I%27d%20like%20to%20test%20your%20bot.%20Ref%20W1-WA 308
+/d/w1-msg https://m.me/theautomators.co?ref=w1-msg 308
+/d/w1-web https://www.theautomators.co/chatbots-for-ecommerce?utm_source=facebook&utm_medium=social&utm_campaign=ecom_chatbot_q4&utm_content=w1-web 308
