@@ -94,7 +94,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors text-sm flex items-center space-x-2 group"
-                  aria-label="WhatsApp us on +27 79 029 9611"
+                  aria-label="WhatsApp: +27 79 029 9611"
                 >
                   <MessageCircle className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
                   <span>WhatsApp: +27 79 029 9611</span>
@@ -104,7 +104,7 @@ export function Footer() {
                 <a
                   href="tel:+27827706456"
                   className="text-white/70 hover:text-white transition-colors text-sm flex items-center space-x-2 group"
-                  aria-label="Call us on +27 82 770 6456"
+                  aria-label="Calls only: +27 82 770 6456"
                 >
                   <Phone className="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
                   <span>Calls only: +27 82 770 6456</span>
