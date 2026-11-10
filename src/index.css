@@ -2646,14 +2646,26 @@ html {
   border-width: 0;
 }
 
-/* Sitewide chat bubble occupies the bottom-right. Lift booking bars above it. */
+/* Sitewide chat bubble occupies the bottom-right. Lift booking bars above it.
+   Hide sticky booking bars at narrow viewports (≤375px) where they cover
+   the contact form, landing-page legal row, or the Chatwoot bubble. */
 .above-chat-bubble {
   bottom: 5.75rem;
+}
+@media (max-width: 375px) {
+  .above-chat-bubble {
+    display: none !important;
+  }
 }
 .above-chat-pad {
   padding-bottom: 10.5rem;
 }
 @media (min-width: 40rem) {
+  .above-chat-pad {
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 375px) {
   .above-chat-pad {
     padding-bottom: 0;
   }

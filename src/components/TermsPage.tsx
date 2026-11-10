@@ -8,9 +8,9 @@ export function TermsPage() {
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#0f0f1e]">
       <SEO
         title="Terms of Service"
-        description="Terms of Service for The Automators' WhatsApp notification service. Read our terms of service and acceptable use guidelines."
+        description="Terms of Service for The Automators. Covers website use, quotes and proposals, payment, intellectual property, privacy (POPIA), liability and more."
         path="/terms"
-        keywords="terms of service, terms and conditions, WhatsApp notifications, acceptable use"
+        keywords="terms of service, terms and conditions, business automation terms, acceptable use"
       />
 
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
